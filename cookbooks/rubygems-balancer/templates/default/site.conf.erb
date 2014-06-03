@@ -1,0 +1,328 @@
+upstream app_servers {
+  <% @app_servers.each do |app_node| %>
+  server <%= app_node.ip %>:3000 fail_timeout=0;
+  <% end %>
+}
+
+# HTTP
+server {
+  listen 80 default;
+
+  server_name <%= @server_names.join(' ') %>;
+
+  <% if @use_ssl && @force_ssl %>
+    # redirect all requests to SSL
+    rewrite ^(.*) https://$host$1 permanent;
+  <% else %>
+
+    if ($geoip_country_code = "CN") {
+      set $gem_mirror http://au-m.rubygems.org;
+    }
+
+    if ($geoip_country_code = "JP") {
+      set $gem_mirror http://au-m.rubygems.org;
+    }
+
+    if ($geoip_country_code = "AU") {
+      set $gem_mirror http://au-m.rubygems.org;
+    }
+
+    if ($geoip_country_code = "NZ") {
+      set $gem_mirror http://au-m.rubygems.org;
+    }
+
+    if ($continent = "EU") {
+      set $gem_mirror http://aws-eu-cache01.rubygems.org;
+    }
+
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $host;
+    proxy_redirect off;
+
+    <% if @stat_server %>
+      location = /__log {
+        internal;
+        proxy_pass http://<%= stat_server %>/gems/$gem.gem;
+      }
+    <% end %>
+
+    location ~ /gems/(.*)\.gem$ {
+      <% if @stat_server %>
+        set $gem $1;
+        post_action /__log;
+      <% end %>
+        rewrite ^ $gem_mirror$request_uri redirect;
+    }
+
+    location ~ /downloads/(.*)\.gem {
+      set $gem $1;
+      rewrite ^ /gems/$gem.gem redirect;
+    }
+
+    location /api/v1/dependencies {
+      proxy_set_header Host bundler.rubygems.org;
+      proxy_pass http://bundler.rubygems.org;
+    }
+
+    location /quick/Marshal.4.8/ {
+      rewrite ^ $gem_mirror$request_uri redirect;
+    }
+
+    location = /specs.4.8.gz {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /latest_specs.4.8.gz {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /prerelease_specs.4.8.gz {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    # Crufty old redirects
+
+    location = /specs.4.8 {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /latest_specs.4.8 {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /prerelease_specs.4.8 {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /quick/rubygems-update-1.3.6.gemspec.rz {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /yaml.Z {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /yaml.z {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /yaml {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /Marshal.4.8.Z {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /Marshal.4.8 {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /quick/index.rz {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /quick/index {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /quick/latest_index.rz {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location = /quick/latest_index {
+      rewrite ^ http://production.s3.rubygems.org$request_uri redirect;
+    }
+
+    location /stylesheets/ {
+      root /opt/nginx/html;
+      try_files $uri @app;
+    }
+
+    location / {
+      root /opt/nginx/html;
+      try_files /maintenance.html @app;
+    }
+
+    location @app {
+      proxy_pass http://app_servers;
+    }
+
+  <% end %>
+}
+
+# Old hosts that point to rubygems.org
+
+server {
+  listen 80;
+
+  server_name gemcutter.org gems.rubyforge.org;
+
+  rewrite ^(.*) https://rubygems.org$1 permanent;
+}
+
+<% if @use_ssl %>
+# HTTPS
+server {
+  # port to listen on. Can also be set to an IP:PORT
+  listen 443 default ssl;
+
+  server_name <%= @server_names.join(" ") %>;
+
+  <% if node["nginx"]["geoip"] %>
+  if ($geoip_country_code = "CN") {
+    set $gem_mirror_ssl https://au-m.rubygems.org;
+  }
+
+  if ($geoip_country_code = "JP") {
+    set $gem_mirror_ssl https://au-m.rubygems.org;
+  }
+
+  if ($geoip_country_code = "AU") {
+    set $gem_mirror_ssl https://au-m.rubygems.org;
+  }
+
+  if ($geoip_country_code = "NZ") {
+    set $gem_mirror_ssl https://au-m.rubygems.org;
+  }
+
+  if ($continent = "EU") {
+    set $gem_mirror_ssl https://aws-eu-cache01.rubygems.org;
+  }
+
+  <% end %>
+
+  # SSL settings
+  ssl                         on;
+  ssl_certificate             <%= @ssl_cert %>;
+  ssl_certificate_key         <%= @ssl_key %>;
+  ssl_protocols               SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers                 ALL:!ADH:!aNULL:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP:!ECDH;
+  ssl_prefer_server_ciphers   on;
+
+  # There are bugs in Net::HTTP::Persisent + OpenSSL in 1.8 are uncovered by
+  # trying to use a session cache. If we switch it off, they go away.
+  ssl_session_cache           off;
+  keepalive_timeout           65;
+
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto https;
+  proxy_set_header Content-Length $content_length;
+  proxy_set_header Host $host;
+  proxy_redirect off;
+
+  ##### BEGIN legacy rules
+
+  <% if stat_server = node["application"]["stat_server"] %>
+  location = /__log {
+    internal;
+    proxy_pass http://<%= stat_server %>/gems/$gem.gem;
+  }
+  <% end %>
+
+  location ~ /gems/(.*)\.gem$ {
+  <% if node["application"]["stat_server"] %>
+    set $gem $1;
+    post_action /__log;
+  <% end %>
+    rewrite ^ $gem_mirror_ssl$request_uri redirect;
+  }
+
+  location ~ /downloads/(.*)\.gem {
+    set $gem $1;
+    rewrite ^ /gems/$gem.gem redirect;
+  }
+
+  location /api/v1/dependencies {
+    proxy_set_header Host bundler.rubygems.org;
+    proxy_pass http://bundler.rubygems.org;
+  }
+
+  location /quick/Marshal.4.8/ {
+    rewrite ^ $gem_mirror_ssl$request_uri redirect;
+  }
+
+  location = /specs.4.8.gz {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /latest_specs.4.8.gz {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /prerelease_specs.4.8.gz {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  # Crufty old redirects
+
+  location = /specs.4.8 {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /latest_specs.4.8 {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /prerelease_specs.4.8 {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /quick/rubygems-update-1.3.6.gemspec.rz {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /yaml.Z {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /yaml.z {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /yaml {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /Marshal.4.8.Z {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /Marshal.4.8 {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /quick/index.rz {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /quick/index {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /quick/latest_index.rz {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  location = /quick/latest_index {
+    rewrite ^ https://s3.amazonaws.com/production.s3.rubygems.org$request_uri redirect;
+  }
+
+  ##### END legacy rules
+
+  location /stylesheets/ {
+    root /opt/nginx/html;
+    try_files $uri @app;
+  }
+
+  location / {
+    root /opt/nginx/html;
+    try_files /maintenance.html @app;
+  }
+
+  location @app {
+    proxy_pass http://app_servers;
+  }
+
+}
+<% end %>

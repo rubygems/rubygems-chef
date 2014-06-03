@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'berkshelf',    '~> 3.0'
 gem 'chef',         '~> 11.12'
+gem 'chef-vault',   '~> 2.2'
 gem 'chefspec',     '~> 4.0'
 gem 'foodcritic',   '~> 3.0'
 gem 'kitchen-vagrant'

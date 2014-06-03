@@ -55,6 +55,8 @@ GEM
       pry (~> 0.9)
       rest-client (>= 1.0.4, < 1.7.0)
       yajl-ruby (~> 1.1)
+    chef-vault (2.2.2)
+      chef (>= 0.10.10)
     chef-zero (2.1.5)
       hashie (~> 2.0)
       json
@@ -264,6 +266,7 @@ PLATFORMS
 DEPENDENCIES
   berkshelf (~> 3.0)
   chef (~> 11.12)
+  chef-vault (~> 2.2)
   chefspec (~> 4.0)
   foodcritic (~> 3.0)
   kitchen-vagrant
