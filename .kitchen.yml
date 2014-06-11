@@ -1,20 +1,23 @@
 ---
 driver:
-  name: vagrant
+  name: docker
 
 provisioner:
   name: chef_zero
   data_bag_path: 'test/integration/data_bags'
 
 platforms:
-  - name: ubuntu-12.04
   - name: ubuntu-14.04
+    driver_config:
+      privileged: true
 
 suites:
   - name: base
-    run_list:
+    run_list: []
     attributes:
   - name: balancer
-    run_list: ['recipe[rubygems-balancer]']
+    run_list: [
+      'recipe[rubygems-balancer]'
+    ]
     attributes:
       dev_mode: true
