@@ -22,3 +22,7 @@ suites:
     ]
     attributes:
       dev_mode: true
+  - name: database
+    run_list: []
+  - name: application
+    run_list: []
