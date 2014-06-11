@@ -4,7 +4,7 @@ driver:
 
 provisioner:
   name: chef_zero
-  data_bag_path: 'test/integration/data_bags'
+  data_bags_path: 'test/integration/data_bags'
 
 platforms:
   - name: ubuntu-14.04
@@ -13,8 +13,9 @@ platforms:
 
 suites:
   - name: base
-    run_list: []
-    attributes:
+    run_list: [
+      'recipe[rubygems-people]'
+    ]
   - name: balancer
     run_list: [
       'recipe[rubygems-balancer]'

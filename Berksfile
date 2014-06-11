@@ -7,3 +7,4 @@ source 'https://api.berkshelf.com'
 
 cookbook 'rubygems', path: 'cookbooks/rubygems'
 cookbook 'rubygems-balancer', path: 'cookbooks/rubygems-balancer'
+cookbook 'rubygems-people', path: 'cookbooks/rubygems-people'
