@@ -5,5 +5,5 @@
 
 runit_service 'delayed_job' do
   env node['environment_variables']
-  action ::File.exists?('/applications/rubygems/current') ? :enable : :disable
+  action ::File.exist?('/applications/rubygems/current') ? :enable : :disable
 end

@@ -13,7 +13,7 @@ template "#{node['nginx']['dir']}/sites-available/rubygems" do
     stat_server:  search(:node, 'roles:stat')[0],
     server_names: ['rubygems.org', 'www.rubygems.org'],
     ssl_key:      File.join(node['nginx']['dir'], 'certs', 'rubygems.org.key'),
-    ssl_cert:     File.join(node['nginx']['dir'], 'certs', 'rubygems.org.crt'),
+    ssl_cert:     File.join(node['nginx']['dir'], 'certs', 'rubygems.org.crt')
   )
   notifies :reload, 'service[nginx]'
 end

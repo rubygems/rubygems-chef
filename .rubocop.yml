@@ -1,0 +1,9 @@
+AllCops:
+  Excludes:
+    - vendor/**/*
+    - /**/metadata.rb
+
+Encoding:
+  Enabled: false
+SingleSpaceBeforeFirstArg:
+  Enabled: false

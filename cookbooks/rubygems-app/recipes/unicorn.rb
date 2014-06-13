@@ -23,7 +23,7 @@ runit_service 'unicorn' do
     bundler: true,
     bundle_command: '/usr/local/bin/bundle',
     rails_env: node.chef_environment,
-    smells_like_rack: ::File.exists?('/applications/rubygems/current/config.ru')
+    smells_like_rack: ::File.exist?('/applications/rubygems/current/config.ru')
   )
-  action ::File.exists?('/applications/rubygems/current') ? :enable : :disable
+  action ::File.exist?('/applications/rubygems/current') ? :enable : :disable
 end

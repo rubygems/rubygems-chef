@@ -9,7 +9,7 @@ node.default['nginx']['package_name'] = 'nginx-extras'
 
 include_recipe 'nginx'
 
-template "#{node["nginx"]["dir"]}/sites-available/rubygems" do
+template "#{node['nginx']['dir']}/sites-available/rubygems" do
   source 'nginx.conf.erb'
   owner  'root'
   group  'root'
