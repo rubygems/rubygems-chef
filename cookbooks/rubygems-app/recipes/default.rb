@@ -8,7 +8,6 @@ package 'git'
 node.default['nodejs']['install_method'] = 'package'
 include_recipe 'nodejs'
 include_recipe 'runit'
-include_recipe 'rubygems-app::memcached'
 include_recipe 'rubygems-app::ruby'
 package 'libpq-dev'
 

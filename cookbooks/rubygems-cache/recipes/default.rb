@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: rubygems-app
-# Recipe:: memcached
+# Cookbook Name:: rubygems-cache
+# Recipe:: default
 #
 
 node.default['memcached']['memory'] = 128
