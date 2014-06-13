@@ -24,5 +24,9 @@ suites:
       dev_mode: true
   - name: database
     run_list: []
-  - name: application
-    run_list: []
+  - name: app
+    run_list: [
+      'recipe[rubygems-app]'
+    ]
+    attributes:
+      dev_mode: true

@@ -6,5 +6,6 @@ source 'https://api.berkshelf.com'
 # role or base cookbook.
 
 cookbook 'rubygems', path: 'cookbooks/rubygems'
+cookbook 'rubygems-app', path: 'cookbooks/rubygems-app'
 cookbook 'rubygems-balancer', path: 'cookbooks/rubygems-balancer'
 cookbook 'rubygems-people', path: 'cookbooks/rubygems-people'
