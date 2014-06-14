@@ -17,6 +17,15 @@ users.each do |user_name|
     shell     user['shell'] ? user['shell'] : '/bin/bash'
   end
 
+  template "/home/#{user['username']}/.bashrc" do
+    source "bashrc.erb"
+    owner user['username']
+    group user['username']
+    variables({
+      :environment => node.chef_environment
+    })
+  end
+
   # If a user does stuff like setting up their $HOME via a custom recipe then
   # their data bag should have 'has_recipe' set to true. Then they can have
   # a recipe in this cookbook which matches their username.
