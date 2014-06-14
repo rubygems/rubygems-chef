@@ -84,7 +84,7 @@ GRAPH
     motd-tail (>= 0.0.0)
   rubygems-ntp (0.0.1)
     ntp (>= 0.0.0)
-  rubygems-people (0.0.2)
+  rubygems-people (0.0.3)
     user (>= 0.0.0)
   rubygems-utility (0.0.1)
   runit (1.5.10)
