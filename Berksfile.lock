@@ -83,7 +83,7 @@ GRAPH
     rubygems (>= 0.0.0)
   rubygems-hostname (0.0.1)
     hostname (>= 0.0.0)
-  rubygems-hosts (0.0.3)
+  rubygems-hosts (0.0.5)
   rubygems-motd (0.0.4)
     motd-tail (>= 0.0.0)
   rubygems-ntp (0.0.1)
