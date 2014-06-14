@@ -12,3 +12,6 @@ chef_server_url          "https://api.opscode.com/organizations/rubygems"
 # Provision new instances with knife-ec2
 knife[:aws_access_key_id] = ENV['RUBYGEMS_AWS_ACCESS_KEY_ID']
 knife[:aws_secret_access_key] = ENV['RUBYGEMS_AWS_SECRET_KEY_ID']
+
+knife[:vault_mode] = 'client'
+knife[:vault_admins] = ['dwradcliffe', 'skottler']

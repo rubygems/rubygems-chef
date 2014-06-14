@@ -18,12 +18,12 @@ users.each do |user_name|
   end
 
   template "/home/#{user['username']}/.bashrc" do
-    source "bashrc.erb"
+    source 'bashrc.erb'
     owner user['username']
     group user['username']
-    variables({
-      :environment => node.chef_environment
-    })
+    variables(
+      environment: node.chef_environment
+    )
   end
 
   # If a user does stuff like setting up their $HOME via a custom recipe then
