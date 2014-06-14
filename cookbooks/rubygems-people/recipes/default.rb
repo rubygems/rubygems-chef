@@ -36,3 +36,6 @@ group 'sysadmin' do
   gid 2300
   members sysadmins
 end
+
+node.default['authorization']['sudo']['groups'] = ['sysadmin']
+include_recipe "sudo"
