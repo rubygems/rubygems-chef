@@ -1,3 +1,0 @@
-source 'https://api.berkshelf.com'
-
-cookbook 'user', git: 'https://github.com/fnichol/chef-user.git'

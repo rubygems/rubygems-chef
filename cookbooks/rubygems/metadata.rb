@@ -4,6 +4,8 @@ license          'MIT'
 description      'RubyGems base recipes'
 version          '0.0.1'
 
-depends 'user'
+depends 'rubygems-people'
+depends 'rubygems-ntp'
+depends 'rubygems-utility'
 
 supports 'ubuntu'

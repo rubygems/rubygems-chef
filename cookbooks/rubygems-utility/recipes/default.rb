@@ -3,6 +3,7 @@
 # Recipe:: default
 #
 
-package 'htop'
 package 'curl'
+package 'htop'
+package 'vim'
 package 'wget'

@@ -5,8 +5,14 @@ DEPENDENCIES
     path: cookbooks/rubygems-app
   rubygems-balancer
     path: cookbooks/rubygems-balancer
+  rubygems-cache
+    path: cookbooks/rubygems-cache
+  rubygems-ntp
+    path: cookbooks/rubygems-ntp
   rubygems-people
     path: cookbooks/rubygems-people
+  rubygems-utility
+    path: cookbooks/rubygems-utility
 
 GRAPH
   apt (2.4.0)
@@ -29,23 +35,32 @@ GRAPH
     apt (>= 0.0.0)
     build-essential (>= 0.0.0)
     yum (>= 0.0.0)
+  ntp (1.6.2)
   ohai (2.0.0)
   rsyslog (1.12.2)
   rubygems (0.0.1)
-    user (>= 0.0.0)
+    rubygems-ntp (>= 0.0.0)
+    rubygems-people (>= 0.0.0)
+    rubygems-utility (>= 0.0.0)
   rubygems-app (0.0.1)
     apt (>= 0.0.0)
     chef-vault (>= 0.0.0)
-    memcached (>= 0.0.0)
     nginx (>= 0.0.0)
     nodejs (>= 0.0.0)
+    runit (>= 0.0.0)
     unicorn (>= 0.0.0)
     user (>= 0.0.0)
   rubygems-balancer (0.0.1)
     chef-vault (>= 0.0.0)
     nginx (>= 0.0.0)
+  rubygems-cache (0.0.1)
+    memcached (>= 0.0.0)
+    rubygems (>= 0.0.0)
+  rubygems-ntp (0.0.1)
+    ntp (>= 0.0.0)
   rubygems-people (0.0.1)
     user (>= 0.0.0)
+  rubygems-utility (0.0.1)
   runit (1.5.10)
     build-essential (>= 0.0.0)
     yum (~> 3.0)
