@@ -3,6 +3,7 @@
 # Recipe:: default
 #
 
+include_recipe 'rubygems-chef'
 include_recipe 'rubygems-hostname'
 include_recipe 'rubygems-hosts'
 include_recipe 'rubygems-motd'

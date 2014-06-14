@@ -7,6 +7,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-balancer
   rubygems-cache
     path: cookbooks/rubygems-cache
+  rubygems-chef
+    path: cookbooks/rubygems-chef
   rubygems-hostname
     path: cookbooks/rubygems-hostname
   rubygems-hosts
@@ -57,7 +59,8 @@ GRAPH
   ntp (1.6.2)
   ohai (2.0.0)
   rsyslog (1.12.2)
-  rubygems (0.0.6)
+  rubygems (0.0.7)
+    rubygems-chef (>= 0.0.0)
     rubygems-hostname (>= 0.0.0)
     rubygems-hosts (>= 0.0.0)
     rubygems-motd (>= 0.0.0)
@@ -81,6 +84,7 @@ GRAPH
   rubygems-cache (0.0.1)
     memcached (>= 0.0.0)
     rubygems (>= 0.0.0)
+  rubygems-chef (0.0.1)
   rubygems-hostname (0.0.1)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.5)
