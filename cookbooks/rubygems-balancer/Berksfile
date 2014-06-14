@@ -1,4 +1,0 @@
-source 'http://api.berkshelf.org'
-
-cookbook 'chef-vault'
-cookbook 'nginx'

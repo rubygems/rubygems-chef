@@ -3,12 +3,14 @@
 # Recipe:: default
 #
 
-include_recipe 'apt'
-package 'git'
 node.default['nodejs']['install_method'] = 'package'
+
+include_recipe 'apt'
+include_recipe 'git'
 include_recipe 'nodejs'
 include_recipe 'runit'
 include_recipe 'rubygems-app::ruby'
+
 package 'libpq-dev'
 
 include_recipe 'rubygems-app::deploy_user'
