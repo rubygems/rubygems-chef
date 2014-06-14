@@ -52,7 +52,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 <% if @environment == 'production' %>
-PS1="\[\e[01;31m\](<%= @environment %>)\[\e[0m\]\[\e[00;37m\] \u@\h\[\e[0m\]\[\e[00;35m\]\\$\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
+PS1="\[\e[01;31m\](<%= @environment %>)\[\e[0m\]\[\e[00;37m\] \u@\h \[\e[0m\]\[\e[00;35m\]\\$\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
 <% else %>
 PS1="\[\e[00;32m\](<%= @environment %>)\[\e[0m\]\[\e[00;37m\] \u@\h \[\e[0m\]\[\e[00;35m\]\\$\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
 <% end %>
