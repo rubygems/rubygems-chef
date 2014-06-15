@@ -3,9 +3,8 @@
 # Recipe:: default
 #
 
-package 'curl'
-package 'htop'
-package 'iotop'
-package 'strace'
-package 'vim'
-package 'wget'
+packages = data_bag_item("packages", "base")["packages"]
+
+packages.each do |pkg|
+  package pkg
+end

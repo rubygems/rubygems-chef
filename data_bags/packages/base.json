@@ -1,0 +1,11 @@
+{
+  "id": "base",
+  "packages": [
+    "curl",
+    "htop",
+    "iotop",
+    "strace",
+    "vim",
+    "wget"
+  ]
+}
