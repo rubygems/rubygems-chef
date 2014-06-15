@@ -121,6 +121,8 @@ GEM
       test-kitchen (>= 1.0.0)
     kitchen-vagrant (0.15.0)
       test-kitchen (~> 1.0)
+    knife-cookbook-cleanup (0.1.1)
+      chef (> 0.10.10)
     knife-ec2 (0.8.0)
       fog (~> 1.20.0)
       knife-windows (>= 0.5.12)
@@ -273,6 +275,7 @@ DEPENDENCIES
   foodcritic (~> 3.0)
   kitchen-docker
   kitchen-vagrant
+  knife-cookbook-cleanup
   knife-ec2
   rubocop (~> 0.23)
   test-kitchen (~> 1.0)
