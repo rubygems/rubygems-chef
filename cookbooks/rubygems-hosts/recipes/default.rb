@@ -6,9 +6,9 @@ template "/etc/hosts" do
   group "root"
   mode 0644
   variables(
-    :hosts => hosts,
-    :hostname => node[:hostname],
-    :fqdn => node[:fqdn],
-    :machinename => node[:machinename]
+    hosts: hosts,
+    hostname: node[:hostname],
+    fqdn: node[:fqdn],
+    machinename: node[:machinename]
   )
 end
