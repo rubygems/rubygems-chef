@@ -17,6 +17,7 @@ cookbook 'rubygems-notify', path: 'cookbooks/rubygems-notify'
 cookbook 'rubygems-ntp', path: 'cookbooks/rubygems-ntp'
 cookbook 'rubygems-people', path: 'cookbooks/rubygems-people'
 cookbook 'rubygems-repo', path: 'cookbooks/rubygems-repo'
+cookbook 'rubygems-ssh', path: 'cookbooks/rubygems-ssh'
 cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
 
 # Add cookbooks which diverge from the versions available on the community
