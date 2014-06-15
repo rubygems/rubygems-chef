@@ -13,6 +13,7 @@ cookbook 'rubygems-chef', path: 'cookbooks/rubygems-chef'
 cookbook 'rubygems-hostname', path: 'cookbooks/rubygems-hostname'
 cookbook 'rubygems-hosts', path: 'cookbooks/rubygems-hosts'
 cookbook 'rubygems-motd', path: 'cookbooks/rubygems-motd'
+cookbook 'rubygems-notify', path: 'cookbooks/rubygems-notify'
 cookbook 'rubygems-ntp', path: 'cookbooks/rubygems-ntp'
 cookbook 'rubygems-people', path: 'cookbooks/rubygems-people'
 cookbook 'rubygems-repo', path: 'cookbooks/rubygems-repo'
@@ -21,3 +22,4 @@ cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
 # Add cookbooks which diverge from the versions available on the community
 # site.
 cookbook 'aptly', git: 'git@github.com:skottler/aptly.git', ref: 'fix_seed'
+cookbook 'irc_handler', git: 'git@github.com:bflad/chef-irc_handler.git'
