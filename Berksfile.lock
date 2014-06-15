@@ -1,4 +1,8 @@
 DEPENDENCIES
+  aptly
+    git: git@github.com:skottler/aptly.git
+    revision: 4be943dc19445481780a6e458b6d29b9aa90c912
+    ref: fix_see
   rubygems
     path: cookbooks/rubygems
   rubygems-app
@@ -24,6 +28,8 @@ DEPENDENCIES
 
 GRAPH
   apt (2.4.0)
+  aptly (0.2.1)
+    apt (>= 0.0.0)
   bluepill (2.3.1)
     rsyslog (>= 0.0.0)
   build-essential (2.0.2)
@@ -45,7 +51,8 @@ GRAPH
     runit (~> 1.0)
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
-  motd-tail (2.0.2)
+  motd (0.4.1)
+    chef_handler (>= 0.0.0)
   nginx (2.7.2)
     apt (~> 2.2)
     bluepill (~> 2.3)
@@ -90,8 +97,8 @@ GRAPH
   rubygems-hostname (0.0.1)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.5)
-  rubygems-motd (0.0.4)
-    motd-tail (>= 0.0.0)
+  rubygems-motd (0.0.7)
+    motd (>= 0.0.0)
   rubygems-ntp (0.0.1)
     ntp (>= 0.0.0)
   rubygems-people (0.0.5)

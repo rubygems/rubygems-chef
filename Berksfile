@@ -1,8 +1,8 @@
 source 'https://api.berkshelf.com'
 
-# IMPORTANT: this Berksfile is solely for installing wrapper cookbooks and
-# uploading them to hosted chef. All dependencies which are not prefixed
-# with 'rubygems' should be put in the Berksfile included in each
+# IMPORTANT: this section of the Berksfile is solely for installing wrapper
+# cookbooks and uploading them to hosted chef. All dependencies which are
+# not prefixed with 'rubygems' should be put in the Berksfile included in each
 # role or base cookbook.
 
 cookbook 'rubygems', path: 'cookbooks/rubygems'
@@ -16,3 +16,7 @@ cookbook 'rubygems-motd', path: 'cookbooks/rubygems-motd'
 cookbook 'rubygems-ntp', path: 'cookbooks/rubygems-ntp'
 cookbook 'rubygems-people', path: 'cookbooks/rubygems-people'
 cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
+
+# Add cookbooks which diverge from the versions available on the community
+# site.
+cookbook 'aptly', git: 'git@github.com:skottler/aptly.git', ref: 'fix_seed'

@@ -1,0 +1,24 @@
+<% if @update_motd %>
+#!/bin/sh
+
+cat <<EOS
+<% end -%>
+
+  This is [0;34;49m<%= @hostname %>[0m, a RubyGems.org <%= @environment %> server
+
+	__________     ___.           ________                       
+	\______   \__ _\_ |__ ___.__./  _____/  ____   _____   ______
+	 |       _/  |  \ __ <   |  /   \  ____/ __ \ /     \ /  ___/
+	 |    |   \  |  / \_\ \___  \    \_\  \  ___/|  Y Y  \\___ \ 
+	 |____|_  /____/|___  / ____|\______  /\___  >__|_|  /____  >
+		\/          \/\/            \/     \/      \/     \/ 
+
+<%= @hostname %>.<%= @domain %> is a private computer system. If your access is
+authorized then you should have no expectation of privacy with regards to
+the actions you take on this system. In the event you've accessed this
+system either by accident or some unauthorized method, please log off
+immediately.
+
+<% if @update_motd %>
+EOS
+<% end -%>
