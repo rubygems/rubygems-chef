@@ -9,6 +9,7 @@ users = data_bag('users')
 sysadmins = []
 users.each do |user_name|
   user = data_bag_item('users', user_name)
+
   if user['environments'].include?(node.chef_environment)
     sysadmins << user['username'] if user['admin']
     user_account user['username'] do
