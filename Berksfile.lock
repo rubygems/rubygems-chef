@@ -3,6 +3,9 @@ DEPENDENCIES
     git: git@github.com:skottler/aptly.git
     revision: 4be943dc19445481780a6e458b6d29b9aa90c912
     ref: fix_see
+  duo-security
+    git: git@github.com:skottler/chef-duo-security
+    revision: 1ddec64f0798d91cf0ab1a8dd8831fb0f6694556
   irc_handler
     git: git@github.com:bflad/chef-irc_handler.git
     revision: c2b7e3616daf3d47818b12034dc9ad8b51aaafc2
@@ -12,6 +15,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-app
   rubygems-balancer
     path: cookbooks/rubygems-balancer
+  rubygems-bastion
+    path: cookbooks/rubygems-bastion
   rubygems-cache
     path: cookbooks/rubygems-cache
   rubygems-chef
@@ -45,6 +50,9 @@ GRAPH
   chef-vault (1.1.2)
   chef_handler (1.1.6)
   dmg (2.2.0)
+  duo-security (0.1.1)
+    build-essential (>= 0.0.0)
+    openssh (>= 0.0.0)
   git (4.0.2)
     build-essential (>= 0.0.0)
     dmg (>= 0.0.0)
@@ -104,6 +112,9 @@ GRAPH
   rubygems-balancer (0.0.1)
     chef-vault (>= 0.0.0)
     nginx (>= 0.0.0)
+    rubygems (>= 0.0.0)
+  rubygems-bastion (0.0.4)
+    duo-security (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-cache (0.0.1)
     memcached (>= 0.0.0)
