@@ -15,6 +15,7 @@ cookbook 'rubygems-hosts', path: 'cookbooks/rubygems-hosts'
 cookbook 'rubygems-motd', path: 'cookbooks/rubygems-motd'
 cookbook 'rubygems-ntp', path: 'cookbooks/rubygems-ntp'
 cookbook 'rubygems-people', path: 'cookbooks/rubygems-people'
+cookbook 'rubygems-repo', path: 'cookbooks/rubygems-repo'
 cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
 
 # Add cookbooks which diverge from the versions available on the community

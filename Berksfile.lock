@@ -23,6 +23,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-ntp
   rubygems-people
     path: cookbooks/rubygems-people
+  rubygems-repo
+    path: cookbooks/rubygems-repo
   rubygems-utility
     path: cookbooks/rubygems-utility
 
@@ -104,6 +106,9 @@ GRAPH
   rubygems-people (0.0.5)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
+  rubygems-repo (0.0.6)
+    aptly (>= 0.0.0)
+    rubygems (>= 0.0.0)
   rubygems-utility (0.0.2)
   runit (1.5.10)
     build-essential (>= 0.0.0)
