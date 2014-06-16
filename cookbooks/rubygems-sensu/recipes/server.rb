@@ -27,7 +27,7 @@ node.default['sensu']['dashboard']['password'] = sensu_creds['password']
   end
 end
    
-    
+include_recipe "rubygems-sensu::librato"
 
 include_recipe "sensu::rabbitmq"
 include_recipe "sensu::redis"
