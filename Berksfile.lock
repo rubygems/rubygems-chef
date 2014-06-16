@@ -154,7 +154,7 @@ GRAPH
   rubygems-repo (0.0.6)
     aptly (>= 0.0.0)
     rubygems (>= 0.0.0)
-  rubygems-sensu (0.0.25)
+  rubygems-sensu (0.0.32)
     chef-vault (>= 0.0.0)
     sensu (>= 0.0.0)
   rubygems-ssh (0.0.3)

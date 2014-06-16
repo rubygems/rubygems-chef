@@ -1,12 +1,11 @@
+# change this once we have the vault setup
+node.default['sensu']['use_ssl'] = false
+
 include_recipe "sensu"
 
 # this will only ever return a single 'ip' key since node comes from
 # the node name and is therefore unique.
 monitoring_host = search(:node, 'name:monitoring01.common.rubygems.org')
-
-# TODO: change this ince we have the vault setup.
-node.default['sensu']['use_ssl'] = false
-
 # set the address of the host to the local ipaddress if the node doesn't
 # exist in chef's index yet since it's being boostrapped.
 address = monitoring_host.first['ipaddress']
@@ -23,4 +22,5 @@ sensu_client node.name do
   additional(:environment => node.chef_environment)
 end
 
+include_recipe "rubygems-sensu::base"
 include_recipe "sensu::client_service"
