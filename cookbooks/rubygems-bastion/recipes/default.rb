@@ -1,10 +1,12 @@
-chef_gem 'chef-vault'
+#
+# Cookbook Name:: rubygems-bastion
+# Recipe:: default
+#
 
-require 'chef-vault'
-
+include_recipe 'chef-vault'
 include_recipe 'rubygems'
 
-duo = ChefVault::Item.load("duo", "credentials")
+duo = chef_vault_item('duo', 'credentials')
 
 node.default['duosecurity']['ikey'] = duo['ikey']
 node.default['duosecurity']['skey'] = duo['skey']
