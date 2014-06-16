@@ -3,6 +3,12 @@ DEPENDENCIES
     git: git@github.com:skottler/aptly.git
     revision: 4be943dc19445481780a6e458b6d29b9aa90c912
     ref: fix_see
+  collectd
+    git: git@github.com:librato/collectd-cookbook.git
+    revision: bb26f55d7747f0f6e7de93c198161b0613fe62eb
+  collectd-librato
+    git: git@github.com:librato/collectd-librato-cookbook.git
+    revision: af04f6d0eded1aad02eada59e38d4a6294c66d3c
   duo-security
     git: git@github.com:skottler/chef-duo-security
     revision: 1ddec64f0798d91cf0ab1a8dd8831fb0f6694556
@@ -25,6 +31,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-hostname
   rubygems-hosts
     path: cookbooks/rubygems-hosts
+  rubygems-metrics
+    path: cookbooks/rubygems-metrics
   rubygems-monitoring
     path: cookbooks/rubygems-monitoring
   rubygems-motd
@@ -45,6 +53,10 @@ DEPENDENCIES
     path: cookbooks/rubygems-utility
 
 GRAPH
+  apache2 (1.10.4)
+    iptables (>= 0.0.0)
+    logrotate (>= 0.0.0)
+    pacman (>= 0.0.0)
   apt (2.4.0)
   aptly (0.2.1)
     apt (>= 0.0.0)
@@ -53,6 +65,11 @@ GRAPH
   build-essential (2.0.2)
   chef-vault (1.1.2)
   chef_handler (1.1.6)
+  collectd (1.0.5)
+    apache2 (>= 0.0.0)
+  collectd-librato (0.0.5)
+    collectd (>= 0.0.0)
+    git (>= 0.0.0)
   dmg (2.2.0)
   duo-security (0.1.1)
     build-essential (>= 0.0.0)
@@ -77,6 +94,7 @@ GRAPH
   irc_handler (0.1.3)
     chef_handler (>= 0.0.0)
   line (0.5.1)
+  logrotate (1.6.0)
   memcached (1.7.2)
     runit (~> 1.0)
     yum (~> 3.0)
@@ -98,15 +116,17 @@ GRAPH
   ohai (2.0.0)
   openssh (1.3.4)
     iptables (>= 0.0.0)
+  pacman (1.1.1)
   rabbitmq (3.2.2)
     erlang (>= 0.9.0)
   redisio (1.7.1)
     ulimit (>= 0.1.2)
   rsyslog (1.12.2)
-  rubygems (0.0.10)
+  rubygems (0.0.11)
     rubygems-chef (>= 0.0.0)
     rubygems-hostname (>= 0.0.0)
     rubygems-hosts (>= 0.0.0)
+    rubygems-metrics (>= 0.0.0)
     rubygems-motd (>= 0.0.0)
     rubygems-notify (>= 0.0.0)
     rubygems-ntp (>= 0.0.0)
@@ -139,6 +159,9 @@ GRAPH
   rubygems-hostname (0.0.1)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.6)
+  rubygems-metrics (0.0.1)
+    collectd (>= 0.0.0)
+    collectd-librato (>= 0.0.0)
   rubygems-monitoring (0.0.3)
     rubygems (>= 0.0.0)
     rubygems-sensu (>= 0.0.0)
