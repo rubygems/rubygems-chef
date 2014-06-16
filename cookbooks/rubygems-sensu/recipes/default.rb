@@ -9,13 +9,13 @@ node.default['sensu']['use_ssl'] = false
 
 # set the address of the host to the local ipaddress if the node doesn't
 # exist in chef's index yet since it's being boostrapped.
-address = node['ipaddress']
+address = monitoring_host.first['ipaddress']
 
 node.default['sensu']['api']['host'] = address
-node.default['rabbitmq']['host'] = address
-node.default['rabbitmq']['port'] = 5671
-node.default['redis']['host'] = address
-node.default['redis']['port'] = 6379
+node.default['sensu']['rabbitmq']['host'] = address
+node.default['sensu']['rabbitmq']['port'] = 5672
+node.default['sensu']['redis']['host'] = address
+node.default['sensu']['redis']['port'] = 6379
 
 sensu_client node.name do
   address node.ipaddress
@@ -23,4 +23,4 @@ sensu_client node.name do
   additional(:environment => node.chef_environment)
 end
 
-# include_recipe "sensu::client_service"
+include_recipe "sensu::client_service"
