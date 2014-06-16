@@ -25,6 +25,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-hostname
   rubygems-hosts
     path: cookbooks/rubygems-hosts
+  rubygems-monitoring
+    path: cookbooks/rubygems-monitoring
   rubygems-motd
     path: cookbooks/rubygems-motd
   rubygems-notify
@@ -35,6 +37,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-people
   rubygems-repo
     path: cookbooks/rubygems-repo
+  rubygems-sensu
+    path: cookbooks/rubygems-sensu
   rubygems-ssh
     path: cookbooks/rubygems-ssh
   rubygems-utility
@@ -53,6 +57,12 @@ GRAPH
   duo-security (0.1.1)
     build-essential (>= 0.0.0)
     openssh (>= 0.0.0)
+  erlang (1.5.4)
+    apt (>= 1.7.0)
+    build-essential (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+    yum-erlang_solutions (>= 0.0.0)
   git (4.0.2)
     build-essential (>= 0.0.0)
     dmg (>= 0.0.0)
@@ -88,8 +98,12 @@ GRAPH
   ohai (2.0.0)
   openssh (1.3.4)
     iptables (>= 0.0.0)
+  rabbitmq (3.2.2)
+    erlang (>= 0.9.0)
+  redisio (1.7.1)
+    ulimit (>= 0.1.2)
   rsyslog (1.12.2)
-  rubygems (0.0.9)
+  rubygems (0.0.10)
     rubygems-chef (>= 0.0.0)
     rubygems-hostname (>= 0.0.0)
     rubygems-hosts (>= 0.0.0)
@@ -97,6 +111,7 @@ GRAPH
     rubygems-notify (>= 0.0.0)
     rubygems-ntp (>= 0.0.0)
     rubygems-people (>= 0.0.0)
+    rubygems-sensu (>= 0.0.0)
     rubygems-ssh (>= 0.0.0)
     rubygems-utility (>= 0.0.0)
   rubygems-app (0.0.1)
@@ -124,6 +139,9 @@ GRAPH
   rubygems-hostname (0.0.1)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.6)
+  rubygems-monitoring (0.0.3)
+    rubygems (>= 0.0.0)
+    rubygems-sensu (>= 0.0.0)
   rubygems-motd (0.0.7)
     motd (>= 0.0.0)
   rubygems-notify (0.0.1)
@@ -136,6 +154,9 @@ GRAPH
   rubygems-repo (0.0.6)
     aptly (>= 0.0.0)
     rubygems (>= 0.0.0)
+  rubygems-sensu (0.0.15)
+    chef-vault (>= 0.0.0)
+    sensu (>= 0.0.0)
   rubygems-ssh (0.0.3)
     openssh (>= 0.0.0)
   rubygems-utility (0.0.3)
@@ -143,11 +164,20 @@ GRAPH
     build-essential (>= 0.0.0)
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
+  sensu (1.0.0)
+    apt (>= 0.0.0)
+    rabbitmq (>= 2.0.0)
+    redisio (>= 1.7.0)
+    windows (>= 1.8.8)
+    yum (>= 0.0.0)
   sudo (2.6.0)
+  ulimit (0.3.2)
   unicorn (1.3.0)
   user (0.3.0)
   windows (1.31.0)
     chef_handler (>= 0.0.0)
   yum (3.2.0)
   yum-epel (0.3.6)
+    yum (~> 3.0)
+  yum-erlang_solutions (0.2.0)
     yum (~> 3.0)
