@@ -1,3 +1,5 @@
+include_recipe 'chef-vault'
+
 librato_creds = ChefVault::Item.load('librato', 'credentials')
 
 node.default['collectd_librato']['email'] = librato_creds['email']

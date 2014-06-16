@@ -43,6 +43,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-ntp
   rubygems-people
     path: cookbooks/rubygems-people
+  rubygems-redis
+    path: cookbooks/rubygems-redis
   rubygems-repo
     path: cookbooks/rubygems-repo
   rubygems-sensu
@@ -161,7 +163,8 @@ GRAPH
   rubygems-hostname (0.0.1)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.6)
-  rubygems-metrics (0.0.2)
+  rubygems-metrics (0.0.3)
+    chef-vault (>= 0.0.0)
     collectd (>= 0.0.0)
     collectd-librato (>= 0.0.0)
     collectd_plugins (>= 0.0.0)
@@ -177,6 +180,9 @@ GRAPH
   rubygems-people (0.0.9)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
+  rubygems-redis (0.0.1)
+    redisio (>= 0.0.0)
+    rubygems (>= 0.0.0)
   rubygems-repo (0.0.6)
     aptly (>= 0.0.0)
     rubygems (>= 0.0.0)
