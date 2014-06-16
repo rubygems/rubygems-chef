@@ -1,5 +1,10 @@
-# disable these options to keep duo's use of ForceCommand secure
-node.default['openssh']['server']['permit_tunnel'] = "no"
-node.default['openssh']['server']['allow_tcp_forwarding'] = "no"
+#
+# Cookbook Name:: rubygems-ssh
+# Recipe:: default
+#
 
-include_recipe "openssh"
+# disable these options to keep duo's use of ForceCommand secure
+node.default['openssh']['server']['permit_tunnel'] = 'no'
+node.default['openssh']['server']['allow_tcp_forwarding'] = 'no'
+
+include_recipe 'openssh'

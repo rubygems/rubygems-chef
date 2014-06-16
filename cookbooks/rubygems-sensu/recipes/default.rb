@@ -1,7 +1,12 @@
+#
+# Cookbook Name:: rubygems-sensu
+# Recipe:: default
+#
+
 # change this once we have the vault setup
 node.default['sensu']['use_ssl'] = false
 
-include_recipe "sensu"
+include_recipe 'sensu'
 
 # this will only ever return a single 'ip' key since node comes from
 # the node name and is therefore unique.
@@ -18,9 +23,9 @@ node.default['sensu']['redis']['port'] = 6379
 
 sensu_client node.name do
   address node.ipaddress
-  subscriptions ["all"]
-  additional(:environment => node.chef_environment)
+  subscriptions ['all']
+  additional(environment: node.chef_environment)
 end
 
-include_recipe "rubygems-sensu::base"
-include_recipe "sensu::client_service"
+include_recipe 'rubygems-sensu::base'
+include_recipe 'sensu::client_service'
