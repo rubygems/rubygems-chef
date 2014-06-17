@@ -10,7 +10,7 @@ unicorn_config '/etc/unicorn/rubygems.rb' do
   before_fork 'sleep 1'
 end
 
-redis_ip = search(:node, "chef_environment:#{node.chef_environment} AND role:redis")[0]['ipaddress']
+redis_ip = search(:node, "name:redis01.#{node.chef_environment}.rubygems.org")[0]['ipaddress']
 
 runit_service 'unicorn' do
   owner 'deploy'
