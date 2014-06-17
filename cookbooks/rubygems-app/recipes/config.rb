@@ -5,7 +5,7 @@
 
 include_recipe 'chef-vault'
 
-secrets = chef_vault_item('secrets', 'rubygems')[node.chef_environment]
+secrets = chef_vault_item('rubygems', node.chef_environment)
 db_host = search(:node, "chef_environment:#{node.chef_environment} AND role:db")[0]['ipaddress']
 
 template '/applications/rubygems/shared/database.yml' do
