@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 
+node.default['rubygems']['role_from_base_recipe'] = node.recipes.first.split('-')[1]
+
 include_recipe 'rubygems-chef'
 include_recipe 'rubygems-hostname'
 include_recipe 'rubygems-hosts'
