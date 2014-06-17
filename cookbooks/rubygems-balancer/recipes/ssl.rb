@@ -10,7 +10,7 @@ directory "#{node['nginx']['dir']}/certs" do
   mode  '0644'
 end
 
-item = chef_vault_item('certs', 'rubygems')
+item = chef_vault_item('certs', node.chef_environment)
 
 # ssl certificate key
 file "#{node['nginx']['dir']}/certs/rubygems.org.key" do
