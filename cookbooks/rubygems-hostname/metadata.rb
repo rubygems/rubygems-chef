@@ -2,9 +2,10 @@ name             'rubygems-hostname'
 maintainer       'RubyGems.org Ops Team'
 license          'MIT'
 description      'Set the hostname of RubyGems.org machines using node.name'
-version          '0.1.0'
+version          '0.1.4'
 
-depends 'dnsimple'
+depends 'chef-vault'
+depends 'dwradcliffe-dnsimple'
 depends 'hostname'
 
 supports 'ubuntu'

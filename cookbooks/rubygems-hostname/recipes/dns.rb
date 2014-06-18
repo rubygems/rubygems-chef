@@ -7,7 +7,9 @@ include_recipe 'chef-vault'
 
 dnsimple_credentials = chef_vault_item('dnsimple', 'credentials')
 
-dnsimple_record "create a CNAME record for #{node.name}" do
+include_recipe 'dwradcliffe-dnsimple'
+
+dwradcliffe_dnsimple_record "create a CNAME record for #{node.name}" do
   name     node.name.sub('.rubygems.org', '')
   content  node['cloud_v2']['public_hostname']
   type     'CNAME'
