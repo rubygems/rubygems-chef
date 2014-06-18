@@ -12,9 +12,6 @@ DEPENDENCIES
   duo-security
     git: git@github.com:skottler/chef-duo-security
     revision: 1ddec64f0798d91cf0ab1a8dd8831fb0f6694556
-  irc_handler
-    git: git@github.com:bflad/chef-irc_handler.git
-    revision: c2b7e3616daf3d47818b12034dc9ad8b51aaafc2
   rubygems
     path: cookbooks/rubygems
   rubygems-app
@@ -53,6 +50,9 @@ DEPENDENCIES
     path: cookbooks/rubygems-ssh
   rubygems-utility
     path: cookbooks/rubygems-utility
+  slack_handler
+    git: git@github.com:dcm-ops/chef-slack_handler.git
+    revision: af6f9aa94c305713bb7fc341bf1eda761b7ddd2e
 
 GRAPH
   apache2 (1.10.4)
@@ -95,8 +95,6 @@ GRAPH
     hostsfile (>= 0.0.0)
   hostsfile (2.4.4)
   iptables (0.13.2)
-  irc_handler (0.1.3)
-    chef_handler (>= 0.0.0)
   line (0.5.1)
   logrotate (1.6.0)
   memcached (1.7.2)
@@ -173,8 +171,8 @@ GRAPH
     rubygems-sensu (>= 0.0.0)
   rubygems-motd (0.0.7)
     motd (>= 0.0.0)
-  rubygems-notify (0.0.1)
-    irc_handler (>= 0.0.0)
+  rubygems-notify (0.0.2)
+    slack_handler (>= 0.0.0)
   rubygems-ntp (0.0.1)
     ntp (>= 0.0.0)
   rubygems-people (0.0.11)
@@ -202,6 +200,8 @@ GRAPH
     redisio (>= 1.7.0)
     windows (>= 1.8.8)
     yum (>= 0.0.0)
+  slack_handler (0.0.1)
+    chef_handler (>= 0.0.0)
   sudo (2.6.0)
   ulimit (0.3.2)
   unicorn (1.3.0)
