@@ -5,6 +5,7 @@
     "htop",
     "iotop",
     "strace",
+    "tig",
     "vim",
     "wget"
   ]
