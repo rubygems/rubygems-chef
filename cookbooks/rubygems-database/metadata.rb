@@ -1,7 +1,7 @@
 name 'rubygems-database'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.6'
+version '0.0.7'
 
 depends 'database'
 depends 'postgresql'

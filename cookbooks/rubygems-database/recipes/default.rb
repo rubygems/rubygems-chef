@@ -6,7 +6,7 @@ include_recipe 'postgresql::ruby'
 stage = node.chef_environment
 
 connection_info =  {
-  :host => '127.0.0.1'
+  :host => '127.0.0.1',
   :port => 5432,
   :username => "postgres",
   :password => ""
