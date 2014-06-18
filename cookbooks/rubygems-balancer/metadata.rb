@@ -1,5 +1,5 @@
 name 'rubygems-balancer'
-version '0.0.5'
+version '0.0.8'
 
 depends 'chef-vault'
 depends 'nginx'
