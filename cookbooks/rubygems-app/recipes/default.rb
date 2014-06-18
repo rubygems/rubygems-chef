@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 
+include_recipe 'rubygems'
+
 node.default['nodejs']['install_method'] = 'package'
 
 include_recipe 'apt'
