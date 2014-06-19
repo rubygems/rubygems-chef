@@ -30,3 +30,11 @@ sensu_check "check_ssh" do
   interval 30
   additional(:notification => 'sshd is not running', :occurences => 3)
 end
+
+sensu_check "check_apt" do
+  command "/usr/lib/nagios/plugins/check_apt"
+  handlers ['default']
+  subscribers ['all']
+  interval 60
+  additional(:notification => 'There are pending package upgrades', :occurences => 3)
+end
