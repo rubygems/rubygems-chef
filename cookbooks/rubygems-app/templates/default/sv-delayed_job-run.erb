@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd /applications/rubygems/current
+
+exec 2>&1
+exec <%= node[:runit][:chpst_bin] %> \
+  -u <%= @options[:owner] %>:<%= @options[:group] %> \
+  <%= @options[:bundle_command] %> exec \
+  rake jobs:work
