@@ -12,6 +12,11 @@ node.default['sensu']['dashboard']['bind'] = '0.0.0.0'
 node.default['sensu']['dashboard']['user'] = sensu_creds['user']
 node.default['sensu']['dashboard']['password'] = sensu_creds['password']
 
+sensu_handler 'default' do
+  type 'pipe'
+  command 'cat'
+end
+
 include_recipe 'rubygems-sensu::librato'
 include_recipe 'rubygems-sensu::slack'
 
