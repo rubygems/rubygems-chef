@@ -49,9 +49,9 @@ end
 
 sensu_check 'check_load' do
   command "/usr/lib/nagios/plugins/check_load -w #{node['cpu']['total'] * 8}:#{node['cpu']['total'] * 5}:#{node['cpu']['total'] * 2} -c #{node['cpu']['total'] * 10}:#{node['cpu']['total'] * 8}:#{node['cpu']['total'] * 3}"
-  handlers ['default'], 'slack']
+  handlers ['default', 'slack']
   subscribers ['all']
   interval 30
-  aditional(:notification => 'Load is high', :occurences => 3)
+  additional(:notification => 'Load is high', :occurences => 3)
 end
 
