@@ -16,6 +16,12 @@ include_recipe 'rubygems-sensu::librato'
 include_recipe 'rubygems-sensu::slack'
 
 include_recipe 'sensu::rabbitmq'
+
+apt_preference "rabbitmq-server" do
+  pin "version 3.1.5"
+  pin_priority "700"
+end
+
 include_recipe 'sensu::redis'
 include_recipe 'sensu::server_service'
 include_recipe 'sensu::api_service'
