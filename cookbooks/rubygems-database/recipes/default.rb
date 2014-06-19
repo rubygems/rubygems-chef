@@ -1,6 +1,33 @@
 include_recipe 'rubygems'
 
-node.default['postgresql']['password']['postgres'] = ''
+node.default['postgresql']['data_directory'] = '/var/lib/pg_data'
+node.default['postgresql']['listen_addresses'] = '*'
+node.default['postgresql']['ssl'] = false
+node.default['postgresql']['work_mem'] = "100MB"
+node.default['postgresql']['shared_buffers'] = "24MB"
+node.default['postgresql']['users'] = [{
+  "username" => "postgres",
+  "password" => "postgres",
+  "superuser" => true,
+  "createdb" => true,
+  "login" => true
+}]
+node.default['postgresql']['pg_hba'] = [
+  {
+  "type" => "host",
+  "db" => "rubygems_#{node.chef_environment}",
+  "user" => "postgres",
+  "password" => "postgres",
+  "addr" => "#{search(:node, "name:app01.#{node.chef_environment}.rubygems.org")[0]['ipaddress']}/0",
+  "method" => "md5"
+  },
+  {
+  "type" => "local",
+  "db" => "all",
+  "user" => "postgres",
+  "method" => "ident"
+  }
+]
 
 include_recipe 'postgresql::server'
 include_recipe 'postgresql::ruby'
