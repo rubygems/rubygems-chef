@@ -13,9 +13,9 @@ template '/etc/sensu/slack.json' do
   )
 end
 
-cookbook_file '/etc/sensu/handlers/sensu.rb' do
-  path '/etc/sensu/handlers/sensu.rb'
-  source 'sensu.rb'
+cookbook_file '/etc/sensu/handlers/slack.rb' do
+  path '/etc/sensu/handlers/slack.rb'
+  source 'slack.rb'
   action :create
 end
 
