@@ -1,6 +1,0 @@
-{
-  "irc": {
-    "irc_server": "irc://rubygems-sensubot@irc.freenode.net:6667#rubygems-aws",
-    "irc_ssl": false
-  }
-}
