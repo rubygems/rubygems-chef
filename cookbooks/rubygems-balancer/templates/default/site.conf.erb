@@ -207,15 +207,15 @@ server {
 
   ##### BEGIN legacy rules
 
-  <% if stat_server = node["application"]["stat_server"] %>
+  <% if @stat_server %>
   location = /__log {
     internal;
-    proxy_pass http://<%= stat_server %>/gems/$gem.gem;
+    proxy_pass http://<%= @stat_server %>/gems/$gem.gem;
   }
   <% end %>
 
   location ~ /gems/(.*)\.gem$ {
-  <% if node["application"]["stat_server"] %>
+  <% if @stat_server %>
     set $gem $1;
     post_action /__log;
   <% end %>
