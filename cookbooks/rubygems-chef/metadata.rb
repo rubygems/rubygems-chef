@@ -1,8 +1,8 @@
 name 'rubygems-chef'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.3'
+version '0.0.5'
 
-depends 'line'
+depends 'chef-client'
 
 supports 'ubuntu'
