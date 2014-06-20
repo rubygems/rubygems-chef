@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - vendor/**/*
+    - /**/files/**/*
 
 Encoding:
   Enabled: false
@@ -9,4 +10,4 @@ SingleSpaceBeforeFirstArg:
 NumericLiterals:
   Enabled: false
 LineLength:
-  Max: 100
+  Enabled: false

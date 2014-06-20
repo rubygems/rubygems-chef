@@ -1,10 +1,15 @@
+#
+# Cookbook Name:: rubygems-sensu
+# Recipe:: base
+#
+
 gem_package 'sensu-plugin' do
   gem_binary '/opt/sensu/embedded/bin/gem'
 end
 
 package 'nagios-plugins'
 
-%w{ check-procs.rb }.each do |plugin|
+%w( check-procs.rb ).each do |plugin|
   cookbook_file "/etc/sensu/plugins/#{plugin}" do
     source plugin
     path "/etc/sensu/plugins/#{plugin}"
@@ -20,7 +25,7 @@ sensu_check 'check_procs' do
   handlers ['slack']
   subscribers ['all']
   interval 30
-  additional(:notification => 'There is a high number of procs running', :occurences => 3)
+  additional(notification: 'There is a high number of procs running', occurences: 3)
 end
 
 sensu_check 'check_ssh' do
@@ -28,7 +33,7 @@ sensu_check 'check_ssh' do
   handlers ['slack']
   subscribers ['all']
   interval 30
-  additional(:notification => 'sshd is not running', :occurences => 3)
+  additional(notification: 'sshd is not running', occurences: 3)
 end
 
 sensu_check 'check_apt' do
@@ -36,7 +41,7 @@ sensu_check 'check_apt' do
   handlers ['slack']
   subscribers ['all']
   interval 60
-  additional(:notification => 'There are pending package upgrades', :occurences => 3)
+  additional(notification: 'There are pending package upgrades', occurences: 3)
 end
 
 sensu_check 'check_ntp_time' do
@@ -44,7 +49,7 @@ sensu_check 'check_ntp_time' do
   handlers ['slack']
   subscribers ['all']
   interval 30
-  additional(:notification => 'NTP is out of sync', :occurences => 3)
+  additional(notification: 'NTP is out of sync', occurences: 3)
 end
 
 sensu_check 'check_load' do
@@ -52,6 +57,5 @@ sensu_check 'check_load' do
   handlers ['slack']
   subscribers ['all']
   interval 30
-  additional(:notification => 'Load is high', :occurences => 3)
+  additional(notification: 'Load is high', occurences: 3)
 end
-

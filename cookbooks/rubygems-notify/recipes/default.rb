@@ -5,7 +5,7 @@
 
 include_recipe 'chef-vault'
 
-slack_creds = ChefVault::Item.load('slack', 'credentials')
+slack_creds = chef_vault_item('slack', 'credentials')
 
 node.default['chef_client']['handler']['slack']['team'] = slack_creds['team']
 node.default['chef_client']['handler']['slack']['api_key'] = slack_creds['api_key']
