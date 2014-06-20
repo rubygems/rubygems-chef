@@ -8,7 +8,7 @@ server {
 
   server_name <%= @server_names.join(' ') %>;
 
-  <% if @use_ssl && @force_ssl %>
+  <% if @force_ssl %>
     # redirect all requests to SSL
     rewrite ^(.*) https://$host$1 permanent;
   <% else %>
@@ -159,15 +159,13 @@ server {
   rewrite ^(.*) https://rubygems.org$1 permanent;
 }
 
-<% if @use_ssl %>
 # HTTPS
 server {
-  # port to listen on. Can also be set to an IP:PORT
+
   listen 443 default ssl;
 
   server_name <%= @server_names.join(" ") %>;
 
-  <% if node["nginx"]["geoip"] %>
   if ($geoip_country_code = "CN") {
     set $gem_mirror_ssl https://au-m.rubygems.org;
   }
@@ -187,8 +185,6 @@ server {
   if ($continent = "EU") {
     set $gem_mirror_ssl https://aws-eu-cache01.rubygems.org;
   }
-
-  <% end %>
 
   # SSL settings
   ssl                         on;
@@ -323,4 +319,3 @@ server {
   }
 
 }
-<% end %>
