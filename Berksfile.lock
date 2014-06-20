@@ -182,7 +182,7 @@ GRAPH
   rubygems-cache (0.0.1)
     memcached (>= 0.0.0)
     rubygems (>= 0.0.0)
-  rubygems-chef (0.0.2)
+  rubygems-chef (0.0.3)
     line (>= 0.0.0)
   rubygems-database (0.0.20)
     database (>= 0.0.0)
