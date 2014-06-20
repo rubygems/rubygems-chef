@@ -29,7 +29,7 @@ sensu_check 'check_procs' do
 end
 
 sensu_check 'check_chef_client_proc' do
-  command "ruby check-procs.rb -p '/usr/bin/chef-client -d -P /var/run/chef/client.pid'"
+  command "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-procs.rb -p '/usr/bin/chef-client -d -P /var/run/chef/client.pid'"
   handlers ['slack']
   subscribers ['all']
   interval 30
