@@ -28,6 +28,14 @@ sensu_check 'check_procs' do
   additional(notification: 'There is a high number of procs running', occurences: 3)
 end
 
+sensu_check 'check_chef_client_proc' do
+  command "ruby check-procs.rb -p '/usr/bin/chef-client -d -P /var/run/chef/client.pid'"
+  handlers ['slack']
+  subscribers ['all']
+  interval 30
+  additional(notification: 'chef-client is not running', occurences: 3)
+end
+
 sensu_check 'check_ssh' do
   command '/usr/lib/nagios/plugins/check_ssh localhost'
   handlers ['slack']
