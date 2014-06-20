@@ -1,3 +1,8 @@
+#
+# Cookbook Name:: rubygems-people
+# Recipe:: samkottler
+#
+
 home = '/home/samkottler'
 
 directory "#{home}/src" do
