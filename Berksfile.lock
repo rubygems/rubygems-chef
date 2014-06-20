@@ -188,7 +188,7 @@ GRAPH
     rubygems (>= 0.0.0)
   rubygems-chef (0.0.6)
     chef-client (>= 0.0.0)
-  rubygems-database (0.0.20)
+  rubygems-database (0.0.21)
     database (>= 0.0.0)
     postgresql (>= 0.0.0)
     rubygems (>= 0.0.0)
