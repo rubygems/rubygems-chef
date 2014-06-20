@@ -1,6 +1,13 @@
+#
+# Cookbook Name:: rubygems-sensu
+# Recipe:: slack
+#
+
+include_recipe 'chef-vault'
+
 # These have to be different than the handler credentials because Slack
 # provides a separate token for each integration.
-slack_creds = ChefVault::Item.load('sensu', 'credentials')['slack']
+slack_creds = chef_vault_item('sensu', 'credentials')['slack']
 
 template '/etc/sensu/slack.json' do
   source 'slack.json.erb'

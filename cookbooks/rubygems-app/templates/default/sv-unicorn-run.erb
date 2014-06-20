@@ -5,6 +5,7 @@ cd /applications/rubygems/current
 exec 2>&1
 exec <%= node[:runit][:chpst_bin] %> \
   -u <%= @options[:owner] %>:<%= @options[:group] %> \
+  -e <%= node[:runit][:sv_dir] %>/unicorn/env \
   <%= @options[:bundle_command] %> exec \
   <%= @options[:smells_like_rack] ? 'unicorn' : 'unicorn_rails' %> \
   -E <%= @options[:rails_env] %> \

@@ -17,7 +17,7 @@ runit_service 'delayed_job' do
     owner: 'deploy',
     group: 'deploy',
     bundle_command: '/usr/local/bin/bundle',
-    rails_env: node.chef_environment,
+    rails_env: node.chef_environment
   )
   action ::File.exist?('/applications/rubygems/current') ? :enable : :disable
 end

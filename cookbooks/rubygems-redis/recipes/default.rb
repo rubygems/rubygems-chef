@@ -1,4 +1,9 @@
-include_recipe "rubygems"
+#
+# Cookbook Name:: rubygems-redis
+# Recipe:: default
+#
 
-include_recipe "redisio::install"
-include_recipe "redisio::enable"
+include_recipe 'rubygems'
+
+include_recipe 'redisio::install'
+include_recipe 'redisio::enable'
