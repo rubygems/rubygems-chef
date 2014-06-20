@@ -1,7 +1,7 @@
 include_recipe 'rubygems'
 
 node.default['postgresql']['data_directory'] = '/var/lib/pg_data'
-node.default['postgresql']['listen_addresses'] = '*'
+node.default['postgresql']['listen_addresses'] = '0.0.0.0'
 node.default['postgresql']['ssl'] = false
 node.default['postgresql']['work_mem'] = "100MB"
 node.default['postgresql']['shared_buffers'] = "24MB"

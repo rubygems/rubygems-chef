@@ -184,7 +184,7 @@ GRAPH
     rubygems (>= 0.0.0)
   rubygems-chef (0.0.2)
     line (>= 0.0.0)
-  rubygems-database (0.0.19)
+  rubygems-database (0.0.20)
     database (>= 0.0.0)
     postgresql (>= 0.0.0)
     rubygems (>= 0.0.0)
