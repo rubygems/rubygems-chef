@@ -6,6 +6,10 @@ This repository contains chef artifacts used to deploy all the different pieces 
 2. Unless a wrapper cookbooks requires a cookbook for the same software which is different than what's on the Chef community site, all dependencies should be in a wrapper cookbook's `metadata.rb`, rather than in the `Berksfile` located in the root of this repo.
 3. No binaries ever go into this repo. They should all live in an apt repository or in S3.
 
+### Bugs and features
+
+GitHub issues are disabled on this repository. Instead, we use [a trello board](https://trello.com/b/cd2HqKnE/infrastructure) to track development work on this repository. If you're interested in getting involved with RubyGems.org's infrastructure team, that trelo board is a great place to look for things to work on.
+
 ### Development Setup
 
 [ChefDK](http://www.getchef.com/downloads/chef-dk) is the recommended way to get the different tools necessary to manage, install, and test our chef deployment. It includes things like an embedded Ruby, [Berkshelf](http://berkshelf.com/), and [Test Kitchen](http://kitchen.ci/). After you've download and installed the necessary ChefDK package for your platform, run `/opt/chefdk/embedded/bin/bundle install --local` to add a few tools we use which are not included in the ChefDK packages.
