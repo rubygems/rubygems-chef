@@ -9,6 +9,9 @@ DEPENDENCIES
   collectd-librato
     git: git@github.com:librato/collectd-librato-cookbook.git
     revision: af04f6d0eded1aad02eada59e38d4a6294c66d3c
+  collectd_plugins
+    git: git@github.com:skottler/chef-collectd_plugins.git
+    revision: 4cbc90f319096f9c845e5f07f60c78483eeeecac
   duo-security
     git: git@github.com:skottler/chef-duo-security
     revision: 1ddec64f0798d91cf0ab1a8dd8831fb0f6694556
@@ -83,7 +86,7 @@ GRAPH
   collectd-librato (0.0.5)
     collectd (>= 0.0.0)
     git (>= 0.0.0)
-  collectd_plugins (1.0.0)
+  collectd_plugins (1.1.0)
     collectd (>= 0.0.0)
   cron (1.4.0)
   database (2.2.0)
@@ -198,7 +201,7 @@ GRAPH
     dwradcliffe-dnsimple (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.6)
-  rubygems-metrics (0.0.3)
+  rubygems-metrics (0.0.4)
     chef-vault (>= 0.0.0)
     collectd (>= 0.0.0)
     collectd-librato (>= 0.0.0)

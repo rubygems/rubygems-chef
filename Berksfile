@@ -29,6 +29,7 @@ cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
 # Add cookbooks which diverge from the versions available on the community
 # site.
 cookbook 'aptly', git: 'git@github.com:skottler/aptly.git', ref: 'fix_seed'
+cookbook 'collectd_plugins', git: 'git@github.com:skottler/chef-collectd_plugins.git'
 cookbook 'collectd', git: 'git@github.com:librato/collectd-cookbook.git'
 cookbook 'collectd-librato', git: 'git@github.com:librato/collectd-librato-cookbook.git'
 cookbook 'dwradcliffe-dnsimple', git: 'git@github.com:dwradcliffe/chef-dnsimple.git', branch: 'rubygems'
