@@ -1,0 +1,43 @@
+bash -c '
+
+echo <%= @config[:chef_node_name] %> > /etc/hostname
+hostname -F /etc/hostname
+
+echo "`ip addr | grep eth0 | grep "inet " | cut -d " " -f 6 | cut -d \/ -f 1` `cat /etc/hostname`" >> /etc/hosts
+
+apt-get update
+apt-get upgrade -y
+
+mkdir -p /etc/chef
+
+# Setup the validation key.
+(
+cat <<'EOP'
+<%= IO.read(Chef::Config[:validation_key]) %>
+EOP
+) > /etc/chef/validation.pem
+
+# Setup the client configuration.
+(
+cat <<'EOP'
+log_level        :info
+log_location     STDOUT
+chef_server_url  "<%= Chef::Config[:chef_server_url] %>"
+validation_client_name "<%= Chef::Config[:validation_client_name] %>"
+<% unless @config[:chef_node_name] == nil %>
+node_name "<%= @config[:chef_node_name] %>"
+<% end %> 
+EOP
+) > /etc/chef/client.rb
+
+(
+cat <<'EOP'
+<%= { "run_list" => @run_list }.to_json %>
+EOP
+) > /etc/chef/first-boot.json
+
+curl -L https://www.opscode.com/chef/install.sh | sudo bash
+
+/usr/bin/chef-client -j /etc/chef/first-boot.json
+
+'
