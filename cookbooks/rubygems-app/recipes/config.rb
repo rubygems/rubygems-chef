@@ -16,7 +16,7 @@ template '/applications/rubygems/shared/database.yml' do
   variables(
     rails_env: node.chef_environment,
     adapter: 'postgresql',
-    database: "gemcutter_#{node.chef_environment}",
+    database: "rubygems_#{node.chef_environment}",
     username: secrets['rails_postgresql_user'],
     password: secrets['rails_postgresql_password'],
     host: db_host
