@@ -36,6 +36,14 @@ sensu_check 'check_chef_client_proc' do
   additional(notification: 'chef-client is not running', occurences: 3)
 end
 
+sensu_check 'check_ntpd_proc' do
+  command "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-procs.rb -p '/usr/sbin/ntpd -p /var/run/ntpd.pid'"
+  handlers ['slack']
+  subscribers ['all']
+  interval 30
+  additional(notification: 'ntpd is not running', occurences: 3)
+end
+
 sensu_check 'check_ssh' do
   command '/usr/lib/nagios/plugins/check_ssh localhost'
   handlers ['slack']
