@@ -9,3 +9,9 @@ This repository contains chef artifacts used to deploy all the different pieces 
 ## Development Setup
 
 You will need **ruby 2.0** and **bundler** installed. Run `bundle install --local`.
+
+### License
+
+This repository is free software made available under the MIT license. You can view the full text of the license in the `LICENSE` file included as part of this repository. That file must be redistributed.
+
+It should be noted that some files in this repository are included with licensed other than MIT. These files have a header with their license information and those licenses are compatible with the MIT license.
