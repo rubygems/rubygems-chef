@@ -8,7 +8,7 @@ This repository contains chef artifacts used to deploy all the different pieces 
 
 ### Bugs and features
 
-GitHub issues are disabled on this repository. Instead, we use [a trello board](https://trello.com/b/cd2HqKnE/infrastructure) to track development work. If you're interested in getting involved with RubyGems.org's infrastructure team, that trelo board is a great place to look for things to work on.
+GitHub issues are disabled on this repository. Instead, we use [a trello board](https://trello.com/b/cd2HqKnE/infrastructure) to track development work. If you're interested in getting involved with RubyGems.org's infrastructure team, that trello board is a great place to look for things to work on.
 
 ### Development Setup
 
