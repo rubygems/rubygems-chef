@@ -13,7 +13,7 @@ We use roles as minimally as possible. All top-level functionality should be in 
 
 Run `for file in $(ls roles/*.rb); do knife role from file $file; done` after updating any roles to upload them to the Chef server.
 
-#### Environment
+#### Environments
 Run `for file in $(ls environments/*.json); do knife environment from file $file; done` after updating any environments to upload them to the Chef server.
 
 ### Bugs and features
