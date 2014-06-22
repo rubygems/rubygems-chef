@@ -1,15 +1,10 @@
 {
     "id": "phlipper",
     "username": "phlipper",
-    "comment":  "Phil Cohen",
-    "password": "$1$dNNtlscn$MB4BJfz85s6Ff7tGDPyws/",
-    "admin" : true,
+    "action": "remove",
     "environments": [
       "common",
       "staging",
       "production"
-    ],
-    "ssh_keys": [
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDh5DYGTUIL7zW9DfI12bRiaqchHfVIeYFw5TDb5RUfiuDbrqO/48nCPKlFsqkiuAGR98FQyZ0t6/1a0P7/b0wZ7Fo9d1rfGG3Naz9z/pYPPAsmX2QPrirgO502JtXOlNFA/Huwojf2XrsxBro/F9yoC7XVKRFCHYGc6en0wWFKRndmdofM21vMNWvlkHAf4eHC33ZaNP/Q22k9IM0QZZ3Qhs7enOfzhQ5vUhuYfmNSbL77VGSM3GLKbpV5Z3fNxMJ4KTtLpEGIrZFZKuHYmJ7rHkbTv1EK/2U4wZZvsGG6UQzoe/1idBI2F5vnybMs/c56ZUhmhvB5wO4JMcH80Z/TuNtuc+0X6A5zUVeFH1UTnwwbSusqi7WbxRaubUrXeALFans5AkpFbvd2vAa1JI1MGYFt1+uyy2/+ZybexTLIA9b5p3N9r0zpP5nQWIRLbEm6CDQW7MwWt6DOa/FOUQqiGUsr9SVNwIj4YC+VYC85Vxd5u7pBsmUFT790TwDYtOrjWTFiPp7gsBsBb6e+NP1PIl9jR4WZi/byaLQSbt/HXtjPCF4pO/bB2NOr6oInO66xIUhEHDUNSM+OLde3cFg8z10fkvkYeQjvrAbWaX2MStcHKRf4qxk1UMhXkegsOdE6g1LmzMJ6jwio5C9oA4y4FRZ1b4TwjDgV8GueWgz9sQ=="
     ]
 }
