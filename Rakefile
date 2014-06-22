@@ -35,3 +35,21 @@ begin
 rescue LoadError
   puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
 end
+
+desc 'Refresh all chef vaults'
+task :refresh_vaults do
+  [
+    'certs/production',
+    'certs/staging',
+    'dnsimple/credentials',
+    'duo/credentials',
+    'librato/credentials',
+    'rubygems/production',
+    'rubygems/staging',
+    'sensu/credentials',
+    'slack/credentials'
+  ].each do |item|
+    pair = item.split('/')
+    system "knife vault refresh #{pair[0]} #{pair[1]}"
+  end
+end
