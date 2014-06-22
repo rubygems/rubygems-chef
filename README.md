@@ -13,6 +13,9 @@ We use roles as minimally as possible. All top-level functionality should be in 
 
 Run `for file in $(ls roles/*.rb); do knife role from file $file; done` after updating any roles to upload them to the Chef server.
 
+#### Environment
+Run `for file in $(ls environments/*.json); do knife environment from file $file; done` after updating any environments to upload them to the Chef server.
+
 ### Bugs and features
 
 GitHub issues are disabled on this repository. Instead, we use [a trello board](https://trello.com/b/cd2HqKnE/infrastructure) to track development work. If you're interested in getting involved with RubyGems.org's infrastructure team, that trello board is a great place to look for things to work on.
