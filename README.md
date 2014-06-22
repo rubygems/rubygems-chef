@@ -6,6 +6,11 @@ This repository contains chef artifacts used to deploy all the different pieces 
 2. Unless a wrapper cookbooks requires a cookbook for the same software which is different than what's on the Chef community site, all dependencies should be in a wrapper cookbook's `metadata.rb`, rather than in the `Berksfile` located in the root of this repo.
 3. No binaries ever go into this repo. They should all live in an apt repository or in S3.
 
+### Chef guidelines
+
+#### Roles
+We use roles as minimally as possible. All top-level functionality should be in the appropriate role-specific cookbook (i.e. rubygems-app). We only use roles for easing the use of search.
+
 ### Bugs and features
 
 GitHub issues are disabled on this repository. Instead, we use [a trello board](https://trello.com/b/cd2HqKnE/infrastructure) to track development work. If you're interested in getting involved with RubyGems.org's infrastructure team, that trello board is a great place to look for things to work on.
