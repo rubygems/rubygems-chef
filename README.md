@@ -11,7 +11,7 @@ This repository contains chef artifacts used to deploy all the different pieces 
 #### Roles
 We use roles as minimally as possible. All top-level functionality should be in the appropriate role-specific cookbook (i.e. rubygems-app). We only use roles for easing the use of search.
 
-Run `for file in `ls roles/*.rb`; do knife role from file $file; done` after updating any roles to upload them to the Chef server.
+Run `for file in $(ls roles/*.rb); do knife role from file $file; done` after updating any roles to upload them to the Chef server.
 
 ### Bugs and features
 
