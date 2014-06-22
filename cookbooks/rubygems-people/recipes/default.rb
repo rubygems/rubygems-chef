@@ -12,6 +12,12 @@ users.each do |user_name|
 
   next unless user['environments'].include?(node.chef_environment)
 
+  if user['action'] && user['action'] == 'remove'
+    user_account user['username']
+      action :remove
+   end
+  end
+
   sysadmins << user['username'] if user['admin']
   user_account user['username'] do
     comment   user['comment']
