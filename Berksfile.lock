@@ -61,7 +61,7 @@ DEPENDENCIES
     path: cookbooks/rubygems-utility
   slack_handler
     git: git@github.com:skottler/chef-slack_handler.git
-    revision: 0665e4f4989588bd28d149a14fe3a9aa1585c183
+    revision: 70a56ea342d00db7590bd2ad75529da5d5f36d14
 
 GRAPH
   apache2 (1.10.4)
@@ -241,7 +241,7 @@ GRAPH
     redisio (>= 1.7.0)
     windows (>= 1.8.8)
     yum (>= 0.0.0)
-  slack_handler (0.0.2)
+  slack_handler (0.0.3)
     chef_handler (>= 0.0.0)
   sudo (2.6.0)
   ulimit (0.3.2)
