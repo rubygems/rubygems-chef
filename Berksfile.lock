@@ -212,7 +212,7 @@ GRAPH
     collectd (>= 0.0.0)
     collectd-librato (>= 0.0.0)
     collectd_plugins (>= 0.0.0)
-  rubygems-monitoring (0.0.3)
+  rubygems-monitoring (0.0.7)
     rubygems (>= 0.0.0)
     rubygems-sensu (>= 0.0.0)
   rubygems-motd (0.0.7)
