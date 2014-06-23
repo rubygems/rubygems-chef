@@ -15,6 +15,7 @@ users.each do |user_name|
   if (user['action']) && (user['action'] == 'remove')
     user_account user['username'] do
       action :remove
+      only_if "/usr/bin/id -u #{user['username']}"
     end
   else
     sysadmins << user['username'] if user['admin']
