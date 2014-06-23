@@ -227,7 +227,7 @@ GRAPH
   rubygems-people (0.0.16)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
-  rubygems-redis (0.0.1)
+  rubygems-redis (0.0.2)
     redisio (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-repo (0.0.6)
