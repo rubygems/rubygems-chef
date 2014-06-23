@@ -5,7 +5,6 @@ This repository contains chef artifacts used to deploy all the different pieces 
 1. All cookbooks should live *somewhere* upstream. This could be a developers's GitHub account, or the Chef community site. All the cookbooks in the `cookbooks` directory are wrappers which set attributes, configure necessary LWRP's, and include recipes. The functionality itself comes from the upstream cookbooks.
 2. Unless a wrapper cookbooks requires a cookbook for the same software which is different than what's on the Chef community site, all dependencies should be in a wrapper cookbook's `metadata.rb`, rather than in the `Berksfile` located in the root of this repo.
 3. No binaries ever go into this repo. They should all live in an apt repository or in S3.
-4. We use roles, but only for search. Each role has one recipe, and no attributes should be added to a role.
 
 ### Chef guidelines
 
