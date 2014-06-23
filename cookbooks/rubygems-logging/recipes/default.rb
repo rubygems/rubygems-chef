@@ -7,4 +7,4 @@ node.default['rsyslog']['port'] = papertrail_creds['port']
 node.default['rsyslog']['preserve_fqdn'] = true
 node.default['rsyslog']['high_precision_timestamps'] = true
 
-include_recipe 'rsyslog'
+include_recipe 'rsyslog::client'

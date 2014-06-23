@@ -204,7 +204,7 @@ GRAPH
     dwradcliffe-dnsimple (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.6)
-  rubygems-logging (0.0.3)
+  rubygems-logging (0.0.4)
     chef-vault (>= 0.0.0)
     rsyslog (>= 0.0.0)
   rubygems-metrics (0.0.4)
