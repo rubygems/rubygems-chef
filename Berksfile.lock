@@ -212,7 +212,7 @@ GRAPH
     collectd (>= 0.0.0)
     collectd-librato (>= 0.0.0)
     collectd_plugins (>= 0.0.0)
-  rubygems-monitoring (0.0.4)
+  rubygems-monitoring (0.0.5)
     chef-vault (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)

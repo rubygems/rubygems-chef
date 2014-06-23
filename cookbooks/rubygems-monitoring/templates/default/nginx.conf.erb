@@ -20,6 +20,9 @@ server {
   proxy_set_header Content-Length $content_length;
   proxy_set_header Host $host;
   proxy_redirect off;
-  proxy_pass http://localhost:8080;
+
+  location / {
+    proxy_pass http://localhost:8080;
+  }
 
 }
