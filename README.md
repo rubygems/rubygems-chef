@@ -8,6 +8,9 @@ This repository contains chef artifacts used to deploy all the different pieces 
 
 ### Chef guidelines
 
+#### General
+To run chef on all nodes (staging, common, production) run: `knife ssh "*:*" "sudo chef-client" -x $(whoami)`.
+
 #### Roles
 We use roles as minimally as possible. All top-level functionality should be in the appropriate role-specific cookbook (i.e. rubygems-app). We only use roles for easing the use of search.
 
