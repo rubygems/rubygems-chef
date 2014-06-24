@@ -12,3 +12,7 @@ node.default['chef_client']['config']['client_fork'] = true
 
 include_recipe 'chef-client::config'
 include_recipe 'chef-client'
+
+node.default['omnibus_updater']['version'] = '11.12.8'
+node.default['omnibus_updater']['restart_chef_service'] = true
+include_recipe 'omnibus_updater'
