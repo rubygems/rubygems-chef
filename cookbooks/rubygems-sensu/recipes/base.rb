@@ -28,14 +28,6 @@ sensu_check 'check_procs' do
   additional(notification: 'There is a high number of procs running', occurences: 3)
 end
 
-sensu_check 'check_chef_client_proc' do
-  command "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-procs.rb -p '/usr/bin/chef-client -d -P /var/run/chef/client.pid'"
-  handlers ['slack']
-  subscribers ['all']
-  interval 30
-  additional(notification: 'chef-client is not running', occurences: 3)
-end
-
 sensu_check 'check_ntpd_proc' do
   command "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-procs.rb -p '/usr/sbin/ntpd -p /var/run/ntpd.pid'"
   handlers ['slack']
