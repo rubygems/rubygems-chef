@@ -202,7 +202,7 @@ GRAPH
   rubygems-chef (0.0.8)
     chef-client (>= 0.0.0)
     omnibus_updater (>= 0.0.0)
-  rubygems-ci (0.0.1)
+  rubygems-ci (0.0.5)
     jenkins (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-database (0.0.22)
