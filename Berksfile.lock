@@ -182,7 +182,7 @@ GRAPH
     runit (>= 0.0.0)
     unicorn (>= 0.0.0)
     user (>= 0.0.0)
-  rubygems-balancer (0.0.10)
+  rubygems-balancer (0.0.12)
     chef-vault (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)

@@ -1,5 +1,7 @@
 upstream app_servers {
-  server <%= @app_servers[0]['ipaddress'] %>:9000 fail_timeout=0;
+  <% @app_servers.each do |app_node| %>
+  server <%= app_node['ipaddress'] %>:9000 fail_timeout=0;
+  <% end %>
 }
 
 # HTTP
