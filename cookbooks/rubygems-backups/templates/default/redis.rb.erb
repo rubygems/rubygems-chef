@@ -1,0 +1,48 @@
+# encoding: utf-8
+
+##
+# Backup v4.x Configuration
+#
+# Documentation: http://meskyanichi.github.io/backup
+# Issue Tracker: https://github.com/meskyanichi/backup/issues
+
+require 'json'
+
+Backup::Model.new(:redis, 'Redis Backup') do
+
+  database Redis do |db|
+    db.name               = '<%= node['redis']['dbfilename'].gsub('.rdp','') %>'
+    db.path               = '<%= node['redis']['dir'] %>'
+    db.host               = 'localhost'
+    db.port               = <%= node['redis']['port'] %>
+    db.socket             = '<%= node['redis']['unixsocket'] %>'
+    db.invoke_save        = true
+  end
+
+  compress_with Gzip
+
+  encrypt_with GPG do |encryption|
+    encryption.keys = {}
+    <% @gpg.each do |k, v| %>
+    encryption.keys['<%= k %>'] = <<-KEY
+      <%= v %>
+    KEY
+    <% end %>
+    encryption.recipients = <%= @gpg.keys.inspect %>
+  end
+
+  store_with S3 do |s3|
+    s3.access_key_id      = '<%= @aws_access_key %>'
+    s3.secret_access_key  = '<%= @aws_secret_key %>'
+    s3.bucket             = '<%= @bucket_name %>'
+  end
+
+  notify_by HttpPost do |post|
+    post.on_success = false
+    post.on_warning = false
+    post.on_failure = true
+    post.uri = 'https://rubygems.slack.com/services/hooks/incoming-webhook?token=<%= @slack_token %>'
+    post.params = { 'payload' => JSON.generate({username: 'Backups', icon_emoji: ':warning:', text: "[Backup::Failure] redis (<%= node.chef_environment %>)"}) }
+  end
+
+end

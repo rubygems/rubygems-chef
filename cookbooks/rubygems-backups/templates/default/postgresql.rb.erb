@@ -1,0 +1,47 @@
+# encoding: utf-8
+
+##
+# Backup v4.x Configuration
+#
+# Documentation: http://meskyanichi.github.io/backup
+# Issue Tracker: https://github.com/meskyanichi/backup/issues
+
+require 'json'
+
+Backup::Model.new(:postgresql, 'PostgreSQL Backup') do
+
+  database PostgreSQL do |db|
+    db.name     = "<%= @postgresql_db %>"
+    db.username = "<%= @postgresql_user %>"
+    db.password = "<%= @postgresql_password %>"
+    db.host     = "localhost"
+    db.port     = 5432
+  end
+
+  compress_with Gzip
+
+  encrypt_with GPG do |encryption|
+    encryption.keys = {}
+    <% @gpg.each do |k, v| %>
+    encryption.keys['<%= k %>'] = <<-KEY
+      <%= v %>
+    KEY
+    <% end %>
+    encryption.recipients = <%= @gpg.keys.inspect %>
+  end
+
+  store_with S3 do |s3|
+    s3.access_key_id      = '<%= @aws_access_key %>'
+    s3.secret_access_key  = '<%= @aws_secret_key %>'
+    s3.bucket             = '<%= @bucket_name %>'
+  end
+
+  notify_by HttpPost do |post|
+    post.on_success = false
+    post.on_warning = false
+    post.on_failure = true
+    post.uri = 'https://rubygems.slack.com/services/hooks/incoming-webhook?token=<%= @slack_token %>'
+    post.params = { 'payload' => JSON.generate({username: 'Backups', icon_emoji: ':warning:', text: "[Backup::Failure] postgresql (<%= node.chef_environment %>)"}) }
+  end
+
+end
