@@ -44,6 +44,7 @@ task :refresh_vaults do
     'dnsimple/credentials',
     'duo/credentials',
     'librato/credentials',
+    'papertrail/credentials',
     'rubygems/production',
     'rubygems/staging',
     'sensu/credentials',
