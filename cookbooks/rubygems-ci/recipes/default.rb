@@ -9,10 +9,13 @@ node.default['jenkins']['master']['source'] = "#{node['jenkins']['master']['mirr
 include_recipe 'jenkins::java'
 include_recipe 'jenkins::master'
 
+include_recipe 'rubygems-ci::dns'
+include_recipe 'rubygems-ci::nginx'
+
 plugins = data_bag_item('jenkins', 'plugins')['plugins']
 
 plugins.each do |plugin|
   jenkins_plugin plugin do
-    action [ :install, :enable ]
+    action :install
   end
 end
