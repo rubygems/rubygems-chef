@@ -4,6 +4,7 @@
     "comment":  "David Radcliffe",
     "password": "$1$zUPbs1zR$Etel98kFpz1tsWUZouRAe1",
     "admin" : true,
+    "deployer": true,
     "environments": [
       "common",
       "staging",

@@ -1,6 +1,6 @@
 name 'rubygems-app'
 
-version '0.0.16'
+version '0.0.17'
 
 depends 'apt'
 depends 'chef-vault'
