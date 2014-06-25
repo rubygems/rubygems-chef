@@ -1,6 +1,6 @@
 127.0.0.1   localhost
 
-<% @hosts.each do |node| %>
+<% @hosts.sort.each do |node| %>
 <%= node['ipaddress'] %> <%= node['machinename'] %> <%= node['hostname'] %>
 <% end %>
 
