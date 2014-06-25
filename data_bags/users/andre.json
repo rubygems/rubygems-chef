@@ -4,6 +4,7 @@
     "comment": "André Arko",
     "password": "$1$unBnGVXN$3w40rX3XKsy4j/nvZZ1jt1",
     "admin" : true,
+    "deployer": true,
     "environments": [
       "common",
       "staging",

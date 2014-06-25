@@ -5,6 +5,7 @@
     "password": "$1$0rHKd1au$qNQ/3uZ1ATDDnrG9JMLG3.",
     "has_recipe": true,
     "admin" : true,
+    "deployer": true,
     "environments": [
       "common",
       "staging",
