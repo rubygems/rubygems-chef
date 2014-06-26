@@ -5,6 +5,7 @@
     "curl",
     "htop",
     "iotop",
+    "molly-guard",
     "strace",
     "tig",
     "vim",
