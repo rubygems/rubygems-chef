@@ -23,6 +23,9 @@ Run `knife environment from file environments/*.json` after updating any environ
 
 GitHub issues are disabled on this repository. Instead, we use [a trello board](https://trello.com/b/cd2HqKnE/infrastructure) to track development work. If you're interested in getting involved with RubyGems.org's infrastructure team, that trello board is a great place to look for things to work on.
 
+### Wiki
+This readme has some high-level information in it, but our [wiki](https://github.com/rubygems/rubygems-infrastructure/wiki) is where you can find more advanced and complete information about the RubyGems.org infrastructure.
+
 ### Development Setup
 
 [ChefDK](http://www.getchef.com/downloads/chef-dk) is the recommended way to get the different tools necessary to manage, install, and test our chef deployment. It includes things like an embedded Ruby, [Berkshelf](http://berkshelf.com/), and [Test Kitchen](http://kitchen.ci/). After you've download and installed the necessary ChefDK package for your platform, run `/opt/chefdk/embedded/bin/bundle install --local` to add a few tools we use which are not included in the ChefDK packages.
