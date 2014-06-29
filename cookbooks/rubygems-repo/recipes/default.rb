@@ -4,6 +4,10 @@
 #
 
 include_recipe 'rubygems'
+
+# Dont' re-sign packages with our own key.
+node.default['aptly']['gpgdisablesign'] = true
+
 include_recipe 'aptly'
 
 aptly_mirror 'ubuntu-trusty-main' do

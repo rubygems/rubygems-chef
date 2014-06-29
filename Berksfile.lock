@@ -246,7 +246,7 @@ GRAPH
   rubygems-redis (0.0.2)
     redisio (>= 0.0.0)
     rubygems (>= 0.0.0)
-  rubygems-repo (0.0.6)
+  rubygems-repo (0.0.7)
     aptly (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-sensu (0.0.50)
