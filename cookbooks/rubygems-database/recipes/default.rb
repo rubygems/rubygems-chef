@@ -17,7 +17,6 @@ node.default['postgresql']['pg_hba'] = [
     'type' => 'host',
     'db' => "rubygems_#{node.chef_environment}",
     'user' => secrets['rails_postgresql_user'],
-    'password' => secrets['rails_postgresql_password'],
     'addr' => "#{search(:node, "name:app01.#{node.chef_environment}.rubygems.org")[0]['ipaddress']}/0",
     'method' => 'md5'
   },

@@ -6,7 +6,7 @@
 include_recipe 'chef-vault'
 
 secrets = chef_vault_item('rubygems', node.chef_environment)
-db_host = search(:node, "name:db01.#{node.chef_environment}.rubygems.org")
+db_host = search(:node, "name:db01.#{node.chef_environment}.rubygems.org")[0]
 
 template '/applications/rubygems/shared/database.yml' do
   source 'database.yml.erb'
@@ -18,8 +18,8 @@ template '/applications/rubygems/shared/database.yml' do
     adapter: 'postgresql',
     database: "rubygems_#{node.chef_environment}",
     username: secrets['rails_postgresql_user'],
-    password: db_host[0]['postgresql']['password']['postgres'],
-    host: db_host[0]['ipaddress']
+    password: db_host['postgresql']['password']['postgres'],
+    host: db_host['ipaddress']
   )
 end
 
