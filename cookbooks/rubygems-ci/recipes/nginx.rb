@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: rubygems-sensu
+# Cookbook Name:: rubygems-ci
 # Recipe:: nginx
 #
 
