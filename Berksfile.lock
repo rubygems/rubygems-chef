@@ -35,6 +35,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-chef
   rubygems-ci
     path: cookbooks/rubygems-ci
+  rubygems-cloud-init
+    path: cookbooks/rubygems-cloud-init
   rubygems-database
     path: cookbooks/rubygems-database
   rubygems-hostname
@@ -167,8 +169,9 @@ GRAPH
   redisio (1.7.1)
     ulimit (>= 0.1.2)
   rsyslog (1.12.2)
-  rubygems (0.0.13)
+  rubygems (0.0.15)
     rubygems-chef (>= 0.0.0)
+    rubygems-cloud-init (>= 0.0.0)
     rubygems-hostname (>= 0.0.0)
     rubygems-hosts (>= 0.0.0)
     rubygems-logging (>= 0.0.0)
@@ -210,6 +213,7 @@ GRAPH
     jenkins (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
+  rubygems-cloud-init (0.0.1)
   rubygems-database (0.0.22)
     chef-vault (>= 0.0.0)
     database (>= 0.0.0)
