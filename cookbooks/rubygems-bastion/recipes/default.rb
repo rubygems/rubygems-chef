@@ -5,6 +5,7 @@
 
 include_recipe 'chef-vault'
 include_recipe 'rubygems'
+include_recipe 'rubygems-ruby'
 
 duo = chef_vault_item('duo', 'credentials')
 

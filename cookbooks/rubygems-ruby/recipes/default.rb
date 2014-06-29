@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: rubygems-app
-# Recipe:: ruby
+# Cookbook Name:: rubygems-ruby
+# Recipe:: default
 #
 
 %w( ruby2.0 ruby2.0-dev ).each do |pkg|

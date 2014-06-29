@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: rubygems-app
+# Cookbook Name:: rubygems-ruby
 # Recipe:: rubygems
 #
 

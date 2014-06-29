@@ -11,8 +11,8 @@ include_recipe 'apt'
 include_recipe 'git'
 include_recipe 'nodejs'
 include_recipe 'runit'
-include_recipe 'rubygems-app::ruby'
-include_recipe 'rubygems-app::rubygems'
+include_recipe 'rubygems-ruby'
+include_recipe 'rubygems-ruby::rubygems'
 
 package 'libpq-dev'
 
