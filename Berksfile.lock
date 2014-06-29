@@ -23,6 +23,8 @@ DEPENDENCIES
     path: cookbooks/rubygems
   rubygems-app
     path: cookbooks/rubygems-app
+  rubygems-apt
+    path: cookbooks/rubygems-apt
   rubygems-backups
     path: cookbooks/rubygems-backups
   rubygems-balancer
@@ -169,7 +171,8 @@ GRAPH
   redisio (1.7.1)
     ulimit (>= 0.1.2)
   rsyslog (1.12.2)
-  rubygems (0.0.15)
+  rubygems (0.0.16)
+    rubygems-apt (>= 0.0.0)
     rubygems-chef (>= 0.0.0)
     rubygems-cloud-init (>= 0.0.0)
     rubygems-hostname (>= 0.0.0)
@@ -193,6 +196,8 @@ GRAPH
     runit (>= 0.0.0)
     unicorn (>= 0.0.0)
     user (>= 0.0.0)
+  rubygems-apt (0.0.2)
+    apt (>= 0.0.0)
   rubygems-backups (0.0.5)
     chef-vault (>= 0.0.0)
   rubygems-balancer (0.0.12)

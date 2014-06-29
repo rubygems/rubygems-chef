@@ -3,6 +3,7 @@
 # Recipe:: default
 #
 
+include_recipe 'rubygems-apt'
 include_recipe 'rubygems-chef'
 include_recipe 'rubygems-cloud-init'
 include_recipe 'rubygems-hostname'

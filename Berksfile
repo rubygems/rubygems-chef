@@ -7,6 +7,7 @@ source 'https://api.berkshelf.com'
 
 cookbook 'rubygems', path: 'cookbooks/rubygems'
 cookbook 'rubygems-app', path: 'cookbooks/rubygems-app'
+cookbook 'rubygems-apt', path: 'cookbooks/rubygems-apt'
 cookbook 'rubygems-backups', path: 'cookbooks/rubygems-backups'
 cookbook 'rubygems-balancer', path: 'cookbooks/rubygems-balancer'
 cookbook 'rubygems-bastion', path: 'cookbooks/rubygems-bastion'
