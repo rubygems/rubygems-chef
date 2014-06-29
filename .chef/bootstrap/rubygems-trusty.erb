@@ -5,6 +5,10 @@ hostname -F /etc/hostname
 
 echo "`ip addr | grep eth0 | grep "inet " | cut -d " " -f 6 | cut -d \/ -f 1` `cat /etc/hostname`" >> /etc/hosts
 
+# Make sure the machine is using the internal apt repository during bootstrap
+rm /etc/apt/sources.list
+echo 'deb     http://repo01.common.rubygems.org trusty main' > /etc/apt/sources.list.d/rubygems_main.list
+
 apt-get update
 apt-get upgrade -y
 
