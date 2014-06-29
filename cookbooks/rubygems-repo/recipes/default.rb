@@ -5,6 +5,8 @@
 
 include_recipe 'rubygems'
 
+node.default['aptly']['architectures'] = ['amd64']
+
 # Dont' re-sign packages with our own key.
 node.default['aptly']['gpgdisablesign'] = true
 
