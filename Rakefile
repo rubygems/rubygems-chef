@@ -52,5 +52,6 @@ task :refresh_vaults do
   ].each do |item|
     pair = item.split('/')
     system "knife vault refresh #{pair[0]} #{pair[1]}"
+    puts "Successfully updated the #{item} vault" if $?.exitstatus == 0
   end
 end
