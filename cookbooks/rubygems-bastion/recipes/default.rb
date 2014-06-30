@@ -8,6 +8,8 @@ include_recipe 'rubygems'
 include_recipe 'rubygems-ruby'
 include_recipe 'rubygems-fail2ban'
 
+package 'libpq-dev'
+
 duo = chef_vault_item('duo', 'credentials')
 
 node.default['duosecurity']['ikey'] = duo['ikey']
