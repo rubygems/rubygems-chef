@@ -36,6 +36,14 @@ sensu_check 'check_ntpd_proc' do
   additional(notification: 'ntpd is not running', occurences: 3)
 end
 
+sensu_check 'check_collectd_proc' do
+  command "/opt/chef/embedded/bin/ruby /etc/sensu/plugins/check-procs.rb -p 'collectd -C /etc/collectd/collectd.conf'"
+  handlers ['slack']
+  subscribers ['all']
+  interval 30
+  additional(notifcation: 'collectd is not running', occurences: 3)
+end
+
 sensu_check 'check_ssh' do
   command '/usr/lib/nagios/plugins/check_ssh localhost'
   handlers ['slack']
