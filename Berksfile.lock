@@ -271,7 +271,7 @@ GRAPH
     aptly (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-ruby (0.0.1)
-  rubygems-sensu (0.0.54)
+  rubygems-sensu (0.0.55)
     chef-vault (>= 0.0.0)
     sensu (>= 0.0.0)
   rubygems-ssh (0.0.4)
