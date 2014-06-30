@@ -9,6 +9,9 @@ echo "`ip addr | grep eth0 | grep "inet " | cut -d " " -f 6 | cut -d \/ -f 1` `c
 rm /etc/apt/sources.list
 echo 'deb     http://repo01.common.rubygems.org trusty main' > /etc/apt/sources.list.d/rubygems_main.list
 
+# Allow unauthenicated packages temporarily
+echo "APT::Get::AllowUnauthenticated 'true';" > /etc/apt/apt.conf.d/05unauthenicated
+
 apt-get update
 apt-get upgrade -y
 
