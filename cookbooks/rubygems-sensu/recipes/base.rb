@@ -37,7 +37,7 @@ sensu_check 'check_ntpd_proc' do
 end
 
 sensu_check 'check_collectd_proc' do
-  command "/opt/chef/embedded/bin/ruby /etc/sensu/plugins/check-procs.rb -p 'collectd -C /etc/collectd/collectd.conf'"
+  command "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-procs.rb -p 'collectd -C /etc/collectd/collectd.conf'"
   handlers ['slack']
   subscribers ['all']
   interval 30
