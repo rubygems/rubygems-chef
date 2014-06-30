@@ -6,6 +6,7 @@
 include_recipe 'chef-vault'
 include_recipe 'rubygems'
 include_recipe 'rubygems-ruby'
+package 'libpq-dev'
 
 duo = chef_vault_item('duo', 'credentials')
 

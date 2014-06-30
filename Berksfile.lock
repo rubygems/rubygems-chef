@@ -207,7 +207,7 @@ GRAPH
     chef-vault (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
-  rubygems-bastion (0.0.6)
+  rubygems-bastion (0.0.7)
     chef-vault (>= 0.0.0)
     duo-security (>= 0.0.0)
     rubygems (>= 0.0.0)
