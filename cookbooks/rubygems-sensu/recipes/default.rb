@@ -24,7 +24,7 @@ node.default['sensu']['redis']['port'] = 6379
 
 sensu_client node.name do
   address node.ipaddress
-  subscriptions nodes.roles + ['all']
+  subscriptions node.roles + ['all']
   additional(environment: node.chef_environment)
 end
 
