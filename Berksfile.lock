@@ -266,7 +266,7 @@ GRAPH
   rubygems-sensu (0.0.54)
     chef-vault (>= 0.0.0)
     sensu (>= 0.0.0)
-  rubygems-ssh (0.0.3)
+  rubygems-ssh (0.0.4)
     openssh (>= 0.0.0)
   rubygems-utility (0.0.3)
   runit (1.5.10)
