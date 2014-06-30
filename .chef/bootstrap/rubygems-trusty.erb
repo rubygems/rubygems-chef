@@ -10,7 +10,7 @@ rm /etc/apt/sources.list
 echo 'deb     http://repo01.common.rubygems.org trusty main' > /etc/apt/sources.list.d/rubygems_main.list
 
 # Allow unauthenicated packages temporarily
-echo "APT::Get::AllowUnauthenticated 'true';" > /etc/apt/apt.conf.d/05unauthenicated
+echo "APT::Get::AllowUnauthenticated 'true';" > /etc/apt/apt.conf.d/05unauthenticated
 
 apt-get update
 apt-get upgrade -y
