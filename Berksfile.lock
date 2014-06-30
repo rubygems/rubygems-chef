@@ -41,6 +41,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-cloud-init
   rubygems-database
     path: cookbooks/rubygems-database
+  rubygems-fail2ban
+    path: cookbooks/rubygems-fail2ban
   rubygems-hostname
     path: cookbooks/rubygems-hostname
   rubygems-hosts
@@ -118,6 +120,9 @@ GRAPH
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
     yum-erlang_solutions (>= 0.0.0)
+  fail2ban (2.1.2)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
   git (4.0.2)
     build-essential (>= 0.0.0)
     dmg (>= 0.0.0)
@@ -207,10 +212,11 @@ GRAPH
     chef-vault (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
-  rubygems-bastion (0.0.6)
+  rubygems-bastion (0.0.8)
     chef-vault (>= 0.0.0)
     duo-security (>= 0.0.0)
     rubygems (>= 0.0.0)
+    rubygems-fail2ban (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
   rubygems-cache (0.0.1)
     memcached (>= 0.0.0)
@@ -228,6 +234,8 @@ GRAPH
     database (>= 0.0.0)
     postgresql (>= 0.0.0)
     rubygems (>= 0.0.0)
+  rubygems-fail2ban (0.0.2)
+    fail2ban (>= 0.0.0)
   rubygems-hostname (0.1.4)
     chef-vault (>= 0.0.0)
     dwradcliffe-dnsimple (>= 0.0.0)
