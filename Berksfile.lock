@@ -208,7 +208,7 @@ GRAPH
     apt (>= 0.0.0)
   rubygems-backups (0.0.6)
     chef-vault (>= 0.0.0)
-  rubygems-balancer (0.0.13)
+  rubygems-balancer (0.0.15)
     chef-vault (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
