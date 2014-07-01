@@ -18,6 +18,7 @@ git "#{node['aptly']['rootdir']}/apt-tools" do
 end
 
 include_recipe 'aptly'
+include_recipe 'nginx'
 
 aptly_mirror 'ubuntu-trusty-main' do
   action :create

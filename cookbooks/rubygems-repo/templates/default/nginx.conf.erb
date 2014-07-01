@@ -1,0 +1,12 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server ipv6only=on;
+
+        root /opt/aptly/public;
+
+	server_name repo01.common.rubygems.org;
+
+	location / {
+               autoindex on;
+	}
+}
