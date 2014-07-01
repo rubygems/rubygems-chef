@@ -36,3 +36,21 @@ aptly_mirror 'ubuntu-trusty-universe' do
   keyserver 'keys.gnupg.net'
   uri 'http://ubuntu.osuosl.org/ubuntu/'
 end
+
+aptly_mirror 'ubuntu-trusty-security-main' do
+  action :create
+  distribution 'trusty-security'
+  component 'main'
+  keyid 'C0B21F32'
+  keyserver 'keys.gnupg.net'
+  uri 'http://ubuntu.osuosl.org/ubuntu/'
+end
+
+aptly_mirror 'ubuntu-trusty-updates-main' do
+  action :create
+  distribution 'trusty-updates'
+  component 'main'
+  keyid 'C0B21F32'
+  keyserver 'keys.gnupg.net'
+  uri 'http://ubuntu.osuosl.org/ubuntu/'
+end
