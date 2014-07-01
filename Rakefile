@@ -47,6 +47,7 @@ task :refresh_vaults do
     'papertrail/credentials',
     'rubygems/production',
     'rubygems/staging',
+    'secrets/backups',
     'sensu/credentials',
     'slack/credentials'
   ].each do |item|
