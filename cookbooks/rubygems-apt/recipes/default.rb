@@ -4,8 +4,20 @@ file '/etc/apt/sources.list' do
 end
 
 file '/etc/apt/apt.conf.d/05unauthenticated' do
+  action :delete
+end
+
+directory '/etc/apt/rubygems' do
   action :create
-  content "APT::Get::AllowUnauthenticated 'true';"
+end
+
+cookbook_file 'packages.key' do
+  path '/etc/apt/rubygems/packages.key'
+end
+
+execute 'import-rubygems-apt-key' do
+  command '/usr/bin/apt-key add /etc/apt/rubygems/packages.key'
+  not_if "/usr/bin/apt-key list | grep '2048R/6064BECD'"
 end
 
 apt_repository 'rubygems_main' do
