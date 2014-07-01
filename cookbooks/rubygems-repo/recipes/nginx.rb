@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: rubygems-monitoring
+# Cookbook Name:: rubygems-repo
 # Recipe:: nginx
 #
 
