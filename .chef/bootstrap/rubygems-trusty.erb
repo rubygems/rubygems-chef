@@ -5,12 +5,14 @@ hostname -F /etc/hostname
 
 echo "`ip addr | grep eth0 | grep "inet " | cut -d " " -f 6 | cut -d \/ -f 1` `cat /etc/hostname`" >> /etc/hosts
 
-# Make sure the machine is using the internal apt repository during bootstrap
-rm /etc/apt/sources.list
-echo 'deb     http://repo01.common.rubygems.org trusty main' > /etc/apt/sources.list.d/rubygems_main.list
+# fetch the rubygems package signing public key and add it to the apt keyring
+curl http://repo01.common.rubygems.org/packages.key | sudo apt-key add -
 
-# Allow unauthenicated packages temporarily
-echo "APT::Get::AllowUnauthenticated 'true';" > /etc/apt/apt.conf.d/05unauthenticated
+# remove the AWS repos
+rm /etc/apt/sources.list
+
+# add the internal apt repo
+echo 'deb     http://repo01.common.rubygems.org trusty main' > /etc/apt/sources.list.d/rubygems_main.list
 
 apt-get update
 apt-get upgrade -y
