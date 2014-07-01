@@ -17,7 +17,8 @@ template File.join(node['rubygems']['backups']['config_dir'], 'postgresql.rb') d
     postgresql_db: "rubygems_#{node.chef_environment}",
     postgresql_user: secrets['rails_postgresql_user'],
     postgresql_password: node['postgresql']['password']['postgres'],
-    gpg: backup_secrets['gpg_keys'],
+    gpg_email: backup_secrets['gpg_email'],
+    gpg_public_key: backup_secrets['gpg_public_key'],
     aws_access_key: backup_secrets['aws_access_key'],
     aws_secret_key: backup_secrets['aws_secret_key'],
     bucket_name: 'rubygems-backups',
@@ -25,12 +26,12 @@ template File.join(node['rubygems']['backups']['config_dir'], 'postgresql.rb') d
   )
 end
 
-# cron 'postgresql-backup' do
-#   hour '22'
-#   minute '22'
-#   day '*'
-#   month '*'
-#   weekday '*'
-#   command "backup perform --trigger postgresql --config-file #{File.join(node['rubygems']['backups']['config_dir'], 'postgresql.rb')}"
-#   user 'root'
-# end
+cron 'postgresql-backup' do
+  hour '22'
+  minute '22'
+  day '*'
+  month '*'
+  weekday '*'
+  command "backup perform --trigger postgresql --config-file #{File.join(node['rubygems']['backups']['config_dir'], 'postgresql.rb')}"
+  user 'root'
+end

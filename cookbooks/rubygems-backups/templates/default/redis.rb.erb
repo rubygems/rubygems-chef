@@ -11,11 +11,9 @@ require 'json'
 Backup::Model.new(:redis, 'Redis Backup') do
 
   database Redis do |db|
-    db.name               = '<%= node['redis']['dbfilename'].gsub('.rdp','') %>'
-    db.path               = '<%= node['redis']['dir'] %>'
+    db.rdb_path           = '/var/lib/redis/dump-<%= node['redisio']['servers'][0]['port'] %>.rdb'
     db.host               = 'localhost'
-    db.port               = <%= node['redis']['port'] %>
-    db.socket             = '<%= node['redis']['unixsocket'] %>'
+    db.port               = <%= node['redisio']['servers'][0]['port'] %>
     db.invoke_save        = true
   end
 
@@ -23,18 +21,18 @@ Backup::Model.new(:redis, 'Redis Backup') do
 
   encrypt_with GPG do |encryption|
     encryption.keys = {}
-    <% @gpg.each do |k, v| %>
-    encryption.keys['<%= k %>'] = <<-KEY
-      <%= v %>
+    encryption.keys['<%= @gpg_email %>'] = <<-KEY
+      <%= @gpg_public_key %>
     KEY
-    <% end %>
-    encryption.recipients = <%= @gpg.keys.inspect %>
+    encryption.recipients = '<%= @gpg_email %>'
   end
 
   store_with S3 do |s3|
     s3.access_key_id      = '<%= @aws_access_key %>'
     s3.secret_access_key  = '<%= @aws_secret_key %>'
     s3.bucket             = '<%= @bucket_name %>'
+    s3.region             = 'us-west-2'
+    s3.path               = '<%= node.chef_environment %>'
   end
 
   notify_by HttpPost do |post|

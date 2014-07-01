@@ -22,18 +22,18 @@ Backup::Model.new(:postgresql, 'PostgreSQL Backup') do
 
   encrypt_with GPG do |encryption|
     encryption.keys = {}
-    <% @gpg.each do |k, v| %>
-    encryption.keys['<%= k %>'] = <<-KEY
-      <%= v %>
+    encryption.keys['<%= @gpg_email %>'] = <<-KEY
+      <%= @gpg_public_key %>
     KEY
-    <% end %>
-    encryption.recipients = <%= @gpg.keys.inspect %>
+    encryption.recipients = '<%= @gpg_email %>'
   end
 
   store_with S3 do |s3|
     s3.access_key_id      = '<%= @aws_access_key %>'
     s3.secret_access_key  = '<%= @aws_secret_key %>'
     s3.bucket             = '<%= @bucket_name %>'
+    s3.region             = 'us-west-2'
+    s3.path               = '<%= node.chef_environment %>'
   end
 
   notify_by HttpPost do |post|

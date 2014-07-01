@@ -9,3 +9,5 @@ node.default['redisio']['default_settings']['loglevel'] = 'notice'
 
 include_recipe 'redisio::install'
 include_recipe 'redisio::enable'
+
+include_recipe 'rubygems-backups::redis'
