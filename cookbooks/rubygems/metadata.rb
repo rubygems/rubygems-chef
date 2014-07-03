@@ -2,7 +2,7 @@ name             'rubygems'
 maintainer       'RubyGems.org Ops Team'
 license          'MIT'
 description      'RubyGems base recipes'
-version          '0.0.17'
+version          '0.0.22'
 
 depends 'rubygems-apt'
 depends 'rubygems-chef'
@@ -18,5 +18,7 @@ depends 'rubygems-people'
 depends 'rubygems-sensu'
 depends 'rubygems-ssh'
 depends 'rubygems-utility'
+
+depends 'ohai'
 
 supports 'ubuntu'

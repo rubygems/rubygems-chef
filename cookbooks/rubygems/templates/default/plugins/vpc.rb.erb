@@ -1,0 +1,66 @@
+provides "vpc_data"
+
+require 'ohai/mixin/ec2_metadata'
+
+require_plugin "hostname"
+require_plugin "kernel"
+require_plugin "network"
+
+vpc_data Mash.new
+
+
+def make_api_request(url)
+  res = Net::HTTP.get_response('169.254.169.254', "/latest/meta-data#{url}")
+
+  Ohai::Log.debug("#{url.split("/")[-1]}[#{res.code}] == #{res.body}")
+  unless res.code.eql?("200")
+    Ohai::Log.warn("#{url.split("/")[-1]} == #{res.code}")
+    return nil
+  else
+    res.body
+  end
+end
+
+def get_mac_address
+  return make_api_request("/network/interfaces/macs/")
+end
+
+def get_public_ipv4
+  return make_api_request("/network/interfaces/macs/#{vpc_data[:mac_address]}/public-ipv4s/")
+end
+
+def get_local_ipv4
+  return make_api_request("/network/interfaces/macs/#{vpc_data[:mac_address]}/local-ipv4s/")
+end
+
+def get_local_ipv4_cidr
+  return make_api_request("/network/interfaces/macs/#{vpc_data[:mac_address]}/subnet-ipv4-cidr-block/")
+end
+
+def get_subnet_id
+  return make_api_request("/network/interfaces/macs/#{vpc_data[:mac_address]}/subnet-id/")
+end
+
+def get_instance_id
+  return make_api_request("/instance-id/")
+end
+
+def get_vpc_id
+  return make_api_request("/network/interfaces/macs/#{vpc_data[:mac_address]}/vpc-id/")
+end
+
+def get_netmask
+  return IPAddr.new('255.255.255.255').mask(get_cidr.split("/")[1]).to_s
+end
+
+if can_metadata_connect?(EC2_METADATA_ADDR,80)
+
+  vpc_data[:mac_address]  =  get_mac_address.delete("/")
+  vpc_data[:vpc_id]       =  get_vpc_id.delete("/")
+
+  if vpc_data[:mac_address] && vpc_data[:vpc_id]
+    vpc_data[:local_ipv4_cidr]  =   get_local_ipv4_cidr
+    svpc_data[:public_ipv4]     =   get_public_ipv4
+    vpc_data[:instance_id]      =   get_instance_id.delete("/")
+  end
+end
