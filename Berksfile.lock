@@ -238,7 +238,7 @@ GRAPH
     rubygems-backups (>= 0.0.0)
   rubygems-fail2ban (0.0.2)
     fail2ban (>= 0.0.0)
-  rubygems-hostname (0.1.4)
+  rubygems-hostname (0.1.6)
     chef-vault (>= 0.0.0)
     dwradcliffe-dnsimple (>= 0.0.0)
     hostname (>= 0.0.0)
