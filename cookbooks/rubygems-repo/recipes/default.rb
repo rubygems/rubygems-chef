@@ -55,3 +55,10 @@ aptly_mirror 'ubuntu-trusty-updates-main' do
   keyserver 'keys.gnupg.net'
   uri 'http://ubuntu.osuosl.org/ubuntu/'
 end
+
+aptly_mirror 'sensu' do
+  action :create
+  distribution 'sensu'
+  component 'main'
+  uri 'http://repos.sensuapp.org/apt'
+end
