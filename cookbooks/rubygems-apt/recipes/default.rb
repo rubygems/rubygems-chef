@@ -20,7 +20,7 @@ end
 
 execute 'import-rubygems-apt-key' do
   command '/usr/bin/apt-key add /etc/apt/rubygems/packages.key'
-  not_if "/usr/bin/apt-key list | grep '2048R/6064BECD'"
+  not_if "/usr/bin/apt-key list | grep '2048R/6B6ABD97'"
 end
 
 apt_repository 'rubygems_main' do

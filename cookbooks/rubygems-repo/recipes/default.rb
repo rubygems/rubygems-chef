@@ -18,7 +18,6 @@ git "#{node['aptly']['rootdir']}/apt-tools" do
 end
 
 include_recipe 'aptly'
-include_recipe 'nginx'
 
 aptly_mirror 'ubuntu-trusty-main' do
   action :create
@@ -61,4 +60,11 @@ aptly_mirror 'sensu' do
   distribution 'sensu'
   component 'main'
   uri 'http://repos.sensuapp.org/apt'
+end
+
+include_recipe 'nginx'
+include_recipe 'rubygems-repo::nginx'
+
+link "#{node['aptly']['rootdir']}/public/packages.key" do
+  to '/var/apt/rubygems/packages.key'
 end
