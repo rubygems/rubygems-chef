@@ -20,4 +20,3 @@ include_recipe 'rubygems-people'
 include_recipe 'rubygems-sensu'
 include_recipe 'rubygems-ssh'
 include_recipe 'rubygems-utility'
-

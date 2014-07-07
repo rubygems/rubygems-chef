@@ -1,3 +1,8 @@
+#
+# Cookbook Name:: rubygems-ci
+# Recipe:: dns
+#
+
 include_recipe 'chef-vault'
 
 dnsimple_credentials = chef_vault_item('dnsimple', 'credentials')

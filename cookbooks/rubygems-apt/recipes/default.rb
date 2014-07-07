@@ -1,3 +1,8 @@
+#
+# Cookbook Name:: rubygems-apt
+# Recipe:: default
+#
+
 node.default['apt']['bootstrap'] = false
 
 # We use /etc/apt/sources.list.d/ for everything.

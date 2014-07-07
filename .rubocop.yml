@@ -11,3 +11,5 @@ NumericLiterals:
   Enabled: false
 LineLength:
   Enabled: false
+Style/WordArray:
+  MinSize: 2

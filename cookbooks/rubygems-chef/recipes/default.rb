@@ -17,7 +17,7 @@ include_recipe 'chef-client::config'
 include_recipe 'chef-client::cron'
 
 service 'chef-client' do
-  action [ :stop, :disable ]
+  action [:stop, :disable]
 end
 
 node.default['omnibus_updater']['version'] = '11.12.8'

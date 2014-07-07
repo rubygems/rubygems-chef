@@ -1,3 +1,8 @@
+#
+# Cookbook Name:: rubygems-ci
+# Recipe:: default
+#
+
 include_recipe 'rubygems'
 
 # TODO: remove these three attributes once https://issues.jenkins-ci.org/browse/JENKINS-22346

@@ -1,3 +1,8 @@
+#
+# Cookbook Name:: rubygems-logging
+# Recipe:: default
+#
+
 include_recipe 'chef-vault'
 
 papertrail_creds = chef_vault_item('papertrail', 'credentials')

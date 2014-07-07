@@ -12,7 +12,7 @@ users.each do |user_name|
 
   next unless user['environments'].include?(node.chef_environment)
 
-  if (user['action'] && user['action'] == 'remove')
+  if user['action'] && user['action'] == 'remove'
     user_account user['username'] do
       action :remove
       only_if "/usr/bin/id -u #{user['username']}"
