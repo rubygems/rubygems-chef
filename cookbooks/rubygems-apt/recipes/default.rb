@@ -1,4 +1,4 @@
-node.default['apt']['bootstrap'] = true
+node.default['apt']['bootstrap'] = false
 
 # We use /etc/apt/sources.list.d/ for everything.
 file '/etc/apt/sources.list' do
