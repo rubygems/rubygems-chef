@@ -9,12 +9,11 @@ node.default['aptly']['architectures'] = ['amd64']
 
 # This repo contains scripts for snapshotting, merging, and publishing repos.
 git "#{node['aptly']['rootdir']}/apt-tools" do
-  repository 'https://github.com/skottler/rubygems-apt-tools' do
-    revision 'master'
-    checkout_branch 'master'
-    action :sync
-    user node['aptly']['user']
-  end
+  repository 'https://github.com/skottler/rubygems-apt-tools'
+  revision 'master'
+  checkout_branch 'master'
+  action :sync
+  user node['aptly']['user']
 end
 
 include_recipe 'aptly'
