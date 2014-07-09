@@ -268,7 +268,7 @@ GRAPH
     redisio (>= 0.0.0)
     rubygems (>= 0.0.0)
     rubygems-backups (>= 0.0.0)
-  rubygems-repo (0.0.22)
+  rubygems-repo (0.0.24)
     aptly (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
