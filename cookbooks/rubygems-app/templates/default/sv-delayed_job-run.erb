@@ -3,8 +3,8 @@
 cd /applications/rubygems/current
 
 exec 2>&1
-exec <%= node[:runit][:chpst_bin] %> \
+exec <%= node['runit']['chpst_bin'] %> \
   -u <%= @options[:owner] %>:<%= @options[:group] %> \
-  -e <%= node[:runit][:sv_dir] %>/delayed_job/env \
+  -e <%= node['runit']['sv_dir'] %>/delayed_job/env \
   <%= @options[:bundle_command] %> exec \
   rake jobs:work

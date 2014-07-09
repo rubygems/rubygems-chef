@@ -10,7 +10,7 @@ include_recipe 'sensu'
 
 # this will only ever return a single 'ip' key since node comes from
 # the node name and is therefore unique.
-monitoring_host = search(:node, 'name:monitoring01.common.rubygems.org')
+monitoring_host = search('node', 'name:monitoring01.common.rubygems.org')
 
 # set the address of the host to the local ipaddress if the node doesn't
 # exist in chef's index yet since it's being boostrapped.
@@ -23,8 +23,8 @@ node.default['sensu']['redis']['host'] = address
 node.default['sensu']['redis']['port'] = 6379
 
 sensu_client node.name do
-  address node.ipaddress
-  subscriptions node.roles + ['all']
+  address node['ipaddress']
+  subscriptions node['roles'] + ['all']
   additional(environment: node.chef_environment)
 end
 

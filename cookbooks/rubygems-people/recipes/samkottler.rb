@@ -15,12 +15,11 @@ package 'tmux' do
 end
 
 git "#{home}/src/dotfiles" do
-  repository 'https://github.com/skottler/dotfiles' do
-    revision 'master'
-    checkout_branch 'master'
-    action :sync
-    user 'samkottler'
-  end
+  repository 'https://github.com/skottler/dotfiles'
+  revision 'master'
+  checkout_branch 'master'
+  action :sync
+  user 'samkottler'
 end
 
 %w( .gitconfig .pryrc .tmux.conf .gemrc .ackrc ).each do |file|
