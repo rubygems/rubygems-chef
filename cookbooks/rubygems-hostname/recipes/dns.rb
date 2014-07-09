@@ -22,7 +22,7 @@ if node['cloud_v2']
 else
   dwradcliffe_dnsimple_record "create A record for #{node.name}" do
     name      node.name.sub('.rubygems.org', '')
-    content   `/usr/bin/curl http://169.254.169.254/latest/meta-data/public-ipv4`.chomp
+    content   Mixlib::ShellOut.new('/usr/bin/curl http://169.254.169.254/latest/meta-data/public-ipv4').run_command.stdout.chomp
     type      'A'
     domain    'rubygems.org'
     username  dnsimple_credentials['username']
