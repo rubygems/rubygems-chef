@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 
+include_recipe 'rubygems-chef::librato'
+
 cron 'chef-client' do
   action :delete
 end
