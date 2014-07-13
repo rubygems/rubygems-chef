@@ -228,7 +228,7 @@ GRAPH
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-cloud-init (0.0.1)
-  rubygems-database (0.0.24)
+  rubygems-database (0.0.25)
     chef-vault (>= 0.0.0)
     database (>= 0.0.0)
     postgresql (>= 0.0.0)
