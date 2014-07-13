@@ -3,7 +3,7 @@
 # Recipe:: delayed_job
 #
 
-redis_ip = search('node', "name:redis01.#{node.chef_environment}.rubygems.org")[0]['ipaddress']
+redis_ip = search('node', "name:redis02.#{node.chef_environment}.rubygems.org")[0]['ipaddress']
 
 runit_service 'delayed_job' do
   owner 'deploy'
