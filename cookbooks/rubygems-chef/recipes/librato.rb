@@ -15,6 +15,6 @@ template '/etc/chef/client.d/librato.rb' do
   mode '0644'
   variables(
     email: librato_creds['email'],
-    api_key: librato_creds['api_key']
+    api_key: librato_creds['token']
   )
 end
