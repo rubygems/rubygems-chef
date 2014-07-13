@@ -6,6 +6,8 @@
 include_recipe 'chef-vault'
 librato_creds = chef_vault_item('librato', 'credentials')
 
+directory '/etc/chef/client.d'
+
 chef_gem 'chef-handler-librato'
 
 template '/etc/chef/client.d/librato.rb' do

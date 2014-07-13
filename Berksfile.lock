@@ -218,7 +218,7 @@ GRAPH
   rubygems-cache (0.0.1)
     memcached (>= 0.0.0)
     rubygems (>= 0.0.0)
-  rubygems-chef (0.0.10)
+  rubygems-chef (0.0.12)
     chef-client (>= 0.0.0)
     omnibus_updater (>= 0.0.0)
   rubygems-ci (0.0.7)
