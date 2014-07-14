@@ -136,7 +136,7 @@ server {
     }
 
     location / {
-      root /opt/nginx/html;
+      root /var/www/rubygems;
       try_files /maintenance.html @app;
     }
 
@@ -304,7 +304,7 @@ server {
   }
 
   location / {
-    root /opt/nginx/html;
+    root /var/www/rubygems;
     try_files /maintenance.html @app;
   }
 
