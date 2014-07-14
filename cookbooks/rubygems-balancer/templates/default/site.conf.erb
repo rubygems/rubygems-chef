@@ -39,18 +39,14 @@ server {
     proxy_set_header Host $host;
     proxy_redirect off;
 
-    <% if @stat_server %>
-      location = /__log {
-        internal;
-        proxy_pass http://<%= stat_server %>/gems/$gem.gem;
-      }
-    <% end %>
+    location = /__log {
+      internal;
+      proxy_pass http://127.0.0.1:5000/gems/$gem.gem;
+    }
 
     location ~ /gems/(.*)\.gem$ {
-      <% if @stat_server %>
         set $gem $1;
         post_action /__log;
-      <% end %>
         rewrite ^ $gem_mirror$request_uri redirect;
     }
 
@@ -209,18 +205,14 @@ server {
 
   ##### BEGIN legacy rules
 
-  <% if @stat_server %>
   location = /__log {
     internal;
-    proxy_pass http://<%= @stat_server %>/gems/$gem.gem;
+    proxy_pass http://127.0.0.1:5000/gems/$gem.gem;
   }
-  <% end %>
 
   location ~ /gems/(.*)\.gem$ {
-  <% if @stat_server %>
     set $gem $1;
     post_action /__log;
-  <% end %>
     rewrite ^ $gem_mirror_ssl$request_uri redirect;
   }
 
