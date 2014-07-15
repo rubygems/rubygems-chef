@@ -20,4 +20,5 @@ include_recipe 'rubygems-balancer::site'
 
 cookbook_file "/etc/default/nginx" do
   source "nginx"
+  notifies :reload, 'service[nginx]'
 end
