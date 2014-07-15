@@ -17,3 +17,5 @@ include_recipe 'rubygems-balancer::ssl'
 include_recipe 'rubygems-balancer::geoip'
 include_recipe 'rubygems-balancer::maintenance'
 include_recipe 'rubygems-balancer::site'
+
+cookbook_file "/etc/default/nginx"
