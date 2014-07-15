@@ -18,4 +18,6 @@ include_recipe 'rubygems-balancer::geoip'
 include_recipe 'rubygems-balancer::maintenance'
 include_recipe 'rubygems-balancer::site'
 
-cookbook_file "/etc/default/nginx"
+cookbook_file "/etc/default/nginx" do
+  source "nginx"
+end
