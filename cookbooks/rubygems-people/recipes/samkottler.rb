@@ -17,7 +17,6 @@ end
 git "#{home}/src/dotfiles" do
   repository 'https://github.com/skottler/dotfiles'
   revision 'master'
-  checkout_branch 'master'
   action :sync
   user 'samkottler'
 end
