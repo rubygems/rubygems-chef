@@ -64,7 +64,7 @@ sensu_check 'check_ntp_time' do
   command '/usr/lib/nagios/plugins/check_ntp_time -H localhost'
   handlers ['slack']
   subscribers ['all']
-  interval 30
+  interval 120
   additional(notification: 'NTP is out of sync', occurences: 3)
 end
 
