@@ -1,6 +1,6 @@
 require 'rubocop/rake_task'
 require 'foodcritic'
-require 'rspec/core/rake_task'
+# require 'rspec/core/rake_task'
 require 'English'
 
 desc 'Run RuboCop style and lint checks'
@@ -18,24 +18,24 @@ FoodCritic::Rake::LintTask.new(:foodcritic) do |t|
   }
 end
 
-desc 'Run ChefSpec examples'
-RSpec::Core::RakeTask.new(:spec)
+# desc 'Run ChefSpec examples'
+# RSpec::Core::RakeTask.new(:spec)
 
-desc 'Run all tests'
-task test: [:rubocop, :foodcritic, :spec]
-task default: :test
-task lint: :foodcritic
+# desc 'Run all tests'
+# task test: [:rubocop, :foodcritic, :spec]
+# task default: :test
+# task lint: :foodcritic
 
-begin
-  require 'kitchen/rake_tasks'
-  Kitchen::RakeTasks.new
+# begin
+#   require 'kitchen/rake_tasks'
+#   Kitchen::RakeTasks.new
 
-  desc 'Alias for kitchen:all'
-  task integration: 'kitchen:all'
-  task test_all: [:test, :integration]
-rescue LoadError
-  puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
-end
+#   desc 'Alias for kitchen:all'
+#   task integration: 'kitchen:all'
+#   task test_all: [:test, :integration]
+# rescue LoadError
+#   puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
+# end
 
 desc 'Refresh all chef vaults'
 task :refresh_vaults do
