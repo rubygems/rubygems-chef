@@ -11,6 +11,7 @@ node.default['sensu']['use_ssl'] = false
 node.default['sensu']['dashboard']['bind'] = '0.0.0.0'
 node.default['sensu']['dashboard']['user'] = sensu_creds['user']
 node.default['sensu']['dashboard']['password'] = sensu_creds['password']
+node.default['sensu']['use_embedded_ruby'] = true
 
 sensu_handler 'default' do
   type 'pipe'

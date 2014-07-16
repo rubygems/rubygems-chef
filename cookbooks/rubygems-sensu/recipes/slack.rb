@@ -9,9 +9,8 @@ include_recipe 'chef-vault'
 # provides a separate token for each integration.
 slack_creds = chef_vault_item('sensu', 'credentials')['slack']
 
-template '/etc/sensu/slack.json' do
+template '/etc/sensu/conf.d/slack.json' do
   source 'slack.json.erb'
-  path '/etc/sensu/slack.json'
   owner 'sensu'
   group 'sensu'
   variables(

@@ -9,3 +9,11 @@ cookbook_file "#{node['nginx']['dir']}/maintenance.html" do
   group 'root'
   mode '0644'
 end
+
+directory '/var/www/rubygems' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+  recursive true
+end

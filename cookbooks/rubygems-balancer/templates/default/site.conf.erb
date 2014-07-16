@@ -136,7 +136,7 @@ server {
     }
 
     location / {
-      root /opt/nginx/html;
+      root /var/www/rubygems;
       try_files /maintenance.html @app;
     }
 
@@ -202,6 +202,8 @@ server {
   proxy_set_header Content-Length $content_length;
   proxy_set_header Host $host;
   proxy_redirect off;
+
+  client_max_body_size 500M;
 
   ##### BEGIN legacy rules
 
@@ -304,7 +306,7 @@ server {
   }
 
   location / {
-    root /opt/nginx/html;
+    root /var/www/rubygems;
     try_files /maintenance.html @app;
   }
 
