@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - vendor/**/*
     - /**/files/**/*
+    - cookbooks/rubygems-chef/templates/default/librato.rb
 
 Encoding:
   Enabled: false
