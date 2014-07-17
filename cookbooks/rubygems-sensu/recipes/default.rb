@@ -29,4 +29,5 @@ sensu_client node.name do
 end
 
 include_recipe 'rubygems-sensu::base'
+include_recipe 'rubygems-sensu::balancer'
 include_recipe 'sensu::client_service'
