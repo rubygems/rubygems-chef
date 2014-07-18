@@ -1,0 +1,7 @@
+{
+    "id": "hosts",
+    "environments": {
+      "staging": "db01",
+      "production": "db02"
+    }
+}

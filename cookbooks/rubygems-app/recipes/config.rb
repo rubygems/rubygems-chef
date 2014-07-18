@@ -5,8 +5,10 @@
 
 include_recipe 'chef-vault'
 
+dbhost = data_bag_item('database', 'hosts')['environments'][node.chef_environment]
+
 secrets = chef_vault_item('rubygems', node.chef_environment)
-db_host = search(:node, "name:db02.#{node.chef_environment}.rubygems.org")[0]
+db_host = search(:node, "name:#{dbhost}.#{node.chef_environment}.rubygems.org")[0]
 
 template '/applications/rubygems/shared/database.yml' do
   source 'database.yml.erb'
