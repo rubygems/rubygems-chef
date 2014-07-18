@@ -2,7 +2,7 @@ name             'rubygems'
 maintainer       'RubyGems.org Ops Team'
 license          'MIT'
 description      'RubyGems base recipes'
-version          '0.0.23'
+version          '0.0.24'
 
 depends 'rubygems-apt'
 depends 'rubygems-chef'
