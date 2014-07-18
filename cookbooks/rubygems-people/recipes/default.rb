@@ -5,8 +5,8 @@
 
 include_recipe 'user'
 
-meg_balancer_host = search(:node, "roles:balancer AND chef_environment:#{node.chef_environment}")[0]['ipaddress']
-meg_app_host = search(:node, "roles:app AND chef_environment:#{node.chef_environment}")[0]['ipaddress']
+meg_balancer_host = search('node', "roles:balancer AND chef_environment:#{node.chef_environment}")[0]['ipaddress']
+meg_app_host = search('node', "roles:app AND chef_environment:#{node.chef_environment}")[0]['ipaddress']
 
 users = data_bag('users')
 sysadmins = []
