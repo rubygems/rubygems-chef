@@ -95,3 +95,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# export hostnames for use in meg commands
+export MEG_BALANCER_HOST=<%= @meg_balancer_host %>
+export MEG_APP_HOST=<%= @meg_app_host %>

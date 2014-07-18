@@ -5,6 +5,9 @@
 
 include_recipe 'user'
 
+meg_balancer_host = search(:node, "roles:balancer AND chef_environment:#{node.chef_environment}")[0]['ipaddress']
+meg_app_host = search(:node, "roles:app AND chef_environment:#{node.chef_environment}")[0]['ipaddress']
+
 users = data_bag('users')
 sysadmins = []
 users.each do |user_name|
@@ -31,7 +34,9 @@ users.each do |user_name|
       owner user['username']
       group user['username']
       variables(
-        environment: node.chef_environment
+        environment: node.chef_environment,
+        meg_balancer_host: meg_balancer_host,
+        meg_app_host: meg_app_host
       )
     end
 
@@ -49,3 +54,5 @@ end
 
 node.default['authorization']['sudo']['groups'] = ['sysadmin']
 include_recipe 'sudo'
+
+include_recipe 'rubygems-people::meg'
