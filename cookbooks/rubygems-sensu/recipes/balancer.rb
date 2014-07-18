@@ -12,7 +12,7 @@ sensu_check 'check_nginx_proc' do
 end
 
 sensu_check 'check_nginx_http' do
-  command "/usr/lib/nagios/plugins/check_http -I 127.0.0.1"
+  command '/usr/lib/nagios/plugins/check_http -I 127.0.0.1'
   handlers ['slack']
   subscribers ['balancer']
   interval 30
@@ -20,7 +20,7 @@ sensu_check 'check_nginx_http' do
 end
 
 sensu_check 'check_nginx_https' do
-  command "/usr/lib/nagios/plugins/check_http -I 127.0.0.1 --ssl"
+  command '/usr/lib/nagios/plugins/check_http -I 127.0.0.1 --ssl'
   handlers ['slack']
   subscribers ['balancer']
   interval 30
@@ -28,7 +28,7 @@ sensu_check 'check_nginx_https' do
 end
 
 sensu_check 'check_nginx_cert_expiration' do
-  command "/usr/lib/nagios/plugins/check_http -I 127.0.0.1 --ssl -C 30,14"
+  command '/usr/lib/nagios/plugins/check_http -I 127.0.0.1 --ssl -C 30,14'
   handlers ['slack']
   subscribers ['balancer']
   interval 30
