@@ -1,5 +1,5 @@
 {
-    "id": "hosts",
+    "id": "database",
     "environments": {
       "staging": "db01",
       "production": "db03"

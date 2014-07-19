@@ -5,7 +5,7 @@
 
 include_recipe 'chef-vault'
 
-dbhost = data_bag_item('database', 'hosts')['environments'][node.chef_environment]
+dbhost = data_bag_item('hosts', 'database')['environments'][node.chef_environment]
 
 secrets = chef_vault_item('rubygems', node.chef_environment)
 db_host = search(:node, "name:#{dbhost}.#{node.chef_environment}.rubygems.org")[0]
