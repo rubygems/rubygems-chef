@@ -265,7 +265,7 @@ GRAPH
     slack_handler (>= 0.0.0)
   rubygems-ntp (0.0.1)
     ntp (>= 0.0.0)
-  rubygems-people (0.0.26)
+  rubygems-people (0.0.28)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
   rubygems-redis (0.0.3)
