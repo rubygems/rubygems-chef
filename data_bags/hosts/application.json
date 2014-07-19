@@ -1,0 +1,7 @@
+{
+    "id": "application",
+    "environments": {
+      "staging": "app01",
+      "production": "app02"
+    }
+}
