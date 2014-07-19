@@ -1,0 +1,7 @@
+{
+    "id": "redis",
+    "environments": {
+      "staging": "redis01",
+      "production": "redis02"
+    }
+}
