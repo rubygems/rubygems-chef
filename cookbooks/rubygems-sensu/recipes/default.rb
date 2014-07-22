@@ -30,4 +30,6 @@ end
 
 include_recipe 'rubygems-sensu::base'
 include_recipe 'rubygems-sensu::balancer'
+include_recipe 'rubygems-sensu::app'
+include_recipe 'rubygems-sensu::nginx'
 include_recipe 'sensu::client_service'
