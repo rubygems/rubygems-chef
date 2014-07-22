@@ -1,4 +1,4 @@
-source 'https://api.berkshelf.com'
+source 'https://supermarket.getchef.com'
 
 # IMPORTANT: this section of the Berksfile is solely for installing wrapper
 # cookbooks and uploading them to hosted chef. All dependencies which are
