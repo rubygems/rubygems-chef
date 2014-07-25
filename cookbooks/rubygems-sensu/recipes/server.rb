@@ -20,6 +20,7 @@ end
 
 include_recipe 'rubygems-sensu::librato'
 include_recipe 'rubygems-sensu::slack'
+include_recipe 'rubygems-sensu::pagerduty'
 
 include_recipe 'sensu::rabbitmq'
 
