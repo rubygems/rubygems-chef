@@ -6,7 +6,6 @@
 include_recipe 'chef-vault'
 slack_secrets = chef_vault_item('slack', 'hubot')
 
-
 node.set['hubot']['version'] = '2.4.6'
 node.set['hubot']['scripts_version'] = '2.4.1'
 node.set['hubot']['install_dir'] = '/srv/hubot'
@@ -18,7 +17,7 @@ node.set['hubot']['dependencies'] = {
   'hubot-capistrano' => '1.0.2'
 }
 
-node.set['hubot']['hubot_scripts'] = %w{
+node.set['hubot']['hubot_scripts'] = %w(
   ascii.coffee
   base64.coffee
   beerme.coffee
@@ -35,12 +34,12 @@ node.set['hubot']['hubot_scripts'] = %w{
   sudo.coffee
   wunderground.coffee
   xkcd.coffee
-}
+)
 
-node.set['hubot']['external_scripts'] = %w{
+node.set['hubot']['external_scripts'] = %w(
   hubot-chef
   hubot-capistrano
-}
+)
 
 directory '/var/lib/hubot-capistrano'
 
