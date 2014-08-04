@@ -22,7 +22,7 @@ end
 cookbook_file '/etc/sensu/handlers/slack.rb' do
   path '/etc/sensu/handlers/slack.rb'
   source 'slack.rb'
-  mode "0755"
+  mode '0755'
   action :create
 end
 

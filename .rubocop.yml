@@ -14,3 +14,5 @@ LineLength:
   Enabled: false
 Style/WordArray:
   MinSize: 2
+Style/RescueModifier:
+  Enabled: false
