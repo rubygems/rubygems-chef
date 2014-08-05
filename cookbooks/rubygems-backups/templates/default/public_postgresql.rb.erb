@@ -1,0 +1,40 @@
+# encoding: utf-8
+
+##
+# Backup v4.x Configuration
+#
+# Documentation: http://meskyanichi.github.io/backup
+# Issue Tracker: https://github.com/meskyanichi/backup/issues
+
+require 'json'
+
+Backup::Model.new(:public_postgresql, 'RubyGems.org Public Database Dump') do
+
+  database PostgreSQL do |db|
+    db.name        = "<%= @postgresql_db %>"
+    db.username    = "<%= @postgresql_user %>"
+    db.password    = "<%= @postgresql_password %>"
+    db.host        = "localhost"
+    db.port        = 5432
+    db.only_tables = ['rubygems', 'versions' 'dependencies', 'linksets', 'requirements', 'version_histories']
+  end
+
+  compress_with Gzip
+
+  store_with S3 do |s3|
+    s3.access_key_id      = '<%= @aws_access_key %>'
+    s3.secret_access_key  = '<%= @aws_secret_key %>'
+    s3.bucket             = '<%= @bucket_name %>'
+    s3.region             = 'us-west-2'
+    s3.path               = '<%= node.chef_environment %>'
+  end
+
+  notify_by Slack do |slack|
+    slack.on_success = true
+    slack.on_warning = true
+    slack.on_failure = true
+    slack.team       = 'bundler'
+    slack.token      = '<%= @slack_token %>'
+  end
+
+end

@@ -35,3 +35,31 @@ cron 'postgresql-backup' do
   command "backup perform --trigger postgresql --config-file #{File.join(node['rubygems']['backups']['config_dir'], 'postgresql.rb')}"
   user 'root'
 end
+
+template File.join(node['rubygems']['backups']['config_dir'], 'public_postgresql.rb') do
+  source 'public_postgresql.rb.erb'
+  owner 'root'
+  group 'root'
+  mode 00600
+  variables(
+    postgresql_db: "rubygems_#{node.chef_environment}",
+    postgresql_user: secrets['rails_postgresql_user'],
+    postgresql_password: node['postgresql']['password']['postgres'],
+    aws_access_key: backup_secrets['aws_access_key'],
+    aws_secret_key: backup_secrets['aws_secret_key'],
+    bucket_name: 'rubygems-dumps',
+    slack_token: backup_secrets['slack_token']
+  )
+end
+
+if node.chef_environment == 'production'
+  cron 'postgresql-public-dump' do
+    hour '21'
+    minute '21'
+    day '*'
+    month '*'
+    weekday '1'
+    command "backup perform --trigger public_postgresql --config-file #{File.join(node['rubygems']['backups']['config_dir'], 'public_postgresql.rb')}"
+    user 'root'
+  end
+end
