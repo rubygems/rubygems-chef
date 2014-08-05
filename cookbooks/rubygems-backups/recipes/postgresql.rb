@@ -52,14 +52,13 @@ template File.join(node['rubygems']['backups']['config_dir'], 'public_postgresql
   )
 end
 
-if node.chef_environment == 'production'
-  cron 'postgresql-public-dump' do
-    hour '21'
-    minute '21'
-    day '*'
-    month '*'
-    weekday '1'
-    command "backup perform --trigger public_postgresql --config-file #{File.join(node['rubygems']['backups']['config_dir'], 'public_postgresql.rb')}"
-    user 'root'
-  end
+cron 'postgresql-public-dump' do
+  hour '21'
+  minute '21'
+  day '*'
+  month '*'
+  weekday '1'
+  command "backup perform --trigger public_postgresql --config-file #{File.join(node['rubygems']['backups']['config_dir'], 'public_postgresql.rb')}"
+  user 'root'
+  only_if { node.chef_environment == 'production' }
 end

@@ -213,7 +213,7 @@ GRAPH
     user (>= 0.0.0)
   rubygems-apt (0.0.13)
     apt (>= 0.0.0)
-  rubygems-backups (0.0.16)
+  rubygems-backups (0.0.17)
     chef-vault (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
   rubygems-balancer (0.0.24)
