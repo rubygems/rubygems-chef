@@ -9,7 +9,7 @@ end
 
 package 'nagios-plugins'
 
-%w( check-procs.rb ).each do |plugin|
+%w( check-procs.rb check_postgres.pl ).each do |plugin|
   cookbook_file "/etc/sensu/plugins/#{plugin}" do
     source plugin
     path "/etc/sensu/plugins/#{plugin}"
