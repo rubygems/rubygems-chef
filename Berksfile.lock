@@ -216,7 +216,7 @@ GRAPH
   rubygems-backups (0.0.17)
     chef-vault (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
-  rubygems-balancer (0.0.24)
+  rubygems-balancer (0.0.25)
     chef-vault (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)

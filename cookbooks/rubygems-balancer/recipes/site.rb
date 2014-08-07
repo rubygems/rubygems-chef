@@ -3,6 +3,14 @@
 # Recipe:: site
 #
 
+cookbook_file "#{node['nginx']['dir']}/filters.conf" do
+  source 'filters.conf'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  notifies :restart, 'service[nginx]', :immediately
+end
+
 template "#{node['nginx']['dir']}/sites-available/rubygems" do
   source 'site.conf.erb'
   owner  'root'
