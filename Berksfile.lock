@@ -286,7 +286,7 @@ GRAPH
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-ruby (0.0.1)
-  rubygems-sensu (0.0.74)
+  rubygems-sensu (0.0.76)
     chef-vault (>= 0.0.0)
     sensu (= 1.0.0)
   rubygems-ssh (0.0.4)
