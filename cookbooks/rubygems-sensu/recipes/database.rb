@@ -12,7 +12,7 @@ sensu_check 'check_postgres_proc' do
 end
 
 sensu_check 'check_postgres_connection' do
-  command "perl check_postgres.pl --action connection -db rubygems_#{node.chef_environment}"
+  command "perl /etc/sensu/plugins/check_postgres.pl --action connection -db rubygems_#{node.chef_environment}"
   handlers ['slack', 'pagerduty']
   subscribers ['database']
   interval 30
@@ -20,7 +20,7 @@ sensu_check 'check_postgres_connection' do
 end
 
 sensu_check 'check_postgres_backends' do
-  command "perl check_postgres.pl --action backends -db rubygems_#{node.chef_environment}"
+  command "perl /etc/sensu/plugins/check_postgres.pl --action backends -db rubygems_#{node.chef_environment}"
   handlers ['slack', 'pagerduty']
   subscribers ['database']
   interval 30
