@@ -15,7 +15,8 @@ template '/etc/sensu/conf.d/slack.json' do
   group 'sensu'
   variables(
     token: slack_creds['token'],
-    team_name: slack_creds['team_name']
+    team_name: slack_creds['team_name'],
+    channel: slack_creds['channel']
   )
 end
 
