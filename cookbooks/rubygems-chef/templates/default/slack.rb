@@ -42,13 +42,10 @@ class Chef::Handler::Slack < Chef::Handler
   def report
     begin
       Timeout::timeout(@timeout) do
-        if run_status_human_readable == 'failed'
-          Chef::Log.debug("Sending report to Slack ##{config[:channel]}@#{team}.slack.com")
-          @timestamp = Time.now.getutc
-          create_gist
-
-          slack_message("Chef failed on #{node.name} (#{formatted_run_list}): #{@gist_url}")
-        end
+        Chef::Log.debug("Sending report to Slack ##{config[:channel]}@#{team}.slack.com")
+        @timestamp = Time.now.getutc
+        create_gist
+        slack_message("Chef client run #{run_status_human_readable} on #{node.name}: #{@gist_url}")
       end
     rescue Exception => e
       Chef::Log.debug("Failed to send message to Slack: #{e.message}")
@@ -75,9 +72,14 @@ class Chef::Handler::Slack < Chef::Handler
     ].join("\n\n")
   end
 
+  def formatted_cookbooks
+    cookbooks = run_context.cookbook_collection
+    cookbooks.keys.map { |x| cookbooks[x].name.to_s + " " + cookbooks[x].version }.join("\n")
+  end
+
   def create_gist
     begin
-      timeout(10) do
+      Timeout::timeout(10) do
         uri = URI.parse("https://api.github.com/gists")
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
@@ -88,6 +90,9 @@ class Chef::Handler::Slack < Chef::Handler
           "files" => {
             "chef_exception.txt" => {
               "content" => formatted_gist
+            },
+            "chef_cookbooks.txt" => {
+              "content" => formatted_cookbooks
             }
           }
         }.to_json
@@ -98,7 +103,7 @@ class Chef::Handler::Slack < Chef::Handler
     rescue Timeout::Error
       Chef::Log.error("Timed out while attempting to create a Gist")
     rescue => error
-      Chef::Log.error("Unexpected error while attempting to create a Gist: #{error.backtrace.inspect}")
+      Chef::Log.error("Unexpected error while attempting to create a Gist: #{error.message} #{error.backtrace.inspect}")
     end
   end
 
@@ -120,5 +125,5 @@ handler = Chef::Handler::Slack.new(
   username: '<%= @username %>',
   icon_url: '<%= @icon_url %>'
 )
-report_handlers << handler
+# report_handlers << handler
 exception_handlers << handler
