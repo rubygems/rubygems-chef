@@ -4,6 +4,7 @@
 #
 
 include_recipe 'rubygems-chef::librato'
+include_recipe 'rubygems-chef::slack'
 
 cron 'chef-client' do
   action :delete
