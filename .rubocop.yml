@@ -3,6 +3,7 @@ AllCops:
     - vendor/**/*
     - /**/files/**/*
     - cookbooks/rubygems-chef/templates/default/librato.rb
+    - cookbooks/rubygems-chef/templates/default/slack.rb
 
 Encoding:
   Enabled: false
