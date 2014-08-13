@@ -4,6 +4,7 @@
     "comment": "Evan Phoenix",
     "password": "$1$YDnmqgDR$KMoWcNg9h.EqWC4WX3qSw.",
     "admin" : true,
+    "deployer": true,
     "environments": [
       "common",
       "staging",
