@@ -264,7 +264,7 @@ GRAPH
     rubygems-sensu (>= 0.0.0)
   rubygems-motd (0.0.7)
     motd (>= 0.0.0)
-  rubygems-ntp (0.0.1)
+  rubygems-ntp (0.0.2)
     ntp (>= 0.0.0)
   rubygems-people (0.0.28)
     sudo (>= 0.0.0)
