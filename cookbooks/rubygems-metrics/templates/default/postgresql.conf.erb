@@ -9,7 +9,7 @@ LoadPlugin postgresql
       ValuesFrom count
     </Result>
   </Query>
-  <Database rubygems_production>
+  <Database rubygems_<%= node.chef_environment %>>
     Host "localhost"
     User "postgres"
     Password "<%= @password %>"
