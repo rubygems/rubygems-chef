@@ -8,5 +8,5 @@ sensu_check 'check_nginx_proc' do
   handlers ['slack', 'pagerduty']
   subscribers ['balancer', 'app']
   interval 30
-  additional(notification: 'nginx is not running', occurences: 3)
+  additional(notification: "[#{node.chef_environment}] nginx is not running", occurences: 3)
 end

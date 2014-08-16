@@ -8,7 +8,7 @@ sensu_check 'check_postgres_proc' do
   handlers ['slack', 'pagerduty']
   subscribers ['database']
   interval 30
-  additional(notification: 'postgres is not running', occurences: 3)
+  additional(notification: "[#{node.chef_environment}] postgres is not running", occurences: 3)
 end
 
 sensu_check 'check_postgres_connection' do
