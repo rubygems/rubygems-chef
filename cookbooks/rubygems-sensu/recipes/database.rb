@@ -8,7 +8,7 @@ sensu_check 'check_postgres_proc' do
   handlers ['slack', 'pagerduty']
   subscribers ['database']
   interval 30
-  additional(notification: "[#{node.chef_environment}] postgres is not running", occurences: 3)
+  additional(notification: "[#{node.chef_environment}] postgres is not running", occurrences: 3)
 end
 
 sensu_check 'check_postgres_connection' do
@@ -16,7 +16,7 @@ sensu_check 'check_postgres_connection' do
   handlers ['slack', 'pagerduty']
   subscribers ['database']
   interval 30
-  additional(occurences: 3)
+  additional(occurrences: 3)
 end
 
 sensu_check 'check_postgres_backends' do
@@ -24,5 +24,5 @@ sensu_check 'check_postgres_backends' do
   handlers ['slack', 'pagerduty']
   subscribers ['database']
   interval 30
-  additional(occurences: 3)
+  additional(occurrences: 3)
 end

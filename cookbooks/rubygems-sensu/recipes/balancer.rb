@@ -8,7 +8,7 @@ sensu_check 'check_nginx_http' do
   handlers ['slack', 'pagerduty']
   subscribers ['balancer']
   interval 30
-  additional(notification: "[#{node.chef_environment}] nginx is not returning 200 OK on port 80", occurences: 3)
+  additional(notification: "[#{node.chef_environment}] nginx is not returning 200 OK on port 80", occurrences: 3)
 end
 
 sensu_check 'check_nginx_https' do
@@ -16,7 +16,7 @@ sensu_check 'check_nginx_https' do
   handlers ['slack', 'pagerduty']
   subscribers ['balancer']
   interval 30
-  additional(notification: "[#{node.chef_environment}] nginx is not returning 200 OK on port 443", occurences: 3)
+  additional(notification: "[#{node.chef_environment}] nginx is not returning 200 OK on port 443", occurrences: 3)
 end
 
 sensu_check 'check_nginx_cert_expiration' do
@@ -24,5 +24,5 @@ sensu_check 'check_nginx_cert_expiration' do
   handlers ['slack', 'pagerduty']
   subscribers ['balancer']
   interval 30
-  additional(occurences: 3)
+  additional(occurrences: 3)
 end
