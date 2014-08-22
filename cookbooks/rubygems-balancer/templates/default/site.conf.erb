@@ -16,19 +16,19 @@ server {
   <% else %>
 
     if ($geoip_country_code = "CN") {
-      set $gem_mirror http://au-m.rubygems.org;
+      set $gem_mirror http://mirror.ninefold.com;
     }
 
     if ($geoip_country_code = "JP") {
-      set $gem_mirror http://au-m.rubygems.org;
+      set $gem_mirror http://mirror.ninefold.com;
     }
 
     if ($geoip_country_code = "AU") {
-      set $gem_mirror http://au-m.rubygems.org;
+      set $gem_mirror http://mirror.ninefold.com;
     }
 
     if ($geoip_country_code = "NZ") {
-      set $gem_mirror http://au-m.rubygems.org;
+      set $gem_mirror http://mirror.ninefold.com;
     }
 
     if ($continent = "EU") {
@@ -167,19 +167,19 @@ server {
   server_name <%= @server_names.join(" ") %>;
 
   if ($geoip_country_code = "CN") {
-    set $gem_mirror_ssl https://au-m.rubygems.org;
+    set $gem_mirror_ssl https://mirror.ninefold.com;
   }
 
   if ($geoip_country_code = "JP") {
-    set $gem_mirror_ssl https://au-m.rubygems.org;
+    set $gem_mirror_ssl https://mirror.ninefold.com;
   }
 
   if ($geoip_country_code = "AU") {
-    set $gem_mirror_ssl https://au-m.rubygems.org;
+    set $gem_mirror_ssl https://mirror.ninefold.com;
   }
 
   if ($geoip_country_code = "NZ") {
-    set $gem_mirror_ssl https://au-m.rubygems.org;
+    set $gem_mirror_ssl https://mirror.ninefold.com;
   }
 
   if ($continent = "EU") {
