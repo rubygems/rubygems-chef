@@ -5,6 +5,9 @@
 
 include_recipe 'rubygems'
 
+node.default['sysctl']['params']['vm']['overcommit_memory'] = 1
+include_recipe 'sysctl::apply'
+
 node.default['redisio']['default_settings']['loglevel'] = 'notice'
 
 include_recipe 'redisio::install'
