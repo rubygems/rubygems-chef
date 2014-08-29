@@ -72,11 +72,6 @@ class Chef::Handler::Slack < Chef::Handler
     ].join("\n\n")
   end
 
-  def formatted_cookbooks
-    cookbooks = run_context.cookbook_collection
-    cookbooks.keys.map { |x| cookbooks[x].name.to_s + " " + cookbooks[x].version }.join("\n")
-  end
-
   def create_gist
     begin
       Timeout::timeout(10) do
@@ -90,9 +85,6 @@ class Chef::Handler::Slack < Chef::Handler
           "files" => {
             "chef_exception.txt" => {
               "content" => formatted_gist
-            },
-            "chef_cookbooks.txt" => {
-              "content" => formatted_cookbooks
             }
           }
         }.to_json
