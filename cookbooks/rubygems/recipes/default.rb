@@ -3,9 +3,6 @@
 # Recipe:: default
 #
 
-# General ohai plugins required for every node should live in this recipe.
-include_recipe 'rubygems::ohai'
-
 include_recipe 'rubygems-apt'
 include_recipe 'rubygems-chef'
 include_recipe 'rubygems-cloud-init'
