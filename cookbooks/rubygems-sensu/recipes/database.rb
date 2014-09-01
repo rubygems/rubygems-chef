@@ -22,12 +22,14 @@ sensu_check 'check_postgres_proc' do
   additional(notification: "[#{node.chef_environment}] postgres is not running", occurrences: 3)
 end
 
-sensu_check 'check_postgres_connection' do
-  command "perl /etc/sensu/plugins/check_postgres.pl --action connection #{db_connection}"
-  handlers ['slack', 'pagerduty']
-  subscribers ['app']
-  interval 30
-  additional(occurrences: 3)
+%w{ connection locks timesync commitratio }.each do |check|
+  sensu_check "check_#{check}_connection" do
+    command "perl /etc/sensu/plugins/check_postgres.pl --action #{check} #{db_connection}"
+    handlers ['slack', 'pagerduty']
+    subscribers ['app']
+    interval 30
+    additional(occurrences: 3)
+  end
 end
 
 sensu_check 'check_postgres_backends' do
