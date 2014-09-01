@@ -5,7 +5,7 @@
         "rubygems-ruby": "= 0.0.3",
         "rubygems": "= 0.0.26",
         "rubygems-app": "= 0.0.31",
-        "rubygems-apt": "= 0.0.14",
+        "rubygems-apt": "= 0.0.15",
         "rubygems-backups": "= 0.0.18",
         "rubygems-balancer": "= 0.0.28",
         "rubygems-bastion": "= 0.0.10",
