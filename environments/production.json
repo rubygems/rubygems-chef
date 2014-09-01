@@ -9,7 +9,7 @@
         "rubygems-backups": "= 0.0.18",
         "rubygems-balancer": "= 0.0.28",
         "rubygems-bastion": "= 0.0.10",
-        "rubygems-cache": "= 0.0.2",
+        "rubygems-cache": "= 0.0.3",
         "rubygems-chef": "= 0.0.29",
         "rubygems-ci": "= 0.0.8",
         "rubygems-cloud-init": "= 0.0.2",
@@ -25,7 +25,7 @@
         "rubygems-people": "= 0.0.29",
         "rubygems-redis": "= 0.0.5",
         "rubygems-repo": "= 0.0.26",
-        "rubygems-sensu": "= 0.0.79",
+        "rubygems-sensu": "= 0.0.80",
         "rubygems-ssh": "= 0.0.5",
         "rubygems-utility": "= 0.0.4"
     },
