@@ -9,7 +9,7 @@ end
 
 package 'nagios-plugins'
 
-%w( check-procs.rb ).each do |plugin|
+%w( check-procs.rb check_postgres.pl ).each do |plugin|
   cookbook_file "/etc/sensu/plugins/#{plugin}" do
     source plugin
     path "/etc/sensu/plugins/#{plugin}"
@@ -25,7 +25,7 @@ sensu_check 'check_procs' do
   handlers ['slack', 'pagerduty']
   subscribers ['all']
   interval 30
-  additional(notification: 'There is a high number of procs running', occurences: 3)
+  additional(notification: 'There is a high number of procs running', occurrences: 3)
 end
 
 sensu_check 'check_ntpd_proc' do
@@ -33,7 +33,7 @@ sensu_check 'check_ntpd_proc' do
   handlers ['slack', 'pagerduty']
   subscribers ['all']
   interval 30
-  additional(notification: 'ntpd is not running', occurences: 3)
+  additional(notification: 'ntpd is not running', occurrences: 3)
 end
 
 sensu_check 'check_collectd_proc' do
@@ -41,7 +41,7 @@ sensu_check 'check_collectd_proc' do
   handlers ['slack', 'pagerduty']
   subscribers ['all']
   interval 30
-  additional(notification: 'collectd is not running', occurences: 3)
+  additional(notification: 'collectd is not running', occurrences: 3)
 end
 
 sensu_check 'check_ssh' do
@@ -49,7 +49,7 @@ sensu_check 'check_ssh' do
   handlers ['slack', 'pagerduty']
   subscribers ['all']
   interval 30
-  additional(notification: 'sshd is not running', occurences: 3)
+  additional(notification: 'sshd is not running', occurrences: 3)
 end
 
 sensu_check 'check_apt' do
@@ -57,7 +57,7 @@ sensu_check 'check_apt' do
   handlers ['slack', 'pagerduty']
   subscribers ['all']
   interval 60
-  additional(notification: 'There are pending package upgrades', occurences: 3)
+  additional(notification: 'There are pending package upgrades', occurrences: 3)
 end
 
 sensu_check 'check_ntp_time' do
@@ -65,7 +65,7 @@ sensu_check 'check_ntp_time' do
   handlers ['slack', 'pagerduty']
   subscribers ['all']
   interval 120
-  additional(notification: 'NTP is out of sync', occurences: 3)
+  additional(notification: 'NTP is out of sync', occurrences: 3)
 end
 
 sensu_check 'check_load' do
@@ -73,5 +73,5 @@ sensu_check 'check_load' do
   handlers ['slack', 'pagerduty']
   subscribers ['all']
   interval 30
-  additional(notification: 'Load is high', occurences: 3)
+  additional(notification: 'Load is high', occurrences: 3)
 end

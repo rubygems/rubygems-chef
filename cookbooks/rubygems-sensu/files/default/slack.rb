@@ -89,21 +89,11 @@ class Slack < Sensu::Handler
     {
       :link_names => 1,
       :text => [slack_message_prefix, notice].compact.join(' '),
-      :icon_emoji => icon_emoji
+      :icon_url => 'https://cloud.githubusercontent.com/assets/118850/3842673/478bfb1c-1e39-11e4-85f6-39d01402c724.png'
     }.tap do |payload|
       payload[:channel] = slack_channel if slack_channel
       payload[:username] = slack_bot_name if slack_bot_name
     end
-  end
-
-  def icon_emoji
-    default = ":feelsgood:"
-    emoji = {
-      0 => ':godmode:',
-      1 => ':hurtrealbad:',
-      2 => ':feelsgood:'
-    }
-    emoji.fetch(check_status.to_i, default)
   end
 
   def check_status

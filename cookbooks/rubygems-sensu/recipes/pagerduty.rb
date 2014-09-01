@@ -12,7 +12,7 @@ template '/etc/sensu/conf.d/pagerduty.json' do
   owner 'sensu'
   group 'sensu'
   variables(
-    api_key: pagerduty_creds['api_key'],
+    api_key: pagerduty_creds['api_key']
   )
 end
 
@@ -23,7 +23,7 @@ end
 cookbook_file '/etc/sensu/handlers/pagerduty.rb' do
   path '/etc/sensu/handlers/pagerduty.rb'
   source 'pagerduty.rb'
-  mode "0755"
+  mode '0755'
   action :create
 end
 

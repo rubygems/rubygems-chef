@@ -4,10 +4,7 @@
 #
 
 include_recipe 'rubygems-chef::librato'
-
-cron 'chef-client' do
-  action :delete
-end
+include_recipe 'rubygems-chef::slack'
 
 node.default['chef_client']['config']['ssl_verify_mode'] = ':verify_peer'
 node.default['chef_client']['config']['client_fork'] = true

@@ -15,14 +15,15 @@ template '/etc/sensu/conf.d/slack.json' do
   group 'sensu'
   variables(
     token: slack_creds['token'],
-    team_name: slack_creds['team_name']
+    team_name: slack_creds['team_name'],
+    channel: slack_creds['channel']
   )
 end
 
 cookbook_file '/etc/sensu/handlers/slack.rb' do
   path '/etc/sensu/handlers/slack.rb'
   source 'slack.rb'
-  mode "0755"
+  mode '0755'
   action :create
 end
 

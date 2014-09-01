@@ -1,0 +1,15 @@
+{
+    "id": "abby",
+    "username": "abby",
+    "comment": "Abby Phoenix",
+    "password": "$1$c8Vsvf3o$lzaoKxlNGUS81BMPMXWH7/",
+    "admin" : true,
+    "environments": [
+      "common",
+      "staging",
+      "production"
+    ],
+    "ssh_keys": [
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+1wWKo+Xc/mNmvobHNAADTKO/LGo9j/I07JA8QjU/mtu+YMZMxMAipfK8B3mIx9spRg7kw0W7qLz328nk8nltJEfEvT0nOMmJPgEobAWgWnoiRcZuoftWYao71///UlsGs8uxznqxDvpD39CkcnOQKdHMYZziEVutz2veZNlX7HOYkKJU3O1MRhqg2Myw7Q7Q0WeHWv6d3rbvLoyDOd2t6jifNARU4AiK5sE4pQzgOtcj3Q21PTnsdprh4ghTTmr9e4L/7+tasM/Rgg68GYHwDNZ9084EYwINlTx2Dtk841dvh5+/ybgG0JLf65kNDDCgfzyLIJORP0EKivFYhfYH"
+    ]
+}

@@ -36,12 +36,12 @@ Backup::Model.new(:postgresql, 'PostgreSQL Backup') do
     s3.path               = '<%= node.chef_environment %>'
   end
 
-  notify_by HttpPost do |post|
-    post.on_success = false
-    post.on_warning = false
-    post.on_failure = true
-    post.uri = 'https://rubygems.slack.com/services/hooks/incoming-webhook?token=<%= @slack_token %>'
-    post.params = { 'payload' => JSON.generate({username: 'Backups', icon_emoji: ':warning:', text: "[Backup::Failure] postgresql (<%= node.chef_environment %>)"}) }
+  notify_by Slack do |slack|
+    slack.on_success = false
+    slack.on_warning = true
+    slack.on_failure = true
+    slack.team       = 'bundler'
+    slack.token      = '<%= @slack_token %>'
   end
 
 end

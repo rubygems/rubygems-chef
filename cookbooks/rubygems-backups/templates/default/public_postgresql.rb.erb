@@ -8,24 +8,18 @@
 
 require 'json'
 
-Backup::Model.new(:redis, 'Redis Backup') do
+Backup::Model.new(:public_postgresql, 'RubyGems.org Public Database Dump') do
 
-  database Redis do |db|
-    db.rdb_path           = '/var/lib/redis/dump-<%= node['redisio']['servers'][0]['port'] %>.rdb'
-    db.host               = 'localhost'
-    db.port               = <%= node['redisio']['servers'][0]['port'] %>
-    db.invoke_save        = true
+  database PostgreSQL do |db|
+    db.name        = "<%= @postgresql_db %>"
+    db.username    = "<%= @postgresql_user %>"
+    db.password    = "<%= @postgresql_password %>"
+    db.host        = "localhost"
+    db.port        = 5432
+    db.only_tables = ['rubygems', 'versions' 'dependencies', 'linksets', 'requirements', 'version_histories']
   end
 
   compress_with Gzip
-
-  encrypt_with GPG do |encryption|
-    encryption.keys = {}
-    encryption.keys['<%= @gpg_email %>'] = <<-KEY
-      <%= @gpg_public_key %>
-    KEY
-    encryption.recipients = '<%= @gpg_email %>'
-  end
 
   store_with S3 do |s3|
     s3.access_key_id      = '<%= @aws_access_key %>'
@@ -36,7 +30,7 @@ Backup::Model.new(:redis, 'Redis Backup') do
   end
 
   notify_by Slack do |slack|
-    slack.on_success = false
+    slack.on_success = true
     slack.on_warning = true
     slack.on_failure = true
     slack.team       = 'bundler'

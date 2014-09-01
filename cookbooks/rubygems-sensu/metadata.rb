@@ -1,9 +1,9 @@
 name 'rubygems-sensu'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.71'
+version '0.0.78'
 
 depends 'chef-vault'
-depends 'sensu'
+depends 'sensu', '1.0.0'
 
 supports 'ubuntu'
