@@ -20,7 +20,7 @@
         "rubygems-logging": "= 0.0.6",
         "rubygems-metrics": "= 0.0.8",
         "rubygems-monitoring": "= 0.0.11",
-        "rubygems-motd": "= 0.0.8",
+        "rubygems-motd": "= 0.0.9",
         "rubygems-ntp": "= 0.0.3",
         "rubygems-people": "= 0.0.29",
         "rubygems-redis": "= 0.0.5",
