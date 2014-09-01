@@ -1,12 +1,38 @@
 {
-  "name": "production",
-  "description": "",
-  "cookbook_versions": {
-  },
-  "json_class": "Chef::Environment",
-  "chef_type": "environment",
-  "default_attributes": {
-  },
-  "override_attributes": {
-  }
+    "name": "production",
+    "description": "",
+    "cookbook_versions": {
+        "rubygems-ruby": "= 0.0.3",
+        "rubygems": "= 0.0.26",
+        "rubygems-app": "= 0.0.31",
+        "rubygems-apt": "= 0.0.14",
+        "rubygems-backups": "= 0.0.18",
+        "rubygems-balancer": "= 0.0.28",
+        "rubygems-bastion": "= 0.0.10",
+        "rubygems-cache": "= 0.0.2",
+        "rubygems-chef": "= 0.0.29",
+        "rubygems-ci": "= 0.0.8",
+        "rubygems-cloud-init": "= 0.0.2",
+        "rubygems-database": "= 0.0.28",
+        "rubygems-fail2ban": "= 0.0.3",
+        "rubygems-hostname": "= 0.1.12",
+        "rubygems-hosts": "= 0.0.8",
+        "rubygems-logging": "= 0.0.6",
+        "rubygems-metrics": "= 0.0.8",
+        "rubygems-monitoring": "= 0.0.11",
+        "rubygems-motd": "= 0.0.8",
+        "rubygems-ntp": "= 0.0.3",
+        "rubygems-people": "= 0.0.29",
+        "rubygems-redis": "= 0.0.5",
+        "rubygems-repo": "= 0.0.26",
+        "rubygems-sensu": "= 0.0.79",
+        "rubygems-ssh": "= 0.0.5",
+        "rubygems-utility": "= 0.0.4"
+    },
+    "json_class": "Chef::Environment",
+    "chef_type": "environment",
+    "default_attributes": {
+    },
+    "override_attributes": {
+    }
 }

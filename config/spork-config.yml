@@ -1,0 +1,19 @@
+default_environments:
+  - common
+  - staging
+  - production
+version_change_threshold: 2
+preserve_constraint_operators: true
+always_promote_remote: true
+skip_berkshelf: false
+json_options:
+  indent: "    "
+  git:
+    enabled: true
+  rubocop:
+    epic_fail: true
+    show_name: false
+    autocorrect: false
+    out_file: <file>
+    sev_level: <C|W|E>
+    lint: false
