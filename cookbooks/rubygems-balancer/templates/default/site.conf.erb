@@ -144,10 +144,16 @@ server {
       try_files $uri @app;
     }
 
+    root /var/www/rubygems;
+
     location / {
-      root /var/www/rubygems;
-      try_files /maintenance.html @app;
+      if (-f $document_root/maintenance.html) {
+        return 503;
+      }
+      proxy_pass http://app_servers;
     }
+
+    error_page 503 /maintenance.html;
 
     location @app {
       proxy_pass http://app_servers;
