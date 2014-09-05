@@ -26,7 +26,7 @@ sensu_check 'check_memcached_proc' do
 end
 
 sensu_check 'check_memcached' do
-  command "perl /etc/sensu/plugins/check_memcached.pl -H localhost"
+  command 'perl /etc/sensu/plugins/check_memcached.pl -H localhost'
   handlers ['slack', 'pagerduty']
   subscribers ['cache']
   interval 30
