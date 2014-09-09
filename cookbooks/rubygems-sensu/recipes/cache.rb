@@ -1,3 +1,8 @@
+#
+# Cookbook Name:: rubygems-sensu
+# Recipe:: cache
+#
+
 include_recipe 'build-essential'
 include_recipe 'cpan'
 
