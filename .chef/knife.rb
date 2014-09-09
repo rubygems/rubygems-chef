@@ -7,7 +7,7 @@ node_name                chef_username
 client_key               "#{current_dir}/#{chef_username}.pem"
 validation_client_name   "rubygems-validator"
 validation_key           "#{current_dir}/rubygems-validator.pem"
-chef_server_url          "https://api.opscode.com/organizations/rubygems"
+chef_server_url          "https://chef.common.rubygems.org/organizations/rubygems"
 
 cookbook_path             "#{current_dir}/../cookbooks"
 environment_path          "#{current_dir}/../environments"
