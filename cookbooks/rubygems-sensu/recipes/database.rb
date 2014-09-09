@@ -23,7 +23,7 @@ sensu_check 'check_postgres_proc' do
 end
 
 %w{ connection locks timesync commitratio }.each do |check|
-  sensu_check "check_#{check}_connection" do
+  sensu_check "check_postgres_#{check}" do
     command "perl /etc/sensu/plugins/check_postgres.pl --action #{check} #{db_connection}"
     handlers ['slack', 'pagerduty']
     subscribers ['app']

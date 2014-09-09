@@ -25,7 +25,7 @@
         "rubygems-people": "= 0.0.29",
         "rubygems-redis": "= 0.0.5",
         "rubygems-repo": "= 0.0.26",
-        "rubygems-sensu": "= 0.0.96",
+        "rubygems-sensu": "= 0.0.97",
         "rubygems-ssh": "= 0.0.5",
         "rubygems-utility": "= 0.0.4"
     },
