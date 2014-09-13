@@ -50,7 +50,8 @@ server {
       deny all;
     }
 
-    include <%= node['nginx']['dir'] %>/filters.conf;
+    include <%= node['nginx']['dir'] %>/filters.conf; # managed by chef
+    include <%= node['nginx']['dir'] %>/blacklist.conf; # not managed by chef
 
     location ~ /gems/(.*)\.gem$ {
         set $gem $1;
@@ -213,7 +214,8 @@ server {
 
   client_max_body_size 500M;
 
-  include <%= node['nginx']['dir'] %>/filters.conf;
+  include <%= node['nginx']['dir'] %>/filters.conf; # managed by chef
+  include <%= node['nginx']['dir'] %>/blacklist.conf; # not managed by chef
 
   ##### BEGIN legacy rules
 

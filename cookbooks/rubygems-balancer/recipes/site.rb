@@ -11,6 +11,13 @@ cookbook_file "#{node['nginx']['dir']}/filters.conf" do
   notifies :restart, 'service[nginx]', :immediately
 end
 
+file "#{node['nginx']['dir']}/blacklist.conf" do
+  action :create_if_missing
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
 template "#{node['nginx']['dir']}/sites-available/rubygems" do
   source 'site.conf.erb'
   owner  'root'
