@@ -10,7 +10,7 @@
         "rubygems-balancer": "= 0.0.32",
         "rubygems-bastion": "= 0.0.10",
         "rubygems-cache": "= 0.0.3",
-        "rubygems-chef": "= 0.0.29",
+        "rubygems-chef": "= 0.0.32",
         "rubygems-ci": "= 0.0.8",
         "rubygems-cloud-init": "= 0.0.2",
         "rubygems-database": "= 0.0.28",
