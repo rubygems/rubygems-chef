@@ -24,7 +24,7 @@ template "#{node['nginx']['dir']}/sites-available/rubygems" do
   group  'root'
   mode   '0644'
   variables(
-    app_servers: search(:node, "roles:app AND chef_environment:#{node.chef_environment}"),
+    app_servers: search(:node, "roles:app AND chef_environment:#{node.chef_environment} AND in_rotation:true"),
     server_names: ['rubygems.org', 'www.rubygems.org'],
     ssl_key:      File.join(node['nginx']['dir'], 'certs', 'rubygems.org.key'),
     ssl_cert:     File.join(node['nginx']['dir'], 'certs', 'rubygems.org.crt')
