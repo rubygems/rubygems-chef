@@ -3,23 +3,6 @@
 # Recipe:: base
 #
 
-gem_package 'sensu-plugin' do
-  gem_binary '/opt/sensu/embedded/bin/gem'
-end
-
-package 'nagios-plugins'
-
-%w( check-procs.rb check_postgres.pl check_memcached.pl ).each do |plugin|
-  cookbook_file "/etc/sensu/plugins/#{plugin}" do
-    source plugin
-    path "/etc/sensu/plugins/#{plugin}"
-    owner 'sensu'
-    group 'sensu'
-    mode '0755'
-    action :create
-  end
-end
-
 sensu_check 'check_procs' do
   command '/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-procs.rb'
   handlers ['slack', 'pagerduty']

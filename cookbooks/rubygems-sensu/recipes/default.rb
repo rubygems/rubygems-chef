@@ -28,10 +28,40 @@ sensu_client node.name do
   additional(environment: node.chef_environment)
 end
 
-include_recipe 'rubygems-sensu::app'
-include_recipe 'rubygems-sensu::balancer'
-include_recipe 'rubygems-sensu::base'
-include_recipe 'rubygems-sensu::cache'
-include_recipe 'rubygems-sensu::database'
-include_recipe 'rubygems-sensu::nginx'
+gem_package 'sensu-plugin' do
+  gem_binary '/opt/sensu/embedded/bin/gem'
+end
+
+package 'nagios-plugins'
+
+%w( check-procs.rb check_postgres.pl check_memcached.pl ).each do |plugin|
+  cookbook_file "/etc/sensu/plugins/#{plugin}" do
+    source plugin
+    path "/etc/sensu/plugins/#{plugin}"
+    owner 'sensu'
+    group 'sensu'
+    mode '0755'
+    action :create
+  end
+end
+
+include_recipe 'build-essential'
+include_recipe 'cpan'
+
+cpan_client 'Cache::Memcached' do
+  user 'root'
+  group 'root'
+  force true
+  install_type 'cpan_module'
+  action 'install'
+end
+
+cpan_client 'String::CRC32' do
+  user 'root'
+  group 'root'
+  force true
+  install_type 'cpan_module'
+  action 'install'
+end
+
 include_recipe 'sensu::client_service'
