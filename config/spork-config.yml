@@ -1,6 +1,11 @@
 default_environments:
   - common
   - staging
+environment_groups:
+  all:
+    - common
+    - staging
+    - production
 version_change_threshold: 2
 preserve_constraint_operators: true
 always_promote_remote: true
