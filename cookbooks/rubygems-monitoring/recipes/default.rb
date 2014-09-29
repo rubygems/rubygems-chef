@@ -7,15 +7,14 @@ include_recipe 'chef-vault'
 
 dnsimple_credentials = chef_vault_item('dnsimple', 'credentials')
 
-include_recipe 'dwradcliffe-dnsimple'
+include_recipe 'dnsimple'
 
-dwradcliffe_dnsimple_record "create CNAME point monitoring.rubygems.org to #{node.name}" do
+dnsimple_record "create CNAME point monitoring.rubygems.org to #{node.name}" do
   name     'monitoring.rubygems.org'
   content  node['fqdn']
   type     'CNAME'
   domain   'rubygems.org'
-  username dnsimple_credentials['username']
-  password dnsimple_credentials['password']
+  domain_api_token dnsimple_credentials['api_token']
   action   :create
 end
 

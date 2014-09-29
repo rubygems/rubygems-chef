@@ -15,13 +15,11 @@ DEPENDENCIES
   collectd_plugins
     git: git@github.com:skottler/chef-collectd_plugins.git
     revision: 4cbc90f319096f9c845e5f07f60c78483eeeecac
+  dnsimple
+    path: cookbooks/dnsimple
   duo-security
     git: git@github.com:skottler/chef-duo-security
     revision: 1ddec64f0798d91cf0ab1a8dd8831fb0f6694556
-  dwradcliffe-dnsimple
-    git: git@github.com:dwradcliffe/chef-dnsimple.git
-    revision: 7eda69eb9999e03c45a7772068d23e4275b7d946
-    branch: rubygems
   rubygems
     path: cookbooks/rubygems
   rubygems-app
@@ -110,10 +108,10 @@ GRAPH
     postgresql (>= 1.0.0)
     xfs (>= 0.0.0)
   dmg (2.2.0)
+  dnsimple (0.5.5)
   duo-security (0.1.1)
     build-essential (>= 0.0.0)
     openssh (>= 0.0.0)
-  dwradcliffe-dnsimple (0.5.2)
   erlang (1.3.6)
     apt (>= 1.7.0)
     build-essential (>= 0.0.0)
@@ -227,9 +225,9 @@ GRAPH
     chef-client (>= 0.0.0)
     chef-vault (>= 0.0.0)
     omnibus_updater (>= 0.0.0)
-  rubygems-ci (0.0.8)
+  rubygems-ci (0.0.10)
     chef-vault (>= 0.0.0)
-    dwradcliffe-dnsimple (>= 0.0.0)
+    dnsimple (>= 0.0.0)
     jenkins (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
@@ -243,9 +241,9 @@ GRAPH
     rubygems-metrics (>= 0.0.0)
   rubygems-fail2ban (0.0.3)
     fail2ban (>= 0.0.0)
-  rubygems-hostname (0.1.12)
+  rubygems-hostname (0.1.14)
     chef-vault (>= 0.0.0)
-    dwradcliffe-dnsimple (>= 0.0.0)
+    dnsimple (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.8)
   rubygems-logging (0.0.6)
@@ -256,10 +254,10 @@ GRAPH
     collectd (>= 0.0.0)
     collectd-librato (>= 0.0.0)
     collectd_plugins (>= 0.0.0)
-  rubygems-monitoring (0.0.11)
+  rubygems-monitoring (0.0.13)
     chef-vault (>= 0.0.0)
     cpan (>= 0.0.0)
-    dwradcliffe-dnsimple (>= 0.0.0)
+    dnsimple (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
     rubygems-sensu (>= 0.0.0)

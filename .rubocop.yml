@@ -17,3 +17,10 @@ Style/WordArray:
   MinSize: 2
 Style/RescueModifier:
   Enabled: false
+
+Style/AndOr:
+  Exclude:
+    - cookbooks/dnsimple/providers/record.rb
+Style/Next:
+  Exclude:
+    - cookbooks/dnsimple/providers/record.rb
