@@ -27,7 +27,7 @@
         "rubygems-repo": "= 0.0.26",
         "rubygems-sensu": "= 0.0.99",
         "rubygems-ssh": "= 0.0.5",
-        "rubygems-utility": "= 0.0.7"
+        "rubygems-utility": "= 0.0.8"
     },
     "json_class": "Chef::Environment",
     "chef_type": "environment",
