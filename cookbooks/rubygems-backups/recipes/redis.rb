@@ -28,6 +28,7 @@ cron 'redis-backup' do
   day '*'
   month '*'
   weekday '*'
+  path '/usr/local/bin:/usr/bin:/bin'
   command "backup perform --trigger redis --config-file #{File.join(node['rubygems']['backups']['config_dir'], 'redis.rb')}"
   user 'root'
 end
