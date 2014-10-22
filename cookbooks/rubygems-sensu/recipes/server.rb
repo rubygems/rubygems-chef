@@ -7,10 +7,9 @@ include_recipe 'chef-vault'
 
 sensu_creds = chef_vault_item('sensu', 'credentials')
 
-node.default['sensu']['use_ssl'] = false
-node.default['sensu']['dashboard']['bind'] = '0.0.0.0'
-node.default['sensu']['dashboard']['user'] = sensu_creds['user']
-node.default['sensu']['dashboard']['password'] = sensu_creds['password']
+node.default['uchiwa']['version'] = '0.2.6-1'
+node.default['sensu']['uchiwa']['user'] = sensu_creds['user']
+node.default['sensu']['uchiwa']['pass'] = sensu_creds['password']
 node.default['sensu']['use_embedded_ruby'] = true
 
 sensu_handler 'default' do
@@ -32,7 +31,7 @@ end
 include_recipe 'sensu::redis'
 include_recipe 'sensu::server_service'
 include_recipe 'sensu::api_service'
-include_recipe 'sensu::dashboard_service'
+include_recipe 'uchiwa'
 
 include_recipe 'rubygems-sensu::app'
 include_recipe 'rubygems-sensu::balancer'

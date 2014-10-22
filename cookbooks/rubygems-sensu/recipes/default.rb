@@ -3,8 +3,7 @@
 # Recipe:: default
 #
 
-# change this once we have the vault setup
-node.default['sensu']['use_ssl'] = false
+node.default['sensu']['version'] = '0.14.0-1'
 
 include_recipe 'sensu'
 
