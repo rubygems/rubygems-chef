@@ -4,6 +4,7 @@
 #
 
 node.default['sensu']['version'] = '0.14.0-1'
+node.default['sensu']['use_ssl'] = false
 
 include_recipe 'sensu'
 
@@ -47,20 +48,20 @@ end
 include_recipe 'build-essential'
 include_recipe 'cpan'
 
-cpan_client 'Cache::Memcached' do
-  user 'root'
-  group 'root'
-  force true
-  install_type 'cpan_module'
-  action 'install'
-end
+# cpan_client 'Cache::Memcached' do
+#   user 'root'
+#   group 'root'
+#   force true
+#   install_type 'cpan_module'
+#   action 'install'
+# end
 
-cpan_client 'String::CRC32' do
-  user 'root'
-  group 'root'
-  force true
-  install_type 'cpan_module'
-  action 'install'
-end
+# cpan_client 'String::CRC32' do
+#   user 'root'
+#   group 'root'
+#   force true
+#   install_type 'cpan_module'
+#   action 'install'
+# end
 
 include_recipe 'sensu::client_service'
