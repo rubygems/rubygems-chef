@@ -17,9 +17,7 @@ address = monitoring_host.first['ipaddress']
 
 node.default['sensu']['api']['host'] = address
 node.default['sensu']['rabbitmq']['host'] = address
-node.default['sensu']['rabbitmq']['port'] = 5672
 node.default['sensu']['redis']['host'] = address
-node.default['sensu']['redis']['port'] = 6379
 
 sensu_client node.name do
   address node['ipaddress']
