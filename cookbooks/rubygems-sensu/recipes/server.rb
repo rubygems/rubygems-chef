@@ -8,8 +8,8 @@ include_recipe 'chef-vault'
 sensu_creds = chef_vault_item('sensu', 'credentials')
 
 node.default['uchiwa']['version'] = '0.2.6-1'
-node.default['sensu']['uchiwa']['user'] = sensu_creds['user']
-node.default['sensu']['uchiwa']['pass'] = sensu_creds['password']
+node.default['uchiwa']['settings']['user'] = sensu_creds['user']
+node.default['uchiwa']['settings']['pass'] = sensu_creds['password']
 node.default['sensu']['use_embedded_ruby'] = true
 
 sensu_handler 'default' do
