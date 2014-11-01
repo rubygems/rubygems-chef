@@ -6,6 +6,7 @@
 include_recipe 'rubygems-apt'
 include_recipe 'rubygems-chef'
 include_recipe 'rubygems-cloud-init'
+include_recipe 'rubygems-ganglia'
 include_recipe 'rubygems-hostname'
 include_recipe 'rubygems-hosts'
 include_recipe 'rubygems-logging'
