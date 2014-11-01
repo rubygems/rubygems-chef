@@ -192,7 +192,7 @@ GRAPH
   redisio (1.7.1)
     ulimit (>= 0.1.2)
   rsyslog (1.12.2)
-  rubygems (0.0.27)
+  rubygems (0.0.28)
     ohai (>= 0.0.0)
     rubygems-apt (>= 0.0.0)
     rubygems-chef (>= 0.0.0)
