@@ -5,6 +5,8 @@
 
 include_recipe 'rubygems'
 
+include_recipe 'rubygems-redis::volume'
+
 node.default['sysctl']['params']['vm']['overcommit_memory'] = 1
 include_recipe 'sysctl::apply'
 
