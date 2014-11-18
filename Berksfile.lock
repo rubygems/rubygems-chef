@@ -291,7 +291,7 @@ GRAPH
   rubygems-people (0.0.29)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
-  rubygems-redis (0.1.5)
+  rubygems-redis (0.1.6)
     aws (>= 0.0.0)
     redisio (>= 0.0.0)
     rubygems (>= 0.0.0)
