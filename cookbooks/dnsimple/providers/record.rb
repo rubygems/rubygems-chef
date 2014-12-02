@@ -17,69 +17,76 @@
 #
 
 action :create do
-  begin
-    require 'rubygems'
-    require 'dnsimple'
-  rescue LoadError
-    Chef::Log.error('Missing gem "dnsimple"')
-  end
 
-  domain  = new_resource.domain
-  name    = new_resource.name
-  content = new_resource.content
-  type    = new_resource.type
-  ttl     = new_resource.ttl
-  prio    = new_resource.priority
-
-  if domain.nil?
-    parsed = name.match(/^(.*?)\.?([^\.]+\.[^\.]+)$/)
-    name   = parsed[1]
-    domain = parsed[2]
-  end
-
-  prio = nil if prio == ''
-
-  if new_resource.domain_api_token.nil?
-    ::DNSimple::Client.username = new_resource.username || node['dnsimple']['username']
-    ::DNSimple::Client.password = new_resource.password || node['dnsimple']['password']
+  if node['skip_dnsimple']
+    Chef::Log.info 'Skipping DNSimple because of node attribute!'
+    new_resource.updated_by_last_action(false)
   else
-    ::DNSimple::Client.domain_api_token = new_resource.domain_api_token
-  end
 
-  zone = ::DNSimple::Domain.find(domain)
-  records = ::DNSimple::Record.all(zone)
-
-  exists = false
-  records.each do |r|
-    Chef::Log.debug "Checking if #{name} exists as #{content} and #{ttl}"
-    r.prio = nil if r.prio == ''
-
-    # do nothing if the record already exists
-    exists = ((r.name == name) and
-              (r.record_type == type) and
-              (r.content == content) and
-              (r.ttl == ttl) and
-              (r.prio == prio))
-    break if exists
-
-    # delete any record with the name we're trying to create
-    if r.name == name and r.record_type == type and r.prio == prio
-      Chef::Log.debug "Cannot modify a record, must destroy #{name} first"
-      r.destroy
-    end
-  end
-
-  unless exists
     begin
-      Chef::Log.info "Attempting to create record type #{type} for #{name} as #{content}"
-      ::DNSimple::Record.create(zone, name, type, content, ttl: ttl, prio: prio)
+      require 'rubygems'
+      require 'dnsimple'
+    rescue LoadError
+      Chef::Log.error('Missing gem "dnsimple"')
+    end
 
-      new_resource.updated_by_last_action(true)
-      Chef::Log.info "DNSimple: created #{type} record for #{name}.#{domain}"
-    rescue DNSimple::RecordExists
-      Chef::Log.debug "DNSimple: #{name}.#{domain} already exists, moving on"
-    rescue ::DNSimple::Error => err
-      Chef::Log.error "DNSimple: #{name}.#{domain} could not be created: #{err}"
+    domain  = new_resource.domain
+    name    = new_resource.name
+    content = new_resource.content
+    type    = new_resource.type
+    ttl     = new_resource.ttl
+    prio    = new_resource.priority
+
+    if domain.nil?
+      parsed = name.match(/^(.*?)\.?([^\.]+\.[^\.]+)$/)
+      name   = parsed[1]
+      domain = parsed[2]
+    end
+
+    prio = nil if prio == ''
+
+    if new_resource.domain_api_token.nil?
+      ::DNSimple::Client.username = new_resource.username || node['dnsimple']['username']
+      ::DNSimple::Client.password = new_resource.password || node['dnsimple']['password']
+    else
+      ::DNSimple::Client.domain_api_token = new_resource.domain_api_token
+    end
+
+    zone = ::DNSimple::Domain.find(domain)
+    records = ::DNSimple::Record.all(zone)
+
+    exists = false
+    records.each do |r|
+      Chef::Log.debug "Checking if #{name} exists as #{content} and #{ttl}"
+      r.prio = nil if r.prio == ''
+
+      # do nothing if the record already exists
+      exists = ((r.name == name) and
+                (r.record_type == type) and
+                (r.content == content) and
+                (r.ttl == ttl) and
+                (r.prio == prio))
+      break if exists
+
+      # delete any record with the name we're trying to create
+      if r.name == name and r.record_type == type and r.prio == prio
+        Chef::Log.debug "Cannot modify a record, must destroy #{name} first"
+        r.destroy
+      end
+    end
+
+    unless exists
+      begin
+        Chef::Log.info "Attempting to create record type #{type} for #{name} as #{content}"
+        ::DNSimple::Record.create(zone, name, type, content, ttl: ttl, prio: prio)
+
+        new_resource.updated_by_last_action(true)
+        Chef::Log.info "DNSimple: created #{type} record for #{name}.#{domain}"
+      rescue DNSimple::RecordExists
+        Chef::Log.debug "DNSimple: #{name}.#{domain} already exists, moving on"
+      rescue ::DNSimple::Error => err
+        Chef::Log.error "DNSimple: #{name}.#{domain} could not be created: #{err}"
+      end
     end
   end
 end
