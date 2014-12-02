@@ -1,7 +1,7 @@
 127.0.0.1   localhost
 
 <% @hosts.sort.each do |node| %>
-<%= node['ipaddress'] %> <%= node['machinename'] %> <%= node['hostname'] %>
+<%= node['ipaddress'] %> <%= node['machinename'] %> <%= node['hostname'] %><% if node['hostname'] == 'chef' %> chef.rubygems.org<% end %>
 <% end %>
 
 # The following lines are desirable for IPv6 capable hosts
