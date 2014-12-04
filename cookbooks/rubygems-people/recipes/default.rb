@@ -53,6 +53,13 @@ group 'sysadmin' do
 end
 
 node.default['authorization']['sudo']['groups'] = ['sysadmin']
+node.default['authorization']['sudo']['include_sudoers_d'] = true
 include_recipe 'sudo'
+
+sudo 'deploy' do
+  user      '%sysadmin'
+  nopasswd  true
+  commands  ['/usr/sbin/service unicorn restart', '/usr/sbin/service delayed_job restart']
+end
 
 include_recipe 'rubygems-people::meg'
