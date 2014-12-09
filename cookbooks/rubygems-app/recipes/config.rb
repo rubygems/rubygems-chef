@@ -38,6 +38,7 @@ template '/applications/rubygems/shared/secret.rb' do
     bundler_token: secrets['bundler_token'],
     bundler_api_url: secrets['bundler_api_url'],
     new_relic_license_key: secrets['new_relic_license_key'],
-    new_relic_app_name: "RubyGems.org (#{node.chef_environment})"
+    new_relic_app_name: "RubyGems.org (#{node.chef_environment})",
+    honeybadger_api_key: secrets['honeybadger_api_key']
   )
 end
