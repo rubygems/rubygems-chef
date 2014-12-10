@@ -14,7 +14,7 @@ Backup::Model.new(:redis, 'Redis Backup') do
     db.rdb_path           = '/var/lib/redis/dump-<%= node['redisio']['servers'][0]['port'] %>.rdb'
     db.host               = 'localhost'
     db.port               = <%= node['redisio']['servers'][0]['port'] %>
-    db.invoke_save        = true
+    db.invoke_save        = false
   end
 
   compress_with Gzip

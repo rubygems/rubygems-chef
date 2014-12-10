@@ -1,6 +1,6 @@
 name 'rubygems-backups'
 
-version '0.0.19'
+version '0.0.20'
 
 depends 'chef-vault'
 depends 'rubygems-ruby'
