@@ -9,10 +9,10 @@ echo "`ip addr | grep eth0 | grep "inet " | cut -d " " -f 6 | cut -d \/ -f 1` `c
 curl http://repo01.common.rubygems.org/packages.key | sudo apt-key add -
 
 # remove the AWS repos
-rm /etc/apt/sources.list
+rm -f /etc/apt/sources.list
 
 # add the internal apt repo
-echo 'deb     http://repo01.common.rubygems.org trusty main' > /etc/apt/sources.list.d/rubygems_main.list
+sh -c "echo \"deb     http://repo01.common.rubygems.org trusty main\" > /etc/apt/sources.list.d/rubygems_main.list"
 
 apt-get update
 apt-get upgrade -y
