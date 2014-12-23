@@ -1,7 +1,7 @@
 name 'rubygems-repo'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.26'
+version '0.0.27'
 
 depends 'aptly'
 depends 'nginx'

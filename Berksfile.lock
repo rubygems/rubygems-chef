@@ -297,7 +297,7 @@ GRAPH
     rubygems (>= 0.0.0)
     rubygems-backups (>= 0.0.0)
     sysctl (>= 0.0.0)
-  rubygems-repo (0.0.26)
+  rubygems-repo (0.0.27)
     aptly (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)

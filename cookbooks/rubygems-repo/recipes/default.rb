@@ -64,5 +64,5 @@ include_recipe 'nginx'
 include_recipe 'rubygems-repo::nginx'
 
 link "#{node['aptly']['rootdir']}/public/packages.key" do
-  to '/var/apt/rubygems/packages.key'
+  to '/etc/apt/rubygems/packages.key'
 end
