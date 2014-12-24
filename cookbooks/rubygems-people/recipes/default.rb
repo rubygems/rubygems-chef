@@ -59,7 +59,13 @@ include_recipe 'sudo'
 sudo 'deploy' do
   user      '%sysadmin'
   nopasswd  true
-  commands  ['/usr/sbin/service unicorn restart', '/usr/sbin/service delayed_job restart']
+  commands  [
+    '/usr/sbin/service unicorn restart',
+    '/usr/sbin/service delayed_job restart',
+    '/usr/bin/chef-client',
+    '/bin/ln -s /etc/nginx/maintenance.html /var/www/rubygems/maintenance.html',
+    '/bin/rm /var/www/rubygems/maintenance.html'
+  ]
 end
 
 include_recipe 'rubygems-people::meg'

@@ -53,6 +53,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-hostname
   rubygems-hosts
     path: cookbooks/rubygems-hosts
+  rubygems-hubot
+    path: cookbooks/rubygems-hubot
   rubygems-logging
     path: cookbooks/rubygems-logging
   rubygems-metrics
@@ -143,6 +145,10 @@ GRAPH
   hostname (0.3.0)
     hostsfile (>= 0.0.0)
   hostsfile (2.4.5)
+  hubot (1.0.2)
+    git (>= 0.0.0)
+    nodejs (>= 0.0.0)
+    runit (>= 0.0.0)
   iptables (0.13.2)
   java (1.26.0)
   jenkins (1.2.2)
@@ -209,7 +215,7 @@ GRAPH
     rubygems-sensu (>= 0.0.0)
     rubygems-ssh (>= 0.0.0)
     rubygems-utility (>= 0.0.0)
-  rubygems-app (0.0.34)
+  rubygems-app (0.0.36)
     apt (>= 0.0.0)
     chef-vault (>= 0.0.0)
     git (>= 0.0.0)
@@ -269,6 +275,11 @@ GRAPH
     dnsimple (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.10)
+  rubygems-hubot (0.0.23)
+    chef-vault (>= 0.0.0)
+    hubot (~> 1.0.2)
+    rsyslog (>= 0.0.0)
+    rubygems-ruby (>= 0.0.0)
   rubygems-logging (0.0.6)
     chef-vault (>= 0.0.0)
     rsyslog (>= 0.0.0)
@@ -288,7 +299,7 @@ GRAPH
     motd (>= 0.0.0)
   rubygems-ntp (0.0.3)
     ntp (>= 0.0.0)
-  rubygems-people (0.0.32)
+  rubygems-people (0.0.34)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
   rubygems-redis (0.1.6)

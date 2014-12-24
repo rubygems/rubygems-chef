@@ -13,12 +13,28 @@
 # Author:
 #   David Radcliffe
 
-exec = require('child_process').exec
+spawn = require("child_process").spawn
 
-runCommand = (cmd, server, callback) ->
-  cmd = "ssh #{server} \"#{cmd}\""
-  exec cmd, (error, stdout, stderr) ->
-    callback(error, stdout, stderr)
+exec = (command, args, callback) ->
+  data = ""
+
+  options = { env: { HOME: process.env["HOME"], PATH: process.env["PATH"], PWD: process.env["PWD"] } }
+  proc = spawn(command, args, options)
+
+  proc.stdout.on "data", (chunk) ->
+    data += chunk
+
+  proc.stderr.on "data", (chunk) ->
+    data += chunk
+
+  proc.on "error", (err) ->
+    callback "Error: #{err}"
+
+  proc.on "close", (exit_code)->
+    if exit_code == 0
+      callback null, data
+    else
+      callback "Exited with #{exit_code}:\n#{data}"
 
 getServer = (environment) ->
   return if environment == 'production' then 'lb02.production.rubygems.org' else 'lb01.staging.rubygems.org'
@@ -27,13 +43,12 @@ module.exports = (robot) ->
 
   robot.hear /turn (on|off) maint(enance)?( mode)? for (staging|production)/i, (msg) ->
     if msg.match[1] == 'on'
-      command = 'ln -s /etc/nginx/maintenance.html /var/www/rubygems/maintenance.html'
+      command = 'sudo ln -s /etc/nginx/maintenance.html /var/www/rubygems/maintenance.html'
     else if msg.match[1] == 'off'
-      command = 'rm /var/www/rubygems/maintenance.html'
-    runCommand command, getServer(msg.match[4]), (error, stdout, stderr) ->
-      if error
-        msg.send error
-      else if stderr
-        msg.send "Error: #{stderr}"
+      command = 'sudo rm /var/www/rubygems/maintenance.html'
+    server = getServer(msg.match[4])
+    exec "ssh", ["hubot@#{server}", command], (err, result) ->
+      if err
+        msg.send "```\n#{err}\n```\n"
       else
-        msg.send "I have turned #{msg.match[1]} maintenance mode for the #{msg.match[4]} environment!"
+        msg.send ":+1: I have turned #{msg.match[1]} maintenance mode for the #{msg.match[4]} environment!"
