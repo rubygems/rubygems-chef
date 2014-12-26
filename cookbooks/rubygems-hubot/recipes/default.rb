@@ -27,10 +27,14 @@ node.set['hubot']['external_scripts'] = []
 #   hubot-chef
 #   hubot-capistrano
 
+hubot_secrets = chef_vault_item('hubot', 'httpd')
+
 node.set['hubot']['config'] = {
   'HUBOT_SLACK_TOKEN' => slack_secrets['token'],
   'HUBOT_SLACK_TEAM' => 'bundler',
   'HUBOT_SLACK_BOTNAME' => 'hubot',
+  'EXPRESS_USER' => hubot_secrets['user'],
+  'EXPRESS_PASSWORD' => hubot_secrets['password'],
   # 'HUBOT_CAP_DIR' => '/var/lib/hubot-capistrano/'
 }
 
@@ -84,3 +88,4 @@ end
 
 include_recipe 'rubygems-hubot::ssh'
 include_recipe 'rubygems-hubot::deploy'
+include_recipe 'rubygems-hubot::nginx'

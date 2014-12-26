@@ -26,3 +26,9 @@ execute "bundle_install_deploy" do
   group node['hubot']['group']
   action :nothing
 end
+
+directory '/var/log/hubot_deploys' do
+  owner node['hubot']['user']
+  group node['hubot']['group']
+  mode '0755'
+end
