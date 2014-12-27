@@ -15,17 +15,12 @@ node.set['hubot']['adapter'] = 'slack'
 
 node.set['hubot']['dependencies'] = {
   'hubot-slack' => '~3.1.0',
-  'hubot-chef' => '>= 0.0.0',
-  'hubot-capistrano' => '1.0.2'
+  'async' => '^0.9.0',
 }
 
 node.set['hubot']['hubot_scripts'] = []
 
 node.set['hubot']['external_scripts'] = []
-
-# Disabled external scripts:
-#   hubot-chef
-#   hubot-capistrano
 
 hubot_secrets = chef_vault_item('hubot', 'httpd')
 
@@ -35,7 +30,8 @@ node.set['hubot']['config'] = {
   'HUBOT_SLACK_BOTNAME' => 'hubot',
   'EXPRESS_USER' => hubot_secrets['user'],
   'EXPRESS_PASSWORD' => hubot_secrets['password'],
-  # 'HUBOT_CAP_DIR' => '/var/lib/hubot-capistrano/'
+  'HUBOT_DEPLOY_DIR' => '/var/lib/hubot-deploy/staging',
+  'HUBOT_DEPLOY_LOG_DIR' => '/var/log/hubot_deploys',
 }
 
 template "#{node['hubot']['install_dir']}/external-scripts.json" do

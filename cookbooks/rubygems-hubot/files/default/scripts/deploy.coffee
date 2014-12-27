@@ -2,7 +2,7 @@
 #   Allows hubot to interact with capistrano.
 #
 # Dependencies:
-#   None
+#   * async
 #
 # Configuration:
 #   None
@@ -11,24 +11,22 @@
 #   hubot deploy <env>
 #
 # Author:
-#   Shopify, David Radcliffe
+#   David Radcliffe
 
-spawn = require('child_process').spawn
-fs = require('fs')
+child_process = require 'child_process'
+fs = require 'fs'
+async = require 'async'
 
-exec = (command, args, logFile, callback) ->
-  data = ""
-  fs.appendFile(logFile, command + " " + args.join(" ") + "\n")
+exec = (command, logFile, callback) ->
+  fs.appendFile(logFile, command + "\n")
 
-  options = { cwd: '/var/lib/hubot-capistrano/staging', env: { HOME: process.env["HOME"], PATH: process.env["PATH"], PWD: '/var/lib/hubot-capistrano/staging' } }
-  proc = spawn(command, args, options)
+  options = { cwd: process.env["HUBOT_DEPLOY_DIR"], env: { HOME: process.env["HOME"], PATH: process.env["PATH"], PWD: process.env["HUBOT_DEPLOY_DIR"] } }
+  proc = child_process.exec(command, options)
 
   proc.stdout.on "data", (chunk) ->
-    data += chunk
     fs.appendFile(logFile, chunk)
 
   proc.stderr.on "data", (chunk) ->
-    data += chunk
     fs.appendFile(logFile, chunk)
 
   proc.on "error", (err) ->
@@ -36,15 +34,16 @@ exec = (command, args, logFile, callback) ->
 
   proc.on "close", (exit_code)->
     if exit_code == 0
-      callback null, data
+      callback null
     else
-      callback "Exited with #{exit_code}\n#{data}"
+      callback "Exited with #{exit_code}"
 
 allowedToDeploy = (username) ->
   if username == 'dwradcliffe'
     true
   else
     false
+
 
 module.exports = (robot) ->
 
@@ -58,13 +57,19 @@ module.exports = (robot) ->
       # branch = msg.match[2]
       url = "https://bot.rubygems.org/deploy/#{deployKey}"
       msg.send "Deploying to #{env}... "
-      exec "bundle", ["exec", "cap #{env} deploy -s user=hubot"], "/var/log/hubot_deploys/#{deployKey}.log", (err, result) ->
+
+      async.series [
+        (callback) ->
+          exec "bundle check || bundle install --local --without production", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
+        (callback) ->
+          exec "bundle exec cap #{env} deploy -s user=hubot", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
+      ], (err, results) ->
         if err
           msg.send ":x: Deploy to #{env} failed! #{url}"
         else
           msg.send ":+1: Deployed to #{env}! #{url}"
 
   robot.router.get '/deploy/:key', (req, res) ->
-    fs.readFile "/var/log/hubot_deploys/#{req.params.key}.log", (err, data) ->
+    fs.readFile "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{req.params.key}.log", (err, data) ->
       res.set 'Content-Type', 'text/plain'
       res.send data
