@@ -65,6 +65,7 @@ module.exports = (robot) ->
           exec "bundle exec cap #{env} deploy -s user=hubot", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
       ], (err, results) ->
         if err
+          console.log err
           msg.send ":x: Deploy to #{env} failed! #{url}"
         else
           msg.send ":+1: Deployed to #{env}! #{url}"

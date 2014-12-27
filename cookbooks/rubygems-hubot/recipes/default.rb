@@ -30,7 +30,7 @@ node.set['hubot']['config'] = {
   'HUBOT_SLACK_BOTNAME' => 'hubot',
   'EXPRESS_USER' => hubot_secrets['user'],
   'EXPRESS_PASSWORD' => hubot_secrets['password'],
-  'HUBOT_DEPLOY_DIR' => '/var/lib/hubot-deploy/staging',
+  'HUBOT_DEPLOY_DIR' => "#{node['rubygems-hubot']['deploy_dir']}/staging",
   'HUBOT_DEPLOY_LOG_DIR' => '/var/log/hubot_deploys',
 }
 
