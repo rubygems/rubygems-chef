@@ -1,0 +1,17 @@
+{
+    "id": "arthurnn",
+    "username": "arthurnn",
+    "comment": "Arthur Neves",
+    "password": "$1$WJcXrHbg$EEA0ecbu0F11FK3cfcufz1",
+    "has_recipe": true,
+    "admin" : true,
+    "deployer": true,
+    "environments": [
+      "common",
+      "staging",
+      "production"
+    ],
+    "ssh_keys": [
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfVsjACsAzdqYtBfTPAkHFtioKX7dQ+8YHMs6ACoMDknnlBhF+srGNDQdx8s9rM5dxOPGByT3QrHEgdlkRF/K8yYdvX6TT4QbhWf3r1ADN/Os9lwhgKw+Kl96xF47POtbFKrdTm1qDVVHEtT0doUFjl6iRyXnJapfWlkGDPlLoRRVh/C+tlbwfnWBowJ4U8/hlLkKZhxOQKNMitwdc3Lf/xVirolqVE/DMrYp9KeMhRCRc8gL+Gv9XyAp93+vM+/5B5PNltqHC6nNCweUNJLXHcerHpDMtMDbeo550gkk54kNEdA+r/aA30xQK0ftIRtpZzcerYpCY6djhIUvq4WKD arthurnn@gmail.com"
+    ]
+}
