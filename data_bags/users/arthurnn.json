@@ -3,7 +3,7 @@
     "username": "arthurnn",
     "comment": "Arthur Neves",
     "password": "$1$WJcXrHbg$EEA0ecbu0F11FK3cfcufz1",
-    "has_recipe": true,
+    "has_recipe": false,
     "admin" : true,
     "deployer": true,
     "environments": [
