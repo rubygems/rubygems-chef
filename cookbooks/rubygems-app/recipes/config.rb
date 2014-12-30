@@ -35,6 +35,7 @@ template '/applications/rubygems/shared/secret.rb' do
     s3_key: secrets['s3_key'],
     s3_secret: secrets['s3_secret'],
     secret_token: secrets['secret_token'],
+    secret_key_base: secrets['secret_key_base'],
     bundler_token: secrets['bundler_token'],
     bundler_api_url: secrets['bundler_api_url'],
     new_relic_license_key: secrets['new_relic_license_key'],
