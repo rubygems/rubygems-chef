@@ -15,6 +15,8 @@ DEPENDENCIES
   collectd_plugins
     git: git@github.com:skottler/chef-collectd_plugins.git
     revision: 4cbc90f319096f9c845e5f07f60c78483eeeecac
+  dns
+    path: cookbooks/dns
   dnsimple
     path: cookbooks/dnsimple
   duo-security
@@ -117,6 +119,9 @@ GRAPH
     postgresql (>= 1.0.0)
     xfs (>= 0.0.0)
   dmg (2.2.0)
+  dns (0.0.2)
+    dnsimple (>= 0.0.0)
+    route53 (>= 0.0.0)
   dnsimple (0.5.7)
   duo-security (0.1.1)
     build-essential (>= 0.0.0)
@@ -199,6 +204,8 @@ GRAPH
     erlang (>= 0.9)
   redisio (1.7.1)
     ulimit (>= 0.1.2)
+  route53 (0.3.8)
+    build-essential (>= 0.0.0)
   rsyslog (1.12.2)
   rubygems (0.0.30)
     ohai (>= 0.0.0)
@@ -270,9 +277,9 @@ GRAPH
   rubygems-ganglia (0.0.1)
     chef-vault (>= 0.0.0)
     ganglia (>= 0.0.0)
-  rubygems-hostname (0.1.14)
+  rubygems-hostname (0.1.16)
     chef-vault (>= 0.0.0)
-    dnsimple (>= 0.0.0)
+    dns (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.10)
   rubygems-hubot (0.0.53)
