@@ -3,26 +3,10 @@
 # Recipe:: dirs
 #
 
-directory '/applications/rubygems' do
-  owner  'deploy'
-  group  'deploy'
-  mode   '0775'
-end
-
-directory '/applications/rubygems/releases' do
-  owner  'deploy'
-  group  'deploy'
-  mode   '0775'
-end
-
-directory '/applications/rubygems/shared' do
-  owner  'deploy'
-  group  'deploy'
-  mode   '0775'
-end
-
-directory '/applications/rubygems/shared/log' do
-  owner  'deploy'
-  group  'deploy'
-  mode   '0775'
+['/applications/rubygems', '/applications/rubygems/releases', '/applications/rubygems/shared', '/applications/rubygems/shared/log'].each do |dir|
+  directory dir do
+    owner  'deploy'
+    group  'deploy'
+    mode   '0775'
+  end
 end

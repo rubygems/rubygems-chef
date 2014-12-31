@@ -41,10 +41,10 @@ if node['cloud'] && node['cloud']['provider'] == 'ec2'
   #   not_if "parted -l | grep -qs '#{device_id}'"
   # end
 
-  # mount mount_point do
-  #   device device_id
-  #   fstype 'xfs'
-  #   action [:enable, :mount]
-  # end
+  mount mount_point do
+    device device_id
+    fstype 'xfs'
+    action [:enable, :mount]
+  end
 
 end

@@ -15,7 +15,7 @@ node.set['hubot']['adapter'] = 'slack'
 
 node.set['hubot']['dependencies'] = {
   'hubot-slack' => '~3.1.0',
-  'async' => '^0.9.0',
+  'async' => '^0.9.0'
 }
 
 node.set['hubot']['hubot_scripts'] = []
@@ -27,7 +27,7 @@ node.set['hubot']['config'] = {
   'HUBOT_SLACK_TEAM' => 'bundler',
   'HUBOT_SLACK_BOTNAME' => 'hubot',
   'HUBOT_DEPLOY_DIR' => "#{node['rubygems-hubot']['deploy_dir']}/staging",
-  'HUBOT_DEPLOY_LOG_DIR' => '/var/log/hubot_deploys',
+  'HUBOT_DEPLOY_LOG_DIR' => '/var/log/hubot_deploys'
 }
 
 template "#{node['hubot']['install_dir']}/external-scripts.json" do
@@ -37,7 +37,7 @@ template "#{node['hubot']['install_dir']}/external-scripts.json" do
   group node['hubot']['group']
   mode 0644
   variables(hubot_scripts: node['hubot']['external_scripts'])
-  notifies :restart, "service[hubot]", :delayed
+  notifies :restart, 'service[hubot]', :delayed
 end
 
 include_recipe 'hubot'
