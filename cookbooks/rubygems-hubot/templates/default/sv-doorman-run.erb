@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd /applications/doorman
+
+exec 2>&1
+exec <%= node['runit']['chpst_bin'] %> \
+  -u <%= @options[:owner] %>:<%= @options[:group] %> \
+  npm start

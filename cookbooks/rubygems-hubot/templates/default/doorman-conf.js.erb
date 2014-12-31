@@ -1,0 +1,46 @@
+module.exports = {
+  // port to listen on
+  port: 8085,
+
+  // URL for OAuth callbacks, default autodetect
+  // hostname: 'http://myhostname.example.com',
+
+  proxyTo: {
+    host: 'localhost',
+    port: 8080
+  },
+
+  // Session cookie options, see: https://github.com/expressjs/cookie-session
+  sessionCookie: {
+    name: '__doorman',
+    maxage: 4 * 24 * 60 * 60 * 1000, // milliseconds until expiration (or "false" to not expire)
+    secret: '<%= @session_cookie_secret %>'
+  },
+
+  // Paths that bypass doorman and do not need any authentication.  Matches on the
+  // beginning of paths; for example '/about' matches '/about/me'.  Regexes are also supported.
+  // publicPaths: [
+  //   '/about/',
+  //   '/robots.txt',
+  //   /(.*?).png$/
+  // ],
+
+  modules: {
+    // Register a new oauth app on Github at
+    // https://github.com/account/applications/new
+    github: {
+      appId: '<%= @github_app_id %>',
+      appSecret: '<%= @github_app_secret %>',
+      entryPath: '/oauth/github',
+      callbackPath: '/oauth/github/callback',
+
+      // List of github email addresses that can authenticate
+      // requiredEmail: ['user1@gmail.com', 'user2@yahoo.com'],
+
+      // Only users with this organization name can authenticate. If an array is
+      // listed, user may authenticate as a member of ANY of the domains.
+      requiredOrganization: 'rubygems' // short organization name
+    },
+
+  }
+};

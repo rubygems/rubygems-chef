@@ -3,11 +3,6 @@
 # Recipe:: dirs
 #
 
-directory '/applications' do
-  owner  'deploy'
-  group  'deploy'
-end
-
 directory '/applications/rubygems' do
   owner  'deploy'
   group  'deploy'
