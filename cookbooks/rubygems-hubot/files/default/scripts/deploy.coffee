@@ -38,14 +38,15 @@ exec = (command, logFile, callback) ->
     else
       callback "Exited with #{exit_code}"
 
-allowedToDeploy = (username) ->
-  if username == 'dwradcliffe'
-    true
+allowedToDeploy = (username, env) ->
+  if env == 'production'
+    allowedUsers = ['dwradcliffe', 'shk']
   else
-    false
+    allowedUsers = ['dwradcliffe', 'qrush', 'evanphx', 'shk', 'arthurnn', 'sferik']
+  return username in allowedUsers
 
 deploy = (msg, env, branch) ->
-  unless allowedToDeploy(msg.message.user.name)
+  unless allowedToDeploy(msg.message.user.name, env)
     console.log "#{msg.message.user.name} tried to deploy!"
     msg.send "You are not allowed to deploy! Sorry!"
   else

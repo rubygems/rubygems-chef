@@ -282,7 +282,7 @@ GRAPH
     dns (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.10)
-  rubygems-hubot (0.0.54)
+  rubygems-hubot (0.0.57)
     chef-vault (>= 0.0.0)
     hubot (~> 1.0.2)
     nginx (>= 0.0.0)
