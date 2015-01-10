@@ -3,6 +3,15 @@
 # Recipe:: default
 #
 
+ruby_block 'check chef-client-stopped tag' do
+  block do
+    if node[:tags].include?('chef-client-stopped')
+      Chef::Log.debug('Stopping chef run because chef-client-stopped tag exists.')
+      Process.exit!(true)
+    end
+  end
+end
+
 include_recipe 'rubygems-apt'
 include_recipe 'rubygems-chef'
 include_recipe 'rubygems-cloud-init'

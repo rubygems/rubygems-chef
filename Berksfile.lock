@@ -207,7 +207,7 @@ GRAPH
   route53 (0.3.8)
     build-essential (>= 0.0.0)
   rsyslog (1.12.2)
-  rubygems (0.0.30)
+  rubygems (0.0.35)
     ohai (>= 0.0.0)
     rubygems-apt (>= 0.0.0)
     rubygems-chef (>= 0.0.0)
