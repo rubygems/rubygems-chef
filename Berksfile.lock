@@ -222,7 +222,7 @@ GRAPH
     rubygems-sensu (>= 0.0.0)
     rubygems-ssh (>= 0.0.0)
     rubygems-utility (>= 0.0.0)
-  rubygems-app (0.0.39)
+  rubygems-app (0.0.40)
     apt (>= 0.0.0)
     chef-vault (>= 0.0.0)
     git (>= 0.0.0)

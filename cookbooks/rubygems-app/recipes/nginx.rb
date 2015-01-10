@@ -18,8 +18,7 @@ template "#{node['nginx']['dir']}/sites-available/rubygems" do
     rails_env:  node.chef_environment,
     rails_root: '/applications/rubygems',
     unicorn_port: 3000,
-    nginx_port: 9000,
-    log_dir:    node['nginx']['log_dir']
+    nginx_port: 9000
   )
   notifies :reload, 'service[nginx]'
 end
