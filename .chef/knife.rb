@@ -12,6 +12,8 @@ chef_server_url          "https://chef.rubygems.org/organizations/rubygems"
 cookbook_path             "#{current_dir}/../cookbooks"
 environment_path          "#{current_dir}/../environments"
 
+knife[:bootstrap_file] = "#{current_dir}/bootstrap/rubygems-trusty.erb"
+
 # Provision new instances with knife-ec2
 knife[:aws_access_key_id] = ENV['RUBYGEMS_AWS_ACCESS_KEY_ID']
 knife[:aws_secret_access_key] = ENV['RUBYGEMS_AWS_SECRET_KEY_ID']

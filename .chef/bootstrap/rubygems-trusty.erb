@@ -17,14 +17,56 @@ sh -c "echo \"deb     http://repo01.common.rubygems.org trusty main\" > /etc/apt
 apt-get update
 apt-get upgrade -y
 
+exists() {
+  if command -v $1 &>/dev/null
+  then
+    return 0
+  else
+    return 1
+  fi
+}
+
+<% if knife_config[:bootstrap_install_command] %>
+  <%= knife_config[:bootstrap_install_command] %>
+<% else %>
+  install_sh="<%= knife_config[:bootstrap_url] ? knife_config[:bootstrap_url] : "https://www.opscode.com/chef/install.sh" %>"
+  if ! exists /usr/bin/chef-client; then
+    echo "Installing Chef Client..."
+    if exists wget; then
+      bash <(wget <%= "--proxy=on " if knife_config[:bootstrap_proxy] %> <%= knife_config[:bootstrap_wget_options] %> ${install_sh} -O -) <%= latest_current_chef_version_string %>
+    elif exists curl; then
+      bash <(curl -L <%= "--proxy \"#{knife_config[:bootstrap_proxy]}\" " if knife_config[:bootstrap_proxy] %> <%= knife_config[:bootstrap_curl_options] %> ${install_sh}) <%= latest_current_chef_version_string %>
+    else
+      echo "Neither wget nor curl found. Please install one and try again." >&2
+      exit 1
+    fi
+  fi
+<% end %>
+
 mkdir -p /etc/chef
 
-# Setup the validation key.
-(
-cat <<'EOP'
-<%= IO.read(Chef::Config[:validation_key]) %>
+cat > /etc/chef/validation.pem <<'EOP'
+<%= validation_key %>
 EOP
-) > /etc/chef/validation.pem
+chmod 0600 /etc/chef/validation.pem
+
+<% if encrypted_data_bag_secret -%>
+cat > /etc/chef/encrypted_data_bag_secret <<'EOP'
+<%= encrypted_data_bag_secret %>
+EOP
+chmod 0600 /etc/chef/encrypted_data_bag_secret
+<% end -%>
+
+<%# Generate Ohai Hints -%>
+<% unless @chef_config[:knife][:hints].nil? || @chef_config[:knife][:hints].empty? -%>
+mkdir -p /etc/chef/ohai/hints
+
+<% @chef_config[:knife][:hints].each do |name, hash| -%>
+cat > /etc/chef/ohai/hints/<%= name %>.json <<'EOP'
+<%= Chef::JSONCompat.to_json(hash) %>
+EOP
+<% end -%>
+<% end -%>
 
 # Setup the client configuration.
 (
@@ -40,14 +82,10 @@ node_name "<%= @config[:chef_node_name] %>"
 EOP
 ) > /etc/chef/client.rb
 
-(
-cat <<'EOP'
-<%= { "run_list" => @run_list }.to_json %>
+cat > /etc/chef/first-boot.json <<'EOP'
+<%= Chef::JSONCompat.to_json(first_boot) %>
 EOP
-) > /etc/chef/first-boot.json
 
-curl -L https://www.opscode.com/chef/install.sh | sudo bash
+echo "Starting first Chef Client run..."
 
-/usr/bin/chef-client -j /etc/chef/first-boot.json
-
-'
+<%= start_chef %>'
