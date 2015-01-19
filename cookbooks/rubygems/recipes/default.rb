@@ -5,7 +5,7 @@
 
 ruby_block 'check chef-client-stopped tag' do
   block do
-    if node[:tags].include?('chef-client-stopped')
+    if node['tags'].include?('chef-client-stopped')
       Chef::Log.debug('Stopping chef run because chef-client-stopped tag exists.')
       Process.exit!(true)
     end
