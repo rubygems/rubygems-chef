@@ -13,7 +13,8 @@ FoodCritic::Rake::LintTask.new(:foodcritic) do |t|
     cookbook_paths: 'cookbooks',
     tags: [
       '~FC003',
-      '~FC011'
+      '~FC011',
+      '~FC017'
     ]
   }
 end
