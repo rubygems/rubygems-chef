@@ -12,6 +12,8 @@ node.default['uchiwa']['settings']['user'] = sensu_creds['user']
 node.default['uchiwa']['settings']['pass'] = sensu_creds['password']
 node.default['sensu']['use_embedded_ruby'] = true
 
+include_recipe 'sensu::default'
+
 sensu_handler 'default' do
   type 'pipe'
   command 'cat'
