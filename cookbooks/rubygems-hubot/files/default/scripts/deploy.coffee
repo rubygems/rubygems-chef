@@ -39,11 +39,7 @@ exec = (command, logFile, callback) ->
       callback "Exited with #{exit_code}"
 
 allowedToDeploy = (username, env) ->
-  if env == 'production'
-    allowedUsers = ['dwradcliffe', 'shk']
-  else
-    allowedUsers = ['dwradcliffe', 'qrush', 'evanphx', 'shk', 'arthurnn', 'sferik']
-  return username in allowedUsers
+  return username in ['dwradcliffe', 'qrush', 'evanphx', 'shk', 'arthurnn', 'sferik']
 
 deploy = (msg, env, branch) ->
   unless allowedToDeploy(msg.message.user.name, env)
