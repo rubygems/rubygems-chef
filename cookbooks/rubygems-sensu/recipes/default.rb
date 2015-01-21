@@ -3,9 +3,6 @@
 # Recipe:: default
 #
 
-node.default['sensu']['version'] = '0.14.0-1'
-node.default['sensu']['use_ssl'] = false
-
 include_recipe 'sensu'
 
 # this will only ever return a single 'ip' key since node comes from
