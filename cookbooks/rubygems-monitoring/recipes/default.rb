@@ -20,4 +20,5 @@ end
 
 include_recipe 'rubygems-sensu::server'
 include_recipe 'rubygems'
+include_recipe 'rubygems-monitoring::doorman'
 include_recipe 'rubygems-monitoring::nginx'
