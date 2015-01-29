@@ -13,6 +13,7 @@ end
 git "#{node['rubygems-hubot']['deploy_dir']}/staging" do
   repository 'https://github.com/rubygems/rubygems.org.git'
   reference 'master'
+  enable_submodules true
   user node['hubot']['user']
   group node['hubot']['group']
   action :sync
@@ -22,7 +23,7 @@ end
 execute 'setup_git_fetch_for_prs' do
   command 'git config --add remote.origin.fetch "+refs/pull/*/head:refs/remotes/origin/pr/*"'
   cwd "#{node['rubygems-hubot']['deploy_dir']}/staging"
-  not_if "cd #{node['rubygems-hubot']['deploy_dir']}/staging && git config --get-all remote.origin.fetch | grep -qs 'origin/pr'"
+  not_if "cd #{node['rubygems-hubot']['deploy_dir']}/staging && cat .git/config | grep -qs 'refs/remotes/origin/pr'"
 end
 
 execute 'bundle_install_deploy' do
