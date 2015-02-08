@@ -1,29 +1,29 @@
 DEPENDENCIES
   aptly
-    git: git@github.com:skottler/aptly.git
+    git: git://github.com/skottler/aptly.git
     revision: 4be943dc19445481780a6e458b6d29b9aa90c912
     ref: fix_see
   bprobe
-    git: git@github.com:boundary/bprobe_cookbook.git
+    git: git://github.com/boundary/bprobe_cookbook.git
     revision: 61fec6bc9873b09129f1e86b1e7ecf4c6b97ebd9
   collectd
-    git: git@github.com:librato/collectd-cookbook.git
+    git: git://github.com/librato/collectd-cookbook.git
     revision: bb26f55d7747f0f6e7de93c198161b0613fe62eb
   collectd-librato
-    git: git@github.com:librato/collectd-librato-cookbook.git
+    git: git://github.com/librato/collectd-librato-cookbook.git
     revision: af04f6d0eded1aad02eada59e38d4a6294c66d3c
   collectd_plugins
-    git: git@github.com:skottler/chef-collectd_plugins.git
+    git: git://github.com/skottler/chef-collectd_plugins.git
     revision: 4cbc90f319096f9c845e5f07f60c78483eeeecac
   dns
     path: cookbooks/dns
   dnsimple
     path: cookbooks/dnsimple
   duo-security
-    git: git@github.com:skottler/chef-duo-security
+    git: git://github.com/skottler/chef-duo-security.git
     revision: 1ddec64f0798d91cf0ab1a8dd8831fb0f6694556
   ganglia
-    git: git@github.com:ganglia/chef-ganglia.git
+    git: git://github.com/ganglia/chef-ganglia.git
     revision: 9cf8aa14207e5f66e0a1dd6eb3a2116825c0a967
   rubygems
     path: cookbooks/rubygems
