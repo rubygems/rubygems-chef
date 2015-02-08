@@ -1,6 +1,6 @@
 name 'rubygems-balancer'
 
-version '0.0.41'
+version '0.0.42'
 
 depends 'chef-vault'
 depends 'logrotate'

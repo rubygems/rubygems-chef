@@ -16,3 +16,14 @@ template '/etc/collectd/plugins/postgresql.conf' do
   )
   notifies :restart, 'service[collectd]'
 end
+
+node.default['datadog']['postgres']['instances'] = [
+  {
+    'server' => 'localhost',
+    'username' => 'postgres',
+    'password' => db_host['postgresql']['password']['postgres'],
+    'tags' => []
+  }
+]
+
+include_recipe 'datadog::postgres'

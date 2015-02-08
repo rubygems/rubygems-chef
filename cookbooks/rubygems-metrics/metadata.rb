@@ -1,7 +1,7 @@
 name 'rubygems-metrics'
 maintainer 'RubyGems.org ops team'
 
-version '0.1.1'
+version '0.1.5'
 
 depends 'chef-vault'
 depends 'collectd'

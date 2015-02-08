@@ -23,3 +23,5 @@ cookbook_file '/etc/default/nginx' do
   source 'nginx'
   notifies :reload, 'service[nginx]'
 end
+
+include_recipe 'rubygems-metrics::nginx'

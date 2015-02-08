@@ -23,6 +23,7 @@ runit_service 'unicorn' do
   env(
     'RAILS_ENV' => node.chef_environment,
     'REDISTOGO_URL' => "redis://#{redis_ip}:6379/0",
+    'STATSD_IMPLEMENTATION' => 'datadog',
     'LIBRATO_USER' => librato_creds['email'],
     'LIBRATO_TOKEN' => librato_creds['token'],
     'LIBRATO_PREFIX' => "app.#{node.chef_environment}"
