@@ -24,3 +24,5 @@ template "#{node['nginx']['dir']}/sites-available/rubygems" do
 end
 
 nginx_site 'rubygems'
+
+include_recipe 'rubygems-metrics::nginx'
