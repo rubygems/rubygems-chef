@@ -3,16 +3,24 @@
 # Recipe:: default
 #
 
-%w( ruby2.0 ruby2.0-dev ).each do |pkg|
-  package pkg
+include_recipe 'apt'
+
+apt_repository 'brightbox-ruby-ng' do
+  uri          'http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu'
+  distribution node['lsb']['codename']
+  components   ['main']
+  keyserver    'keyserver.ubuntu.com'
+  key          'C3173AA6'
+  notifies :run, 'execute[apt-get update]', :immediately
 end
 
-link '/usr/bin/ruby' do
-  to  '/usr/bin/ruby2.0'
-end
+package 'ruby2.1'
+package 'ruby2.1-dev'
+package 'ruby-switch'
 
-link '/usr/bin/gem' do
-  to '/usr/bin/gem2.0'
+execute 'ruby-switch --set ruby2.1' do
+  action :run
+  not_if "ruby-switch --check | grep -q 'ruby2.1'"
 end
 
 gem_package 'bundler'
