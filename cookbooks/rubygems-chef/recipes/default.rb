@@ -13,6 +13,14 @@ node.default['chef_client']['cron']['minute'] = '*/15'
 node.default['chef_client']['cron']['hour'] = '*'
 
 include_recipe 'chef-client::config'
+
+# See: https://github.com/opscode-cookbooks/chef-client/issues/196
+if node.name == 'chef.common.rubygems.org'
+  r = resources(template: '/etc/chef/client.rb')
+  r.user 'root'
+  r.group 'root'
+end
+
 include_recipe 'chef-client::cron'
 
 service 'chef-client' do
