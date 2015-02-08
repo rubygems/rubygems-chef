@@ -62,7 +62,13 @@ deploy = (msg, env, branch) ->
         else
           exec "git checkout master", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
       (callback) ->
-        exec "bundle check || bundle install --local --without production", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
+        if branch
+          exec "git pull --force origin #{branch}", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
+        else
+          exec "git pull --force origin master", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
+      (callback) ->
+        localFlag = if env is 'staging' then '' else '--local'
+        exec "bundle check || bundle install #{localFlag} --without production", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
       (callback) ->
         branchCmd = if branch then "BRANCH=#{branch}" else ''
         cleanCmd = if 'staging' == env then 'deploy:clean_git_cache' else ''
