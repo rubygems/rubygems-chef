@@ -16,7 +16,7 @@ Backup::Model.new(:public_postgresql, 'RubyGems.org Public Database Dump') do
     db.password    = "<%= @postgresql_password %>"
     db.host        = "localhost"
     db.port        = 5432
-    db.only_tables = ['rubygems', 'versions' 'dependencies', 'linksets', 'requirements', 'version_histories']
+    db.only_tables = ['rubygems', 'versions', 'dependencies', 'linksets', 'requirements', 'version_histories']
   end
 
   compress_with Gzip
