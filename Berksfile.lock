@@ -1,8 +1,4 @@
 DEPENDENCIES
-  aptly
-    git: git://github.com/skottler/aptly.git
-    revision: 4be943dc19445481780a6e458b6d29b9aa90c912
-    ref: fix_see
   bprobe
     git: git://github.com/boundary/bprobe_cookbook.git
     revision: 61fec6bc9873b09129f1e86b1e7ecf4c6b97ebd9
@@ -90,7 +86,7 @@ GRAPH
     logrotate (>= 0.0.0)
     pacman (>= 0.0.0)
   apt (2.5.2)
-  aptly (0.2.1)
+  aptly (0.2.4)
     apt (>= 0.0.0)
   aws (2.4.0)
   bprobe (0.2.0)
@@ -323,8 +319,8 @@ GRAPH
     rubygems (>= 0.0.0)
     rubygems-backups (>= 0.0.0)
     sysctl (>= 0.0.0)
-  rubygems-repo (0.0.27)
-    aptly (>= 0.0.0)
+  rubygems-repo (0.0.28)
+    aptly (= 0.2.4)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-ruby (0.0.4)

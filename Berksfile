@@ -37,7 +37,6 @@ cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
 
 # Add cookbooks which diverge from the versions available on the community
 # site.
-cookbook 'aptly', github: 'skottler/aptly', ref: 'fix_seed'
 cookbook 'bprobe', github: 'boundary/bprobe_cookbook'
 cookbook 'collectd_plugins', github: 'skottler/chef-collectd_plugins'
 cookbook 'collectd', github: 'librato/collectd-cookbook'
