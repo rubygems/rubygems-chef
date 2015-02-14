@@ -12,7 +12,7 @@ This repository contains chef artifacts used to deploy all the different pieces 
 To run chef on all nodes (staging, common, production) run: `knife ssh "*:*" "sudo chef-client" -x $(whoami)`.
 
 #### Roles
-We use roles as minimally as possible. All top-level functionality should be in the appropriate role-specific cookbook (i.e. rubygems-app). We only use roles for easing the use of search and for monitoring [settings](https://github.com/rubygems/rubygems-infrastructure/blob/master/cookbooks/rubygems-sensu/recipes/default.rb#L25).
+We use roles as minimally as possible. All top-level functionality should be in the appropriate role-specific cookbook (i.e. rubygems-app). We only use roles for easing the use of search and for monitoring [configuration](https://github.com/rubygems/rubygems-infrastructure/blob/master/cookbooks/rubygems-sensu/recipes/default.rb#L25).
 
 Run `knife role from file roles/*.rb` after updating any roles to upload them to the Chef server.
 
