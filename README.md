@@ -1,5 +1,11 @@
 # RubyGems.org infrastructure
 
+### Code of conduct
+
+Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms. See `CODE_OF_CONDUCT.md` in this repository for more information.
+
+### General guideliens
+
 This repository contains chef artifacts used to deploy all the different pieces of infrastructure which run RubyGems.org. There are a few patterns which we use and enforce throughout the repo:
 
 1. All cookbooks should live *somewhere* upstream. This could be a developers's GitHub account, or the Chef community site. All the cookbooks in the `cookbooks` directory are wrappers which set attributes, configure necessary LWRP's, and include recipes. The functionality itself comes from the upstream cookbooks.
