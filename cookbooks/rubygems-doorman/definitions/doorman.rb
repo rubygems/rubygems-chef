@@ -62,5 +62,4 @@ define :doorman do
     )
   end
 
-
 end
