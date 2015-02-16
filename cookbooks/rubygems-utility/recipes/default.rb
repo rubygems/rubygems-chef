@@ -3,23 +3,13 @@
 # Recipe:: default
 #
 
+# This needs to get run before we install any packages because the apt cache
+# might be out of date and the default apt recipe will update it.
+include_recipe 'apt'
+
 packages = data_bag_item('packages', 'base')['packages']
 
 packages.each do |pkg|
   package pkg
 end
 
-include_recipe 'apt'
-
-package 'bash' do
-  case node['lsb']['codename']
-  when 'trusty'
-    version '4.3-7ubuntu1.4'
-  end
-  notifies :run, 'execute[run-ldconfig]', :immediately
-end
-
-execute 'run-ldconfig' do
-  command '/sbin/ldconfig'
-  action :nothing
-end
