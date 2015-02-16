@@ -6,8 +6,10 @@
     "htop",
     "iotop",
     "molly-guard",
+    "nmap",
     "strace",
     "tig",
+    "traceroute",
     "vim",
     "wget"
   ]
