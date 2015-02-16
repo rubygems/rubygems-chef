@@ -20,4 +20,5 @@ template '/etc/chef/client.d/slack.rb' do
     username: slack_creds['username'],
     icon_url: slack_creds['icon_url']
   )
+  action node['slack']['enabled'] ? :create : :delete
 end
