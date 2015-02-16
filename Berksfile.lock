@@ -310,7 +310,7 @@ GRAPH
     motd (>= 0.0.0)
   rubygems-ntp (0.0.3)
     ntp (>= 0.0.0)
-  rubygems-people (0.0.34)
+  rubygems-people (0.0.35)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
   rubygems-redis (0.1.7)

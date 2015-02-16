@@ -54,6 +54,7 @@ end
 
 node.default['authorization']['sudo']['groups'] = ['sysadmin']
 node.default['authorization']['sudo']['include_sudoers_d'] = true
+node.default['authorization']['sudo']['passwordless'] = true
 include_recipe 'sudo'
 
 sudo 'deploy' do
