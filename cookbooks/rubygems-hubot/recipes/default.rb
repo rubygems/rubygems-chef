@@ -7,6 +7,7 @@ include_recipe 'rubygems-ruby'
 
 include_recipe 'chef-vault'
 slack_secrets = chef_vault_item('slack', 'hubot')
+hubot_secrets = chef_vault_item('hubot', 'credentials')
 
 node.set['hubot']['version'] = '2.11.0'
 node.set['hubot']['scripts_version'] = '2.5.16'
@@ -15,17 +16,21 @@ node.set['hubot']['adapter'] = 'slack'
 
 node.set['hubot']['dependencies'] = {
   'hubot-slack' => '~3.1.0',
+  'hubot-tweeter' => '~0.3.1',
   'async' => '^0.9.0'
 }
 
 node.set['hubot']['hubot_scripts'] = []
 
-node.set['hubot']['external_scripts'] = []
+node.set['hubot']['external_scripts'] = ['hubot-tweeter']
 
 node.set['hubot']['config'] = {
   'HUBOT_SLACK_TOKEN' => slack_secrets['token'],
   'HUBOT_SLACK_TEAM' => 'bundler',
   'HUBOT_SLACK_BOTNAME' => 'hubot',
+  'HUBOT_TWITTER_CONSUMER_KEY' => hubot_secrets['twitter_consumer_key'],
+  'HUBOT_TWITTER_CONSUMER_SECRET' => hubot_secrets['twitter_consumer_secret'],
+  'HUBOT_TWEETER_ACCOUNTS' => "{\"rubygems_status\":{\"access_token\":\"#{hubot_secrets['twitter_access_token']}\",\"access_token_secret\":\"#{hubot_secrets['twitter_access_token_secret']}\"}}",
   'HUBOT_DEPLOY_DIR' => "#{node['rubygems-hubot']['deploy_dir']}/staging",
   'HUBOT_DEPLOY_LOG_DIR' => '/var/log/hubot_deploys'
 }
