@@ -334,7 +334,7 @@ GRAPH
     openssh (>= 0.0.0)
   rubygems-stat-update (0.0.1)
     runit (>= 0.0.0)
-  rubygems-utility (0.0.8)
+  rubygems-utility (0.0.9)
     apt (>= 0.0.0)
   runit (1.4.6)
     build-essential (>= 0.0.0)
