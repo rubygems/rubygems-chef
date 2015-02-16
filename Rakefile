@@ -27,6 +27,7 @@ task :refresh_vaults do
     'certs/staging',
     'dnsimple/credentials',
     'duo/credentials',
+    'hubot/credentials',
     'librato/credentials',
     'papertrail/credentials',
     'rubygems/production',
