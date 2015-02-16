@@ -1,1 +1,1 @@
-node.default["slack"]["enabled"] = true
+node.default['slack']['enabled'] = true
