@@ -19,4 +19,4 @@ knife[:aws_access_key_id] = ENV['RUBYGEMS_AWS_ACCESS_KEY_ID']
 knife[:aws_secret_access_key] = ENV['RUBYGEMS_AWS_SECRET_KEY_ID']
 
 knife[:vault_mode] = 'client'
-knife[:vault_admins] = ['dwradcliffe', 'skottler', 'evan']
+knife[:vault_admins] = ['dwradcliffe', 'samkottler', 'evan']
