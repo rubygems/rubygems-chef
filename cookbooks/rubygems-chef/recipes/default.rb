@@ -27,6 +27,6 @@ service 'chef-client' do
   action [:stop, :disable]
 end
 
-node.default['omnibus_updater']['version'] = '11.16.2'
+node.default['omnibus_updater']['version'] = '12.0.3'
 node.default['omnibus_updater']['restart_chef_service'] = true
 include_recipe 'omnibus_updater'
