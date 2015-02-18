@@ -3,7 +3,7 @@
 # Recipe:: server
 #
 
-node.default['uchiwa']['version'] = '0.2.6-1'
+node.default['uchiwa']['version'] = '0.4.0-1'
 node.default['uchiwa']['settings']['user'] = ''
 node.default['uchiwa']['settings']['pass'] = ''
 node.default['sensu']['use_embedded_ruby'] = true
