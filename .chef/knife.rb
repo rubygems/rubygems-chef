@@ -15,6 +15,7 @@ environment_path          "#{current_dir}/../environments"
 knife[:bootstrap_file] = "#{current_dir}/bootstrap/rubygems-trusty.erb"
 
 # Provision new instances with knife-ec2
+knife[:region] = 'us-west-2'
 knife[:aws_access_key_id] = ENV['RUBYGEMS_AWS_ACCESS_KEY_ID']
 knife[:aws_secret_access_key] = ENV['RUBYGEMS_AWS_SECRET_KEY_ID']
 
