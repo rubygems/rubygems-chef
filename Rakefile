@@ -25,6 +25,7 @@ task :refresh_vaults do
     'aws/credentials',
     'certs/production',
     'certs/staging',
+    'datadog/credentials',
     'dnsimple/credentials',
     'duo/credentials',
     'hubot/credentials',
