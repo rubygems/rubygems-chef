@@ -3,7 +3,6 @@
 # Recipe:: default
 #
 
-include_recipe 'rubygems-chef::librato'
 include_recipe 'rubygems-chef::slack'
 
 node.default['chef_client']['config']['ssl_verify_mode'] = ':verify_peer'
