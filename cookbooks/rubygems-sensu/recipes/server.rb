@@ -3,9 +3,6 @@
 # Recipe:: server
 #
 
-node.default['uchiwa']['version'] = '0.3.4-1'
-node.default['uchiwa']['settings']['user'] = ''
-node.default['uchiwa']['settings']['pass'] = ''
 node.default['sensu']['use_embedded_ruby'] = true
 node.default['sensu']['use_ssl'] = false
 
@@ -28,7 +25,8 @@ end
 include_recipe 'sensu::redis'
 include_recipe 'sensu::server_service'
 include_recipe 'sensu::api_service'
-include_recipe 'uchiwa'
+
+include_recipe 'rubygems-sensu::uchiwa'
 
 include_recipe 'rubygems-sensu::app'
 include_recipe 'rubygems-sensu::balancer'
