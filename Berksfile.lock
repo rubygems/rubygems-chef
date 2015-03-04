@@ -325,7 +325,7 @@ GRAPH
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-ruby (0.0.4)
-  rubygems-sensu (0.1.13)
+  rubygems-sensu (0.1.17)
     build-essential (>= 0.0.0)
     chef-vault (>= 0.0.0)
     cpan (>= 0.0.0)
