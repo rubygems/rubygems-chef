@@ -30,6 +30,13 @@ node.default['postgresql']['pg_hba'] = [
     'method' => 'md5'
   },
   {
+    'type' => 'host',
+    'db' => 'postgres',
+    'user' => 'datadog',
+    'addr' => 'samehost',
+    'method' => 'md5'
+  },
+  {
     'type' => 'local',
     'db' => 'all',
     'user' => 'postgres',

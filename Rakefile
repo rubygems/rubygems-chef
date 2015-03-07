@@ -32,6 +32,7 @@ task :refresh_vaults do
     'hubot/credentials',
     'librato/credentials',
     'papertrail/credentials',
+    'postgresql/datadog',
     'rubygems/production',
     'rubygems/staging',
     'secrets/backups',
