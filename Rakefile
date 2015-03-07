@@ -14,6 +14,7 @@ FoodCritic::Rake::LintTask.new(:foodcritic) do |t|
     tags: [
       '~FC003',
       '~FC011',
+      '~FC015',
       '~FC017'
     ]
   }
