@@ -36,11 +36,11 @@ sensu_check 'check_ssh' do
 end
 
 sensu_check 'check_apt' do
-  command '/usr/lib/nagios/plugins/check_apt'
+  command '/etc/sensu/plugins/check_apt.sh'
   handlers ['slack']
   subscribers ['all']
   interval 60
-  additional(notification: 'There are pending package upgrades', occurrences: 3)
+  additional(occurrences: 2)
 end
 
 sensu_check 'check_ntp_time' do
