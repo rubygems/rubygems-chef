@@ -9,9 +9,15 @@ include_recipe 'chef-vault'
 secrets = chef_vault_item('rubygems', node.chef_environment)
 app_host = data_bag_item('hosts', 'application')['environments'][node.chef_environment]
 
+node.default['postgresql']['version'] = '9.3'
 node.default['postgresql']['config']['listen_addresses'] = '0.0.0.0'
 node.default['postgresql']['config']['work_mem'] = '100MB'
 node.default['postgresql']['config']['shared_buffers'] = '24MB'
+
+apt_preference 'postgresql-9.3' do
+  pin 'version 9.3.5-0ubuntu0.14.04.1'
+  pin_priority '700'
+end
 
 # TODO: this needs to iterate over a list of application servers in the data
 # bag.
