@@ -7,6 +7,7 @@ depends 'aws'
 depends 'redisio'
 depends 'rubygems'
 depends 'rubygems-backups'
+depends 'rubygems-metrics'
 depends 'sysctl'
 
 supports 'ubuntu'
