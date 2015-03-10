@@ -2,6 +2,8 @@
 
 cd /applications/doorman
 
+export NODE_ENV=production
+
 exec 2>&1
 exec <%= node['runit']['chpst_bin'] %> \
   -u <%= @options[:owner] %>:<%= @options[:group] %> \

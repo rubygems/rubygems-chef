@@ -283,7 +283,7 @@ GRAPH
   rubygems-metrics (0.1.9)
     chef-vault (>= 0.0.0)
     datadog (>= 0.0.0)
-  rubygems-monitoring (0.0.18)
+  rubygems-monitoring (0.0.19)
     chef-vault (>= 0.0.0)
     cpan (>= 0.0.0)
     dnsimple (>= 0.0.0)
