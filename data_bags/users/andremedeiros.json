@@ -1,0 +1,15 @@
+{
+  "id": "andremedeiros",
+  "username": "andremedeiros",
+  "comment": "André Medeiros",
+  "admin": true,
+  "deployer": true,
+  "environments": [
+    "common",
+    "staging",
+    "production"
+  ],
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA3TM2o3yDXf+qXaebPG9G/WXYzY55U4iPQwwB3HIg4lMiq6+av2OQNXDGLWp7KW5HsnRwbgtJk5Z8GeBOQModUsk7c4qO7n+3hJQAUFkeQvgai6b965ZGPewjbCbBjk/p5nfmndijshRGIfdjWbVnYn1KTXxkRcyaaEGtYwQI4iVRzQurXSFjkoyY6fUb/mLY6RfO1+3iqenYRUihAzmgPFFJroR1a4cRD+6gdMpl8bUceymu71/f54cvtep5V5YvAfJCMPkuJs9C4Kf+pkEN0/M4xrbRLOwyLCW0etAOAdVrWG91VFntNUAksk0OOcLHAJXiBdQPZS82Mdpek8T9Nw== andremedeiros@bender"
+  ]
+}
