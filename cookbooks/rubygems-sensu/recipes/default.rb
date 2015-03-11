@@ -34,7 +34,12 @@ package 'nagios-plugins'
 
 package 'postgresql-client'
 
-%w( check-procs.rb check_postgres.pl check_memcached.pl check_apt.sh ).each do |plugin|
+%w(
+  check-procs.rb
+  check_postgres.pl
+  check_memcached.pl
+  check_apt.sh
+).each do |plugin|
   cookbook_file "/etc/sensu/plugins/#{plugin}" do
     source plugin
     path "/etc/sensu/plugins/#{plugin}"
@@ -47,21 +52,5 @@ end
 
 include_recipe 'build-essential'
 include_recipe 'cpan'
-
-# cpan_client 'Cache::Memcached' do
-#   user 'root'
-#   group 'root'
-#   force true
-#   install_type 'cpan_module'
-#   action 'install'
-# end
-
-# cpan_client 'String::CRC32' do
-#   user 'root'
-#   group 'root'
-#   force true
-#   install_type 'cpan_module'
-#   action 'install'
-# end
 
 include_recipe 'sensu::client_service'

@@ -2,15 +2,6 @@ DEPENDENCIES
   bprobe
     git: git://github.com/boundary/bprobe_cookbook.git
     revision: 61fec6bc9873b09129f1e86b1e7ecf4c6b97ebd9
-  collectd
-    git: git://github.com/librato/collectd-cookbook.git
-    revision: bb26f55d7747f0f6e7de93c198161b0613fe62eb
-  collectd-librato
-    git: git://github.com/librato/collectd-librato-cookbook.git
-    revision: af04f6d0eded1aad02eada59e38d4a6294c66d3c
-  collectd_plugins
-    git: git://github.com/skottler/chef-collectd_plugins.git
-    revision: 4cbc90f319096f9c845e5f07f60c78483eeeecac
   dns
     path: cookbooks/dns
   dnsimple
@@ -99,13 +90,6 @@ GRAPH
   chef-sugar (2.5.0)
   chef-vault (1.1.2)
   chef_handler (1.1.6)
-  collectd (1.0.5)
-    apache2 (>= 0.0.0)
-  collectd-librato (0.0.5)
-    collectd (>= 0.0.0)
-    git (>= 0.0.0)
-  collectd_plugins (1.1.0)
-    collectd (>= 0.0.0)
   cpan (0.0.32)
   cron (1.4.0)
   database (2.3.0)
@@ -199,8 +183,8 @@ GRAPH
     build-essential (>= 0.0.0)
     openssl (~> 4.0.0)
   python (1.4.4)
+    apt (>= 0.0.0)
     build-essential (>= 0.0.0)
-    yum (>= 0.0.0)
   rabbitmq (3.3.0)
     erlang (>= 0.9)
   redisio (1.7.1)
@@ -223,7 +207,7 @@ GRAPH
     rubygems-sensu (>= 0.0.0)
     rubygems-ssh (>= 0.0.0)
     rubygems-utility (>= 0.0.0)
-  rubygems-app (0.0.43)
+  rubygems-app (0.0.44)
     apt (>= 0.0.0)
     chef-vault (>= 0.0.0)
     git (>= 0.0.0)
@@ -296,11 +280,8 @@ GRAPH
   rubygems-logging (0.0.6)
     chef-vault (>= 0.0.0)
     rsyslog (>= 0.0.0)
-  rubygems-metrics (0.1.6)
+  rubygems-metrics (0.1.9)
     chef-vault (>= 0.0.0)
-    collectd (>= 0.0.0)
-    collectd-librato (>= 0.0.0)
-    collectd_plugins (>= 0.0.0)
     datadog (>= 0.0.0)
   rubygems-monitoring (0.0.18)
     chef-vault (>= 0.0.0)
@@ -331,7 +312,7 @@ GRAPH
     rubygems (>= 0.0.0)
   rubygems-ruby (0.0.5)
     apt (>= 0.0.0)
-  rubygems-sensu (0.1.20)
+  rubygems-sensu (0.1.25)
     build-essential (>= 0.0.0)
     chef-vault (>= 0.0.0)
     cpan (>= 0.0.0)

@@ -14,7 +14,6 @@ redis_host = data_bag_item('hosts', 'redis')['environments'][node.chef_environme
 redis_ip = search('node', "name:#{redis_host}.#{node.chef_environment}.rubygems.org")[0]['ipaddress']
 
 include_recipe 'chef-vault'
-librato_creds = chef_vault_item('librato', 'credentials')
 
 runit_service 'unicorn' do
   owner 'deploy'
@@ -24,9 +23,6 @@ runit_service 'unicorn' do
     'RAILS_ENV' => node.chef_environment,
     'REDISTOGO_URL' => "redis://#{redis_ip}:6379/0",
     'STATSD_IMPLEMENTATION' => 'datadog',
-    'LIBRATO_USER' => librato_creds['email'],
-    'LIBRATO_TOKEN' => librato_creds['token'],
-    'LIBRATO_PREFIX' => "app.#{node.chef_environment}"
   )
   options(
     owner: 'deploy',

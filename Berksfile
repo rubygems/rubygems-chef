@@ -38,9 +38,6 @@ cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
 # Add cookbooks which diverge from the versions available on the community
 # site.
 cookbook 'bprobe', github: 'boundary/bprobe_cookbook'
-cookbook 'collectd_plugins', github: 'skottler/chef-collectd_plugins'
-cookbook 'collectd', github: 'librato/collectd-cookbook'
-cookbook 'collectd-librato', github: 'librato/collectd-librato-cookbook'
 cookbook 'dns', path: 'cookbooks/dns'
 cookbook 'dnsimple', path: 'cookbooks/dnsimple'
 cookbook 'duo-security', github: 'skottler/chef-duo-security'
