@@ -24,6 +24,11 @@ server {
   # doc root
   root <%= @rails_root %>/current/public;
 
+  location /internal/background_job_stats {
+    access_log off;
+    return 404;
+  }
+
   # redirect not found error to the static page /404.html
   error_page 404 @400_errors;
   location @400_errors {

@@ -1,7 +1,7 @@
 name 'rubygems-monitoring'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.18'
+version '0.0.19'
 
 depends 'chef-vault'
 depends 'cpan'
