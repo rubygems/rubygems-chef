@@ -11,6 +11,8 @@ node.default['nginx']['package_name'] = 'nginx-extras'
 
 include_recipe 'chef-vault'
 
+include_recipe 'rubygems-balancer::mounts'
+
 include_recipe 'nginx'
 
 include_recipe 'rubygems-balancer::ssl'
