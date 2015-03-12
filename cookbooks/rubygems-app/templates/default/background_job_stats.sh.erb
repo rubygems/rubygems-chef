@@ -1,0 +1,13 @@
+#!/bin/bash
+set stats
+for x in `curl -s -S -H "Host:<%= @host %>" http://localhost:3000/internal/background_job_stats`; do
+  key=${x%%=*}
+  key="delayed_job.$key"
+  value=${x##*=}
+  if [ -z "$stats" ]; then
+    stats="$key:$value|g"
+  else
+    stats="$stats\n$key:$value|g"
+  fi
+done
+echo -e -n "$stats" > /dev/udp/127.0.0.1/8125
