@@ -1,7 +1,4 @@
 DEPENDENCIES
-  bprobe
-    git: git://github.com/boundary/bprobe_cookbook.git
-    revision: 61fec6bc9873b09129f1e86b1e7ecf4c6b97ebd9
   dns
     path: cookbooks/dns
   dnsimple
@@ -80,9 +77,6 @@ GRAPH
   aptly (0.2.4)
     apt (>= 0.0.0)
   aws (2.4.0)
-  bprobe (0.2.0)
-    apt (>= 0.0.0)
-    yum (<= 2.4.4)
   build-essential (2.0.6)
   chef-client (3.7.0)
     cron (>= 1.2.0)
