@@ -280,7 +280,7 @@ GRAPH
   rubygems-logging (0.0.6)
     chef-vault (>= 0.0.0)
     rsyslog (>= 0.0.0)
-  rubygems-metrics (0.1.9)
+  rubygems-metrics (0.1.10)
     chef-vault (>= 0.0.0)
     datadog (>= 0.0.0)
   rubygems-monitoring (0.0.19)

@@ -9,15 +9,8 @@ dbhostname = data_bag_item('hosts', 'database')['environments'][node.chef_enviro
 db_host = search(:node, "name:#{dbhostname}.#{node.chef_environment}.rubygems.org")[0]
 credentials = chef_vault_item('postgresql', 'datadog')
 
-template '/etc/collectd/plugins/postgresql.conf' do
-  owner 'root'
-  group 'root'
-  mode '644'
-  source 'postgresql.conf.erb'
-  variables(
-    password: db_host['postgresql']['password']['postgres']
-  )
-  notifies :restart, 'service[collectd]'
+file '/etc/collectd/plugins/postgresql.conf' do
+  action :delete
 end
 
 node.default['datadog']['postgres']['instances'] = [
