@@ -22,7 +22,7 @@ runit_service 'unicorn' do
   env(
     'RAILS_ENV' => node.chef_environment,
     'REDISTOGO_URL' => "redis://#{redis_ip}:6379/0",
-    'STATSD_IMPLEMENTATION' => 'datadog',
+    'STATSD_IMPLEMENTATION' => 'datadog'
   )
   options(
     owner: 'deploy',

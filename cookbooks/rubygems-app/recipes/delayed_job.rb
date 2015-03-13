@@ -28,7 +28,7 @@ template '/usr/local/bin/background_job_stats.sh' do
   mode '0755'
   owner 'root'
   group 'root'
-  variables(host: node.chef_environment == 'production' ? 'rubygems.org' : 'staging.rubygems.org' )
+  variables(host: node.chef_environment == 'production' ? 'rubygems.org' : 'staging.rubygems.org')
 end
 
 cron 'background job stats collection' do
