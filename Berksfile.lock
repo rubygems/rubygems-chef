@@ -43,8 +43,6 @@ DEPENDENCIES
     path: cookbooks/rubygems-hubot
   rubygems-logging
     path: cookbooks/rubygems-logging
-  rubygems-metrics
-    path: cookbooks/rubygems-metrics
   rubygems-monitoring
     path: cookbooks/rubygems-monitoring
   rubygems-motd
@@ -202,15 +200,15 @@ GRAPH
     rubygems-sensu (>= 0.0.0)
     rubygems-ssh (>= 0.0.0)
     rubygems-utility (>= 0.0.0)
-  rubygems-app (0.0.47)
+  rubygems-app (0.0.48)
     apt (>= 0.0.0)
     chef-vault (>= 0.0.0)
+    datadog (>= 0.0.0)
     git (>= 0.0.0)
     nginx (>= 0.0.0)
     nodejs (>= 0.0.0)
     postfix (= 3.2.0)
     rubygems (>= 0.0.0)
-    rubygems-metrics (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
     runit (>= 0.0.0)
     unicorn (>= 0.0.0)
@@ -220,12 +218,12 @@ GRAPH
   rubygems-backups (0.0.21)
     chef-vault (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
-  rubygems-balancer (0.0.43)
+  rubygems-balancer (0.0.44)
     chef-vault (>= 0.0.0)
+    datadog (>= 0.0.0)
     logrotate (>= 0.0.0)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
-    rubygems-metrics (>= 0.0.0)
   rubygems-bastion (0.0.10)
     chef-vault (>= 0.0.0)
     duo-security (>= 0.0.0)
@@ -275,9 +273,6 @@ GRAPH
   rubygems-logging (0.0.6)
     chef-vault (>= 0.0.0)
     rsyslog (>= 0.0.0)
-  rubygems-metrics (0.1.10)
-    chef-vault (>= 0.0.0)
-    datadog (>= 0.0.0)
   rubygems-monitoring (0.0.19)
     chef-vault (>= 0.0.0)
     cpan (>= 0.0.0)
