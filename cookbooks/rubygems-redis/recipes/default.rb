@@ -16,4 +16,12 @@ include_recipe 'redisio::install'
 include_recipe 'redisio::enable'
 
 include_recipe 'rubygems-backups::redis'
-include_recipe 'rubygems-metrics::redis'
+
+node.default['datadog']['redisdb']['instances'] = [
+  {
+    'server' => 'localhost',
+    'tags' => []
+  }
+]
+
+include_recipe 'datadog::redisdb'
