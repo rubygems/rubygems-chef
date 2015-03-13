@@ -15,7 +15,7 @@ node.default['postgresql']['config']['work_mem'] = '100MB'
 node.default['postgresql']['config']['shared_buffers'] = '24MB'
 
 apt_preference 'postgresql-9.3' do
-  pin 'version 9.3.5-0ubuntu0.14.04.1'
+  pin 'version 9.3.6-0ubuntu0.14.04'
   pin_priority '700'
 end
 
