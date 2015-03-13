@@ -37,7 +37,7 @@ exec = (command, args, callback) ->
       callback "Exited with #{exit_code}:\n#{data}"
 
 getServer = (environment) ->
-  return if environment == 'production' then 'lb02.production.rubygems.org' else 'lb01.staging.rubygems.org'
+  return if environment == 'production' then 'lb03.production.rubygems.org' else 'lb01.staging.rubygems.org'
 
 module.exports = (robot) ->
 
