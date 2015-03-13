@@ -11,7 +11,6 @@ sensu_handler 'default' do
   command 'cat'
 end
 
-include_recipe 'rubygems-sensu::librato'
 include_recipe 'rubygems-sensu::slack'
 include_recipe 'rubygems-sensu::pagerduty'
 
