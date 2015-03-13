@@ -49,4 +49,15 @@ include_recipe 'postgresql::ruby'
 
 include_recipe 'rubygems-backups::postgresql'
 
-include_recipe 'rubygems-metrics::postgresql'
+datadog_postgres_creds = chef_vault_item('postgresql', 'datadog')
+
+node.default['datadog']['postgres']['instances'] = [
+  {
+    'server' => 'localhost',
+    'username' => datadog_postgres_creds['username'],
+    'password' => datadog_postgres_creds['password'],
+    'tags' => [node.chef_environment]
+  }
+]
+
+include_recipe 'datadog::postgres'
