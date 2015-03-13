@@ -245,7 +245,7 @@ GRAPH
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
   rubygems-cloud-init (0.0.2)
-  rubygems-database (0.0.37)
+  rubygems-database (0.0.38)
     chef-vault (>= 0.0.0)
     database (>= 0.0.0)
     datadog (>= 0.0.0)

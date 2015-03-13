@@ -47,6 +47,8 @@ node.default['postgresql']['pg_hba'] = [
 include_recipe 'postgresql::server'
 include_recipe 'postgresql::ruby'
 
+package 'postgresql-contrib' # for hstore
+
 include_recipe 'rubygems-backups::postgresql'
 
 datadog_postgres_creds = chef_vault_item('postgresql', 'datadog')
