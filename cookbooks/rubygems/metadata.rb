@@ -2,7 +2,7 @@ name             'rubygems'
 maintainer       'RubyGems.org Ops Team'
 license          'MIT'
 description      'RubyGems base recipes'
-version          '0.0.39'
+version          '0.0.40'
 
 depends 'chef-vault'
 depends 'datadog'
