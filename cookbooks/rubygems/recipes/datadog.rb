@@ -8,7 +8,7 @@ execute 'pkill-collectd' do
   only_if { ::File.exist?('/usr/sbin/collectd') }
 end
 
-package "collectd-core" do
+package 'collectd-core' do
   action :remove
 end
 
