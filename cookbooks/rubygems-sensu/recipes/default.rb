@@ -51,6 +51,5 @@ package 'postgresql-client'
 end
 
 include_recipe 'build-essential'
-include_recipe 'cpan'
 
 include_recipe 'sensu::client_service'
