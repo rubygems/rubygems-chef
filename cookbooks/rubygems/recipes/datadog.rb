@@ -3,6 +3,15 @@
 # Recipe:: datadog
 #
 
+execute 'pkill-collectd' do
+  command '/usr/bin/pkill -9 collectd'
+  only_if { ::File.exist?('/usr/sbin/collectd') }
+end
+
+package "collectd-core" do
+  action :remove
+end
+
 include_recipe 'chef-vault'
 
 datadog_creds = chef_vault_item('datadog', 'credentials')
