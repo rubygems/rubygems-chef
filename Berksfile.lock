@@ -38,8 +38,6 @@ DEPENDENCIES
     path: cookbooks/rubygems-hubot
   rubygems-logging
     path: cookbooks/rubygems-logging
-  rubygems-monitoring
-    path: cookbooks/rubygems-monitoring
   rubygems-motd
     path: cookbooks/rubygems-motd
   rubygems-ntp
@@ -77,7 +75,6 @@ GRAPH
   chef-sugar (2.5.0)
   chef-vault (1.1.2)
   chef_handler (1.1.6)
-  cpan (0.0.32)
   cron (1.4.0)
   database (2.3.0)
     aws (>= 0.0.0)
@@ -253,15 +250,6 @@ GRAPH
   rubygems-logging (0.0.6)
     chef-vault (>= 0.0.0)
     rsyslog (>= 0.0.0)
-  rubygems-monitoring (0.0.20)
-    chef-vault (>= 0.0.0)
-    cpan (>= 0.0.0)
-    dnsimple (>= 0.0.0)
-    nginx (>= 0.0.0)
-    nodejs (>= 0.0.0)
-    rubygems (>= 0.0.0)
-    rubygems-sensu (>= 0.0.0)
-    runit (>= 0.0.0)
   rubygems-motd (0.0.9)
     motd (>= 0.0.0)
   rubygems-ntp (0.0.3)
@@ -282,9 +270,12 @@ GRAPH
     rubygems (>= 0.0.0)
   rubygems-ruby (0.0.5)
     apt (>= 0.0.0)
-  rubygems-sensu (0.1.29)
+  rubygems-sensu (0.1.30)
     build-essential (>= 0.0.0)
     chef-vault (>= 0.0.0)
+    dnsimple (>= 0.0.0)
+    nginx (>= 0.0.0)
+    rubygems (>= 0.0.0)
     sensu (= 2.1.0)
     uchiwa (= 1.0.0)
   rubygems-ssh (0.0.5)

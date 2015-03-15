@@ -25,11 +25,11 @@ include_recipe 'sensu::redis'
 include_recipe 'sensu::server_service'
 include_recipe 'sensu::api_service'
 
-include_recipe 'rubygems-sensu::uchiwa'
-
 include_recipe 'rubygems-sensu::app'
 include_recipe 'rubygems-sensu::balancer'
 include_recipe 'rubygems-sensu::base'
 include_recipe 'rubygems-sensu::cache'
 include_recipe 'rubygems-sensu::database'
 include_recipe 'rubygems-sensu::nginx'
+
+include_recipe 'rubygems-sensu::uchiwa'

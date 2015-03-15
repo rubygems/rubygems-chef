@@ -1,5 +1,5 @@
 name 'monitoring'
 description 'Monitoring servers'
 run_list(
-  'recipe[rubygems-monitoring]'
+  'recipe[rubygems-sensu::server]'
 )

@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: rubygems-monitoring
-# Recipe:: nginx
+# Cookbook Name:: rubygems-sensu
+# Recipe:: uchiwa_nginx
 #
 
 node.default['nginx']['server_tokens'] = 'off'
