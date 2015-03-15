@@ -50,6 +50,14 @@ package 'postgresql-client'
   end
 end
 
+# make sure no checks are defined on the clients
+unless node['name'] == 'monitoring01.common.rubygems.org'
+  directory '/etc/sensu/conf.d/checks' do
+    action :delete
+    recursive true
+  end
+end
+
 include_recipe 'build-essential'
 
 include_recipe 'sensu::client_service'
