@@ -51,7 +51,7 @@ package 'postgresql-client'
 end
 
 # make sure no checks are defined on the clients
-unless node['name'] == 'monitoring01.common.rubygems.org'
+unless node['fqdn'] == 'monitoring01.common.rubygems.org'
   directory '/etc/sensu/conf.d/checks' do
     action :delete
     recursive true
