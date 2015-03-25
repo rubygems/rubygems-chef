@@ -11,6 +11,10 @@ file '/etc/apt/sources.list' do
   not_if { node['apt']['bootstrap'] }
 end
 
+cookbook_file 'ubuntu.list' do
+  path '/etc/apt/sources.list.d/ubuntu.list'
+end
+
 file '/etc/apt/apt.conf.d/05unauthenticated' do
   action :delete
 end
@@ -33,4 +37,5 @@ apt_repository 'rubygems_main' do
   distribution node['lsb']['codename']
   components ['main']
   not_if { node['apt']['bootstrap'] }
+  action :remove
 end

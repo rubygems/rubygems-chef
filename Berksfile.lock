@@ -193,7 +193,7 @@ GRAPH
     runit (>= 0.0.0)
     unicorn (>= 0.0.0)
     user (>= 0.0.0)
-  rubygems-apt (0.0.15)
+  rubygems-apt (0.0.16)
     apt (>= 0.0.0)
   rubygems-backups (0.0.21)
     chef-vault (>= 0.0.0)
