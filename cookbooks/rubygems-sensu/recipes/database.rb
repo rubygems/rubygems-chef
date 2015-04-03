@@ -26,7 +26,7 @@ end
   sensu_check "check_postgres_#{check}" do
     command "perl /etc/sensu/plugins/check_postgres.pl --action #{check} #{db_connection}"
     handlers ['slack', 'pagerduty']
-    subscribers ['app']
+    subscribers []
     interval 30
     additional(occurrences: 3)
   end
@@ -35,7 +35,7 @@ end
 sensu_check 'check_postgres_backends' do
   command "perl /etc/sensu/plugins/check_postgres.pl --action backends -db rubygems_#{node.chef_environment}"
   handlers ['slack', 'pagerduty']
-  subscribers ['database']
+  subscribers []
   interval 30
   additional(occurrences: 3)
 end
