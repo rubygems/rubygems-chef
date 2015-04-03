@@ -1,0 +1,4 @@
+log_format json '{'
+  '<%= @log_format.map { |k, v| %("#{k}": "#{v}") }.join(", '\n\t'") %>'
+'}';
+access_log  /var/log/nginx/access.json.log json;
