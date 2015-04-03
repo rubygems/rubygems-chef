@@ -28,4 +28,5 @@ end
 
 node.default['omnibus_updater']['version'] = '12.0.3'
 node.default['omnibus_updater']['kill_chef_on_upgrade'] = false
+node.default['omnibus_updater']['prevent_downgrade'] = true
 include_recipe 'omnibus_updater'
