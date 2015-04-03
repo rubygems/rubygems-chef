@@ -30,7 +30,6 @@ task :refresh_vaults do
     'dnsimple/credentials',
     'duo/credentials',
     'hubot/credentials',
-    'librato/credentials',
     'papertrail/credentials',
     'postgresql/datadog',
     'rubygems/production',
