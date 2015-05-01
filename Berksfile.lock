@@ -326,7 +326,7 @@ GRAPH
     rubygems (>= 0.0.0)
   rubygems-ruby (0.0.5)
     apt (>= 0.0.0)
-  rubygems-sensu (0.1.36)
+  rubygems-sensu (0.1.37)
     build-essential (>= 0.0.0)
     chef-vault (>= 0.0.0)
     dnsimple (>= 0.0.0)
