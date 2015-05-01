@@ -67,6 +67,8 @@ deploy = (msg, env, branch) ->
         else
           exec "git pull --force origin master", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
       (callback) ->
+        exec "git submodule update --init --recursive", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
+      (callback) ->
         localFlag = if env is 'staging' then '' else '--local'
         exec "bundle check || bundle install #{localFlag} --without production", "#{process.env["HUBOT_DEPLOY_LOG_DIR"]}/#{deployKey}.log", callback
       (callback) ->

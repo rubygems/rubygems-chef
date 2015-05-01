@@ -1,6 +1,6 @@
 name 'rubygems-hubot'
 
-version '0.0.67'
+version '0.0.68'
 
 depends 'chef-vault'
 depends 'hubot', '~> 1.0.2'
