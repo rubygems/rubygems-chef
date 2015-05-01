@@ -1,0 +1,14 @@
+input {
+  lumberjack {
+    port => 5043
+    ssl_certificate => '/etc/pki/tls/certs/logstash-forwarder/lumberjack.crt'
+    ssl_key => '/etc/pki/tls/private/logstash-forwarder/lumberjack.key'
+  }
+}
+
+input {
+  syslog {
+    port => '5959'
+    type => 'syslog'
+  }
+}

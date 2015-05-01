@@ -1,0 +1,23 @@
+filter {
+  if [type] == 'syslog' {
+    mutate {
+      rename => [ 'logsource', 'host' ]
+    }
+  }
+  if [type] == 'rails' {
+    grok {
+      match => [
+        'message', 'Started %{WORD:method} "%{URIPATHPARAM:uri}" for %{IPORHOST:client_ip} at (?<timestamp>%{YEAR:year}-%{MONTHNUM:month}-%{MONTHDAY:day} %{HOUR:hour}:%{MINUTE:minute}:%{SECOND:second} %{ISO8601_TIMEZONE:timezone})\s*Processing by (?<controller>[^#]+)#(?<action>\w+) as (?<format>\S+)%{GREEDYDATA}',
+        'message', 'Started %{WORD:method} "%{URIPATHPARAM:uri}" for %{IPORHOST:client_ip} at (?<timestamp>%{YEAR:year}-%{MONTHNUM:month}-%{MONTHDAY:day} %{HOUR:hour}:%{MINUTE:minute}:%{SECOND:second} %{ISO8601_TIMEZONE:timezone})%{GREEDYDATA}'
+      ]
+    }
+  }
+  if [type] == 'nginx_json' {
+    json {
+      source => 'message'
+    }
+    geoip {
+      source => 'client_ip'
+    }
+  }
+}
