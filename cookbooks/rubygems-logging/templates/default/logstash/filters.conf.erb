@@ -4,6 +4,7 @@ filter {
       rename => [ 'logsource', 'host' ]
     }
   }
+
   if [type] == 'rails' {
     grok {
       match => [
@@ -12,12 +13,69 @@ filter {
       ]
     }
   }
+
   if [type] == 'nginx_json' {
     json {
       source => 'message'
     }
     geoip {
       source => 'client_ip'
+    }
+  }
+
+  if [type] == 'nginx_error' {
+    grok {
+      match => {
+        "message" => [
+          "%{DATESTAMP:mydate} \[%{DATA:severity_label}\] (%{DATA:pid}#%{NUMBER}: \*%{NUMBER}|\*%{NUMBER}) %{GREEDYDATA:mymessage}",
+          "%{DATESTAMP:mydate} \[%{DATA:severity_label}\] %{GREEDYDATA:mymessage}",
+          "%{DATESTAMP:mydate} %{GREEDYDATA:mymessage}"
+        ]
+      }
+    }
+    date {
+      match => [ "mydate", "yy/MM/dd HH:mm:ss" ]
+      remove_field => ["mydate"]
+    }
+    grok {
+      match => {
+        "mymessage" => [
+          "host: \"%{IPORHOST:[dest_host]}\""
+        ]
+      }
+      add_tag => ["add_nginx_error_dest_host"]
+    }
+    grok {
+      match => {
+        "mymessage" => [
+          "request: \"%{WORD:[method]} %{DATA:[uri]} HTTP/%{NUMBER:[http_version]:float}\""
+        ]
+      }
+      add_tag => ["add_nginx_error_request"]
+    }
+    grok {
+      match => {
+        "mymessage" => [
+          "client: %{IPORHOST:[client_ip]}",
+          "client %{IP:[client_ip]} "
+        ]
+      }
+      add_tag => ["add_nginx_error_client_ip"]
+    }
+    grok {
+      match => {
+        "mymessage" => [
+          "referrer: \"%{DATA:[request_referrer]}\""
+        ]
+      }
+      add_tag => ["add_nginx_error_referrer"]
+    }
+    geoip {
+      source => 'client_ip'
+    }
+    mutate {
+      rename => [ "message", "original_message"]
+      rename => [ "mymessage", "message" ]
     }
   }
 }
