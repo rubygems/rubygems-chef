@@ -89,6 +89,6 @@ file '/etc/logstash-forwarder.conf' do
 end
 
 service 'logstash-forwarder' do
-  supports :status => true, :restart => true, :reload => true
+  supports status: true, restart: true, reload: true
   action config['files'].empty? ? [:disable, :stop] : [:enable, :start]
 end
