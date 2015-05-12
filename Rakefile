@@ -23,9 +23,11 @@ end
 desc 'Refresh all chef vaults'
 task :refresh_vaults do
   [
+    'apps/kibana',
     'aws/credentials',
     'certs/production',
     'certs/staging',
+    'certs/logstash',
     'datadog/credentials',
     'dnsimple/credentials',
     'duo/credentials',
