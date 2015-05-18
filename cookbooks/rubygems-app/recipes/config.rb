@@ -10,7 +10,7 @@ dbhost = data_bag_item('hosts', 'database')['environments'][node.chef_environmen
 secrets = chef_vault_item('rubygems', node.chef_environment)
 db_host = search(:node, "name:#{dbhost}.#{node.chef_environment}.rubygems.org")[0]
 
-template '/applications/rubygems/shared/database.yml' do
+template '/applications/rubygems/shared/config/database.yml' do
   source 'database.yml.erb'
   owner 'deploy'
   group 'deploy'
@@ -25,7 +25,7 @@ template '/applications/rubygems/shared/database.yml' do
   )
 end
 
-template '/applications/rubygems/shared/secret.rb' do
+template '/applications/rubygems/shared/config/secret.rb' do
   source 'secret.rb.erb'
   owner  'deploy'
   group  'deploy'
