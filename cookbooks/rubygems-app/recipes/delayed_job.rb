@@ -23,6 +23,15 @@ runit_service 'delayed_job' do
   action ::File.exist?('/applications/rubygems/current') ? :enable : :disable
 end
 
+sudo 'deploy-delayed_job' do
+  user 'deploy'
+  commands [
+    '/etc/init.d/delayed_job *',
+    '/usr/sbin/service delayed_job *'
+  ]
+  nopasswd true
+end
+
 template '/usr/local/bin/background_job_stats.sh' do
   source 'background_job_stats.sh.erb'
   mode '0755'

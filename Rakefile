@@ -24,6 +24,7 @@ desc 'Refresh all chef vaults'
 task :refresh_vaults do
   [
     'apps/kibana',
+    'apps/shipit',
     'aws/credentials',
     'certs/production',
     'certs/staging',

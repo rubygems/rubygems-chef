@@ -33,3 +33,12 @@ runit_service 'unicorn' do
   )
   action ::File.exist?('/applications/rubygems/current') ? :enable : :disable
 end
+
+sudo 'deploy-unicorn' do
+  user 'deploy'
+  commands [
+    '/etc/init.d/unicorn *',
+    '/usr/sbin/service unicorn *'
+  ]
+  nopasswd true
+end

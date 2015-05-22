@@ -1,0 +1,6 @@
+<% @netrc['heroku'].each do |machine, auth| %>
+machine <%= machine  %>
+<% auth.each do |key,value| %>
+  <%= key %> <%= value %>
+<% end %>
+<% end %>

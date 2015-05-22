@@ -1,0 +1,18 @@
+#!/bin/sh
+exec 2>&1
+
+cd <%= @options[:deploy_path] %>
+
+# workaround to set max-conns without running thin as root
+ulimit -n 1024
+
+exec chpst -u <%= @options[:run_as_user] %> \
+  <%= @options[:bundle_bin] %> exec thin \
+  --rackup      config.ru \
+  --address     <%= @options[:listen_ip] %> \
+  --port        <%= @options[:listen_port] %> \
+  --environment <%= @options[:rack_env] %> \
+  --timeout     <%= @options[:timeout] %> \
+  --max-conns   1024 \
+  --max-persistent-conns 100 \
+  start

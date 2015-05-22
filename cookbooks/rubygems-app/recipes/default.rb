@@ -17,7 +17,7 @@ include_recipe 'postfix'
 
 package 'libpq-dev'
 
-include_recipe 'rubygems-app::deploy_user'
+include_recipe 'rubygems-people::deploy'
 include_recipe 'rubygems-app::dirs'
 include_recipe 'rubygems-app::config'
 include_recipe 'rubygems-app::unicorn'

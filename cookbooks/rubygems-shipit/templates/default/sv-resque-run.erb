@@ -1,0 +1,18 @@
+#!/bin/sh
+
+exec 2>&1
+set -e
+
+ulimit -c unlimited
+
+export RAILS_ENV="production"
+export QUEUE="<%= @options[:queue] %>"
+export WORKER_NAME="<%= @options[:worker_name] %>"
+<% if @options[:num_workers] %>
+export RESQUE_WORKERS=<%= @options[:num_workers] %>
+<% end %>
+export VERBOSE=1
+export RAILS_LOG=jobs.log
+
+cd <%= @options[:path] %>
+exec chpst -u<%= @options[:user] %> bundle exec rake environment resque:work

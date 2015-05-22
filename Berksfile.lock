@@ -58,6 +58,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-ruby
   rubygems-sensu
     path: cookbooks/rubygems-sensu
+  rubygems-shipit
+    path: cookbooks/rubygems-shipit
   rubygems-ssh
     path: cookbooks/rubygems-ssh
   rubygems-stat-update
@@ -232,7 +234,7 @@ GRAPH
     rubygems-sensu (>= 0.0.0)
     rubygems-ssh (>= 0.0.0)
     rubygems-utility (>= 0.0.0)
-  rubygems-app (0.0.49)
+  rubygems-app (0.0.52)
     apt (>= 0.0.0)
     chef-vault (>= 0.0.0)
     datadog (>= 0.0.0)
@@ -243,6 +245,7 @@ GRAPH
     rubygems (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
     runit (>= 0.0.0)
+    sudo (>= 0.0.0)
     unicorn (>= 0.0.0)
     user (>= 0.0.0)
   rubygems-apt (0.0.19)
@@ -291,7 +294,7 @@ GRAPH
     dns (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.10)
-  rubygems-hubot (0.0.68)
+  rubygems-hubot (0.0.69)
     chef-vault (>= 0.0.0)
     hubot (~> 1.0.2)
     nginx (>= 0.0.0)
@@ -302,6 +305,7 @@ GRAPH
   rubygems-logging (0.0.69)
     chef-vault (>= 0.0.0)
     elasticsearch (>= 0.0.0)
+    java (>= 0.0.0)
     kibana_lwrp (>= 0.0.0)
     logstash (>= 0.0.0)
     nginx (>= 0.0.0)
@@ -310,7 +314,7 @@ GRAPH
     motd (>= 0.0.0)
   rubygems-ntp (0.0.3)
     ntp (>= 0.0.0)
-  rubygems-people (0.0.36)
+  rubygems-people (0.0.38)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
   rubygems-redis (0.1.8)
@@ -334,6 +338,13 @@ GRAPH
     rubygems (>= 0.0.0)
     sensu (= 2.1.0)
     uchiwa (= 1.0.0)
+  rubygems-shipit (0.0.44)
+    apt (>= 0.0.0)
+    git (>= 0.0.0)
+    logrotate (>= 0.0.0)
+    nodejs (>= 0.0.0)
+    runit (>= 0.0.0)
+    sudo (>= 0.0.0)
   rubygems-ssh (0.0.5)
     openssh (>= 0.0.0)
   rubygems-stat-update (0.0.1)
