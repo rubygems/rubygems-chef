@@ -28,7 +28,7 @@ if File.directory? current_app_path
     end
   end
 
-  1.times do |n|
+  2.times do |n|
     worker_name = "shipit-resque-#{n+1}"
 
     runit_service worker_name do
@@ -40,7 +40,7 @@ if File.directory? current_app_path
         user: 'shipit',
         queue: 'deploys,default,*',
         worker_name: worker_name,
-        num_workers: 1
+        num_workers: 2
       )
     end
   end

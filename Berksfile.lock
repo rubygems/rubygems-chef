@@ -338,7 +338,7 @@ GRAPH
     rubygems (>= 0.0.0)
     sensu (= 2.1.0)
     uchiwa (= 1.0.0)
-  rubygems-shipit (0.0.44)
+  rubygems-shipit (0.0.46)
     apt (>= 0.0.0)
     git (>= 0.0.0)
     logrotate (>= 0.0.0)
