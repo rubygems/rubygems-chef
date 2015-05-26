@@ -1,0 +1,14 @@
+{
+    "id": "kerrizor",
+    "username": "kerrizor",
+    "comment": "Kerri Miller",
+    "admin" : true,
+    "environments": [
+      "common",
+      "staging",
+      "production"
+    ],
+    "ssh_keys": [
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCr6ojI+U7FyQgPEVE/b1OeA3NggfzR+iaoNoP8ar3rUORSC+CbjF0n2S9+2cfuuAYtQP4N1/Dy9WmjTHrNYuHZWjzA5z+EmIykpzYZiDRYpw1UTcIg3JBIkFzFNy8LNf8UaMH5kIw5vdAj7PDhgDejZE6fgx0d7g2vZ50lDdhKR86kuwLZViAfFHZPEIc4v5ZJYm9IygRkfMZK+wrm6sIlK+3qqVvU/9RGBXWLeibOX2ij4UBrlhbL9Fg5MlOluX4afiSsHuS7xBMmFd5vwb+u/mudERttWFECDn4ceouFfU2gPLSOhSdR1PW1APDXVnxvyDr8iqeAAPGA8LvbKsK/"
+    ]
+}
