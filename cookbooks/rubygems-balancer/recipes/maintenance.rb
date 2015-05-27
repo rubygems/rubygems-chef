@@ -17,3 +17,12 @@ directory '/var/www/rubygems' do
   action :create
   recursive true
 end
+
+sudo 'deploy-maintenance' do
+  user      'deploy'
+  nopasswd  true
+  commands  [
+    '/bin/ln -s /etc/nginx/maintenance.html /var/www/rubygems/maintenance.html',
+    '/bin/rm /var/www/rubygems/maintenance.html'
+  ]
+end

@@ -15,6 +15,7 @@ include_recipe 'rubygems-balancer::mounts'
 
 include_recipe 'nginx'
 
+include_recipe 'rubygems-people::deploy'
 include_recipe 'rubygems-balancer::logging'
 include_recipe 'rubygems-balancer::ssl'
 include_recipe 'rubygems-balancer::geoip'
