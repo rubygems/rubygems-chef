@@ -29,3 +29,11 @@ file "#{node['nginx']['dir']}/certs/rubygems.org.crt" do
   mode   '0644'
   notifies :reload, 'service[nginx]'
 end
+
+file "#{node['nginx']['dir']}/certs/dhparam.pem" do
+  content item['dhparam']
+  owner  'root'
+  group  'root'
+  mode   '0644'
+  notifies :reload, 'service[nginx]'
+end
