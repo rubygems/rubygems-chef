@@ -1,6 +1,6 @@
 name 'rubygems-shipit'
 
-version '0.0.46'
+version '0.0.47'
 
 depends 'apt'
 depends 'git'

@@ -23,6 +23,7 @@ extra_dirs = [
   [BUNDLE_PATH,   '0775', 'deploy', 'users'],
   [DATA_DIR,      '0770', 'shipit', 'shipit'],
   [LOG_DIR,       '0755', 'shipit', 'shipit'],
+  ["#{BASE_DIR}/.heroku", '0755', 'shipit', 'shipit'],
   ["#{SHARED_DIR}/public", '0755', 'shipit', 'shipit'],
   ["#{SHARED_DIR}/config", '0755', 'shipit', 'shipit'],
   [ASSET_DIR,     '0755', 'deploy', 'users'],
