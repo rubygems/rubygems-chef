@@ -55,11 +55,11 @@ file "#{SSH_DIR}/id_rsa" do
 end
 
 current_environment = 'production'
-raw_yaml_files      = %w{database}
+raw_yaml_files      = %w(database)
 shared_config_path  = "#{BASE_DIR}/shared/config"
 
 raw_yaml_files.each do |name|
-  data = {current_environment => bag[name]}
+  data = { current_environment => bag[name] }
   file "#{shared_config_path}/#{name}.yml" do
     owner 'deploy'
     group 'shipit'
@@ -93,7 +93,7 @@ end
 
 logrotate_app 'shipit' do
   options    %w(missingok notifempty compress delaycompress)
-  path       [ "#{LOG_DIR}/*.log" ]
+  path       ["#{LOG_DIR}/*.log"]
   frequency  'daily'
   rotate     4
   postrotate 'sv hup /etc/sv/shipit-thin-* && sv quit /etc/sv/shipit-resque-*'

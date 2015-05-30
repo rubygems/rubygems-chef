@@ -29,7 +29,7 @@ if File.directory? current_app_path
   end
 
   2.times do |n|
-    worker_name = "shipit-resque-#{n+1}"
+    worker_name = "shipit-resque-#{n + 1}"
 
     runit_service worker_name do
       run_template_name 'resque'
