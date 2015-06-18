@@ -1,5 +1,4 @@
 rvm:
   - 2.0.0
 script:
-  - bundle exec rubocop
-  - bundle exec rake foodcritic
+  - bundle exec rake rubocop foodcritic
