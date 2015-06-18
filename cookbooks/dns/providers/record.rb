@@ -1,5 +1,4 @@
 action :create do
-
   route53_record new_resource.name do
     name  "#{new_resource.name}.#{new_resource.domain}"
     value new_resource.value
@@ -19,11 +18,9 @@ action :create do
     domain_api_token new_resource.credentials[:dnsimple][:domain_api_token]
     action   :create
   end
-
 end
 
 action :delete do
-
   route53_record new_resource.name do
     name  "#{new_resource.name}.#{new_resource.domain}"
     value new_resource.value
@@ -43,5 +40,4 @@ action :delete do
     domain_api_token new_resource.credentials[:dnsimple][:domain_api_token]
     action   :destroy
   end
-
 end

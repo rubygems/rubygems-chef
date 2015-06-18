@@ -17,12 +17,10 @@
 #
 
 action :create do
-
   if node['skip_dnsimple']
     Chef::Log.info 'Skipping DNSimple because of node attribute!'
     new_resource.updated_by_last_action(false)
   else
-
     begin
       require 'rubygems'
       require 'dnsimple'

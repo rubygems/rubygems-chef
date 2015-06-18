@@ -13,8 +13,10 @@ sysadmins = []
 users.each do |user_name|
   user = data_bag_item('users', user_name)
 
-  if (user['action'] && user['action'] == 'remove') || \
-   (!user['environments'].include?(node.chef_environment))
+  remove_user  = user['action'] && user['action'] == 'remove'
+  remove_user |= !user['environments'].include?(node.chef_environment)
+
+  if remove_user
     user_account user['username'] do
       action :remove
       only_if "/usr/bin/id -u #{user['username']}"
