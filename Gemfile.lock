@@ -231,7 +231,7 @@ GEM
     ruby-progressbar (1.7.5)
     rubyntlm (0.1.1)
     rufus-lru (1.0.5)
-    safe_yaml (1.0.3)
+    safe_yaml (1.0.4)
     savon (0.9.5)
       akami (~> 1.0)
       builder (>= 2.1.2)
