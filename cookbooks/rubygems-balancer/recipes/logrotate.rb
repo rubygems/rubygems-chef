@@ -6,7 +6,7 @@
 logrotate_app 'nginx' do
   path "#{node['nginx']['log_dir']}/*.log"
   frequency 'daily'
-  rotate 30
+  rotate 15
   options %w(missingok compress delaycompress notifempty sharedscripts)
   postrotate "    [ -f #{node['nginx']['pid']} ] && kill -USR1 `cat #{node['nginx']['pid']}`"
   create '0640 www-data adm'
