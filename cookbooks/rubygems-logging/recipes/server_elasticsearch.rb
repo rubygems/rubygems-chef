@@ -35,7 +35,7 @@ node.default['elasticsearch']['custom_config']['indices.cache.filter.expire'] = 
 node.default['elasticsearch']['custom_config']['index.refresh_interval'] = '30s'
 node.default['elasticsearch']['custom_config']['index.translog.flush_threshold_ops'] = '50000'
 
-node.default['elasticsearch']['gc_settings'] =<<-CONFIG
+node.default['elasticsearch']['gc_settings'] = <<-CONFIG
   -XX:+UseG1GC
   -XX:+HeapDumpOnOutOfMemoryError
 CONFIG
