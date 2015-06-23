@@ -1,0 +1,16 @@
+{
+  "id": "vlad",
+  "username": "vlad",
+  "comment": "Vlad Gorodetsky",
+  "admin": true,
+  "deployer": true,
+  "environments": [
+    "common",
+    "staging",
+    "production"
+  ],
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLA4RRnQg5T0roPyNk7K0yaRwsYqN4mjvqcN+kytBsS1Q7bQxD9XmX0WK0lfIppJuGbAQpXL32CJZ5dUJZGaQaTG5jZ+XVr0ybcaF4nFkSY6m4e6JWd8vY65aDx0i4/PVc25FBJN9DxOhdKKtfvAh67LTkpwNREy4owTlJpkkJRoLxpaVTv58o533oU44TwVJYS1FxnsKoMP5ffHHsuPhAMfBgJeWzBhz7KZnMHqpXBzk15sURf5umawFMCUsczgNmeNHTQ71TUYFm/enhB7+V2HBuXMYsrGjs9/3Pz1Y5bsLQtqaxInGlQCmvULzx0gnN6k5ncmnXSbJUQ+fLRPpv vlad.gorodetsky"
+  ]
+}
+
