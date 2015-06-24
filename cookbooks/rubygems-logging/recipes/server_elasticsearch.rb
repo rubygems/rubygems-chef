@@ -7,9 +7,20 @@ aws_credentials = chef_vault_item('aws', 'credentials')
 node.default['elasticsearch']['cloud']['aws']['access_key'] = aws_credentials['access_key_id']
 node.default['elasticsearch']['cloud']['aws']['secret_key'] = aws_credentials['secret_access_key']
 node.default['elasticsearch']['cloud']['aws']['region'] = 'us-west-2'
-node.default['elasticsearch']['version'] = '1.5.0'
-node.default['elasticsearch']['allocated_memory'] = '4000m'
-node.default['elasticsearch']['bootstrap']['mlockall'] = true
+
+node.default['elasticsearch']['version'] = '1.6.0'
+
+node.default['elasticsearch']['plugins'] = {
+  'lmenezes/elasticsearch-kopf' => {}
+}
+
+node.default['elasticsearch']['allocated_memory'] = "#{(node['memory']['total'].to_i * 0.5).floor / 1024}m"
+
+node.default['elasticsearch']['mlockall'] = node['memory']['total'].to_i >= 1048576
+
+# Allow recoveries speeds up to 500mb/sec in 12 streams
+node.default['elasticsearch']['indices.recovery.concurrent_streams'] = 12
+node.default['elasticsearch']['indices.recovery.max_bytes_per_sec'] = '500mb'
 
 # node.default['elasticsearch']['custom_config']['threadpool.search.type'] = 'fixed'
 # node.default['elasticsearch']['custom_config']['threadpool.search.size'] = '20'
@@ -34,6 +45,15 @@ node.default['elasticsearch']['custom_config']['indices.cache.filter.expire'] = 
 
 node.default['elasticsearch']['custom_config']['index.refresh_interval'] = '30s'
 node.default['elasticsearch']['custom_config']['index.translog.flush_threshold_ops'] = '50000'
+
+# Bump shard reallocation throttling/limits
+node.default['elasticsearch']['custom_config']['cluster.routing.allocation.node_concurrent_recoveries'] = '100'
+node.default['elasticsearch']['custom_config']['cluster.routing.allocation.cluster_concurrent_rebalance'] = '100'
+
+node.default['elasticsearch']['custom_config']['index.analysis.analyzer.default.type'] = 'keyword'
+node.default['elasticsearch']['custom_config']['index.analysis.analyzer.default.stopwords'] = '_none_'
+
+node.default['elasticsearch']['skip_restart'] = true
 
 node.default['elasticsearch']['gc_settings'] = <<-CONFIG
   -XX:+UseG1GC
@@ -75,8 +95,7 @@ node.default['elasticsearch']['data']['devices'] = {
 include_recipe 'elasticsearch'
 include_recipe 'elasticsearch::ebs'
 include_recipe 'elasticsearch::data'
-
-install_plugin 'lmenezes/elasticsearch-kopf'
+include_recipe 'elasticsearch::plugins'
 
 easy_install_package 'elasticsearch-curator'
 
