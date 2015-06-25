@@ -40,8 +40,6 @@ DEPENDENCIES
     path: cookbooks/rubygems-hostname
   rubygems-hosts
     path: cookbooks/rubygems-hosts
-  rubygems-hubot
-    path: cookbooks/rubygems-hubot
   rubygems-logging
     path: cookbooks/rubygems-logging
   rubygems-motd
@@ -132,10 +130,6 @@ GRAPH
   hostname (0.3.0)
     hostsfile (>= 0.0.0)
   hostsfile (2.4.5)
-  hubot (1.0.2)
-    git (>= 0.0.0)
-    nodejs (>= 0.0.0)
-    runit (>= 0.0.0)
   iptables (0.13.2)
   java (1.26.0)
   jenkins (1.2.2)
@@ -295,14 +289,6 @@ GRAPH
     dns (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.10)
-  rubygems-hubot (0.0.69)
-    chef-vault (>= 0.0.0)
-    hubot (~> 1.0.2)
-    nginx (>= 0.0.0)
-    nodejs (>= 0.0.0)
-    rsyslog (>= 0.0.0)
-    rubygems-ruby (>= 0.0.0)
-    runit (>= 0.0.0)
   rubygems-logging (0.0.75)
     chef-vault (>= 0.0.0)
     elasticsearch (>= 0.0.0)
