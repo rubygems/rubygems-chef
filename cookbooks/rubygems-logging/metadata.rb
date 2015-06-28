@@ -1,7 +1,7 @@
 name 'rubygems-logging'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.75'
+version '0.0.76'
 
 depends 'chef-vault'
 depends 'elasticsearch'
