@@ -27,7 +27,8 @@ sudo 'deploy-delayed_job' do
   user 'deploy'
   commands [
     '/etc/init.d/delayed_job *',
-    '/usr/sbin/service delayed_job *'
+    '/usr/sbin/service delayed_job *',
+    '/usr/bin/sv -w * delayed_job'
   ]
   nopasswd true
 end
