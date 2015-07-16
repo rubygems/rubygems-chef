@@ -10,8 +10,8 @@ include_recipe 'chef-vault'
 sensu_creds = chef_vault_item('sensu', 'credentials')
 
 node.default['uchiwa']['version'] = '0.6.0-1'
-node.default['uchiwa']['settings']['user'] = sensu_creds['user']
-node.default['uchiwa']['settings']['pass'] = sensu_creds['password']
+node.default['uchiwa']['settings']['user'] = ''
+node.default['uchiwa']['settings']['pass'] = ''
 
 apt_preference 'uchiwa' do
   pin "version #{node['uchiwa']['version']}"
@@ -20,7 +20,17 @@ end
 
 include_recipe 'uchiwa'
 
-include_recipe 'rubygems-sensu::uchiwa_nginx'
+auth_bag = chef_vault_item('apps', 'sensu')
+
+auth_proxy 'sensu' do
+  org 'rubygems'
+  team 'infrastructure'
+  upstream_port 3000
+  server_name 'monitoring.rubygems.org'
+  client_id auth_bag['client_id']
+  client_secret auth_bag['client_secret']
+  cookie_secret auth_bag['cookie_secret']
+end
 
 dnsimple_credentials = chef_vault_item('dnsimple', 'credentials')
 
