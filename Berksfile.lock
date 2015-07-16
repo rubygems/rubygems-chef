@@ -18,6 +18,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-app
   rubygems-apt
     path: cookbooks/rubygems-apt
+  rubygems-auth-proxy
+    path: cookbooks/rubygems-auth-proxy
   rubygems-backups
     path: cookbooks/rubygems-backups
   rubygems-balancer
@@ -234,6 +236,11 @@ GRAPH
     user (>= 0.0.0)
   rubygems-apt (0.0.20)
     apt (>= 0.0.0)
+  rubygems-auth-proxy (0.0.6)
+    ark (>= 0.0.0)
+    chef-vault (>= 0.0.0)
+    nginx (>= 0.0.0)
+    runit (>= 0.0.0)
   rubygems-backups (0.0.21)
     chef-vault (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
@@ -273,7 +280,7 @@ GRAPH
     dns (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.10)
-  rubygems-logging (0.0.76)
+  rubygems-logging (0.0.79)
     chef-vault (>= 0.0.0)
     elasticsearch (>= 0.0.0)
     java (>= 0.0.0)
@@ -281,6 +288,7 @@ GRAPH
     logstash (>= 0.0.0)
     nginx (>= 0.0.0)
     rsyslog (>= 0.0.0)
+    rubygems-auth-proxy (>= 0.0.0)
   rubygems-motd (0.0.9)
     motd (>= 0.0.0)
   rubygems-ntp (0.0.3)
@@ -301,7 +309,7 @@ GRAPH
     rubygems (>= 0.0.0)
   rubygems-ruby (0.0.5)
     apt (>= 0.0.0)
-  rubygems-sensu (0.1.37)
+  rubygems-sensu (0.1.38)
     build-essential (>= 0.0.0)
     chef-vault (>= 0.0.0)
     dnsimple (>= 0.0.0)

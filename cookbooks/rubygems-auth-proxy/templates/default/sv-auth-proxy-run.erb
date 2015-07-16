@@ -1,0 +1,13 @@
+#!/bin/sh
+exec 2>&1
+
+exec chpst -u nobody:root \
+  /usr/local/bin/oauth2_proxy \
+    -provider="github" \
+    -client-id="<%= @options[:client_id] %>" \
+    -client-secret="<%= @options[:client_secret] %>" \
+    -cookie-secret="<%= @options[:cookie_secret] %>" \
+    -github-org="<%= @options[:org] %>" \
+    -github-team="<%= @options[:team] %>" \
+    -email-domain=* \
+    -upstream="http://127.0.0.1:<%= @options[:upstream_port] %>"
