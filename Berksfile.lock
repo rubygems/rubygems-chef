@@ -28,8 +28,6 @@ DEPENDENCIES
     path: cookbooks/rubygems-cache
   rubygems-chef
     path: cookbooks/rubygems-chef
-  rubygems-ci
-    path: cookbooks/rubygems-ci
   rubygems-cloud-init
     path: cookbooks/rubygems-cloud-init
   rubygems-database
@@ -132,14 +130,6 @@ GRAPH
   hostsfile (2.4.5)
   iptables (0.13.2)
   java (1.26.0)
-  jenkins (1.2.2)
-    apache2 (>= 0.0.0)
-    apt (>= 0.0.0)
-    iptables (>= 0.0.0)
-    java (>= 0.0.0)
-    nginx (>= 0.0.0)
-    runit (>= 1.0.0)
-    yum (>= 0.0.0)
   kibana_lwrp (2.0.4)
     apache2 (>= 0.0.0)
     ark (>= 0.0.0)
@@ -268,12 +258,6 @@ GRAPH
     chef-client (>= 0.0.0)
     chef-vault (>= 0.0.0)
     omnibus_updater (>= 0.0.0)
-  rubygems-ci (0.0.10)
-    chef-vault (>= 0.0.0)
-    dnsimple (>= 0.0.0)
-    jenkins (>= 0.0.0)
-    nginx (>= 0.0.0)
-    rubygems (>= 0.0.0)
   rubygems-cloud-init (0.0.2)
   rubygems-database (0.0.38)
     chef-vault (>= 0.0.0)
