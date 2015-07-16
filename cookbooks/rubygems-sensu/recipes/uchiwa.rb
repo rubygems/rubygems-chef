@@ -7,8 +7,6 @@ include_recipe 'rubygems'
 
 include_recipe 'chef-vault'
 
-sensu_creds = chef_vault_item('sensu', 'credentials')
-
 node.default['uchiwa']['version'] = '0.6.0-1'
 node.default['uchiwa']['settings']['user'] = ''
 node.default['uchiwa']['settings']['pass'] = ''

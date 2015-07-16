@@ -1,5 +1,4 @@
 define :auth_proxy, org: 'rubygems' do
-
   name = "auth_proxy_#{params[:name]}"
 
   node.default['nginx']['server_tokens'] = 'off'
@@ -62,5 +61,4 @@ define :auth_proxy, org: 'rubygems' do
   end
 
   nginx_site name
-
 end
