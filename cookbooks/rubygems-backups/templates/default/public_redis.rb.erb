@@ -8,15 +8,13 @@
 
 require 'json'
 
-Backup::Model.new(:public_postgresql, 'RubyGems.org Public Database Dump') do
+Backup::Model.new(:public_redis, 'RubyGems.org Public Redis Dump') do
 
-  database PostgreSQL do |db|
-    db.name        = "<%= @postgresql_db %>"
-    db.username    = "<%= @postgresql_user %>"
-    db.password    = "<%= @postgresql_password %>"
-    db.host        = "localhost"
-    db.port        = 5432
-    db.only_tables = ['rubygems', 'versions', 'dependencies', 'linksets', 'version_histories']
+  database Redis do |db|
+    db.rdb_path           = '/var/lib/redis/dump-<%= node['redisio']['servers'][0]['port'] %>.rdb'
+    db.host               = 'localhost'
+    db.port               = <%= node['redisio']['servers'][0]['port'] %>
+    db.invoke_save        = false
   end
 
   compress_with Gzip

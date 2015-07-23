@@ -32,3 +32,28 @@ cron 'redis-backup' do
   command "backup perform --trigger redis --config-file #{File.join(node['rubygems']['backups']['config_dir'], 'redis.rb')}"
   user 'root'
 end
+
+template File.join(node['rubygems']['backups']['config_dir'], 'public_redis.rb') do
+  source 'public_redis.rb.erb'
+  owner 'root'
+  group 'root'
+  mode 00600
+  variables(
+    aws_access_key: backup_secrets['aws_access_key'],
+    aws_secret_key: backup_secrets['aws_secret_key'],
+    bucket_name: 'rubygems-dumps',
+    slack_token: backup_secrets['slack_token']
+  )
+end
+
+cron 'redis-public-dump' do
+  hour '20'
+  minute '20'
+  day '*'
+  month '*'
+  weekday '1'
+  path '/usr/local/bin:/usr/bin:/bin'
+  command "backup perform --trigger public_redis --config-file #{File.join(node['rubygems']['backups']['config_dir'], 'public_redis.rb')}"
+  user 'root'
+  only_if { node.chef_environment == 'production' }
+end
