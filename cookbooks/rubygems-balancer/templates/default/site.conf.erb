@@ -53,6 +53,10 @@ server {
     include <%= node['nginx']['dir'] %>/filters.conf; # managed by chef
     include <%= node['nginx']['dir'] %>/blacklist.conf; # not managed by chef
 
+    location ~ /rubygems/rubygems(.*)\.(tgz|zip|gem)$ {
+      rewrite ^ http://rubygems.global.ssl.fastly.net$request_uri redirect;
+    }
+
     location ~ /gems/(.*)\.gem$ {
         set $gem $1;
         post_action /__log;
@@ -217,6 +221,10 @@ server {
 
   include <%= node['nginx']['dir'] %>/filters.conf; # managed by chef
   include <%= node['nginx']['dir'] %>/blacklist.conf; # not managed by chef
+
+  location ~ /rubygems/rubygems(.*)\.(tgz|zip|gem)$ {
+    rewrite ^ https://rubygems.global.ssl.fastly.net$request_uri redirect;
+  }
 
   ##### BEGIN legacy rules
 
