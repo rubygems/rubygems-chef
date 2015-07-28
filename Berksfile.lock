@@ -306,7 +306,7 @@ GRAPH
     aptly (= 0.2.4)
     nginx (>= 0.0.0)
     rubygems (>= 0.0.0)
-  rubygems-ruby (0.0.5)
+  rubygems-ruby (0.0.6)
     apt (>= 0.0.0)
   rubygems-sensu (0.1.44)
     build-essential (>= 0.0.0)
