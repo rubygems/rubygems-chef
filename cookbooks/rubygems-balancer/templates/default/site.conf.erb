@@ -15,26 +15,6 @@ server {
     rewrite ^(.*) https://$host$1 permanent;
   <% else %>
 
-    # if ($geoip_country_code = "CN") {
-    #   set $gem_mirror http://au-m.rubygems.org;
-    # }
-
-    # if ($geoip_country_code = "JP") {
-    #   set $gem_mirror http://au-m.rubygems.org;
-    # }
-
-    # if ($geoip_country_code = "AU") {
-    #   set $gem_mirror http://au-m.rubygems.org;
-    # }
-
-    # if ($geoip_country_code = "NZ") {
-    #   set $gem_mirror http://au-m.rubygems.org;
-    # }
-
-    if ($continent = "EU") {
-      set $gem_mirror http://aws-eu-cache01.rubygems.org;
-    }
-
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $host;
     proxy_redirect off;
@@ -176,26 +156,6 @@ server {
   listen 443 default ssl;
 
   server_name <%= @server_names.join(" ") %>;
-
-  # if ($geoip_country_code = "CN") {
-  #   set $gem_mirror_ssl https://au-m.rubygems.org;
-  # }
-
-  # if ($geoip_country_code = "JP") {
-  #   set $gem_mirror_ssl https://au-m.rubygems.org;
-  # }
-
-  # if ($geoip_country_code = "AU") {
-  #   set $gem_mirror_ssl https://au-m.rubygems.org;
-  # }
-
-  # if ($geoip_country_code = "NZ") {
-  #   set $gem_mirror_ssl https://au-m.rubygems.org;
-  # }
-
-  if ($continent = "EU") {
-    set $gem_mirror_ssl https://aws-eu-cache01.rubygems.org;
-  }
 
   # SSL settings
   ssl                         on;
