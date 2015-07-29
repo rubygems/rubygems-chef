@@ -4,6 +4,14 @@ upstream app_servers {
   <% end %>
 }
 
+map $remote_addr $abuser {
+  default "";
+  95.182.202.145 1;
+  87.194.147.142 1;
+}
+
+limit_req_zone  $binary_remote_addr  zone=abusers:10m   rate=10r/m;
+
 # HTTP
 server {
   listen 80 default;
@@ -40,7 +48,7 @@ server {
     location ~ /gems/(.*)\.gem$ {
         set $gem $1;
         post_action /__log;
-        rewrite ^ $gem_mirror$request_uri redirect;
+        rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location ~ /downloads/(.*)\.gem {
@@ -54,7 +62,7 @@ server {
     }
 
     location /quick/Marshal.4.8/ {
-      rewrite ^ $gem_mirror$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /specs.4.8.gz {
@@ -72,55 +80,55 @@ server {
     # Crufty old redirects
 
     location = /specs.4.8 {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /latest_specs.4.8 {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /prerelease_specs.4.8 {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /quick/rubygems-update-1.3.6.gemspec.rz {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /yaml.Z {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /yaml.z {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /yaml {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /Marshal.4.8.Z {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /Marshal.4.8 {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /quick/index.rz {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /quick/index {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /quick/latest_index.rz {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /quick/latest_index {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location /stylesheets/ {
@@ -196,7 +204,7 @@ server {
   location ~ /gems/(.*)\.gem$ {
     set $gem $1;
     post_action /__log;
-    rewrite ^ $gem_mirror_ssl$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location ~ /downloads/(.*)\.gem {
@@ -210,7 +218,7 @@ server {
   }
 
   location /quick/Marshal.4.8/ {
-    rewrite ^ $gem_mirror_ssl$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /specs.4.8.gz {
@@ -228,55 +236,55 @@ server {
   # Crufty old redirects
 
   location = /specs.4.8 {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /latest_specs.4.8 {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /prerelease_specs.4.8 {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /quick/rubygems-update-1.3.6.gemspec.rz {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /yaml.Z {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /yaml.z {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /yaml {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /Marshal.4.8.Z {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /Marshal.4.8 {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /quick/index.rz {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /quick/index {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /quick/latest_index.rz {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /quick/latest_index {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   ##### END legacy rules
