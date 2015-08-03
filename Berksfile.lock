@@ -219,7 +219,7 @@ GRAPH
     rubygems-sensu (>= 0.0.0)
     rubygems-ssh (>= 0.0.0)
     rubygems-utility (>= 0.0.0)
-  rubygems-app (0.0.54)
+  rubygems-app (0.0.56)
     apt (>= 0.0.0)
     chef-vault (>= 0.0.0)
     datadog (>= 0.0.0)

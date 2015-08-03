@@ -25,6 +25,8 @@ template '/applications/rubygems/shared/config/database.yml' do
   )
 end
 
+fastly_domain = node.chef_environment == 'production' ? 'rubygems' : 'rubygems-staging'
+
 template '/applications/rubygems/shared/config/secret.rb' do
   source 'secret.rb.erb'
   owner  'deploy'
@@ -39,6 +41,9 @@ template '/applications/rubygems/shared/config/secret.rb' do
     bundler_api_url: secrets['bundler_api_url'],
     new_relic_license_key: secrets['new_relic_license_key'],
     new_relic_app_name: "RubyGems.org (#{node.chef_environment})",
+    fastly_api_key: secrets['fastly_api_key'],
+    fastly_service_id: secrets['fastly_service_id'],
+    fastly_domain: "#{fastly_domain}.global.ssl.fastly.net",
     honeybadger_api_key: secrets['honeybadger_api_key']
   )
 end
