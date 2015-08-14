@@ -35,8 +35,8 @@ sensu_check 'check_apt' do
   command '/etc/sensu/plugins/check_apt.sh'
   handlers ['slack']
   subscribers ['all']
-  interval 60
-  additional(occurrences: 2)
+  interval 120
+  additional(occurrences: 30)
 end
 
 sensu_check 'check_ntp_time' do
