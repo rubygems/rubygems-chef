@@ -66,15 +66,15 @@ server {
     }
 
     location = /specs.4.8.gz {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /latest_specs.4.8.gz {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location = /prerelease_specs.4.8.gz {
-      rewrite ^ http://<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     # Crufty old redirects
@@ -222,15 +222,15 @@ server {
   }
 
   location = /specs.4.8.gz {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /latest_specs.4.8.gz {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   location = /prerelease_specs.4.8.gz {
-    rewrite ^ https://s3.amazonaws.com/<%= node.chef_environment %>.s3.rubygems.org$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
   # Crufty old redirects
