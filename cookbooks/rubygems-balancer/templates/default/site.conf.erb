@@ -42,7 +42,7 @@ server {
     include <%= node['nginx']['dir'] %>/blacklist.conf; # not managed by chef
 
     location ~ /rubygems/rubygems(.*)\.(tgz|zip|gem)$ {
-      rewrite ^ http://rubygems.global.ssl.fastly.net$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location ~ /gems/(.*)\.gem$ {
@@ -191,10 +191,8 @@ server {
   include <%= node['nginx']['dir'] %>/blacklist.conf; # not managed by chef
 
   location ~ /rubygems/rubygems(.*)\.(tgz|zip|gem)$ {
-    rewrite ^ https://rubygems.global.ssl.fastly.net$request_uri redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
-
-  ##### BEGIN legacy rules
 
   location = /__log {
     internal;
@@ -216,6 +214,8 @@ server {
     proxy_set_header Host bundler.rubygems.org;
     proxy_pass http://bundler.rubygems.org;
   }
+
+  ##### BEGIN legacy rules
 
   location /quick/Marshal.4.8/ {
     rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
