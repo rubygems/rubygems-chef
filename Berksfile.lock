@@ -244,7 +244,7 @@ GRAPH
   rubygems-backups (0.0.24)
     chef-vault (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
-  rubygems-balancer (0.0.68)
+  rubygems-balancer (0.0.69)
     chef-vault (>= 0.0.0)
     datadog (>= 0.0.0)
     logrotate (>= 0.0.0)
