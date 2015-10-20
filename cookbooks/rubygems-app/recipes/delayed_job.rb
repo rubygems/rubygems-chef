@@ -32,17 +32,3 @@ sudo 'deploy-delayed_job' do
   ]
   nopasswd true
 end
-
-template '/usr/local/bin/background_job_stats.sh' do
-  source 'background_job_stats.sh.erb'
-  mode '0755'
-  owner 'root'
-  group 'root'
-  variables(host: node.chef_environment == 'production' ? 'rubygems.org' : 'staging.rubygems.org')
-end
-
-cron 'background job stats collection' do
-  user 'root'
-  minute '*/1'
-  command '/usr/local/bin/background_job_stats.sh'
-end

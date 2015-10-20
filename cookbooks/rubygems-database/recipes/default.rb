@@ -31,7 +31,7 @@ node.default['postgresql']['pg_hba'] = [
   },
   {
     'type' => 'host',
-    'db' => 'postgres',
+    'db' => "rubygems_#{node.chef_environment}",
     'user' => 'datadog',
     'addr' => 'samehost',
     'method' => 'md5'
@@ -58,8 +58,17 @@ node.default['datadog']['postgres']['instances'] = [
     'server' => 'localhost',
     'username' => datadog_postgres_creds['username'],
     'password' => datadog_postgres_creds['password'],
+    'dbname' => "rubygems_#{node.chef_environment}",
     'tags' => [node.chef_environment]
   }
 ]
 
 include_recipe 'datadog::postgres'
+
+cookbook_file '/etc/dd-agent/checks.d/delayed_job.py' do
+  source 'delayed_job_check.py'
+end
+
+datadog_monitor 'delayed_job' do
+  instances node['datadog']['postgres']['instances']
+end
