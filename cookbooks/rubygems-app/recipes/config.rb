@@ -10,6 +10,9 @@ dbhost = data_bag_item('hosts', 'database')['environments'][node.chef_environmen
 secrets = chef_vault_item('rubygems', node.chef_environment)
 db_host = search(:node, "name:#{dbhost}.#{node.chef_environment}.rubygems.org")[0]
 
+redis_host = data_bag_item('hosts', 'redis')['environments'][node.chef_environment]
+redis_ip = search('node', "name:#{redis_host}.#{node.chef_environment}.rubygems.org")[0]['ipaddress']
+
 template '/applications/rubygems/shared/config/database.yml' do
   source 'database.yml.erb'
   owner 'deploy'
@@ -45,6 +48,7 @@ template '/applications/rubygems/shared/config/secret.rb' do
     fastly_service_id: secrets['fastly_service_id'],
     fastly_domain: "#{fastly_domain}.global.ssl.fastly.net",
     elasticsearch_url: secrets['elasticsearch_url'],
+    redis_url: "redis://#{redis_ip}:6379/0",
     honeybadger_api_key: secrets['honeybadger_api_key']
   )
 end
