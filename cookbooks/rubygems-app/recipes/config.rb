@@ -44,6 +44,7 @@ template '/applications/rubygems/shared/config/secret.rb' do
     fastly_api_key: secrets['fastly_api_key'],
     fastly_service_id: secrets['fastly_service_id'],
     fastly_domain: "#{fastly_domain}.global.ssl.fastly.net",
+    elasticsearch_url: secrets['elasticsearch_url'],
     honeybadger_api_key: secrets['honeybadger_api_key']
   )
 end
