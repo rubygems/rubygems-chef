@@ -71,4 +71,5 @@ end
 
 datadog_monitor 'delayed_job' do
   instances node['datadog']['postgres']['instances']
+  cookbook 'rubygems-database'
 end
