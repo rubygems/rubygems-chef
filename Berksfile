@@ -34,6 +34,7 @@ cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
 
 # Add cookbooks which diverge from the versions available on the community
 # site.
+cookbook 'datadog', github: 'dwradcliffe/chef-datadog', ref: 'patch-2'
 cookbook 'dns', path: 'cookbooks/dns'
 cookbook 'dnsimple', path: 'cookbooks/dnsimple'
 cookbook 'duo-security', github: 'skottler/chef-duo-security'
