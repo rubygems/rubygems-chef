@@ -4,8 +4,11 @@
 #
 
 node.default['chef-server']['api_fqdn'] = 'chef.rubygems.org'
-node.default['chef-server']['configuration']['nginx']['ssl_certificate'] = '/etc/chef-server/rubygems.crt'
-node.default['chef-server']['configuration']['nginx']['ssl_certificate_key'] = '/etc/chef-server/rubygems.key'
+node.default['chef-server']['version'] = '12.0.5-1'
+node.default['chef-server']['configuration'] = <<-EOS
+nginx['ssl_certificate'] = '/etc/chef-server/rubygems.crt'
+nginx['ssl_certificate_key'] = '/etc/chef-server/rubygems.key'
+EOS
 
 include_recipe 'chef-vault'
 
@@ -13,14 +16,14 @@ item = chef_vault_item('certs', 'production')
 
 directory '/etc/chef-server'
 
-file '/etc/chef-server/rubygems.org.key' do
+file '/etc/chef-server/rubygems.key' do
   content item['key']
   owner  'root'
   group  'root'
   mode   '0644'
 end
 
-file '/etc/chef-server/rubygems.org.crt' do
+file '/etc/chef-server/rubygems.crt' do
   content item['crt']
   owner  'root'
   group  'root'

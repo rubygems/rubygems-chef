@@ -34,6 +34,8 @@ DEPENDENCIES
     path: cookbooks/rubygems-cache
   rubygems-chef
     path: cookbooks/rubygems-chef
+  rubygems-chef-server
+    path: cookbooks/rubygems-chef-server
   rubygems-cloud-init
     path: cookbooks/rubygems-cloud-init
   rubygems-database
@@ -80,6 +82,8 @@ GRAPH
     logrotate (>= 0.0.0)
     pacman (>= 0.0.0)
   apt (2.6.1)
+  apt-chef (0.2.0)
+    apt (>= 0.0.0)
   aptly (0.2.4)
     apt (>= 0.0.0)
   ark (0.9.0)
@@ -94,6 +98,11 @@ GRAPH
     cron (>= 1.2.0)
     logrotate (>= 1.2.0)
     windows (~> 1.37)
+  chef-ingredient (0.11.3)
+    apt-chef (>= 0.0.0)
+    yum-chef (>= 0.0.0)
+  chef-server (4.1.0)
+    chef-ingredient (>= 0.11.0)
   chef-sugar (2.5.0)
   chef-vault (1.1.2)
   chef_handler (1.1.6)
@@ -272,6 +281,9 @@ GRAPH
     chef-client (>= 0.0.0)
     chef-vault (>= 0.0.0)
     omnibus_updater (>= 0.0.0)
+  rubygems-chef-server (0.0.3)
+    chef-server (>= 0.0.0)
+    chef-vault (>= 0.0.0)
   rubygems-cloud-init (0.0.2)
   rubygems-database (0.0.45)
     chef-vault (>= 0.0.0)
@@ -363,3 +375,5 @@ GRAPH
     build-essential (>= 0.0.0)
     chef-sugar (>= 0.0.0)
   yum (2.4.4)
+  yum-chef (0.1.0)
+    yum (>= 0.0.0)
