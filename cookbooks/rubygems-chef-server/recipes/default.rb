@@ -5,6 +5,8 @@
 
 node.default['chef-server']['api_fqdn'] = 'chef.rubygems.org'
 node.default['chef-server']['version'] = '12.0.5-1'
+node.default['chef-server']['addons'] = ['reporting']
+
 node.default['chef-server']['configuration'] = <<-EOS
 nginx['ssl_certificate'] = '/etc/chef-server/rubygems.crt'
 nginx['ssl_certificate_key'] = '/etc/chef-server/rubygems.key'
@@ -31,3 +33,4 @@ file '/etc/chef-server/rubygems.crt' do
 end
 
 include_recipe 'chef-server'
+include_recipe 'chef-server::addons'
