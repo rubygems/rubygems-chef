@@ -5,7 +5,7 @@
 
 log_fields = {
   'host' => node.name,
-  'timestamp' => '$time_iso8601',
+  '@timestamp' => '$time_iso8601',
   'status' => '$status',
   'scheme' => '$scheme',
   'uri' => '$request_uri',

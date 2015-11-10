@@ -1,9 +1,10 @@
 name 'rubygems-logging'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.80'
+version '0.0.83'
 
 depends 'chef-vault'
+depends 'current'
 depends 'elasticsearch'
 depends 'java'
 depends 'kibana_lwrp'

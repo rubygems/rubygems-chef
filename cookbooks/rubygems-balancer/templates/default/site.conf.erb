@@ -36,6 +36,7 @@ server {
       stub_status on;
       allow 127.0.0.1;
       deny all;
+      access_log off;
     }
 
     include <%= node['nginx']['dir'] %>/filters.conf; # managed by chef

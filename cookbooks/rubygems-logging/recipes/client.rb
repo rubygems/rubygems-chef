@@ -11,45 +11,45 @@ node.default['rsyslog']['preserve_fqdn'] = 'on'
 node.default['rsyslog']['high_precision_timestamps'] = true
 include_recipe 'rsyslog::client'
 
-dpkg_package 'logstash-forwarder' do
-  action :remove
-end
 
-# if ::File.exist?('/var/log/nginx/access.json.log')
-#   config['files'] << {
-#     paths: ['/var/log/nginx/access.json.log'],
-#     fields: { type: 'nginx_json' }
-#   }
-# end
-#
-# if ::File.exist?('/var/log/nginx')
-#   config['files'] << {
-#     paths: ['/var/log/nginx/error.log'],
-#     fields: { type: 'nginx_error' }
-#   }
-# end
-#
-# if ::File.exist?('/var/log/unicorn')
-#   config['files'] << {
-#     paths: ['/var/log/unicorn/current'],
-#     fields: { type: 'unicorn' }
-#   }
-# end
-#
-# if ::File.exist?('/applications/rubygems')
-#   config['files'] << {
-#     paths: ['/applications/rubygems/shared/log/staging.log'],
-#     fields: { type: 'rails' }
-#   }
-# end
+if node.chef_environment == 'staging'
+  include_recipe 'current::install'
 
-# if ::File.exist?('/applications/rubygems')
-#   config['files'] << {
-#     paths: ['/applications/rubygems/shared/log/delayed_job.log'],
-#     fields: { type: 'delayed_job' }
-#   }
-# end
+  current_secrets = chef_vault_item('secrets', 'current')
+  node.default['current']['token'] = current_secrets['token']
 
-file '/etc/logstash-forwarder.conf' do
-  action :delete
+  if ::File.exist?('/var/log/nginx/access.json.log')
+    current_send 'nginx' do
+      filename '/var/log/nginx/access.json.log'
+      tags(["environment:#{node.chef_environment}", 'type:nginx'])
+    end
+  end
+
+  if ::File.exist?('/var/log/nginx')
+    current_send 'nginx_error' do
+      filename '/var/log/nginx/error.log'
+      tags(["environment:#{node.chef_environment}", 'type:nginx_error'])
+    end
+  end
+
+  if ::File.exist?('/var/log/unicorn')
+    current_send 'unicorn' do
+      filename '/var/log/unicorn/current'
+      tags(["environment:#{node.chef_environment}", 'type:unicorn'])
+    end
+  end
+
+  if ::File.exist?('/applications/rubygems')
+    current_send 'rails' do
+      filename '/applications/rubygems/shared/log/staging.log'
+      tags(["environment:#{node.chef_environment}", 'type:rails'])
+    end
+  end
+
+  if ::File.exist?('/applications/rubygems')
+    current_send 'delayed_job' do
+      filename '/applications/rubygems/shared/log/delayed_job.log'
+      tags(["environment:#{node.chef_environment}", 'type:delayed_job'])
+    end
+  end
 end
