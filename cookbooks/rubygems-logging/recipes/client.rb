@@ -11,7 +11,6 @@ node.default['rsyslog']['preserve_fqdn'] = 'on'
 node.default['rsyslog']['high_precision_timestamps'] = true
 include_recipe 'rsyslog::client'
 
-
 if node.chef_environment == 'staging'
   include_recipe 'current::install'
 
