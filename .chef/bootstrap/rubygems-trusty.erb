@@ -5,8 +5,11 @@ hostname -F /etc/hostname
 
 echo "`ip addr | grep eth0 | grep "inet " | cut -d " " -f 6 | cut -d \/ -f 1` `cat /etc/hostname`" >> /etc/hosts
 
+export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get upgrade -y
+apt-get -y -o Dpkg::Options::="--force-confnew" dist-upgrade
+
+rm -f /etc/ssh/ssh_host_*_key{,.pub} && ssh-keygen -A
 
 exists() {
   if command -v $1 &>/dev/null
@@ -69,7 +72,7 @@ chef_server_url  "<%= Chef::Config[:chef_server_url] %>"
 validation_client_name "<%= Chef::Config[:validation_client_name] %>"
 <% unless @config[:chef_node_name] == nil %>
 node_name "<%= @config[:chef_node_name] %>"
-<% end %> 
+<% end %>
 EOP
 ) > /etc/chef/client.rb
 
