@@ -3,7 +3,7 @@
 # Recipe:: dirs
 #
 
-['/applications/rubygems', '/applications/rubygems/releases', '/applications/rubygems/shared', '/applications/rubygems/shared/log'].each do |dir|
+['/applications/rubygems', '/applications/rubygems/releases', '/applications/rubygems/shared', '/applications/rubygems/shared/config', '/applications/rubygems/shared/log'].each do |dir|
   directory dir do
     owner  'deploy'
     group  'deploy'
