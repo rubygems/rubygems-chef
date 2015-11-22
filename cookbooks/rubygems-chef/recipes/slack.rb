@@ -8,7 +8,9 @@ slack_creds = chef_vault_item('slack', 'credentials')
 
 directory '/etc/chef/client.d'
 
-chef_gem 'slackr'
+chef_gem 'slackr' do
+  compile_time true
+end
 
 template '/etc/chef/client.d/slack.rb' do
   source 'slack.rb'

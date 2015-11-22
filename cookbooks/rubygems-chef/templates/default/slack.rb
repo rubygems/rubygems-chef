@@ -100,7 +100,7 @@ class Chef::Handler::Slack < Chef::Handler
   end
 
   def slack_message(content)
-    slack = Slackr::Webhook.new(team, api_key, config)
+    slack = Slackr.connect(team, api_key, config)
     slack.say(content)
   end
 

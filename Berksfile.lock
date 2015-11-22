@@ -279,7 +279,7 @@ GRAPH
     memcached (>= 0.0.0)
     rubygems (>= 0.0.0)
     rubygems-sensu (>= 0.0.0)
-  rubygems-chef (0.0.46)
+  rubygems-chef (0.0.47)
     chef-client (>= 0.0.0)
     chef-vault (>= 0.0.0)
     omnibus_updater (>= 0.0.0)
