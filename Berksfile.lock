@@ -361,7 +361,7 @@ GRAPH
     redisio (>= 1.7.0)
     windows (>= 1.8.8)
     yum (>= 0.0.0)
-  sudo (2.7.0)
+  sudo (2.7.2)
   sysctl (0.6.2)
     ohai (>= 0.0.0)
   uchiwa (1.0.0)
