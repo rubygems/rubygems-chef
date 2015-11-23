@@ -8,9 +8,11 @@ RuboCop::RakeTask.new(:rubocop)
 
 desc 'Run Foodcritic lint checks'
 FoodCritic::Rake::LintTask.new(:foodcritic) do |t|
+  t.files = [File.join(Dir.pwd, 'cookbooks')]
   t.options = {
     fail_tags: ['any'],
-    cookbook_paths: 'cookbooks',
+    chef_version: '12.5.1',
+    progress: true,
     tags: [
       '~FC003',
       '~FC011',
