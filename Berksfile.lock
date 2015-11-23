@@ -89,7 +89,7 @@ GRAPH
   beaver (1.4.0)
     apt (>= 0.0.0)
     python (>= 0.0.0)
-  build-essential (2.0.6)
+  build-essential (2.2.4)
   chef-client (4.3.1)
     cron (>= 1.2.0)
     logrotate (>= 1.2.0)
