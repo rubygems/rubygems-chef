@@ -52,8 +52,6 @@ DEPENDENCIES
     path: cookbooks/rubygems-people
   rubygems-redis
     path: cookbooks/rubygems-redis
-  rubygems-repo
-    path: cookbooks/rubygems-repo
   rubygems-ruby
     path: cookbooks/rubygems-ruby
   rubygems-sensu
@@ -79,8 +77,6 @@ GRAPH
     pacman (>= 0.0.0)
   apt (2.6.1)
   apt-chef (0.2.0)
-    apt (>= 0.0.0)
-  aptly (0.2.4)
     apt (>= 0.0.0)
   ark (0.9.0)
     7-zip (>= 0.0.0)
@@ -320,10 +316,6 @@ GRAPH
     rubygems (>= 0.0.0)
     rubygems-backups (>= 0.0.0)
     sysctl (>= 0.0.0)
-  rubygems-repo (0.0.28)
-    aptly (= 0.2.4)
-    nginx (>= 0.0.0)
-    rubygems (>= 0.0.0)
   rubygems-ruby (0.0.6)
     apt (>= 0.0.0)
   rubygems-sensu (0.1.45)
