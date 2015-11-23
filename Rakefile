@@ -17,7 +17,8 @@ FoodCritic::Rake::LintTask.new(:foodcritic) do |t|
       '~FC003',
       '~FC011',
       '~FC015',
-      '~FC017'
+      '~FC017',
+      '~FC023'
     ]
   }
 end
@@ -25,17 +26,17 @@ end
 desc 'Refresh all chef vaults'
 task :refresh_vaults do
   [
-    'apps/kibana',
+    # 'apps/kibana',
     'apps/shipit',
     'aws/credentials',
     'certs/production',
     'certs/staging',
-    'certs/logstash',
+    # 'certs/logstash',
     'datadog/credentials',
     'dnsimple/credentials',
     'duo/credentials',
-    'hubot/credentials',
-    'papertrail/credentials',
+    # 'hubot/credentials',
+    # 'papertrail/credentials',
     'postgresql/datadog',
     'rubygems/production',
     'rubygems/staging',
