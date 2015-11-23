@@ -121,7 +121,7 @@ GRAPH
   dns (0.0.2)
     dnsimple (>= 0.0.0)
     route53 (>= 0.0.0)
-  dnsimple (0.5.9)
+  dnsimple (0.5.10)
     build-essential (>= 0.0.0)
   duo-security (0.1.1)
     build-essential (>= 0.0.0)
