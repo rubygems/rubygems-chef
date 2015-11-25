@@ -3,13 +3,14 @@
 # Recipe:: client
 #
 
-log_server = search(:node, 'name:log01.common.rubygems.org')[0]
-
-node.default['rsyslog']['server_ip'] = log_server['ipaddress']
-node.default['rsyslog']['port'] = '5959'
-node.default['rsyslog']['preserve_fqdn'] = 'on'
-node.default['rsyslog']['high_precision_timestamps'] = true
-include_recipe 'rsyslog::client'
+# node.default['rsyslog']['server_ip'] = log_server['ipaddress']
+# node.default['rsyslog']['port'] = '5959'
+# node.default['rsyslog']['preserve_fqdn'] = 'on'
+# node.default['rsyslog']['high_precision_timestamps'] = true
+# include_recipe 'rsyslog::client'
+file "#{node['rsyslog']['config_prefix']}/rsyslog.d/49-remote.conf" do
+  action :delete
+end
 
 if node.chef_environment == 'staging'
   include_recipe 'current::install'

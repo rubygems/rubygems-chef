@@ -1,15 +1,10 @@
 name 'rubygems-logging'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.83'
+version '0.0.87'
 
 depends 'chef-vault'
 depends 'current'
-depends 'elasticsearch'
-depends 'java'
-depends 'kibana_lwrp'
-depends 'logstash'
 depends 'rsyslog'
-depends 'rubygems-auth-proxy'
 
 supports 'ubuntu'
