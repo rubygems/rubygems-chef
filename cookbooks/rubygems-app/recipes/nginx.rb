@@ -9,6 +9,8 @@ node.default['nginx']['package_name'] = 'nginx-extras'
 
 include_recipe 'nginx'
 
+lb_ip = search(:node, "roles:balancer AND chef_environment:#{node.chef_environment}")[0]['ipaddress']
+
 template "#{node['nginx']['dir']}/sites-available/rubygems" do
   source 'nginx.conf.erb'
   owner  'root'
@@ -17,6 +19,7 @@ template "#{node['nginx']['dir']}/sites-available/rubygems" do
   variables(
     rails_env:  node.chef_environment,
     rails_root: '/applications/rubygems',
+    load_balancer_ip: lb_ip,
     unicorn_port: 3000,
     nginx_port: 9000
   )
