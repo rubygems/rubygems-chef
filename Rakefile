@@ -41,6 +41,7 @@ task :refresh_vaults do
     'rubygems/production',
     'rubygems/staging',
     'secrets/backups',
+    'secrets/current',
     'sensu/credentials',
     'slack/credentials'
   ].each do |item|

@@ -12,44 +12,42 @@ file "#{node['rsyslog']['config_prefix']}/rsyslog.d/49-remote.conf" do
   action :delete
 end
 
-if node.chef_environment == 'staging'
-  include_recipe 'current::install'
+include_recipe 'current::install'
 
-  current_secrets = chef_vault_item('secrets', 'current')
-  node.default['current']['token'] = current_secrets['token']
+current_secrets = chef_vault_item('secrets', 'current')
+node.default['current']['token'] = current_secrets['token']
 
-  if ::File.exist?('/var/log/nginx/access.json.log')
-    current_send 'nginx' do
-      filename '/var/log/nginx/access.json.log'
-      tags(["environment:#{node.chef_environment}", 'type:nginx'])
-    end
+if ::File.exist?('/var/log/nginx/access.json.log')
+  current_send 'nginx' do
+    filename '/var/log/nginx/access.json.log'
+    tags(["environment:#{node.chef_environment}", 'type:nginx'])
   end
+end
 
-  if ::File.exist?('/var/log/nginx')
-    current_send 'nginx_error' do
-      filename '/var/log/nginx/error.log'
-      tags(["environment:#{node.chef_environment}", 'type:nginx_error'])
-    end
+if ::File.exist?('/var/log/nginx')
+  current_send 'nginx_error' do
+    filename '/var/log/nginx/error.log'
+    tags(["environment:#{node.chef_environment}", 'type:nginx_error'])
   end
+end
 
-  if ::File.exist?('/var/log/unicorn')
-    current_send 'unicorn' do
-      filename '/var/log/unicorn/current'
-      tags(["environment:#{node.chef_environment}", 'type:unicorn'])
-    end
+if ::File.exist?('/var/log/unicorn')
+  current_send 'unicorn' do
+    filename '/var/log/unicorn/current'
+    tags(["environment:#{node.chef_environment}", 'type:unicorn'])
   end
+end
 
-  if ::File.exist?('/applications/rubygems')
-    current_send 'rails' do
-      filename '/applications/rubygems/shared/log/staging.log'
-      tags(["environment:#{node.chef_environment}", 'type:rails'])
-    end
+if ::File.exist?('/applications/rubygems')
+  current_send 'rails' do
+    filename "/applications/rubygems/shared/log/#{node.chef_environment}.log"
+    tags(["environment:#{node.chef_environment}", 'type:rails'])
   end
+end
 
-  if ::File.exist?('/applications/rubygems')
-    current_send 'delayed_job' do
-      filename '/applications/rubygems/shared/log/delayed_job.log'
-      tags(["environment:#{node.chef_environment}", 'type:delayed_job'])
-    end
+if ::File.exist?('/applications/rubygems')
+  current_send 'delayed_job' do
+    filename '/applications/rubygems/shared/log/delayed_job.log'
+    tags(["environment:#{node.chef_environment}", 'type:delayed_job'])
   end
 end
