@@ -8,7 +8,8 @@ log_device = '/dev/xvdp'
 mount '/var/log/nginx' do
   device log_device
   fstype 'ext4'
-  options 'defaults,discard'
+  options 'rw,discard'
+  pass 0
   action :mount
   only_if { ::File.exist?(log_device) }
 end
