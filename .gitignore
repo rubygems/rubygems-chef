@@ -1,6 +1,6 @@
 .vagrant
 
-# Invisible file extension
+# Invisible file extensions
 .DS_Store
 *.rbc
 *.swp
