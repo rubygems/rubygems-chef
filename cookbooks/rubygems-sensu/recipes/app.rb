@@ -8,7 +8,7 @@ sensu_check 'check_app_nginx_http' do
   handlers ['slack', 'pagerduty']
   subscribers ['app']
   interval 30
-  additional(notification: "[#{node.chef_environment}] nginx is not returning 200 OK on port 9000", occurrences: 3)
+  additional(occurrences: 3)
 end
 
 sensu_check 'check_unicorn_http' do
@@ -16,7 +16,7 @@ sensu_check 'check_unicorn_http' do
   handlers ['slack', 'pagerduty']
   subscribers ['app']
   interval 30
-  additional(notification: "[#{node.chef_environment}] unicorn is not returning 200 OK on port 3000", occurrences: 3)
+  additional(occurrences: 3)
 end
 
 sensu_check 'check_unicorn_proc' do
@@ -24,5 +24,5 @@ sensu_check 'check_unicorn_proc' do
   handlers ['slack', 'pagerduty']
   subscribers ['app']
   interval 30
-  additional(notification: "[#{node.chef_environment}] unicorn is not running", occurrences: 3)
+  additional(occurrences: 3)
 end

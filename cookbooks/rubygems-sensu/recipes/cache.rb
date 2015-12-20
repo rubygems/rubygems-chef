@@ -8,7 +8,7 @@ sensu_check 'check_memcached_proc' do
   handlers ['slack', 'pagerduty']
   subscribers ['cache']
   interval 30
-  additional(notification: "memcached is not running for #{node.chef_environment}", occurences: 3)
+  additional(occurences: 3)
 end
 
 sensu_check 'check_memcached' do
@@ -16,5 +16,5 @@ sensu_check 'check_memcached' do
   handlers ['slack', 'pagerduty']
   subscribers ['cache']
   interval 30
-  additional(notification: "memcached is not accepting connections for #{node.chef_environment}", occurences: 3)
+  additional(occurences: 3)
 end
