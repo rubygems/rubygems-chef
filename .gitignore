@@ -1,5 +1,10 @@
 .vagrant
 
+# Invisible file extensions
+.DS_Store
+*.rbc
+*.swp
+
 # Bundler
 bin/*
 .bundle/*
