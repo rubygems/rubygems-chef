@@ -7,7 +7,7 @@ include_recipe 'rubygems'
 
 include_recipe 'chef-vault'
 
-node.default['uchiwa']['version'] = '0.6.0-1'
+node.default['uchiwa']['version'] = '0.12.1-1'
 node.default['uchiwa']['settings']['user'] = ''
 node.default['uchiwa']['settings']['pass'] = ''
 
