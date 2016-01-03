@@ -11,12 +11,12 @@ action :create do
   end
 
   dnsimple_record new_resource.name do
+    action   :create
     name     new_resource.name
     content  new_resource.value
     type     new_resource.type
     domain   new_resource.domain
     domain_api_token new_resource.credentials[:dnsimple][:domain_api_token]
-    action   :create
   end
 end
 
@@ -33,11 +33,11 @@ action :delete do
   end
 
   dnsimple_record new_resource.name do
+    action   :destroy
     name     new_resource.name
     content  new_resource.value
     type     new_resource.type
     domain   new_resource.domain
     domain_api_token new_resource.credentials[:dnsimple][:domain_api_token]
-    action   :destroy
   end
 end

@@ -4,7 +4,7 @@
 #
 
 logrotate_app 'rails' do
-  path "/applications/rubygems/shared/log/*.log"
+  path '/applications/rubygems/shared/log/*.log'
   su 'deploy deploy'
   frequency 'daily'
   rotate 15
