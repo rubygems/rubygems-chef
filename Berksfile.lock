@@ -24,8 +24,6 @@ DEPENDENCIES
     path: cookbooks/rubygems-balancer
   rubygems-bastion
     path: cookbooks/rubygems-bastion
-  rubygems-cache
-    path: cookbooks/rubygems-cache
   rubygems-chef
     path: cookbooks/rubygems-chef
   rubygems-chef-server
@@ -125,10 +123,6 @@ GRAPH
   iptables (2.0.1)
     compat_resource (>= 0.0.0)
   logrotate (1.9.2)
-  memcached (2.0.2)
-    compat_resource (>= 0.0.0)
-    runit (~> 1.0)
-    yum-epel (>= 0.0.0)
   motd (0.6.3)
     chef_handler (>= 0.0.0)
   nginx (1.8.0)
@@ -221,10 +215,6 @@ GRAPH
     rubygems (>= 0.0.0)
     rubygems-fail2ban (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
-  rubygems-cache (0.0.3)
-    memcached (>= 0.0.0)
-    rubygems (>= 0.0.0)
-    rubygems-sensu (>= 0.0.0)
   rubygems-chef (0.0.47)
     chef-client (>= 0.0.0)
     chef-vault (>= 0.0.0)
