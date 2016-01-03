@@ -9,7 +9,8 @@ node.default['nginx']['package_name'] = 'nginx-extras'
 
 include_recipe 'nginx'
 
-lb_ip = search(:node, "roles:balancer AND chef_environment:#{node.chef_environment}")[0]['ipaddress']
+query = "roles:balancer AND chef_environment:#{node.chef_environment}"
+lb_ip = search(:node, query)[0]['ipaddress']
 
 template "#{node['nginx']['dir']}/sites-available/rubygems" do
   source 'nginx.conf.erb'
