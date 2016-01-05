@@ -9,7 +9,6 @@ DEPENDENCIES
     revision: 1ddec64f0798d91cf0ab1a8dd8831fb0f6694556
   nginx (~> 1.8.0)
   redisio (~> 1.0)
-  route53 (= 0.3.8)
   rubygems
     path: cookbooks/rubygems
   rubygems-app
@@ -157,8 +156,8 @@ GRAPH
     yum-erlang_solutions (>= 0.0.0)
   redisio (1.7.1)
     ulimit (>= 0.1.2)
-  route53 (0.3.8)
-    build-essential (>= 0.0.0)
+  route53 (0.4.0)
+    xml (>= 0.0.0)
   rsyslog (2.2.0)
   rubygems (0.0.43)
     chef-vault (>= 0.0.0)
@@ -299,6 +298,9 @@ GRAPH
   user (0.4.2)
   windows (1.39.0)
     chef_handler (>= 0.0.0)
+  xml (2.0.0)
+    build-essential (>= 0.0.0)
+    chef-sugar (>= 0.0.0)
   yum (3.8.2)
   yum-chef (0.2.2)
     yum (>= 3.2)

@@ -38,6 +38,5 @@ cookbook 'dnsimple', path: 'cookbooks/dnsimple'
 cookbook 'duo-security', github: 'skottler/chef-duo-security'
 
 cookbook 'chef_handler', '~> 1.1.0' # pin for datadog
-cookbook 'route53', '0.3.8' # pin for now
 cookbook 'redisio', '~> 1.0' # pin for now
 cookbook 'nginx', '~> 1.8.0' # pin for now
