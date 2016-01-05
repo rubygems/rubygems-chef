@@ -4,7 +4,7 @@
 #
 
 node.default['chef-server']['api_fqdn'] = 'chef.rubygems.org'
-node.default['chef-server']['version'] = '12.2.0-1'
+node.default['chef-server']['version'] = '12.3.1-1'
 node.default['chef-server']['addons'] = ['reporting']
 
 node.default['chef-server']['configuration'] = <<-EOS

@@ -218,7 +218,7 @@ GRAPH
     chef-client (>= 0.0.0)
     chef-vault (>= 0.0.0)
     omnibus_updater (>= 0.0.0)
-  rubygems-chef-server (0.0.5)
+  rubygems-chef-server (0.0.6)
     chef-server (>= 0.0.0)
     chef-vault (>= 0.0.0)
   rubygems-cloud-init (0.0.2)
