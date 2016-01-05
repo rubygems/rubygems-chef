@@ -10,7 +10,7 @@ aws_credentials = chef_vault_item('aws', 'credentials')
 
 include_recipe 'dns'
 
-if node['cloud_v2']
+if node['cloud_v2'] && node['cloud_v2']['public_hostname'] && !node['cloud_v2']['public_hostname'].empty?
   value = node['cloud_v2']['public_hostname']
   type = 'CNAME'
 else

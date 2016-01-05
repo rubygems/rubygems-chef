@@ -230,7 +230,7 @@ GRAPH
     rubygems-backups (>= 0.0.0)
   rubygems-fail2ban (0.0.3)
     fail2ban (>= 0.0.0)
-  rubygems-hostname (0.1.18)
+  rubygems-hostname (0.1.19)
     chef-vault (>= 0.0.0)
     dns (>= 0.0.0)
     hostname (>= 0.0.0)
