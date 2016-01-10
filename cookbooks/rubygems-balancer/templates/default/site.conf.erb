@@ -144,6 +144,9 @@ server {
     }
 
     location @app {
+      add_header Access-Control-Allow-Origin *
+      add_header Access-Control-Allow-Methods GET, OPTIONS
+
       proxy_pass http://app_servers;
     }
 
@@ -303,6 +306,9 @@ server {
   }
 
   location @app {
+    add_header Access-Control-Allow-Origin *
+    add_header Access-Control-Allow-Methods GET, OPTIONS
+
     proxy_pass http://app_servers;
   }
 
