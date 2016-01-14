@@ -2,14 +2,5 @@
     "id": "shirley",
     "username": "shirley",
     "comment": "Shirley Bailes",
-    "password": "$1$94OpZWQu$SrHHdhWeOVPLWjWW2nPaG0",
-    "admin" : true,
-    "environments": [
-      "common",
-      "staging",
-      "production"
-    ],
-    "ssh_keys": [
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDC3TROLEO4+rL2H7BgiRYD0iUC0+Gqta/HEAvX1nEnuAHkSXP/iP6pfE1+zf4rRUEHRtt6As12Ix1dPsHeUwtmdtvJ+h4pbkezH/g4x0ponx1L1Xv+VrwHZU9y1qvIPK0FqgbT/giKcJX8LWGfG7uiq/aUG+5dEyYXSVOIkrm1UI2EoFwgu1g+lNgwZaOlXDPRT3rYFhLEUKd1K5ShnJPC1i/eIX6qJR01Jzkx+tPylCMoH/NQ3TeQVn5qMmUCG3CckR9glYN62oK5ZgzADI6dIlfNwxtv2jv8cDHBFWBwco6m6ESJb1ibGxFl7c6ooOteWn22/X1mEl+kGnIxrM8t"
-    ]
+    "action": "remove"
 }
