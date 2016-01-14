@@ -4,13 +4,8 @@ upstream app_servers {
   <% end %>
 }
 
-map $remote_addr $abuser {
-  default "";
-  95.182.202.145 1;
-  87.194.147.142 1;
-}
-
-limit_req_zone  $binary_remote_addr  zone=abusers:10m   rate=10r/m;
+limit_req_status 429;
+limit_req_zone  $binary_remote_addr  zone=abusers:10m  rate=25r/s;
 
 # HTTP
 server {
@@ -144,6 +139,7 @@ server {
     }
 
     location @app {
+      limit_req zone=abusers burst=10;
       proxy_pass http://app_servers;
     }
 
@@ -303,6 +299,7 @@ server {
   }
 
   location @app {
+    limit_req zone=abusers burst=10;
     proxy_pass http://app_servers;
   }
 
