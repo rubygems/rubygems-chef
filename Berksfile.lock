@@ -191,7 +191,7 @@ GRAPH
     sudo (>= 0.0.0)
     unicorn (>= 0.0.0)
     user (>= 0.0.0)
-  rubygems-apt (0.0.20)
+  rubygems-apt (0.0.21)
     apt (>= 0.0.0)
   rubygems-auth-proxy (0.0.6)
     ark (>= 0.0.0)

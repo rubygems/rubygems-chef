@@ -21,6 +21,4 @@ end
 
 cookbook_file '/etc/apt/apt.conf.d/50unattended-upgrades'
 
-template '/etc/apt/apt.conf.d/20auto-upgrades' do
-  variables(enabled: !node['fqdn'].match(/^(db|redis)\d+.production.rubygems.org$/))
-end
+template '/etc/apt/apt.conf.d/20auto-upgrades'
