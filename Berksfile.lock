@@ -255,7 +255,7 @@ GRAPH
     sysctl (>= 0.0.0)
   rubygems-ruby (0.0.6)
     apt (>= 0.0.0)
-  rubygems-sensu (0.1.51)
+  rubygems-sensu (0.1.52)
     build-essential (>= 0.0.0)
     chef-vault (>= 0.0.0)
     dnsimple (>= 0.0.0)

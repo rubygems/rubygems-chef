@@ -36,7 +36,7 @@ sensu_check 'check_apt' do
   handlers ['slack']
   subscribers ['all']
   interval 120
-  additional(occurrences: 30)
+  additional(occurrences: 720) # don't alert until 24 hours have passed since we only run unattended upgrades once per day
 end
 
 sensu_check 'check_ntp_time' do
