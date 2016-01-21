@@ -5,7 +5,7 @@ upstream app_servers {
 }
 
 limit_req_status 429;
-limit_req_zone  $binary_remote_addr  zone=abusers:10m  rate=25r/s;
+limit_req_zone  $binary_remote_addr  zone=abusers:10m  rate=10r/s;
 
 # HTTP
 server {
