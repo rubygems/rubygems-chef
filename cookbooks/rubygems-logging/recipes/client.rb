@@ -18,16 +18,18 @@ current_secrets = chef_vault_item('secrets', 'current')
 node.default['current']['token'] = current_secrets['token']
 
 if ::File.exist?('/var/log/nginx/access.json.log')
+  app = node['roles'].include?('balancer') ? 'lb' : 'app'
   current_send 'nginx' do
     filename '/var/log/nginx/access.json.log'
-    tags(["environment:#{node.chef_environment}", 'type:nginx'])
+    tags(["environment:#{node.chef_environment}", 'type:nginx', "app:#{app}"])
   end
 end
 
 if ::File.exist?('/var/log/nginx')
+  app = node['roles'].include?('balancer') ? 'lb' : 'app'
   current_send 'nginx_error' do
     filename '/var/log/nginx/error.log'
-    tags(["environment:#{node.chef_environment}", 'type:nginx_error'])
+    tags(["environment:#{node.chef_environment}", 'type:nginx_error', "app:#{app}"])
   end
 end
 
