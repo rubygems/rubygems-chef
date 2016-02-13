@@ -3,6 +3,7 @@ define :auth_proxy, org: 'rubygems' do
 
   node.default['nginx']['server_tokens'] = 'off'
   node.default['nginx']['default_site_enabled'] = false
+  node.default['nginx']['repo_source'] = 'nginx'
 
   include_recipe 'rubygems-auth-proxy'
   include_recipe 'chef-vault'

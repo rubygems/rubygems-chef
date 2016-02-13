@@ -1,5 +1,5 @@
 name 'rubygems-auth-proxy'
-version '0.0.6'
+version '0.0.7'
 
 depends 'nginx'
 depends 'ark'

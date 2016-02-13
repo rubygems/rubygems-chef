@@ -39,4 +39,4 @@ cookbook 'duo-security', github: 'skottler/chef-duo-security'
 
 cookbook 'chef_handler', '~> 1.1.0' # pin for datadog
 cookbook 'redisio', '~> 1.0' # pin for now
-cookbook 'nginx', '~> 1.8.0' # pin for now
+cookbook 'nginx', '~> 2.7.0' # pin for now

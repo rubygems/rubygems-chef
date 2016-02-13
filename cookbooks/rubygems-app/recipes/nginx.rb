@@ -5,7 +5,7 @@
 
 node.default['nginx']['server_tokens'] = 'off'
 node.default['nginx']['default_site_enabled'] = false
-node.default['nginx']['package_name'] = 'nginx-extras'
+node.default['nginx']['repo_source'] = 'nginx'
 
 include_recipe 'nginx'
 
