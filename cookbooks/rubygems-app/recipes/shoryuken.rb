@@ -3,12 +3,15 @@
 # Recipe:: shoryuken
 #
 
+secrets = chef_vault_item('rubygems', node.chef_environment)
+
 runit_service 'shoryuken' do
   owner 'deploy'
   group 'deploy'
   default_logger true
   env(
-    'RAILS_ENV' => node.chef_environment
+    'RAILS_ENV' => node.chef_environment,
+    'SQS_QUEUE' => secrets['stats_sqs_queue']
   )
   options(
     owner: 'deploy',
