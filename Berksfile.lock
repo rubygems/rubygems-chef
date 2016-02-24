@@ -142,7 +142,7 @@ GRAPH
   ntp (1.9.0)
     windows (>= 0.0.0)
   ohai (2.0.4)
-  omnibus_updater (1.0.4)
+  omnibus_updater (1.0.6)
   openssh (1.5.2)
     iptables (>= 0.0.0)
   openssl (4.4.0)
