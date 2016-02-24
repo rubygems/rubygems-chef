@@ -22,6 +22,7 @@ dns_record "create record for #{node.name}" do
   name node.name.sub('.rubygems.org', '')
   value value
   type type
+  ttl 60
   domain 'rubygems.org'
   zone_id 'Z3ME4ZZV9EACZN'
   credentials(
