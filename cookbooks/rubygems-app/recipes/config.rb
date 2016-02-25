@@ -29,6 +29,7 @@ template '/applications/rubygems/shared/config/database.yml' do
 end
 
 fastly_domain = node.chef_environment == 'production' ? 'rubygems' : 'rubygems-staging'
+fastly_log_processor_enabled = node.chef_environment == 'production' ? false : true
 
 template '/applications/rubygems/shared/config/secret.rb' do
   source 'secret.rb.erb'
@@ -39,6 +40,8 @@ template '/applications/rubygems/shared/config/secret.rb' do
   variables(
     s3_key: secrets['s3_key'],
     s3_secret: secrets['s3_secret'],
+    aws_region: secrets['stats_aws_region'],
+    fastly_log_processor_enabled: fastly_log_processor_enabled,
     secret_key_base: secrets['secret_key_base'],
     bundler_token: secrets['bundler_token'],
     bundler_api_url: secrets['bundler_api_url'],
