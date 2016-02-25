@@ -95,7 +95,7 @@ GRAPH
     windows (>= 0.0.0)
     yum (>= 0.0.0)
   dmg (2.3.0)
-  dns (0.0.3)
+  dns (0.0.4)
     dnsimple (>= 0.0.0)
     route53 (>= 0.0.0)
   dnsimple (0.5.10)

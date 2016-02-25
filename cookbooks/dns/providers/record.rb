@@ -9,6 +9,7 @@ action :create do
     aws_secret_access_key new_resource.credentials[:route53][:aws_secret_access_key]
     overwrite true
     action :create
+    ignore_failure true
   end
 
   dnsimple_record new_resource.name do
@@ -19,6 +20,7 @@ action :create do
     ttl      new_resource.ttl
     domain   new_resource.domain
     domain_api_token new_resource.credentials[:dnsimple][:domain_api_token]
+    ignore_failure true
   end
 end
 
@@ -33,6 +35,7 @@ action :delete do
     aws_secret_access_key new_resource.credentials[:route53][:aws_secret_access_key]
     overwrite true
     action :delete
+    ignore_failure true
   end
 
   dnsimple_record new_resource.name do
@@ -43,5 +46,6 @@ action :delete do
     ttl      new_resource.ttl
     domain   new_resource.domain
     domain_api_token new_resource.credentials[:dnsimple][:domain_api_token]
+    ignore_failure true
   end
 end
