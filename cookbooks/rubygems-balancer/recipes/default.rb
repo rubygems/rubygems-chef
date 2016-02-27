@@ -29,5 +29,9 @@ cookbook_file '/etc/default/nginx' do
   notifies :reload, 'service[nginx]'
 end
 
+file '/etc/nginx/conf.d/default.conf' do
+  action :delete
+end
+
 node.default['datadog']['nginx']['instances'] = [{ 'nginx_status_url' => 'http://localhost/nginx_status/' }]
 include_recipe 'datadog::nginx'
