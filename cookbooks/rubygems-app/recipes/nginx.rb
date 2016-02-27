@@ -29,5 +29,11 @@ end
 
 nginx_site 'rubygems'
 
+file '/etc/nginx/conf.d/default.conf' do
+  action :delete
+  notifies :reload, 'service[nginx]'
+end
+
+
 node.default['datadog']['nginx']['instances'] = [{ 'nginx_status_url' => 'http://localhost/nginx_status/' }]
 include_recipe 'datadog::nginx'
