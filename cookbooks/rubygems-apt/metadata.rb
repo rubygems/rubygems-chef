@@ -1,7 +1,7 @@
 name 'rubygems-apt'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.21'
+version '0.0.22'
 
 depends 'apt'
 
