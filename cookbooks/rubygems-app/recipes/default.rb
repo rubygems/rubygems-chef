@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 
-include_recipe 'rubygems'
+include_recipe 'rubygems-base'
 
 node.default['nodejs']['install_method'] = 'package'
 

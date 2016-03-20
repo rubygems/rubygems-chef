@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 
-include_recipe 'rubygems'
+include_recipe 'rubygems-base'
 
 node.default['nginx']['server_tokens'] = 'off'
 node.default['nginx']['default_site_enabled'] = false

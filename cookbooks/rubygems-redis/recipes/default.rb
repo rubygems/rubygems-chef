@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 
-include_recipe 'rubygems'
+include_recipe 'rubygems-base'
 
 include_recipe 'rubygems-redis::volume'
 

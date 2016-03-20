@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 
-include_recipe 'rubygems'
+include_recipe 'rubygems-base'
 include_recipe 'chef-vault'
 
 secrets = chef_vault_item('rubygems', node.chef_environment)

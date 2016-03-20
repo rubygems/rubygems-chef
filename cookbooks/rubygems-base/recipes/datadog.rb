@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: rubygems
+# Cookbook Name:: rubygems-base
 # Recipe:: datadog
 #
 

@@ -3,7 +3,7 @@
 # Recipe:: uchiwa
 #
 
-include_recipe 'rubygems'
+include_recipe 'rubygems-base'
 
 include_recipe 'chef-vault'
 

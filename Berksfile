@@ -5,7 +5,7 @@ source 'https://supermarket.chef.io'
 # not prefixed with 'rubygems' should be put in the Berksfile included in each
 # role or base cookbook.
 
-cookbook 'rubygems', path: 'cookbooks/rubygems'
+cookbook 'rubygems-base', path: 'cookbooks/rubygems-base'
 cookbook 'rubygems-app', path: 'cookbooks/rubygems-app'
 cookbook 'rubygems-apt', path: 'cookbooks/rubygems-apt'
 cookbook 'rubygems-auth-proxy', path: 'cookbooks/rubygems-auth-proxy'

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: rubygems
+# Cookbook Name:: rubygems-base
 # Recipe:: default
 #
 
@@ -18,7 +18,7 @@ include_recipe 'rubygems-cloud-init'
 include_recipe 'rubygems-hostname'
 include_recipe 'rubygems-hosts'
 include_recipe 'rubygems-logging'
-include_recipe 'rubygems::datadog'
+include_recipe 'rubygems-base::datadog'
 include_recipe 'rubygems-motd'
 include_recipe 'rubygems-ntp'
 include_recipe 'rubygems-ruby'
