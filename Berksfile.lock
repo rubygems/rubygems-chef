@@ -216,7 +216,7 @@ GRAPH
     rubygems-base (>= 0.0.0)
     rubygems-fail2ban (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
-  rubygems-chef (0.0.49)
+  rubygems-chef (0.0.50)
     chef-client (>= 0.0.0)
     chef-vault (>= 0.0.0)
     omnibus_updater (>= 0.0.0)
