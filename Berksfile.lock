@@ -87,7 +87,7 @@ GRAPH
   chef_handler (1.1.9)
   compat_resource (12.5.26)
   cron (1.7.4)
-  current (0.3.0)
+  current (0.4.1)
     runit (>= 0.0.0)
   datadog (2.2.0)
     apt (>= 0.0.0)
