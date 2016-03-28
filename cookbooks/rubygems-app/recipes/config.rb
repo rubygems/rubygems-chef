@@ -52,6 +52,7 @@ template '/applications/rubygems/shared/config/secret.rb' do
     fastly_domain: "#{fastly_domain}.global.ssl.fastly.net",
     elasticsearch_url: secrets['elasticsearch_url'],
     redis_url: "redis://#{redis_ip}:6379/0",
+    memcached_endpoint: secrets['memcached_endpoint'],
     honeybadger_api_key: secrets['honeybadger_api_key']
   )
 end
