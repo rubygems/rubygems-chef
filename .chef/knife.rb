@@ -5,14 +5,14 @@ log_level                :info
 log_location             STDOUT
 node_name                chef_username
 client_key               "#{current_dir}/#{chef_username}.pem"
-validation_client_name   "rubygems-validator"
-validation_key           "#{current_dir}/rubygems-validator.pem"
+validation_key           "/nonexist"
 chef_server_url          "https://chef.rubygems.org/organizations/rubygems"
 
 cookbook_path             "#{current_dir}/../cookbooks"
 environment_path          "#{current_dir}/../environments"
 
-knife[:bootstrap_file] = "#{current_dir}/bootstrap/rubygems-trusty.erb"
+knife[:bootstrap_template] = "#{current_dir}/bootstrap/rubygems-trusty.erb"
+knife[:bootstrap_vault_file] = "#{current_dir}/vaults.json"
 
 # Provision new instances with knife-ec2
 knife[:region] = 'us-west-2'

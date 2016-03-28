@@ -1,0 +1,22 @@
+{
+  "apps": "shipit",
+  "aws": "credentials",
+  "certs": [
+    "production",
+    "staging"
+  ],
+  "datadog": "credentials",
+  "dnsimple": "credentials",
+  "duo": "credentials",
+  "postgresql": "datadog",
+  "rubygems": [
+    "production",
+    "staging"
+  ],
+  "secrets": [
+    "backups",
+    "current"
+  ],
+  "sensu": "credentials",
+  "slack": "credentials"
+}
