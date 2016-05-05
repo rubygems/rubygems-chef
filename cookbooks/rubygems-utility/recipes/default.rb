@@ -7,8 +7,15 @@
 # might be out of date and the default apt recipe will update it.
 include_recipe 'apt'
 
-packages = data_bag_item('packages', 'base')['packages']
+packages_bag = data_bag_item('packages', 'base')
 
-packages.each do |pkg|
+packages_bag['packages'].each do |pkg|
   package pkg
+end
+
+packages_bag['banned_packages'].each do |name|
+  package name do
+    action :purge
+    only_if "dpkg -s '#{name}'"
+  end
 end

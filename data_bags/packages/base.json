@@ -12,5 +12,14 @@
     "traceroute",
     "vim",
     "wget"
+  ],
+  "banned_packages": [
+    "libsmbclient",
+    "libwbclient0",
+    "python-samba",
+    "samba-common",
+    "samba-common-bin",
+    "samba-libs",
+    "smbclient"
   ]
 }

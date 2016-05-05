@@ -278,7 +278,7 @@ GRAPH
     openssh (>= 0.0.0)
   rubygems-stat-update (0.0.1)
     runit (>= 0.0.0)
-  rubygems-utility (0.0.9)
+  rubygems-utility (0.0.10)
     apt (>= 0.0.0)
   runit (1.7.6)
     packagecloud (>= 0.0.0)
