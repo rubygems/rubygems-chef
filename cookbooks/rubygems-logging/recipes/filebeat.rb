@@ -11,5 +11,9 @@ apt_repository 'beats' do
 end
 
 package 'filebeat' do
-  # notifies :restart, 'service[filebeat]'
+  notifies :restart, 'service[filebeat]'
+end
+
+service 'filebeat' do
+  action [:enable, :start]
 end

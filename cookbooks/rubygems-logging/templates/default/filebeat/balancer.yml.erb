@@ -1,0 +1,22 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+        - "/var/log/nginx/access.json.log"
+      input_type: log
+      document_type: nginx
+      fields:
+        environment: <%= node.chef_environment %>"
+      fields_under_root: true
+    -
+      paths:
+        - "/var/log/nginx/error.log"
+      input_type: log
+      document_type: nginx_error
+      fields:
+        environment: <%= node.chef_environment %>"
+      fields_under_root: true
+output:
+  logstash:
+    hosts: ["<%= @logstash_endpoint %>"]
+    index: logstash
