@@ -55,8 +55,6 @@ DEPENDENCIES
     path: cookbooks/rubygems-shipit
   rubygems-ssh
     path: cookbooks/rubygems-ssh
-  rubygems-stat-update
-    path: cookbooks/rubygems-stat-update
   rubygems-utility
     path: cookbooks/rubygems-utility
 
@@ -275,8 +273,6 @@ GRAPH
     sudo (>= 0.0.0)
   rubygems-ssh (0.0.5)
     openssh (>= 0.0.0)
-  rubygems-stat-update (0.0.1)
-    runit (>= 0.0.0)
   rubygems-utility (0.0.10)
     apt (>= 0.0.0)
   runit (1.7.6)

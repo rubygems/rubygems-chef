@@ -28,7 +28,6 @@ cookbook 'rubygems-ruby', path: 'cookbooks/rubygems-ruby'
 cookbook 'rubygems-sensu', path: 'cookbooks/rubygems-sensu'
 cookbook 'rubygems-shipit', path: 'cookbooks/rubygems-shipit'
 cookbook 'rubygems-ssh', path: 'cookbooks/rubygems-ssh'
-cookbook 'rubygems-stat-update', path: 'cookbooks/rubygems-stat-update'
 cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
 
 # Add cookbooks which diverge from the versions available on the community
