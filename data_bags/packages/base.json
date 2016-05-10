@@ -20,6 +20,7 @@
     "samba-common",
     "samba-common-bin",
     "samba-libs",
-    "smbclient"
+    "smbclient",
+    "current"
   ]
 }
