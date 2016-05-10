@@ -6,7 +6,7 @@ filebeat:
       input_type: log
       document_type: nginx
       fields:
-        environment: <%= node.chef_environment %>"
+        environment: <%= node.chef_environment %>
       fields_under_root: true
     -
       paths:
@@ -14,7 +14,7 @@ filebeat:
       input_type: log
       document_type: nginx_error
       fields:
-        environment: <%= node.chef_environment %>"
+        environment: <%= node.chef_environment %>
       fields_under_root: true
 output:
   logstash:
