@@ -1,4 +1,6 @@
 AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
   Exclude:
     - vendor/**/*
     - /**/files/**/*
@@ -6,14 +8,14 @@ AllCops:
 
 Encoding:
   Enabled: false
-SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: false
 NumericLiterals:
   Enabled: false
 LineLength:
   Enabled: false
 Style/WordArray:
-  MinSize: 2
+  MinSize: 3
 Style/RescueModifier:
   Enabled: false
 

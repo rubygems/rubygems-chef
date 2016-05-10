@@ -3,13 +3,13 @@
 # Recipe:: setup
 #
 
-BASE_DIR      = '/applications/shipit'
-SSH_DIR       = "#{BASE_DIR}/.ssh"
-SHARED_DIR    = "#{BASE_DIR}/shared"
-BUNDLE_PATH   = "#{BASE_DIR}/shared/bundle"
-DATA_DIR      = "#{BASE_DIR}/shared/data"
-LOG_DIR       = "#{BASE_DIR}/shared/log"
-ASSET_DIR     = "#{BASE_DIR}/shared/public/assets"
+BASE_DIR      = '/applications/shipit'.freeze
+SSH_DIR       = "#{BASE_DIR}/.ssh".freeze
+SHARED_DIR    = "#{BASE_DIR}/shared".freeze
+BUNDLE_PATH   = "#{BASE_DIR}/shared/bundle".freeze
+DATA_DIR      = "#{BASE_DIR}/shared/data".freeze
+LOG_DIR       = "#{BASE_DIR}/shared/log".freeze
+ASSET_DIR     = "#{BASE_DIR}/shared/public/assets".freeze
 
 user 'shipit' do
   system true

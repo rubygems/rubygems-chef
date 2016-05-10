@@ -2,11 +2,11 @@
 # Cookbook Name:: rubygems-sensu
 # Recipe:: database
 #
-if node.chef_environment == 'common'
-  search_environment = 'production'
-else
-  search_environment = node.chef_environment
-end
+search_environment = if node.chef_environment == 'common'
+                       'production'
+                     else
+                       node.chef_environment
+                     end
 
 host = data_bag_item('hosts', 'database')['environments'][search_environment]
 db_host = search('node', "name:#{host}.#{search_environment}.rubygems.org")[0]
