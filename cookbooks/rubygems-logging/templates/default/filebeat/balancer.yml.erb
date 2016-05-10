@@ -20,3 +20,6 @@ output:
   logstash:
     hosts: ["<%= @logstash_endpoint %>"]
     index: logstash
+logging:
+  to_syslog: true
+  level: info

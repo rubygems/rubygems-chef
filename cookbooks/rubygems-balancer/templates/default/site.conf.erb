@@ -4,6 +4,8 @@ upstream app_servers {
   <% end %>
 }
 
+resolver 172.30.0.2;
+
 limit_req_status 429;
 limit_req_zone  $binary_remote_addr  zone=abusers:10m  rate=10r/s;
 
@@ -12,6 +14,11 @@ server {
   listen 80 default;
 
   server_name <%= @server_names.join(' ') %>;
+
+  <% @fastly_ip_ranges.each do |ip| %>
+  set_real_ip_from <%= ip %>;
+  <% end %>
+  real_ip_header Fastly-Client-IP;
 
   <% if @force_ssl %>
     # redirect all requests to SSL
@@ -22,11 +29,6 @@ server {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $host;
     proxy_redirect off;
-
-    location = /__log {
-      internal;
-      proxy_pass http://127.0.0.1:5000/gems/$gem.gem;
-    }
 
     location /nginx_status {
       stub_status on;
@@ -43,9 +45,7 @@ server {
     }
 
     location ~ /gems/(.*)\.gem$ {
-        set $gem $1;
-        post_action /__log;
-        rewrite ^ <%= @gem_mirror %>$request_uri redirect;
+      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
     location ~ /downloads/(.*)\.gem {
@@ -55,7 +55,9 @@ server {
 
     location /api/v1/dependencies {
       proxy_set_header Host bundler.rubygems.org;
+      proxy_set_header X-Forwarded-Proto $scheme;
       proxy_pass http://bundler.rubygems.org;
+      access_log /var/log/nginx/dependencyapi.log dependencyapi;
     }
 
     location /quick/Marshal.4.8/ {
@@ -163,6 +165,11 @@ server {
 
   server_name <%= @server_names.join(" ") %>;
 
+  <% @fastly_ip_ranges.each do |ip| %>
+  set_real_ip_from <%= ip %>;
+  <% end %>
+  real_ip_header Fastly-Client-IP;
+
   # SSL settings
   ssl                         on;
   ssl_certificate             <%= @ssl_cert %>;
@@ -193,14 +200,7 @@ server {
     rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
-  location = /__log {
-    internal;
-    proxy_pass http://127.0.0.1:5000/gems/$gem.gem;
-  }
-
   location ~ /gems/(.*)\.gem$ {
-    set $gem $1;
-    post_action /__log;
     rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
@@ -211,7 +211,9 @@ server {
 
   location /api/v1/dependencies {
     proxy_set_header Host bundler.rubygems.org;
+    proxy_set_header X-Forwarded-Proto $scheme;
     proxy_pass http://bundler.rubygems.org;
+    access_log /var/log/nginx/dependencyapi.log dependencyapi;
   }
 
   ##### BEGIN legacy rules

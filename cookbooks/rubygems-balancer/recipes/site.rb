@@ -30,6 +30,7 @@ template "#{node['nginx']['dir']}/sites-available/rubygems" do
     server_names: ['rubygems.org', 'www.rubygems.org'],
     ssl_key:      File.join(node['nginx']['dir'], 'certs', 'rubygems.org.key'),
     ssl_cert:     File.join(node['nginx']['dir'], 'certs', 'rubygems.org.crt'),
+    fastly_ip_ranges: node['fastly_ip_ranges'],
     gem_mirror_ssl: "https://#{fastly_domain}.global.ssl.fastly.net",
     gem_mirror: "http://#{fastly_domain}.global.ssl.fastly.net"
   )
