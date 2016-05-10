@@ -45,8 +45,6 @@ DEPENDENCIES
     path: cookbooks/rubygems-ntp
   rubygems-people
     path: cookbooks/rubygems-people
-  rubygems-redis
-    path: cookbooks/rubygems-redis
   rubygems-ruby
     path: cookbooks/rubygems-ruby
   rubygems-sensu
@@ -67,7 +65,6 @@ GRAPH
   ark (0.9.0)
     7-zip (>= 0.0.0)
     windows (>= 0.0.0)
-  aws (2.7.2)
   bluepill (2.4.1)
     rsyslog (~> 2.0)
   build-essential (2.2.4)
@@ -156,7 +153,7 @@ GRAPH
   route53 (0.4.0)
     xml (>= 0.0.0)
   rsyslog (2.2.0)
-  rubygems-app (0.0.80)
+  rubygems-app (0.0.81)
     apt (>= 0.0.0)
     chef-vault (>= 0.0.0)
     datadog (>= 0.0.0)
@@ -171,14 +168,14 @@ GRAPH
     sudo (>= 0.0.0)
     unicorn (>= 0.0.0)
     user (>= 0.0.0)
-  rubygems-apt (0.0.22)
+  rubygems-apt (0.0.23)
     apt (>= 0.0.0)
   rubygems-auth-proxy (0.0.7)
     ark (>= 0.0.0)
     chef-vault (>= 0.0.0)
     nginx (>= 0.0.0)
     runit (>= 0.0.0)
-  rubygems-backups (0.0.25)
+  rubygems-backups (0.0.26)
     chef-vault (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
   rubygems-balancer (0.0.95)
@@ -242,13 +239,6 @@ GRAPH
   rubygems-people (0.0.38)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
-  rubygems-redis (0.1.10)
-    aws (>= 0.0.0)
-    datadog (>= 0.0.0)
-    redisio (>= 0.0.0)
-    rubygems-backups (>= 0.0.0)
-    rubygems-base (>= 0.0.0)
-    sysctl (>= 0.0.0)
   rubygems-ruby (0.0.6)
     apt (>= 0.0.0)
   rubygems-sensu (0.1.54)
@@ -281,8 +271,6 @@ GRAPH
     windows (>= 1.8.8)
     yum (>= 0.0.0)
   sudo (2.7.2)
-  sysctl (0.7.0)
-    ohai (>= 0.0.0)
   uchiwa (1.2.0)
     apt (>= 0.0.0)
     yum (>= 0.0.0)

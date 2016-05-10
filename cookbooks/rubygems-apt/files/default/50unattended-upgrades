@@ -15,7 +15,6 @@ Unattended-Upgrade::Package-Blacklist {
     "chef-server-core";
     "opscode-manage";
     "opscode-reporting";
-    "redis";
     "postgresql-9.3";
     "postgresql-common";
     "postgresql-contrib";

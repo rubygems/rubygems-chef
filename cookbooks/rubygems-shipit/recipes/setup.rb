@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: rubygems-shipit
-# Recipe:: redis
+# Recipe:: setup
 #
 
 BASE_DIR      = '/applications/shipit'
