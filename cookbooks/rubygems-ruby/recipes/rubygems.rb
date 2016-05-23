@@ -3,7 +3,7 @@
 # Recipe:: rubygems
 #
 
-node.default['rubygems']['rubygems_version'] = '2.4.5'
+node.default['rubygems']['rubygems_version'] = '2.6.4'
 
 execute "gem update --system #{node['rubygems']['rubygems_version']}" do
   action :run
