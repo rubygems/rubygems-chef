@@ -37,7 +37,6 @@ package 'postgresql-client'
 %w(
   check-procs.rb
   check_postgres.pl
-  check_memcached.pl
   check_apt.sh
 ).each do |plugin|
   cookbook_file "/etc/sensu/plugins/#{plugin}" do
