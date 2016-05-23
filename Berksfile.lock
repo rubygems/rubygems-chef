@@ -4,9 +4,6 @@ DEPENDENCIES
     path: cookbooks/dns
   dnsimple
     path: cookbooks/dnsimple
-  duo-security
-    git: git://github.com/skottler/chef-duo-security.git
-    revision: 1ddec64f0798d91cf0ab1a8dd8831fb0f6694556
   nginx (~> 2.7.0)
   redisio (~> 1.0)
   rubygems-app
@@ -90,9 +87,6 @@ GRAPH
     route53 (>= 0.0.0)
   dnsimple (0.5.10)
     build-essential (>= 0.0.0)
-  duo-security (0.1.1)
-    build-essential (>= 0.0.0)
-    openssh (>= 0.0.0)
   erlang (2.0.0)
     apt (>= 1.7.0)
     build-essential (>= 0.0.0)

@@ -32,7 +32,6 @@ cookbook 'rubygems-utility', path: 'cookbooks/rubygems-utility'
 # site.
 cookbook 'dns', path: 'cookbooks/dns'
 cookbook 'dnsimple', path: 'cookbooks/dnsimple'
-cookbook 'duo-security', github: 'skottler/chef-duo-security'
 
 cookbook 'chef_handler', '~> 1.1.0' # pin for datadog
 cookbook 'redisio', '~> 1.0' # pin for now
