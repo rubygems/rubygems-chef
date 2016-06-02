@@ -14,13 +14,13 @@ apt_repository 'brightbox-ruby-ng' do
   notifies :run, 'execute[apt-get update]', :immediately
 end
 
-package 'ruby2.2'
-package 'ruby2.2-dev'
+package 'ruby2.3'
+package 'ruby2.3-dev'
 package 'ruby-switch'
 
-execute 'ruby-switch --set ruby2.2' do
+execute 'ruby-switch --set ruby2.3' do
   action :run
-  not_if "ruby-switch --check | grep -q 'ruby2.2'"
+  not_if "ruby-switch --check | grep -q 'ruby2.3'"
 end
 
 gem_package 'bundler'
