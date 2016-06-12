@@ -50,14 +50,14 @@ server {
 
     location ~ /downloads/(.*)\.gem {
       set $gem $1;
-      rewrite ^ /gems/$gem.gem redirect;
+      rewrite ^ <%= @gem_mirror %>/gems/$gem.gem redirect;
     }
 
+    # We don't want to rate limit this endpoint
     location /api/v1/dependencies {
-      proxy_set_header Host bundler.rubygems.org;
-      proxy_set_header X-Forwarded-Proto $scheme;
-      proxy_pass http://bundler.rubygems.org;
-      access_log /var/log/nginx/dependencyapi.log dependencyapi;
+      proxy_set_header Host $host;
+      proxy_set_header X-Forwarded-Proto https;
+      proxy_pass http://app_servers;
     }
 
     location /quick/Marshal.4.8/ {
@@ -128,11 +128,6 @@ server {
 
     location = /quick/latest_index {
       rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location /stylesheets/ {
-      root /opt/nginx/html;
-      try_files $uri @app;
     }
 
     location / {
@@ -206,17 +201,16 @@ server {
 
   location ~ /downloads/(.*)\.gem {
     set $gem $1;
-    rewrite ^ /gems/$gem.gem redirect;
+    rewrite ^ <%= @gem_mirror_ssl %>/gems/$gem.gem redirect;
   }
 
+  # We don't want to rate limit this endpoint
   location /api/v1/dependencies {
-    proxy_set_header Host bundler.rubygems.org;
     proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_pass http://bundler.rubygems.org;
-    access_log /var/log/nginx/dependencyapi.log dependencyapi;
+    proxy_pass http://app_servers;
   }
 
-  ##### BEGIN legacy rules
+  ##### BEGIN legacy redirects to CDN
 
   location /quick/Marshal.4.8/ {
     rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
@@ -233,8 +227,6 @@ server {
   location = /prerelease_specs.4.8.gz {
     rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
-
-  # Crufty old redirects
 
   location = /specs.4.8 {
     rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
@@ -288,12 +280,7 @@ server {
     rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
   }
 
-  ##### END legacy rules
-
-  location /stylesheets/ {
-    root /opt/nginx/html;
-    try_files $uri @app;
-  }
+  ##### END legacy redirects to CDN
 
   location / {
     root /var/www/rubygems;
