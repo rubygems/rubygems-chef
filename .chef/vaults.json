@@ -7,7 +7,6 @@
   ],
   "datadog": "credentials",
   "dnsimple": "credentials",
-  "duo": "credentials",
   "postgresql": "datadog",
   "rubygems": [
     "production",
@@ -15,7 +14,7 @@
   ],
   "secrets": [
     "backups",
-    "current"
+    "logging"
   ],
   "sensu": "credentials",
   "slack": "credentials"
