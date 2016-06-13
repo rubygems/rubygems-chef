@@ -52,3 +52,13 @@ template '/applications/rubygems/shared/config/secret.rb' do
     honeybadger_api_key: secrets['honeybadger_api_key']
   )
 end
+
+git '/applications/bundler-api' do
+  repository 'https://github.com/bundler/bundler-api.git'
+  revision 'master'
+  action :sync
+end
+
+link '/applications/rubygems/shared/config/versions.list' do
+  to '/applications/bundler-api/versions.list'
+end
