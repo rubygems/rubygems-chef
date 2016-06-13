@@ -235,7 +235,7 @@ GRAPH
     rubygems-base (>= 0.0.0)
     sensu (= 2.11.0)
     uchiwa (= 1.2.0)
-  rubygems-shipit (0.0.51)
+  rubygems-shipit (0.0.54)
     apt (>= 0.0.0)
     git (>= 0.0.0)
     logrotate (>= 0.0.0)

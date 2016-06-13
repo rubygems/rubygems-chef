@@ -17,17 +17,22 @@ user 'shipit' do
 end
 
 extra_dirs = [
-  [BASE_DIR,               '0755', 'deploy', 'users'],
-  [SSH_DIR,                '0755', 'shipit', 'shipit'],
-  [SHARED_DIR,             '0755', 'deploy', 'users'],
-  [BUNDLE_PATH,            '0775', 'deploy', 'users'],
-  [DATA_DIR,               '0770', 'shipit', 'shipit'],
-  [LOG_DIR,                '0755', 'shipit', 'shipit'],
-  ["#{BASE_DIR}/.heroku",  '0755', 'shipit', 'shipit'],
-  ["#{SHARED_DIR}/public", '0755', 'shipit', 'shipit'],
-  ["#{SHARED_DIR}/config", '0755', 'shipit', 'shipit'],
-  [ASSET_DIR,              '0755', 'deploy', 'users'],
-  ['/tmp/shipit',          '0755', 'deploy', 'users'],
+  [BASE_DIR,                      '0755', 'deploy', 'users'],
+  [SSH_DIR,                       '0755', 'shipit', 'shipit'],
+  [SHARED_DIR,                    '0755', 'deploy', 'users'],
+  [BUNDLE_PATH,                   '0775', 'deploy', 'users'],
+  [DATA_DIR,                      '0770', 'shipit', 'shipit'],
+  [LOG_DIR,                       '0755', 'shipit', 'shipit'],
+  ["#{BASE_DIR}/.heroku",         '0755', 'shipit', 'shipit'],
+  ["#{BASE_DIR}/.local",          '0755', 'shipit', 'shipit'],
+  ["#{BASE_DIR}/.cache",          '0755', 'shipit', 'shipit'],
+  ["#{BASE_DIR}/.cache/heroku",   '0755', 'shipit', 'shipit'],
+  ["#{BASE_DIR}/.config",         '0755', 'shipit', 'shipit'],
+  ["#{BASE_DIR}/.config/heroku",  '0755', 'shipit', 'shipit'],
+  ["#{SHARED_DIR}/public",        '0755', 'shipit', 'shipit'],
+  ["#{SHARED_DIR}/config",        '0755', 'shipit', 'shipit'],
+  [ASSET_DIR,                     '0755', 'deploy', 'users'],
+  ['/tmp/shipit',                 '0755', 'deploy', 'users'],
   ["#{SHARED_DIR}/public/system", '0755', 'deploy', 'users']
 ]
 
