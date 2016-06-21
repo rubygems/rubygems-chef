@@ -22,7 +22,7 @@ auth_bag = chef_vault_item('apps', 'sensu')
 
 auth_proxy 'sensu' do
   org 'rubygems'
-  team 'infrastructure'
+  team 'monitoring'
   upstream_port 3000
   server_name 'monitoring.rubygems.org'
   client_id auth_bag['client_id']
