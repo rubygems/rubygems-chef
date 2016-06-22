@@ -18,7 +18,12 @@ FoodCritic::Rake::LintTask.new(:foodcritic) do |t|
       '~FC011',
       '~FC015',
       '~FC017',
-      '~FC023'
+      '~FC023',
+      '~FC055',
+      '~FC056',
+      '~FC059',
+      '~FC064',
+      '~FC065'
     ]
   }
 end
