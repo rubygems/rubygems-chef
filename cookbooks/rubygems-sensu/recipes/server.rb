@@ -30,5 +30,6 @@ include_recipe 'rubygems-sensu::balancer'
 include_recipe 'rubygems-sensu::base'
 include_recipe 'rubygems-sensu::database'
 include_recipe 'rubygems-sensu::nginx'
+include_recipe 'rubygems-sensu::monitoring'
 
 include_recipe 'rubygems-sensu::uchiwa'
