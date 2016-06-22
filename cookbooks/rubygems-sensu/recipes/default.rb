@@ -38,6 +38,7 @@ package 'postgresql-client'
   check-procs.rb
   check_postgres.pl
   check_apt.sh
+  check_rubygems_ssl.rb
 ).each do |plugin|
   cookbook_file "/etc/sensu/plugins/#{plugin}" do
     source plugin
