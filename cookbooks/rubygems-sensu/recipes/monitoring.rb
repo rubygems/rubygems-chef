@@ -11,10 +11,10 @@
   index.rubygems.org
 ).each do |host|
   sensu_check "check_#{host}_ssl" do
-    command "perl /etc/sensu/plugins/check_postgres_backends.rb -P '' -h #{host}"
+    command "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check_rubygems_ssl.rb -P '/var/lib/gems/2.3.0/gems/bundler-1.12.5/lib/bundler/ssl_certs/*/*.pem' -h #{host}"
     handlers ['slack', 'pagerduty']
-    subscribers ['app']
-    interval 120
-    additional(occurrences: 3)
+    subscribers ['monitoring']
+    interval 300
+    additional(occurrences: 2)
   end
 end
