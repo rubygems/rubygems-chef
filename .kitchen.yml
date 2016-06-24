@@ -1,6 +1,6 @@
 ---
 driver:
-  name: vagrant
+  name: docker
 
 provisioner:
   name: chef_zero
@@ -8,8 +8,6 @@ provisioner:
 
 platforms:
   - name: ubuntu-14.04
-    driver_config:
-      privileged: true
 
 suites:
   - name: base
@@ -21,17 +19,15 @@ suites:
       'recipe[rubygems]',
       'recipe[rubygems-balancer]'
     ]
-    attributes:
-      dev_mode: true
   - name: database
     run_list: []
   - name: app
     run_list: [
       'recipe[rubygems]',
-      'recipe[rubygems-app]'
+      'recipe[rubygems-app]',
+      'recipe[rubygems-app::unicorn]',
+      'recipe[rubygems-app::nginx]'
     ]
-    attributes:
-      dev_mode: true
   - name: cache
     run_list: [
       'recipe[rubygems-cache]'
