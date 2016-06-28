@@ -4,7 +4,7 @@
 #
 
 node.default['chef-server']['api_fqdn'] = 'chef.rubygems.org'
-node.default['chef-server']['version'] = '12.4.1'
+node.default['chef-server']['version'] = '12.6.0'
 node.default['chef-server']['addons'] = ['reporting']
 node.default['chef-server']['accept_license'] = true
 
