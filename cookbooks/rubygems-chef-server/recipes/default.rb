@@ -4,8 +4,9 @@
 #
 
 node.default['chef-server']['api_fqdn'] = 'chef.rubygems.org'
-node.default['chef-server']['version'] = '12.4.1-1'
+node.default['chef-server']['version'] = '12.4.1'
 node.default['chef-server']['addons'] = ['reporting']
+node.default['chef-server']['accept_license'] = true
 
 node.default['chef-server']['configuration'] = <<-EOS
 nginx['ssl_certificate'] = '/etc/chef-server/rubygems.crt'
