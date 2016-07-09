@@ -37,11 +37,10 @@ Backup::Model.new(:postgresql, 'PostgreSQL Backup') do
   end
 
   notify_by Slack do |slack|
-    slack.on_success = false
-    slack.on_warning = true
-    slack.on_failure = true
-    slack.team       = 'bundler'
-    slack.token      = '<%= @slack_token %>'
+    slack.on_success  = false
+    slack.on_warning  = true
+    slack.on_failure  = true
+    slack.webhook_url = '<%= @slack_webhook_url %>'
   end
 
 end

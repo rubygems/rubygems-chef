@@ -22,7 +22,7 @@ template File.join(node['rubygems']['backups']['config_dir'], 'postgresql.rb') d
     aws_access_key: backup_secrets['aws_access_key'],
     aws_secret_key: backup_secrets['aws_secret_key'],
     bucket_name: 'rubygems-backups',
-    slack_token: backup_secrets['slack_token']
+    slack_webhook_url: backup_secrets['slack_webhook_url']
   )
 end
 
@@ -49,7 +49,7 @@ template File.join(node['rubygems']['backups']['config_dir'], 'public_postgresql
     aws_access_key: backup_secrets['aws_access_key'],
     aws_secret_key: backup_secrets['aws_secret_key'],
     bucket_name: 'rubygems-dumps',
-    slack_token: backup_secrets['slack_token']
+    slack_webhook_url: backup_secrets['slack_webhook_url']
   )
 end
 
