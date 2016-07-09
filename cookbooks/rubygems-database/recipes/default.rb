@@ -13,6 +13,7 @@ node.default['postgresql']['version'] = '9.3'
 node.default['postgresql']['config']['listen_addresses'] = '0.0.0.0'
 node.default['postgresql']['config']['work_mem'] = '100MB'
 node.default['postgresql']['config']['shared_buffers'] = '24MB'
+node.default['postgresql']['config']['checkpoint_segments'] = 16
 
 apt_preference 'postgresql-9.3' do
   pin 'version 9.3.10-0ubuntu0.14.04'
