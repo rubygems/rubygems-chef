@@ -40,11 +40,6 @@ users.each do |user_name|
         meg_app_host: meg_app_host
       )
     end
-
-    # If a user does stuff like setting up their $HOME via a custom recipe then
-    # their data bag should have 'has_recipe' set to true. Then they can have
-    # a recipe in this cookbook which matches their username.
-    include_recipe "rubygems-people::#{user['username']}" if user['has_recipe']
   end
 end
 
