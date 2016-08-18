@@ -10,42 +10,61 @@ meg_app_host = search('node', "roles:app AND chef_environment:#{node.chef_enviro
 
 users = data_bag('users')
 sysadmins = []
+valid_users = []
 users.each do |user_name|
   user = data_bag_item('users', user_name)
 
-  remove_user  = user['action'] && user['action'] == 'remove'
-  remove_user |= !user['environments'].include?(node.chef_environment)
+  next unless user['environments'].include?(node.chef_environment)
 
-  if remove_user
-    user_account user['username'] do
-      action :remove
-      only_if "/usr/bin/id -u #{user['username']}"
-    end
-  else
-    sysadmins << user['username'] if user['admin']
-    user_account user['username'] do
-      comment   user['comment']
-      password  user['password']
-      ssh_keys  user['ssh_keys']
-      shell     user['shell'] ? user['shell'] : '/bin/bash'
-    end
+  valid_users << user['username']
+  sysadmins << user['username'] if user['admin']
 
-    template "/home/#{user['username']}/.bashrc" do
-      source 'bashrc.erb'
-      owner user['username']
-      group user['username']
-      variables(
-        environment: node.chef_environment,
-        meg_balancer_host: meg_balancer_host,
-        meg_app_host: meg_app_host
-      )
-    end
+  user_account user['username'] do
+    comment   user['comment']
+    password  user['password']
+    ssh_keys  user['ssh_keys']
+    shell     user['shell'] ? user['shell'] : '/bin/bash'
+  end
+
+  template "/home/#{user['username']}/.bashrc" do
+    source 'bashrc.erb'
+    owner user['username']
+    group user['username']
+    variables(
+      environment: node.chef_environment,
+      meg_balancer_host: meg_balancer_host,
+      meg_app_host: meg_app_host
+    )
   end
 end
+
+raise 'No valid users found, something might be wrong!' if valid_users.empty?
+raise 'No valid admin users found, something might be wrong!' if sysadmins.empty?
+
+# Other valid users
+valid_users += ['deploy', 'ubuntu', 'nobody']
 
 group 'sysadmin' do
   gid 2300
   members sysadmins
+end
+
+# Remove any invalid users
+existing_users = File.read('/etc/passwd')
+existing_users.each_line do |user|
+  parts = user.split(':')
+  uid = parts[2].to_i
+  username = parts[0]
+  comment = parts[4]
+  if uid > 999 && !valid_users.include?(username)
+    log "WARNING: Unauthorized user will be removed: #{username}" do
+      level :warn
+    end
+    # user username do
+    #   action :remove
+    #   force true
+    # end
+  end
 end
 
 node.default['authorization']['sudo']['groups'] = ['sysadmin']
