@@ -23,7 +23,13 @@ node.default['sensu']['redis']['host'] = address
 sensu_client node.name do
   address node['ipaddress']
   subscriptions node['roles'] + ['all']
-  additional(environment: node.chef_environment)
+  additional(
+    environment: node.chef_environment,
+    load_thresholds: {
+      warning: "#{node['cpu']['total'] * 0.9}:#{node['cpu']['total'] * 0.7}:#{node['cpu']['total'] * 0.5}",
+      critical: "#{node['cpu']['total'] * 1}:#{node['cpu']['total'] * 0.8}:#{node['cpu']['total'] * 0.6}"
+    }
+  )
 end
 
 gem_package 'sensu-plugin' do

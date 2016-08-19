@@ -48,7 +48,7 @@ sensu_check 'check_ntp_time' do
 end
 
 sensu_check 'check_load' do
-  command "/usr/lib/nagios/plugins/check_load -w #{node['cpu']['total'] * 8}:#{node['cpu']['total'] * 5}:#{node['cpu']['total'] * 2} -c #{node['cpu']['total'] * 10}:#{node['cpu']['total'] * 8}:#{node['cpu']['total'] * 3}"
+  command "/usr/lib/nagios/plugins/check_load -w :::load_thresholds.warning::: -c :::load_thresholds.critical:::"
   handlers ['slack']
   subscribers ['all']
   interval 30
