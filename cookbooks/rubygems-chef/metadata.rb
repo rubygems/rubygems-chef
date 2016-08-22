@@ -1,7 +1,7 @@
 name 'rubygems-chef'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.52'
+version '0.0.53'
 
 depends 'chef-client'
 depends 'chef-vault'
