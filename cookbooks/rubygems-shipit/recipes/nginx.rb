@@ -7,7 +7,7 @@ node.default['nginx']['server_tokens'] = 'off'
 node.default['nginx']['default_site_enabled'] = false
 node.default['nginx']['repo_source'] = 'nginx'
 
-include_recipe 'nginx'
+include_recipe 'chef_nginx'
 
 directory "#{node['nginx']['dir']}/certs" do
   owner 'root'

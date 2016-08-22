@@ -1,11 +1,11 @@
 name 'rubygems-shipit'
 
-version '0.0.54'
+version '0.0.56'
 
 depends 'apt'
 depends 'git'
 depends 'logrotate'
-depends 'nginx'
+depends 'chef_nginx', '~> 3.0.0'
 depends 'nodejs'
 depends 'rubygems-people'
 depends 'runit'

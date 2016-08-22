@@ -14,4 +14,4 @@ end
 
 cookbook 'chef_handler', '~> 1.1.0' # pin for datadog
 cookbook 'redisio', '~> 1.0' # pin for now
-cookbook 'nginx', '~> 2.7.0' # pin for now
+cookbook 'chef_nginx', '3.0.0'

@@ -14,7 +14,7 @@ include_recipe 'chef-vault'
 
 include_recipe 'rubygems-balancer::mounts'
 
-include_recipe 'nginx'
+include_recipe 'chef_nginx'
 
 include_recipe 'rubygems-people::deploy'
 include_recipe 'rubygems-balancer::logging'

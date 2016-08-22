@@ -7,7 +7,7 @@ node.default['nginx']['server_tokens'] = 'off'
 node.default['nginx']['default_site_enabled'] = false
 node.default['nginx']['repo_source'] = 'nginx'
 
-include_recipe 'nginx'
+include_recipe 'chef_nginx'
 
 query = "roles:balancer AND chef_environment:#{node.chef_environment}"
 lb_ip = search(:node, query)[0]['ipaddress']

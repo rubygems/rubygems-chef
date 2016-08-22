@@ -7,7 +7,7 @@ define :auth_proxy, org: 'rubygems' do
 
   include_recipe 'rubygems-auth-proxy'
   include_recipe 'chef-vault'
-  include_recipe 'nginx'
+  include_recipe 'chef_nginx'
   include_recipe 'runit'
 
   runit_service name do

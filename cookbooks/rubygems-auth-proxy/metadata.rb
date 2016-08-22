@@ -1,7 +1,7 @@
 name 'rubygems-auth-proxy'
-version '0.0.7'
+version '0.0.9'
 
-depends 'nginx'
+depends 'chef_nginx', '~> 3.0.0'
 depends 'ark'
 depends 'runit'
 depends 'chef-vault'
