@@ -139,7 +139,7 @@ GRAPH
     yum-erlang_solutions (>= 0.0.0)
   redisio (1.7.1)
     ulimit (>= 0.1.2)
-  route53 (0.4.0)
+  route53 (0.4.4)
     xml (>= 0.0.0)
   rsyslog (2.2.0)
   rubygems-app (0.0.87)
