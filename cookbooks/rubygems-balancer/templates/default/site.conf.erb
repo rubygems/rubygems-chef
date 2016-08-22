@@ -1,4 +1,5 @@
 upstream app_servers {
+  least_conn;
   <% @app_servers.each do |app_node| %>
   server <%= app_node['ipaddress'] %>:9000 fail_timeout=0;
   <% end %>
