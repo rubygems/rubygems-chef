@@ -111,7 +111,7 @@ GRAPH
   hostsfile (2.4.5)
   iptables (2.2.0)
   logrotate (1.9.2)
-  motd (0.6.3)
+  motd (0.6.4)
     chef_handler (>= 0.0.0)
   nodejs (2.4.4)
     apt (>= 0.0.0)
