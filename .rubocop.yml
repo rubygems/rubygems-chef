@@ -25,3 +25,4 @@ Style/AndOr:
 Style/Next:
   Exclude:
     - cookbooks/dnsimple/providers/record.rb
+    - cookbooks/rubygems-people/recipes/default.rb

@@ -42,7 +42,7 @@ raise 'No valid users found, something might be wrong!' if valid_users.empty?
 raise 'No valid admin users found, something might be wrong!' if sysadmins.empty?
 
 # Other valid users
-valid_users += ['deploy', 'ubuntu', 'nobody']
+valid_users += %w(deploy ubuntu nobody)
 
 group 'sysadmin' do
   gid 2300
@@ -55,7 +55,6 @@ existing_users.each_line do |user|
   parts = user.split(':')
   uid = parts[2].to_i
   username = parts[0]
-  comment = parts[4]
   if uid > 999 && !valid_users.include?(username)
     log "WARNING: Unauthorized user will be removed: #{username}" do
       level :warn
