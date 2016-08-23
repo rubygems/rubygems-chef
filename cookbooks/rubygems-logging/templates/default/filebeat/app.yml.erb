@@ -8,6 +8,7 @@ filebeat:
       fields:
         environment: <%= node.chef_environment %>
       fields_under_root: true
+      ignore_older: 2h
       multiline:
         pattern: 'I, \[[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}T[[:digit:]]{2}:[[:digit:]]{2}:[[:digit:]]{2}.[[:digit:]]*[[:space:]]#[[:digit:]]*\][[:space:]]*INFO[[:space:]]--[[:space:]]:[[:space:]]Started'
         negate: true

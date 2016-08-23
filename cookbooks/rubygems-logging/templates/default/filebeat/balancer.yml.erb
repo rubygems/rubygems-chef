@@ -8,6 +8,7 @@ filebeat:
       fields:
         environment: <%= node.chef_environment %>
       fields_under_root: true
+      ignore_older: 2h
     -
       paths:
         - "/var/log/nginx/error.log"
@@ -16,10 +17,8 @@ filebeat:
       fields:
         environment: <%= node.chef_environment %>
       fields_under_root: true
+      ignore_older: 2h
 output:
   logstash:
     hosts: ["<%= @logstash_endpoint %>"]
     index: logstash
-logging:
-  to_syslog: true
-  level: info
