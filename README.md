@@ -25,10 +25,6 @@ Run `knife role from file roles/*.rb` after updating any roles to upload them to
 #### Environments
 Run `knife environment from file environments/*.json` after updating any environments to upload them to the Chef server.
 
-### Bugs and features
-
-GitHub issues are disabled on this repository. Instead, we use [a trello board](https://trello.com/b/cd2HqKnE/infrastructure) to track development work. If you're interested in getting involved with RubyGems.org's infrastructure team, that trello board is a great place to look for things to work on.
-
 ### Wiki
 This readme has some high-level information in it, but our [wiki](https://github.com/rubygems/rubygems-infrastructure/wiki) is where you can find more advanced and complete information about the RubyGems.org infrastructure.
 
