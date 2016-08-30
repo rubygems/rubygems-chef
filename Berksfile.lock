@@ -149,7 +149,7 @@ GRAPH
   route53 (0.4.4)
     xml (>= 0.0.0)
   rsyslog (2.2.0)
-  rubygems-app (0.0.87)
+  rubygems-app (0.0.88)
     apt (>= 0.0.0)
     chef-vault (>= 0.0.0)
     chef_nginx (~> 3.0.0)
