@@ -220,7 +220,7 @@ GRAPH
     dns (>= 0.0.0)
     hostname (>= 0.0.0)
   rubygems-hosts (0.0.10)
-  rubygems-logging (0.0.102)
+  rubygems-logging (0.0.103)
     chef-vault (>= 0.0.0)
     rsyslog (>= 0.0.0)
   rubygems-motd (0.0.9)
