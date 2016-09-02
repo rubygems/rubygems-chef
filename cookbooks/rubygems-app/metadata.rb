@@ -1,6 +1,6 @@
 name 'rubygems-app'
 
-version '0.0.87'
+version '0.0.89'
 
 depends 'apt'
 depends 'chef-vault'
@@ -16,3 +16,4 @@ depends 'runit'
 depends 'sudo'
 depends 'unicorn'
 depends 'user'
+depends 'logrotate'
