@@ -8,7 +8,7 @@ logrotate_app 'rails' do
   su 'deploy deploy'
   frequency 'daily'
   rotate 15
-  options %w(missingok nocreate compress delaycompress dateext notifempty sharedscripts)
+  options %w(missingok nocreate compress delaycompress dateext notifempty sharedscripts copytruncate)
   postrotate [
     '    [ -f /etc/service/unicorn/supervise/pid ] && kill -USR1 `cat /etc/service/unicorn/supervise/pid`',
     '    [ -f /etc/service/delayed_job/supervise/pid ] && sv -w 30 restart delayed_job',
