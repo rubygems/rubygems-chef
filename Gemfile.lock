@@ -71,7 +71,7 @@ GEM
       fuzzyurl (~> 0.8.0)
       mixlib-config (~> 2.0)
       mixlib-shellout (~> 2.0)
-    chef-vault (2.2.4)
+    chef-vault (2.6.1)
     chef-zero (4.6.2)
       ffi-yajl (~> 2.2)
       hashie (>= 2.0, < 4.0)
@@ -267,7 +267,7 @@ PLATFORMS
 DEPENDENCIES
   berkshelf (~> 4.3)
   chef (~> 12.11.18)
-  chef-vault (~> 2.2.4)
+  chef-vault (~> 2.6.0)
   chefspec (~> 4.7)
   foodcritic (~> 6.0)
   kitchen-docker
