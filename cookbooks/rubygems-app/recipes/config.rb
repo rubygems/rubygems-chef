@@ -44,6 +44,8 @@ template '/applications/rubygems/shared/config/secret.rb' do
     bundler_api_url: secrets['bundler_api_url'],
     new_relic_license_key: secrets['new_relic_license_key'],
     new_relic_app_name: "RubyGems.org (#{node.chef_environment})",
+    sendgrid_username: secrets['sendgrid_username'],
+    sendgrid_password: secrets['sendgrid_password'],
     fastly_api_key: secrets['fastly_api_key'],
     fastly_service_id: secrets['fastly_service_id'],
     fastly_domain: "#{fastly_domain}.global.ssl.fastly.net",
