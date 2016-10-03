@@ -13,7 +13,6 @@ include_recipe 'nodejs'
 include_recipe 'runit'
 include_recipe 'rubygems-ruby'
 include_recipe 'rubygems-ruby::rubygems'
-include_recipe 'postfix'
 
 package 'libpq-dev'
 

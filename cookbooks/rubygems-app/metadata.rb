@@ -1,6 +1,6 @@
 name 'rubygems-app'
 
-version '0.0.93'
+version '0.0.94'
 
 depends 'apt'
 depends 'chef-vault'
@@ -8,7 +8,6 @@ depends 'datadog'
 depends 'git'
 depends 'chef_nginx', '~> 3.0.0'
 depends 'nodejs'
-depends 'postfix', '3.2.0'
 depends 'rubygems-base'
 depends 'rubygems-people'
 depends 'rubygems-ruby'
