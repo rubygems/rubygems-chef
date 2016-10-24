@@ -206,7 +206,7 @@ GRAPH
     chef-server (>= 0.0.0)
     chef-vault (>= 0.0.0)
   rubygems-cloud-init (0.0.2)
-  rubygems-database (0.0.50)
+  rubygems-database (0.0.51)
     chef-vault (>= 0.0.0)
     datadog (>= 0.0.0)
     postgresql (>= 0.0.0)

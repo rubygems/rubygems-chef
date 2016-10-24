@@ -27,7 +27,7 @@ class DelayedJobCheck(AgentCheck):
 
     def _get_failed(self, db):
         cursor = db.cursor()
-        cursor.execute('SELECT COUNT(*) AS count FROM delayed_jobs WHERE failed_at != NULL;')
+        cursor.execute('SELECT COUNT(*) AS count FROM delayed_jobs WHERE failed_at IS NOT NULL;')
         result = cursor.fetchone()
         return int(result[0])
 

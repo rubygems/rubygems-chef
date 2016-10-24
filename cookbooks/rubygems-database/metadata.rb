@@ -1,7 +1,7 @@
 name 'rubygems-database'
 maintainer 'RubyGems.org ops team'
 
-version '0.0.50'
+version '0.0.51'
 
 depends 'chef-vault'
 depends 'datadog'
