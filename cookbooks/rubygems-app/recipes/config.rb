@@ -25,7 +25,7 @@ template '/applications/rubygems/shared/config/database.yml' do
   )
 end
 
-fastly_domain = node.chef_environment == 'production' ? 'rubygems' : 'rubygems-staging'
+fastly_domain = node.chef_environment == 'production' ? 'index.rubygems.org' : 'staging.rubygems.org'
 fastly_log_processor_enabled = node.chef_environment == 'production' ? false : true
 
 template '/applications/rubygems/shared/config/secret.rb' do
@@ -48,7 +48,7 @@ template '/applications/rubygems/shared/config/secret.rb' do
     sendgrid_password: secrets['sendgrid_password'],
     fastly_api_key: secrets['fastly_api_key'],
     fastly_service_id: secrets['fastly_service_id'],
-    fastly_domain: "#{fastly_domain}.global.ssl.fastly.net",
+    fastly_domain: fastly_domain,
     elasticsearch_url: secrets['elasticsearch_url'],
     memcached_endpoint: secrets['memcached_endpoint'],
     honeybadger_api_key: secrets['honeybadger_api_key']
