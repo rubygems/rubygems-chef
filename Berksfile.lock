@@ -231,7 +231,7 @@ GRAPH
     user (>= 0.0.0)
   rubygems-ruby (0.0.8)
     apt (>= 0.0.0)
-  rubygems-sensu (0.1.62)
+  rubygems-sensu (0.1.63)
     build-essential (>= 0.0.0)
     chef-vault (>= 0.0.0)
     dnsimple (>= 0.0.0)

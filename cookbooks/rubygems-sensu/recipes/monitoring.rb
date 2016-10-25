@@ -5,8 +5,6 @@
 
 %w(
   rubygems.org
-  fastly.rubygems.org
-  rubygems.global.ssl.fastly.net
   staging.rubygems.org
   index.rubygems.org
 ).each do |host|
