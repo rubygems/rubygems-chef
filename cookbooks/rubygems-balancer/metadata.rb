@@ -1,6 +1,6 @@
 name 'rubygems-balancer'
 
-version '0.0.109'
+version '0.0.110'
 
 depends 'chef-vault'
 depends 'datadog'
