@@ -82,7 +82,7 @@ GRAPH
     yum-epel (>= 0.0.0)
     zypper (>= 0.0.0)
   compat_resource (12.16.2)
-  cron (1.7.6)
+  cron (3.0.0)
   datadog (2.7.0)
     apt (>= 0.0.0)
     chef_handler (~> 1.1)
