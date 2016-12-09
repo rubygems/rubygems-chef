@@ -3,8 +3,6 @@
 # Recipe:: uchiwa
 #
 
-include_recipe 'rubygems-base'
-
 include_recipe 'chef-vault'
 
 node.default['uchiwa']['version'] = '0.20.2-1'
