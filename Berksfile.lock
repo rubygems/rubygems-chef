@@ -107,7 +107,7 @@ GRAPH
     dmg (>= 0.0.0)
     windows (>= 0.0.0)
     yum-epel (>= 0.0.0)
-  homebrew (2.1.0)
+  homebrew (2.1.2)
     build-essential (>= 2.1.2)
   hostname (0.3.0)
     hostsfile (>= 0.0.0)
