@@ -12,6 +12,6 @@ Dir.entries('cookbooks')
   cookbook cb, path: "cookbooks/#{cb}"
 end
 
-cookbook 'chef_handler', '~> 1.1.0' # pin for datadog
+cookbook 'chef_handler' # for datadog
 cookbook 'redisio', '~> 1.0' # pin for now
 cookbook 'chef_nginx', '3.0.0'
