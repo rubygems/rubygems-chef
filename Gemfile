@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'berkshelf',    '~> 4.3'
-gem 'chef',         '~> 12.13.37'
+gem 'chef',         '~> 12.17.44'
 gem 'chef-vault',   '~> 2.6.0'
 gem 'knife-backup'
 gem 'knife-cookbook-cleanup'
