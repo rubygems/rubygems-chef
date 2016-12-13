@@ -21,7 +21,7 @@ Style/RescueModifier:
 Style/NumericLiteralPrefix:
   Enabled: false
 Metrics/BlockLength:
-  Max: 58
+  Max: 68
 
 Style/AndOr:
   Exclude:
