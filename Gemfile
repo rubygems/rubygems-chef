@@ -12,7 +12,7 @@ group :lint do
 end
 
 group :unit do
-  gem 'chefspec', '~> 4.7'
+  gem 'chefspec', '~> 5.0'
 end
 
 group :kitchen do
