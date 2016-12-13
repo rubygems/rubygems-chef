@@ -8,7 +8,7 @@ gem 'knife-cookbook-cleanup'
 
 group :lint do
   gem 'foodcritic', '~> 6.0'
-  gem 'rubocop', '~> 0.38'
+  gem 'rubocop', '0.45.0'
 end
 
 group :unit do
