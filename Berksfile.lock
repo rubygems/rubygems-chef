@@ -265,7 +265,7 @@ GRAPH
   uchiwa (1.2.0)
     apt (>= 0.0.0)
     yum (>= 0.0.0)
-  ulimit (0.3.3)
+  ulimit (0.4.0)
   unicorn (2.1.2)
     build-essential (>= 0.0.0)
   user (0.5.1)
