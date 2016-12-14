@@ -11,6 +11,7 @@ node.default['chef_client']['config']['client_fork'] = true
 # This is due to new ohai cookbook, TODO: find out what the right thing is
 node.default['ohai']['plugin_path'] = '/etc/chef/ohai_plugins'
 
+node.default['chef_client']['init_style'] = 'none'
 node.default['chef_client']['cron']['minute'] = '*/15'
 node.default['chef_client']['cron']['hour'] = '*'
 
@@ -24,10 +25,6 @@ if node.name == 'chef.common.rubygems.org'
 end
 
 include_recipe 'chef-client::cron'
-
-service 'chef-client' do
-  action [:stop, :disable]
-end
 
 node.default['omnibus_updater']['version'] = '12.17.44'
 node.default['omnibus_updater']['kill_chef_on_upgrade'] = false
