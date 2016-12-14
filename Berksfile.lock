@@ -268,7 +268,7 @@ GRAPH
   ulimit (0.4.0)
   unicorn (2.1.2)
     build-essential (>= 0.0.0)
-  user (0.5.1)
+  user (0.6.0)
   windows (1.44.3)
     chef_handler (>= 0.0.0)
   xml (2.0.0)
