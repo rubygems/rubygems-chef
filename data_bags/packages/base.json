@@ -3,6 +3,7 @@
   "packages": [
     "apt-file",
     "curl",
+    "git",
     "htop",
     "iotop",
     "molly-guard",

@@ -8,7 +8,6 @@ include_recipe 'rubygems-base'
 node.default['nodejs']['install_method'] = 'package'
 
 include_recipe 'apt'
-include_recipe 'git'
 include_recipe 'nodejs'
 include_recipe 'runit'
 include_recipe 'rubygems-ruby'
