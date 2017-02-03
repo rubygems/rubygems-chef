@@ -217,7 +217,7 @@ GRAPH
   rubygems-people (0.0.44)
     sudo (>= 0.0.0)
     user (>= 0.0.0)
-  rubygems-ruby (0.0.8)
+  rubygems-ruby (0.0.9)
     apt (>= 0.0.0)
   rubygems-sensu (0.1.66)
     build-essential (>= 0.0.0)
