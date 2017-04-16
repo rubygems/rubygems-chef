@@ -207,7 +207,7 @@ GRAPH
     chef-vault (>= 0.0.0)
     dns (>= 0.0.0)
   rubygems-hosts (0.0.10)
-  rubygems-logging (0.0.103)
+  rubygems-logging (0.0.104)
     chef-vault (>= 0.0.0)
     rsyslog (>= 0.0.0)
   rubygems-motd (0.0.9)

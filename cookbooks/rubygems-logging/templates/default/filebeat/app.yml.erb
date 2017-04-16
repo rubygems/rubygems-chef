@@ -2,17 +2,14 @@ filebeat:
   prospectors:
     -
       paths:
-        - /applications/rubygems/shared/log/<%= node.chef_environment %>.log
+        - /applications/rubygems/shared/log/<%= node.chef_environment %>.json.log
       input_type: log
       document_type: rails
       fields:
         environment: <%= node.chef_environment %>
       fields_under_root: true
       close_older: 1h
-      multiline:
-        pattern: 'I, \[[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}T[[:digit:]]{2}:[[:digit:]]{2}:[[:digit:]]{2}.[[:digit:]]*[[:space:]]#[[:digit:]]*\][[:space:]]*INFO[[:space:]]--[[:space:]]:[[:space:]]Started'
-        negate: true
-        match: after
+
 output:
   logstash:
     hosts: ["<%= @logstash_endpoint %>"]
