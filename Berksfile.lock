@@ -54,8 +54,7 @@ DEPENDENCIES
 GRAPH
   7-zip (1.0.2)
     windows (>= 1.2.2)
-  apt (5.0.0)
-    compat_resource (>= 12.14.7)
+  apt (6.1.0)
   ark (0.9.0)
     7-zip (>= 0.0.0)
     windows (>= 0.0.0)
