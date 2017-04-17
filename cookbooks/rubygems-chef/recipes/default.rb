@@ -26,7 +26,6 @@ end
 
 include_recipe 'chef-client::cron'
 
-node.default['omnibus_updater']['version'] = '12.17.44'
-node.default['omnibus_updater']['kill_chef_on_upgrade'] = false
-node.default['omnibus_updater']['prevent_downgrade'] = true
-include_recipe 'omnibus_updater'
+chef_client_updater 'Install Chef 12.17.44' do
+  version '12.17.44'
+end
