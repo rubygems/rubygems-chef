@@ -1,5 +1,7 @@
 source 'https://supermarket.chef.io'
 
+solver :gecode, :required
+
 # IMPORTANT: this section of the Berksfile is solely for installing wrapper
 # cookbooks and uploading them to hosted chef. All dependencies which are
 # not prefixed with 'rubygems' should be put in the metadata included in each

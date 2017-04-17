@@ -5,6 +5,7 @@ gem 'chef',         '~> 12.17.44'
 gem 'chef-vault',   '~> 2.6.0'
 gem 'knife-backup'
 gem 'knife-cookbook-cleanup'
+gem 'dep_selector'
 
 group :lint do
   gem 'foodcritic', '~> 6.0'
