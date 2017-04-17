@@ -6,8 +6,6 @@
 include_recipe 'chef-vault'
 slack_creds = chef_vault_item('slack', 'credentials')
 
-directory '/etc/chef/client.d'
-
 chef_gem 'slackr' do
   compile_time true
 end

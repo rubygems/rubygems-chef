@@ -188,7 +188,7 @@ GRAPH
     rubygems-sensu (>= 0.0.0)
     rubygems-ssh (>= 0.0.0)
     rubygems-utility (>= 0.0.0)
-  rubygems-chef (0.0.57)
+  rubygems-chef (0.0.58)
     chef-client (>= 0.0.0)
     chef-vault (>= 0.0.0)
     chef_client_updater (>= 0.0.0)

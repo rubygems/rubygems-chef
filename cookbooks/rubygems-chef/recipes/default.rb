@@ -3,8 +3,6 @@
 # Recipe:: default
 #
 
-include_recipe 'rubygems-chef::slack'
-
 node.default['chef_client']['config']['ssl_verify_mode'] = ':verify_peer'
 node.default['chef_client']['config']['client_fork'] = true
 
@@ -16,6 +14,8 @@ node.default['chef_client']['cron']['minute'] = '*/15'
 node.default['chef_client']['cron']['hour'] = '*'
 
 include_recipe 'chef-client::config'
+
+include_recipe 'rubygems-chef::slack'
 
 # See: https://github.com/opscode-cookbooks/chef-client/issues/196
 if node.name == 'chef.common.rubygems.org'
