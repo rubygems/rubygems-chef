@@ -2,15 +2,6 @@ filebeat:
   prospectors:
     -
       paths:
-        - "/var/log/nginx/access.json.log"
-      input_type: log
-      document_type: nginx
-      fields:
-        environment: <%= node.chef_environment %>
-      fields_under_root: true
-      close_older: 10m
-    -
-      paths:
         - "/var/log/nginx/error.log"
       input_type: log
       document_type: nginx_error
