@@ -149,7 +149,7 @@ GRAPH
     user (>= 0.0.0)
   rubygems-apt (0.0.23)
     apt (>= 0.0.0)
-  rubygems-auth-proxy (0.0.9)
+  rubygems-auth-proxy (0.0.10)
     ark (>= 0.0.0)
     chef-vault (>= 0.0.0)
     chef_nginx (~> 3.0.0)
