@@ -8,7 +8,9 @@ AllCops:
 
 Encoding:
   Enabled: false
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+Layout/IndentHeredoc:
   Enabled: false
 NumericLiterals:
   Enabled: false
@@ -20,8 +22,16 @@ Style/RescueModifier:
   Enabled: false
 Style/NumericLiteralPrefix:
   Enabled: false
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%w': ()
+Style/SymbolArray:
+  MinSize: 3
 Metrics/BlockLength:
   Max: 68
+
+Bundler/OrderedGems:
+  Enabled: false
 
 Style/AndOr:
   Exclude:

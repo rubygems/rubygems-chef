@@ -9,7 +9,7 @@ gem 'dep_selector'
 
 group :lint do
   gem 'foodcritic', '~> 6.0'
-  gem 'rubocop', '0.45.0'
+  gem 'rubocop', '0.49.0'
 end
 
 group :unit do
