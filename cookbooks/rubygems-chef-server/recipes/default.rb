@@ -11,6 +11,8 @@ node.default['chef-server']['accept_license'] = true
 node.default['chef-server']['configuration'] = <<-EOS
 nginx['ssl_certificate'] = '/etc/chef-server/rubygems.crt'
 nginx['ssl_certificate_key'] = '/etc/chef-server/rubygems.key'
+nginx['ssl_protocols'] = 'TLSv1.2'
+nginx['ssl_ciphers'] = 'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256'
 EOS
 
 include_recipe 'chef-vault'
