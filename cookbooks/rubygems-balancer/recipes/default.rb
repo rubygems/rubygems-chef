@@ -32,5 +32,11 @@ file '/etc/nginx/conf.d/default.conf' do
   action :delete
 end
 
+node.default['datadog']['nginx']['logs'] = [{
+  type: 'file',
+  service: 'nginx',
+  path: '/var/log/nginx/access.json.log',
+  source: 'nginx'
+}]
 node.default['datadog']['nginx']['instances'] = [{ 'nginx_status_url' => 'http://localhost/nginx_status/' }]
 include_recipe 'datadog::nginx'

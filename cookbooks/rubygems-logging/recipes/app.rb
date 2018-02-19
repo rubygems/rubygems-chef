@@ -3,14 +3,18 @@
 # Recipe:: app
 #
 
-include_recipe 'rubygems-logging::filebeat'
+%w(
+  /etc/datadog-agent
+  /etc/datadog-agent/conf.d
+  /etc/datadog-agent/conf.d/ruby.d
+).each do |path|
+  directory path do
+    owner 'dd-agent'
+    group 'dd-agent'
+  end
+end
 
-logging_secrets = chef_vault_item('secrets', 'logging')
-
-template '/etc/filebeat/filebeat.yml' do
-  source 'filebeat/app.yml.erb'
-  variables(
-    logstash_endpoint: "#{logging_secrets['endpoint']}:#{logging_secrets['beats_port']}"
-  )
-  notifies :restart, 'service[filebeat]'
+template '/etc/datadog-agent/conf.d/ruby.d/conf.yml' do
+  source 'app.yml.erb'
+  notifies :restart, 'service[datadog-agent]'
 end

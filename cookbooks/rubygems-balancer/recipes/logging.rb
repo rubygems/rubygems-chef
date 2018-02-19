@@ -37,3 +37,7 @@ template "#{node['nginx']['dir']}/conf.d/logging.conf" do
   variables(log_format: log_fields)
   notifies :reload, 'service[nginx]'
 end
+
+directory '/var/log/nginx' do
+  mode '0755'
+end
