@@ -11,6 +11,8 @@ limit_req_status 429;
 limit_req_zone  $binary_remote_addr  zone=abusers:10m  rate=10r/s;
 limit_req_zone  $binary_remote_addr  zone=dependencyapi:10m  rate=15r/s;
 
+proxy_cache_path  /var/lib/nginx/cache  levels=1:2 keys_zone=cache-versions:10m inactive=24h  max_size=100m;
+
 map $http_x_forwarded_proto $scheme_from_fastly {
   "" $scheme;
   default $http_x_forwarded_proto;
@@ -65,6 +67,18 @@ server {
       proxy_set_header Host $host;
       proxy_set_header X-Forwarded-Proto https;
       proxy_pass http://app_servers;
+    }
+
+    location /versions {
+      proxy_cache cache-versions;
+      proxy_cache_background_update on;
+      proxy_cache_key "/versions";
+      proxy_cache_lock on;
+      proxy_cache_use_stale updating;
+      proxy_cache_valid 200 60s;
+      proxy_set_header Host $host;
+      proxy_set_header X-Forwarded-Proto https;
+      proxy_pass http://app_servers/versions;
     }
 
     location /quick/Marshal.4.8/ {
@@ -215,6 +229,16 @@ server {
     limit_req zone=dependencyapi burst=10 nodelay;
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_pass http://app_servers;
+  }
+
+  location /versions {
+    proxy_cache cache-versions;
+    proxy_cache_background_update on;
+    proxy_cache_key "/versions";
+    proxy_cache_lock on;
+    proxy_cache_use_stale updating;
+    proxy_cache_valid 200 60s;
+    proxy_pass http://app_servers/versions;
   }
 
   ##### BEGIN legacy redirects to CDN
