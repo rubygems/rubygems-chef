@@ -29,14 +29,18 @@ auth_proxy 'sensu' do
 end
 
 dnsimple_credentials = chef_vault_item('dnsimple', 'credentials')
+aws_credentials = chef_vault_item('aws', 'credentials')
 
-include_recipe 'dnsimple'
+include_recipe 'dns'
 
-dnsimple_record "create CNAME point monitoring.rubygems.org to #{node.name}" do
-  action   :create
-  name     'monitoring.rubygems.org'
-  content  node['fqdn']
-  type     'CNAME'
-  domain   'rubygems.org'
-  domain_api_token dnsimple_credentials['api_token']
+dns_record "create CNAME point monitoring.rubygems.org to #{node.name}" do
+  name 'monitoring'
+  value node['fqdn']
+  type 'CNAME'
+  domain 'rubygems.org'
+  zone_id 'Z3ME4ZZV9EACZN'
+  credentials(
+    dnsimple: { domain_api_token: dnsimple_credentials['api_token'] },
+    route53: { aws_access_key_id: aws_credentials['access_key_id'], aws_secret_access_key: aws_credentials['secret_access_key'] }
+  )
 end
