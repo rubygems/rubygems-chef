@@ -1,5 +1,8 @@
 upstream app_servers {
   least_conn;
+  <% @k8s_endpoints.each do |endpoint| %>
+  server <%= endpoint %>:80 fail_timeout=0;
+  <% end %>
   <% @app_servers.each do |app_node| %>
   server <%= app_node['ipaddress'] %>:9000 fail_timeout=0;
   <% end %>

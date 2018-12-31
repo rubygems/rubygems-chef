@@ -158,7 +158,7 @@ GRAPH
     chef-vault (>= 0.0.0)
     cron (>= 0.0.0)
     rubygems-ruby (>= 0.0.0)
-  rubygems-balancer (0.0.117)
+  rubygems-balancer (0.0.118)
     chef-vault (>= 0.0.0)
     chef_nginx (~> 3.0.0)
     datadog (>= 0.0.0)
