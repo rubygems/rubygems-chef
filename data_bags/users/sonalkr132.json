@@ -1,0 +1,14 @@
+{
+  "id": "sonalkr132",
+  "username": "sonalkr132",
+  "comment": "Aditya Prakash",
+  "admin" : true,
+  "environments": [
+    "common",
+    "staging",
+    "production"
+  ],
+  "ssh_keys": [
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDW+4TcZcD9Pgp30akc2hE3EjEXfgatMXws8f9JOFtyjF5/JqQRFlC3FmWYVdqPUA3/nvlKzM2EdLO8rvAzJK6B1NoR9o72KjBpNP02TdIpBGj58z8feJ1584UTjK92foWHW2aIurhAmvsqSW8aAfaqx+13vU5isu+pcbSZr7BwBSCKV8exP5pq0jaMTLOy/FRsvSrkPTvcjG6mlFn9ippakBcUJ2Inr47kxwpnoAg9G9IwMBfQIuK8YfYMd1EHlxEMba/TYwC79DXEIBJeKlQZ6ABapTiOrRYa6fVWjNyOXDWALVWst71tlJE134Zz8KK/llI5BrsSawlJfuJppnoD aditya.prakash132@gmail.com"
+  ]
+}
