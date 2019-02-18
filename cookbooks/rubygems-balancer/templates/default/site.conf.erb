@@ -79,16 +79,6 @@ server {
 
 }
 
-# Old hosts that point to rubygems.org
-
-server {
-  listen 80;
-
-  server_name gemcutter.org gems.rubyforge.org;
-
-  rewrite ^(.*) https://rubygems.org$1 permanent;
-}
-
 # HTTPS
 server {
 
