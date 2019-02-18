@@ -32,57 +32,51 @@ server {
   <% end %>
   real_ip_header Fastly-Client-IP;
 
-  <% if @force_ssl %>
-    # redirect all requests to SSL
-    rewrite ^(.*) https://$host$1 permanent;
-  <% else %>
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header Client-IP "";
+  proxy_set_header Host $host;
+  proxy_redirect off;
 
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header Client-IP "";
+  location /nginx_status {
+    stub_status on;
+    allow 127.0.0.1;
+    deny all;
+    access_log off;
+  }
+
+  include <%= node['nginx']['dir'] %>/filters.conf; # managed by chef
+  include <%= node['nginx']['dir'] %>/blacklist.conf; # not managed by chef
+
+  location /api/v1/dependencies {
+    limit_req zone=dependencyapi burst=10 nodelay;
     proxy_set_header Host $host;
-    proxy_redirect off;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_pass http://app_servers;
+  }
 
-    location /nginx_status {
-      stub_status on;
-      allow 127.0.0.1;
-      deny all;
-      access_log off;
-    }
+  location /versions {
+    proxy_cache cache-versions;
+    proxy_cache_background_update on;
+    proxy_cache_key "/versions";
+    proxy_cache_lock on;
+    proxy_cache_use_stale updating;
+    proxy_cache_valid 200 60s;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_pass http://app_servers/versions;
+  }
 
-    include <%= node['nginx']['dir'] %>/filters.conf; # managed by chef
-    include <%= node['nginx']['dir'] %>/blacklist.conf; # not managed by chef
+  location / {
+    root /var/www/rubygems;
+    try_files /maintenance.html @app;
+  }
 
-    location /api/v1/dependencies {
-      limit_req zone=dependencyapi burst=10 nodelay;
-      proxy_set_header Host $host;
-      proxy_set_header X-Forwarded-Proto https;
-      proxy_pass http://app_servers;
-    }
+  location @app {
+    limit_req zone=abusers burst=10;
+    proxy_pass http://app_servers;
+  }
 
-    location /versions {
-      proxy_cache cache-versions;
-      proxy_cache_background_update on;
-      proxy_cache_key "/versions";
-      proxy_cache_lock on;
-      proxy_cache_use_stale updating;
-      proxy_cache_valid 200 60s;
-      proxy_set_header Host $host;
-      proxy_set_header X-Forwarded-Proto https;
-      proxy_pass http://app_servers/versions;
-    }
-
-    location / {
-      root /var/www/rubygems;
-      try_files /maintenance.html @app;
-    }
-
-    location @app {
-      limit_req zone=abusers burst=10;
-      proxy_pass http://app_servers;
-    }
-
-  <% end %>
 }
 
 # Old hosts that point to rubygems.org
