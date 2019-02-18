@@ -101,60 +101,6 @@ server {
       rewrite ^ <%= @gem_mirror %>$request_uri redirect;
     }
 
-    # Crufty old redirects
-
-    location = /specs.4.8 {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /latest_specs.4.8 {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /prerelease_specs.4.8 {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /quick/rubygems-update-1.3.6.gemspec.rz {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /yaml.Z {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /yaml.z {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /yaml {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /Marshal.4.8.Z {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /Marshal.4.8 {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /quick/index.rz {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /quick/index {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /quick/latest_index.rz {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
-    location = /quick/latest_index {
-      rewrite ^ <%= @gem_mirror %>$request_uri redirect;
-    }
-
     location / {
       root /var/www/rubygems;
       try_files /maintenance.html @app;
@@ -245,78 +191,6 @@ server {
     proxy_cache_valid 200 60s;
     proxy_pass http://app_servers/versions;
   }
-
-  ##### BEGIN legacy redirects to CDN
-
-  location /quick/Marshal.4.8/ {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /specs.4.8.gz {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /latest_specs.4.8.gz {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /prerelease_specs.4.8.gz {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /specs.4.8 {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /latest_specs.4.8 {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /prerelease_specs.4.8 {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /quick/rubygems-update-1.3.6.gemspec.rz {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /yaml.Z {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /yaml.z {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /yaml {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /Marshal.4.8.Z {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /Marshal.4.8 {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /quick/index.rz {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /quick/index {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /quick/latest_index.rz {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  location = /quick/latest_index {
-    rewrite ^ <%= @gem_mirror_ssl %>$request_uri redirect;
-  }
-
-  ##### END legacy redirects to CDN
 
   location / {
     root /var/www/rubygems;
