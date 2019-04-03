@@ -28,14 +28,14 @@ node.default['postgresql']['pg_hba'] = [
     'db' => "rubygems_#{node.chef_environment}",
     'user' => secrets['rails_postgresql_user'],
     'addr' => "#{search('node', "name:#{app_host}.#{node.chef_environment}.rubygems.org")[0]['ipaddress']}/0",
-    'method' => 'md5'
+    'method' => 'sha512'
   },
   {
     'type' => 'host',
     'db' => "rubygems_#{node.chef_environment}",
     'user' => 'datadog',
     'addr' => 'samehost',
-    'method' => 'md5'
+    'method' => 'sha512'
   },
   {
     'type' => 'local',
